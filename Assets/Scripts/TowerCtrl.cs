@@ -52,13 +52,9 @@ public class Tower : MonoBehaviour
         
     private void Shoot()
     {
-        Debug.Log("Shoot");
-
-        /*
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
-        */
     }
     private void FindTarget()
     {
