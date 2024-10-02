@@ -157,8 +157,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3156896763373886010}
-  - component: {fileID: -2712435516312623950}
   - component: {fileID: 1789711799301193740}
+  - component: {fileID: 6179901042209188499}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -183,27 +183,6 @@ Transform:
   - {fileID: 4117516163942617377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2712435516312623950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7046588463905791149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c2039df0cf4bd4db003a5a8f2b729a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetingRange: 8.05
-  rotationSpeed: 200
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  turretRotationPoint: {fileID: 4117516163942617377}
-  projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
-  projectileSpawnLocation: {fileID: 9024184806864647534}
-  fireRate: 1
 --- !u!50 &1789711799301193740
 Rigidbody2D:
   serializedVersion: 4
@@ -231,6 +210,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6179901042209188499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046588463905791149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db855dedae8e56242b07195353789abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetingRange: 5
+  rotationSpeed: 200
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  turretRotationPoint: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  projectileSpawnLocation: {fileID: 0}
+  fireRate: 1
 --- !u!1 &8335459205017184973
 GameObject:
   m_ObjectHideFlags: 0
