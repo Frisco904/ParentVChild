@@ -222,15 +222,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db855dedae8e56242b07195353789abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetingRange: 5
+  targetingRange: 8.05
   rotationSpeed: 200
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
-  turretRotationPoint: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  projectileSpawnLocation: {fileID: 0}
-  fireRate: 1
+    m_Bits: 64
+  turretRotationPoint: {fileID: 4117516163942617377}
+  projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
+  projectileSpawnLocation: {fileID: 9024184806864647534}
+  fireRate: 1.5
 --- !u!1 &8335459205017184973
 GameObject:
   m_ObjectHideFlags: 0

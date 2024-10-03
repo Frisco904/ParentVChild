@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2202928278159139636}
   - component: {fileID: 2498740651111956334}
-  - component: {fileID: 6461027467965967493}
+  - component: {fileID: 619006461113309397}
   m_Layer: 6
   m_Name: FeedMeter
   m_TagString: Untagged
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6461027467965967493
+--- !u!114 &619006461113309397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 277408678736338806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7599377224a0cc4188a88d1e7c6d95f, type: 3}
+  m_Script: {fileID: 11500000, guid: fcd313b359f421246bd150970c0d75a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2498740651111956334}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 6012972045146098421}
   - component: {fileID: 1868348428217885863}
   - component: {fileID: 853035905162260313}
-  - component: {fileID: 8039548106334430453}
+  - component: {fileID: 5770532717898428514}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -553,7 +553,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8039548106334430453
+--- !u!114 &5770532717898428514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8920871317090917991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af04a296fd682bf488466071ee6799c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6012972045146098421}
@@ -571,4 +571,4 @@ MonoBehaviour:
   currentFull: 0
   maxFull: 3
   damageAmount: 1
-  feedMeter: {fileID: 0}
+  feedMeter: {fileID: 619006461113309397}
