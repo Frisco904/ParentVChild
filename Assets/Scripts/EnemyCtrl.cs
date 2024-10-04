@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EnemyCtrl : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
 
+    [Header("Attributes")]
     [SerializeField] private float movSpeed = 2f;
     [SerializeField] public float enemyStunTimer = 3;
-
-
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
-    [SerializeField] private float damageAmount;
+    [SerializeField] private float fillAmount;
 
+    [Header("References")]
+    [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
+
 
     private Transform target;
     private bool frozen = false;
@@ -62,7 +63,7 @@ public class EnemyCtrl : MonoBehaviour
     public void TakeDamage()
     {
         Freeze();
-        currentFull += damageAmount;
+        currentFull += fillAmount;
         feedMeter.UpdateFeedMeter(currentFull, maxFull);
 
         if(currentFull == maxFull)

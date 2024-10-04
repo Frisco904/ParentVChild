@@ -565,10 +565,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6012972045146098421}
   movSpeed: 1
   enemyStunTimer: 1
   currentFull: 0
   maxFull: 3
-  damageAmount: 1
+  fillAmount: 1
+  rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}

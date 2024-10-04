@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [Header("Attributes")]
     [SerializeField] private float life = 3;
     [SerializeField] private float projectileSpeed = 5f;
-    //[SerializeField] private Transform projectileSpawnLocation;
 
     private Transform target;
 
@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
 
-        //Moving the hit projectile up
+        //Adding knockback to the collided object and calling the TakeDamage function from the EnemyCtrl Script.
         collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * 100000000);
         EnemyCtrl enemy = collision.gameObject.GetComponent<EnemyCtrl>();
         enemy.TakeDamage();
