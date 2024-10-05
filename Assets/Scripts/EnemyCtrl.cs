@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCtrl : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
+    [SerializeField] private int enemyDamage = 1;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] EnemyFloatingFeedMeter feedMeter;
+    [SerializeField] HealthMeter feedMeter;
 
 
     private Transform target;
@@ -24,7 +26,8 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Awake()
     {
-        feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
+        feedMeter = GetComponentInChildren<HealthMeter>();
+        feedMeter.GetComponent<Slider>().value = 0;
     }
 
     private void Start()
@@ -35,11 +38,11 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(target.position, transform.position) <= 0.1f)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //if(Vector2.Distance(target.position, transform.position) <= 0.1f)
+        //{
+         //   Destroy(gameObject);
+         //   return;
+        //}
 
         if (timer > 0)
         {
@@ -64,7 +67,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         Freeze();
         currentFull += fillAmount;
-        feedMeter.UpdateFeedMeter(currentFull, maxFull);
+        feedMeter.UpdateMeter (currentFull, maxFull);
 
         if(currentFull == maxFull)
         {
@@ -80,6 +83,13 @@ public class EnemyCtrl : MonoBehaviour
 
     public void Eliminate()
     {
+        Destroy(gameObject);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        HealthCtrl CandyHealth = collision.gameObject.GetComponent<HealthCtrl>();
+        CandyHealth.TakeDamage(enemyDamage);
         Destroy(gameObject);
     }
 }
