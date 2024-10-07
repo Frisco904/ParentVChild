@@ -422,7 +422,7 @@ Transform:
   m_GameObject: {fileID: 8920871317090917991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1181587, y: 1.3886647, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 1
+  movSpeed: 5
   enemyStunTimer: 1
   currentFull: 0
   maxFull: 3

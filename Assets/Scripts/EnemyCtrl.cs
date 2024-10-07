@@ -18,6 +18,7 @@ public class EnemyCtrl : MonoBehaviour
 
 
     private Transform target;
+    private int pathIndex = 0;
     private bool frozen = false;
     private float timer = -1;
 
@@ -30,6 +31,7 @@ public class EnemyCtrl : MonoBehaviour
     private void Start()
     {
         target = LevelManager.main.targetPoint;
+        target = LevelManager.main.path[0];
   
     }
 
@@ -37,8 +39,17 @@ public class EnemyCtrl : MonoBehaviour
     {
         if(Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
-            Destroy(gameObject);
-            return;
+            pathIndex++;
+            if (pathIndex == LevelManager.main.path.Length)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                target = LevelManager.main.path[pathIndex];
+            }
+               
         }
 
         if (timer > 0)

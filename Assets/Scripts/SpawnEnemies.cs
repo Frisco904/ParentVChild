@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
+    public static SpawnEnemies main;
     public GameObject enemyType;
     public float spawnFrequency;
 
