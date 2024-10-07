@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HealthCtrl : MonoBehaviour
 {
@@ -37,5 +39,10 @@ public class HealthCtrl : MonoBehaviour
     {
         Debug.Log("Enemy collided.");
         TakeDamage();
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Handles.color = Color.cyan;
+        Handles.DrawWireDisc(transform.position, transform.forward, 3.5f);
     }
 }
