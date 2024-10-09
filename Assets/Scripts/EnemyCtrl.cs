@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyCtrl : MonoBehaviour
 {
@@ -12,37 +13,70 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
-    [SerializeField] private int enemyDamage = 1;
-
+    [SerializeField] private LayerMask candyMask;
+    [SerializeField] private float targetingRange = 5f;
+ 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] HealthMeter feedMeter;
+    [SerializeField] EnemyFloatingFeedMeter feedMeter;
+    //[SerializeField] private SpawnEnemies enemySpawner;
 
 
+    private SpawnEnemies spawnEnemies;
+    private SpawnPoints spawnPoint;
     private Transform target;
+    private int pathIndex = 0;
     private bool frozen = false;
     private float timer = -1;
+    private Transform[] path;
+
 
 
     private void Awake()
     {
-        feedMeter = GetComponentInChildren<HealthMeter>();
-        feedMeter.GetComponent<Slider>().value = 0;
+        feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
+
     }
 
     private void Start()
     {
-        target = LevelManager.main.targetPoint;
-  
+        spawnPoint = gameObject.GetComponentInParent<SpawnEnemies>().GetSpawnPoint();
+
+        switch (spawnPoint)
+        {
+            case SpawnPoints.SpawnPoint1:
+                //Debug.Log(LevelManager.main.path1.ToArray().Length);
+                target = LevelManager.main.path1[0];
+                path = LevelManager.main.path1.ToArray();
+                break;
+            case SpawnPoints.SpawnPoint2:
+                target = LevelManager.main.path2[0];
+                path = LevelManager.main.path2.ToArray();
+                break;
+            case SpawnPoints.SpawnPoint3:
+                target = LevelManager.main.path3[0];
+                path = LevelManager.main.path3.ToArray();
+                break;
+        }
     }
 
     private void Update()
     {
-        //if(Vector2.Distance(target.position, transform.position) <= 0.1f)
-        //{
-         //   Destroy(gameObject);
-         //   return;
-        //}
+        CandyInRange();
+        if (Vector2.Distance(target.position, transform.position) <= .1f)
+        {
+            pathIndex++;
+            if (pathIndex == path.Length)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                target = path[pathIndex];
+            }
+             
+        }
 
         if (timer > 0)
         {
@@ -62,12 +96,22 @@ public class EnemyCtrl : MonoBehaviour
         rb.velocity = direction * movSpeed;
 
     }
+    private void CandyInRange()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, candyMask);
+        Debug.Log(hits.Length);
+        if (hits.Length > 0)
+        {
+            target = hits[0].transform;
+        }
+
+    }
 
     public void TakeDamage()
     {
         Freeze();
         currentFull += fillAmount;
-        feedMeter.UpdateMeter (currentFull, maxFull);
+        feedMeter.UpdateFeedMeter(currentFull, maxFull);
 
         if(currentFull == maxFull)
         {
@@ -85,11 +129,9 @@ public class EnemyCtrl : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnDrawGizmosSelected()
     {
-        HealthCtrl CandyHealth = collision.gameObject.GetComponent<HealthCtrl>();
-        CandyHealth.TakeDamage(enemyDamage);
-        Destroy(gameObject);
+        Handles.color = Color.cyan;
+        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
 }

@@ -1,27 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class HealthCtrl : MonoBehaviour
 {
 
     [Header("Attributes")]
+    [SerializeField] private int currentHealth = 3;
     [SerializeField] private int maxHealth = 3;
-    [SerializeField] private int currentHealth;
 
-    [Header("References")]
-    [SerializeField] HealthMeter healthBar;
 
-    private void Awake()
-    {
-        healthBar = GetComponentInChildren<HealthMeter>();
-        healthBar.GetComponent<Slider>().value = maxHealth;
-    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        
     }
 
     // Update is called once per frame
@@ -30,13 +26,23 @@ public class HealthCtrl : MonoBehaviour
         
     }
 
-    public void TakeDamage(int amount)
+    void TakeDamage()
     {
-        currentHealth -= amount;
-        healthBar.UpdateMeter(currentHealth, maxHealth);
-        if (currentHealth <= 0)
+        currentHealth--;
+        if (currentHealth == 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enemy collided.");
+        TakeDamage();
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Handles.color = Color.cyan;
+        Handles.DrawWireDisc(transform.position, transform.forward, 3.5f);
     }
 }

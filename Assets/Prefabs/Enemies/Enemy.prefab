@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2202928278159139636}
   - component: {fileID: 2498740651111956334}
-  - component: {fileID: 2535399800917060737}
+  - component: {fileID: 619006461113309397}
   m_Layer: 6
   m_Name: FeedMeter
   m_TagString: Untagged
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2535399800917060737
+--- !u!114 &619006461113309397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,13 +99,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 277408678736338806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 033434ab33eb1d147b37ae42d39b2a27, type: 3}
+  m_Script: {fileID: 11500000, guid: fcd313b359f421246bd150970c0d75a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2498740651111956334}
   target: {fileID: 1802094526821825809}
   offset: {x: 0, y: 1, z: 0}
-  sliderValue: 0
 --- !u!1 &963218370160805769
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,13 +402,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1802094526821825809}
-  - component: {fileID: 5770532717898428514}
   - component: {fileID: 6012972045146098421}
   - component: {fileID: 1868348428217885863}
   - component: {fileID: 853035905162260313}
+  - component: {fileID: 5770532717898428514}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,33 +422,13 @@ Transform:
   m_GameObject: {fileID: 8920871317090917991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1181587, y: 1.3886647, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4558452029677546262}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5770532717898428514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8920871317090917991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movSpeed: 1.5
-  enemyStunTimer: 1
-  currentFull: 0
-  maxFull: 3
-  fillAmount: 1
-  enemyDamage: 1
-  rb: {fileID: 6012972045146098421}
-  feedMeter: {fileID: 2535399800917060737}
 --- !u!50 &6012972045146098421
 Rigidbody2D:
   serializedVersion: 4
@@ -574,3 +553,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5770532717898428514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920871317090917991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movSpeed: 5
+  enemyStunTimer: 1
+  currentFull: 0
+  maxFull: 3
+  fillAmount: 1
+  candyMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetingRange: 5
+  rb: {fileID: 6012972045146098421}
+  feedMeter: {fileID: 619006461113309397}
+  enemySpawner: {fileID: 0}
