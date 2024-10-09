@@ -129,6 +129,11 @@ public class EnemyCtrl : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Destroy(gameObject);
+        //Destroy(gameObject);
+    }
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
