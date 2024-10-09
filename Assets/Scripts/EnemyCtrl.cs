@@ -42,6 +42,7 @@ public class EnemyCtrl : MonoBehaviour
             pathIndex++;
             if (pathIndex == LevelManager.main.path.Length)
             {
+                SpawnEnemies.onEnemyDeath.Invoke();
                 Destroy(gameObject);
                 return;
             }
