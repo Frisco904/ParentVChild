@@ -573,5 +573,7 @@ MonoBehaviour:
   candyMask:
     serializedVersion: 2
     m_Bits: 256
+  targetingRange: 5
   rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}
+  enemySpawner: {fileID: 0}

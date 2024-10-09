@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,28 +15,49 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float fillAmount;
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private float targetingRange = 5f;
-
+ 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
+    //[SerializeField] private SpawnEnemies enemySpawner;
 
 
+    private SpawnEnemies spawnEnemies;
+    private SpawnPoints spawnPoint;
     private Transform target;
     private int pathIndex = 0;
     private bool frozen = false;
     private float timer = -1;
+    private Transform[] path;
+
 
 
     private void Awake()
     {
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
+
     }
 
     private void Start()
     {
-        target = LevelManager.main.targetPoint;
-        target = LevelManager.main.path[0];
-  
+        spawnPoint = gameObject.GetComponentInParent<SpawnEnemies>().GetSpawnPoint();
+
+        switch (spawnPoint)
+        {
+            case SpawnPoints.SpawnPoint1:
+                //Debug.Log(LevelManager.main.path1.ToArray().Length);
+                target = LevelManager.main.path1[0];
+                path = LevelManager.main.path1.ToArray();
+                break;
+            case SpawnPoints.SpawnPoint2:
+                target = LevelManager.main.path2[0];
+                path = LevelManager.main.path2.ToArray();
+                break;
+            case SpawnPoints.SpawnPoint3:
+                target = LevelManager.main.path3[0];
+                path = LevelManager.main.path3.ToArray();
+                break;
+        }
     }
 
     private void Update()
@@ -44,16 +66,16 @@ public class EnemyCtrl : MonoBehaviour
         if (Vector2.Distance(target.position, transform.position) <= .1f)
         {
             pathIndex++;
-            if (pathIndex == LevelManager.main.path.Length)
+            if (pathIndex == path.Length)
             {
                 Destroy(gameObject);
                 return;
             }
             else
             {
-                target = LevelManager.main.path[pathIndex];
+                target = path[pathIndex];
             }
-               
+             
         }
 
         if (timer > 0)
