@@ -9,7 +9,7 @@ public class HealthCtrl : MonoBehaviour
     [SerializeField] private int currentHealth = 3;
     [SerializeField] private int maxHealth = 3;
 
-
+    private bool isDestroyed = false;
 
 
     // Start is called before the first frame update
@@ -24,11 +24,13 @@ public class HealthCtrl : MonoBehaviour
         
     }
 
-    void TakeDamage()
+    public void TakeDamage()
     {
         currentHealth--;
-        if (currentHealth == 0)
+        if (currentHealth == 0 && !isDestroyed)
         {
+            //Just in case if enemy spawn reached -1 to below
+            isDestroyed = true;
             Destroy(gameObject);
         }
     }

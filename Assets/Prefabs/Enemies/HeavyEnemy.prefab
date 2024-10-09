@@ -570,5 +570,6 @@ MonoBehaviour:
   currentFull: 0
   maxFull: 5
   fillAmount: 1
+  currenyWorth: 100
   rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}

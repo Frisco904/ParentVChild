@@ -32,12 +32,13 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
 
         //Adding knockback to the collided object and calling the TakeDamage function from the EnemyCtrl Script.
         collision.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * 100000000);
         EnemyCtrl enemy = collision.gameObject.GetComponent<EnemyCtrl>();
         enemy.TakeDamage();
+
+        Destroy(gameObject);
 
     }
 }

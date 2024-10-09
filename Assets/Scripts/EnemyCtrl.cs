@@ -11,6 +11,7 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
+    [SerializeField] private int currenyWorth = 50;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
@@ -21,7 +22,7 @@ public class EnemyCtrl : MonoBehaviour
     private int pathIndex = 0;
     private bool frozen = false;
     private float timer = -1;
-
+    private bool isDestroyed = false;
 
     private void Awake()
     {
@@ -77,9 +78,11 @@ public class EnemyCtrl : MonoBehaviour
         Freeze();
         currentFull += fillAmount;
         feedMeter.UpdateFeedMeter(currentFull, maxFull);
-
-        if(currentFull == maxFull)
+        if(currentFull == maxFull && !isDestroyed)
         {
+            //Calculates the enemy killed and won't go overboard to negative numbers
+            SpawnEnemies.onEnemyDeath.Invoke();
+            isDestroyed = true;
             Eliminate();
         }
     }
@@ -92,6 +95,8 @@ public class EnemyCtrl : MonoBehaviour
 
     public void Eliminate()
     {
+        //This gains money when enemy are killed by the torrents
+        LevelManager.main.GainMoney(currenyWorth);
         Destroy(gameObject);
     }
 }
