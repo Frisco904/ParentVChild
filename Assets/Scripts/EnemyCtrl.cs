@@ -46,7 +46,6 @@ public class EnemyCtrl : MonoBehaviour
         switch (spawnPoint)
         {
             case SpawnPoints.SpawnPoint1:
-                //Debug.Log(LevelManager.main.path1.ToArray().Length);
                 target = LevelManager.main.path1[0];
                 path = LevelManager.main.path1.ToArray();
                 break;
@@ -101,7 +100,6 @@ public class EnemyCtrl : MonoBehaviour
     private void CandyInRange()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, candyMask);
-        Debug.Log(hits.Length);
         if (hits.Length > 0)
         {
             target = hits[0].transform;
@@ -137,7 +135,7 @@ public class EnemyCtrl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Destroy(gameObject);
+
     }
     private void OnDrawGizmosSelected()
     {

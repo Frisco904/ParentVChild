@@ -44,7 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf1aec165fd46e4798668feb0395a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
+  baseEnemies: 8
+  enemyPerSecond: 0.5
+  timeBetweenWaves: 5
+  diffScalingFactor: 0.75
+  enemiesPerSecCap: 15
+  enemyPrefab:
+  - {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
+  - {fileID: 8920871317090917991, guid: fcd3b6ea5ebe30d4a9abc92777e4b9bb, type: 3}
+  levelManager: {fileID: 0}
   spawnFrequency: 600
   spawnPoint: 0
-  levelManager: {fileID: 0}

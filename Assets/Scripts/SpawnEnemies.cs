@@ -15,8 +15,7 @@ public enum SpawnPoints
 
 public class SpawnEnemies : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private GameObject[] enemyPrefab;
+
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -24,6 +23,10 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecCap = 15f;
+
+    [Header("References")]
+    [SerializeField] private GameObject[] enemyPrefab;
+    //[SerializeField] private LevelManager levelManager;
 
     [Header("Events")]
     public static UnityEvent onEnemyDeath = new UnityEvent();
@@ -37,7 +40,6 @@ public class SpawnEnemies : MonoBehaviour
     public static SpawnEnemies main;
     public float spawnFrequency;
     public SpawnPoints spawnPoint;
-    [SerializeField] private LevelManager levelManager;
     private int index;
 
 
@@ -101,12 +103,12 @@ public class SpawnEnemies : MonoBehaviour
 
     void SpawnEnemy()
     {
-        int index = Random.Range(0, enemyPrefab.Length);
-        GameObject prefabToSPawn = enemyPrefab[index];
+        int prefabIndex = Random.Range(0, enemyPrefab.Length);
+        GameObject prefabToSPawn = enemyPrefab[prefabIndex];
+        Instantiate(prefabToSPawn, LevelManager.main.startPoint[index]);
         //Instantiate(prefabToSPawn, LevelManager.main.startPoint[0], Quaternion.identity);
-        Instantiate(prefabToSPawn, LevelManager.main.startPoint[0]);
         //Instantiate(enemyType, levelManager.startPoint[index]);
-        //Instantiate(enemyType, transform);
+
     }
 
     private int EnemeiesPerWave()

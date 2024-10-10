@@ -105,6 +105,7 @@ MonoBehaviour:
   slider: {fileID: 2498740651111956334}
   target: {fileID: 1802094526821825809}
   offset: {x: 0, y: 1, z: 0}
+  sliderValue: 0
 --- !u!1 &963218370160805769
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,5 +572,9 @@ MonoBehaviour:
   maxFull: 5
   fillAmount: 1
   currenyWorth: 100
+  candyMask:
+    serializedVersion: 2
+    m_Bits: 256
+  targetingRange: 5
   rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}
