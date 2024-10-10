@@ -1,7 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.Events;
+=======
+using static UnityEngine.GraphicsBuffer;
+
+public enum SpawnPoints
+{
+    SpawnPoint1 = 0,
+    SpawnPoint2 = 1,
+    SpawnPoint3= 2,
+    SpawnPoint4 = 3,
+}
+>>>>>>> main
 
 public class SpawnEnemies : MonoBehaviour
 {
@@ -27,6 +40,11 @@ public class SpawnEnemies : MonoBehaviour
     public static SpawnEnemies main;
     //public GameObject enemyType;
     public float spawnFrequency;
+    public SpawnPoints spawnPoint;
+    [SerializeField] private LevelManager levelManager;
+    private int index;
+
+
 
     // Start is called before the first frame update
 
@@ -61,12 +79,39 @@ public class SpawnEnemies : MonoBehaviour
     }
     void Start()
     {
+<<<<<<< HEAD
         StartCoroutine(StartWave());
         //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
+=======
+        //Debug.Log(spawnPoint);
+
+        switch (spawnPoint)
+        {
+            //Debug.Log(spawnPoint);
+            case SpawnPoints.SpawnPoint1:
+                index = 0;
+                break;
+            case SpawnPoints.SpawnPoint2:
+                index = 1;
+                break;
+            case SpawnPoints.SpawnPoint3:
+                index = 2;
+                break;
+            case SpawnPoints.SpawnPoint4:
+                index = 3;
+                break;
+
+        }
+
+        InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
+
+
+>>>>>>> main
     }
 
     void SpawnEnemy()
     {
+<<<<<<< HEAD
         int index = Random.Range(0, enemyPrefab.Length);
         GameObject prefabToSPawn = enemyPrefab[index];
         Instantiate(prefabToSPawn,LevelManager.main.startPoint.position, Quaternion.identity);
@@ -99,4 +144,14 @@ public class SpawnEnemies : MonoBehaviour
         currentWave++;
         StartCoroutine(StartWave());
     }
+=======
+        Instantiate(enemyType, levelManager.startPoint[index]);
+    }
+
+    public SpawnPoints GetSpawnPoint()
+    {
+        return spawnPoint;
+    }
+        
+>>>>>>> main
 }

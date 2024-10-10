@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
   spawnFrequency: 600
+  spawnPoint: 0
+  levelManager: {fileID: 0}
