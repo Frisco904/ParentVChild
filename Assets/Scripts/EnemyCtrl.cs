@@ -9,18 +9,18 @@ public class EnemyCtrl : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float movSpeed = 2f;
-    [SerializeField] public float enemyStunTimer = 3;
+    [SerializeField] private float enemyStunTimer = 3;
+    [SerializeField] private float knockbackAmount = 100000000;
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
-    [SerializeField] private int currenyWorth = 50;
+    [SerializeField] private int currencyWorth = 50;
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private float targetingRange = 5f;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
-    //[SerializeField] private SpawnEnemies enemySpawner;
 
 
     private SpawnEnemies spawnEnemies;
@@ -109,6 +109,8 @@ public class EnemyCtrl : MonoBehaviour
 
     public void TakeDamage()
     {
+
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
         Freeze();
         currentFull += fillAmount;
         feedMeter.UpdateFeedMeter(currentFull, maxFull);
@@ -130,7 +132,7 @@ public class EnemyCtrl : MonoBehaviour
     public void Eliminate()
     {
         //This gains money when enemy are killed by the torrents
-        LevelManager.main.GainMoney(currenyWorth);
+        LevelManager.main.GainMoney(currencyWorth);
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
