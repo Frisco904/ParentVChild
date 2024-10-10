@@ -13,14 +13,10 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
-<<<<<<< HEAD
     [SerializeField] private int currenyWorth = 50;
-
-=======
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private float targetingRange = 5f;
- 
->>>>>>> main
+
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
@@ -33,13 +29,9 @@ public class EnemyCtrl : MonoBehaviour
     private int pathIndex = 0;
     private bool frozen = false;
     private float timer = -1;
-<<<<<<< HEAD
     private bool isDestroyed = false;
-=======
     private Transform[] path;
 
-
->>>>>>> main
 
     private void Awake()
     {
@@ -145,7 +137,6 @@ public class EnemyCtrl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Destroy(gameObject);
         //Destroy(gameObject);
     }
     private void OnDrawGizmosSelected()
