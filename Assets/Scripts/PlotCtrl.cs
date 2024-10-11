@@ -33,7 +33,7 @@ public class PlotCtrl : MonoBehaviour
         Debug.Log("Build Here: " + name);
         if (tower != null) return;
 
-        GameObject towerBuild = BuildManager.main.GetSelectedTower();
-        tower = Instantiate(towerBuild, transform.position, Quaternion.identity);
+        UiTower towerBuild = BuildManager.main.GetSelectedTower();
+        tower = Instantiate(towerBuild.prefab, transform.position, Quaternion.identity);
     }
 }

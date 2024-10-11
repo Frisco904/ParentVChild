@@ -95,7 +95,7 @@ public class SpawnEnemies : MonoBehaviour
 
         }
 
-        InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
+        //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
 
     }
 
