@@ -17,8 +17,15 @@ public class BuildManager : MonoBehaviour
         main = this;
     }
 
+    //This is for selecting a turrent.
     public UiTower GetSelectedTower()
     {
         return towers[SelectedTower];
+    }
+
+    //This is for the selected turrent and will automatically get the cost.
+    public void setSelectedTurrent(int _selectedTurrent)
+    {
+        SelectedTower = _selectedTurrent;
     }
 }

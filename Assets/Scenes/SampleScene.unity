@@ -14921,6 +14921,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4063582033161475579, guid: 24d6aaec37e15884b985d063887d8523, type: 3}
   m_PrefabInstance: {fileID: 489271248}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &705696920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1779559012946460511, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
+  m_PrefabInstance: {fileID: 532404935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &706448976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4063582033161475579, guid: 24d6aaec37e15884b985d063887d8523, type: 3}
@@ -32018,40 +32023,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1bc1052478b4342a9e0ac8ddc741a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint:
-  - {fileID: 596231390}
-  - {fileID: 1794786087}
-  - {fileID: 852419969}
-  - {fileID: 988987085}
-  path:
+  startPoints: []
+  path1:
   - {fileID: 1789980638}
   - {fileID: 1371507960}
   - {fileID: 1340287560}
   - {fileID: 1270896129}
-  - {fileID: 24165102}
-  - {fileID: 1537943286}
-  - {fileID: 882345298}
-  - {fileID: 100181095}
-  - {fileID: 1828118252}
-  - {fileID: 1147496145}
-  - {fileID: 661573849}
-  - {fileID: 1361512452}
-  - {fileID: 535227325}
-  - {fileID: 1236458935}
-  - {fileID: 1327539486}
-  - {fileID: 2130054957}
-  - {fileID: 128595202}
-  - {fileID: 607304382}
-  - {fileID: 77571912}
-  - {fileID: 961197627}
-  - {fileID: 991861707}
-  - {fileID: 1456396410}
-  - {fileID: 1352511147}
-  - {fileID: 175178992}
-  - {fileID: 94180367}
-  - {fileID: 418265510}
-  - {fileID: 1239309633}
-  targetPoint: {fileID: 5949550309494206763, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
+  path2: []
+  path3: []
+  CandyPile: {fileID: 705696920}
+  currency: 0
 --- !u!4 &1521104368
 Transform:
   m_ObjectHideFlags: 0
