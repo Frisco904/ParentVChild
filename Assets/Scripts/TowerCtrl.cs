@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -17,13 +18,28 @@ public class Tower : MonoBehaviour
     [SerializeField] private float fireRate = 1f;
 
     [Header("References")]
-    [SerializeField]  private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeBtn;
+    [SerializeField] private int baseUpgradeCost = 100;
 
+    private float bpsBase;
+    private float targetingRangeBase;
 
+    private int level = 1;
 
     private float timeUntilFire;
 
     private Transform target;
+
+
+    private void Start()
+    {
+        bpsBase = fireRate;
+        targetingRangeBase = targetingRange;
+
+        upgradeBtn.onClick.AddListener(UpgradeTurrent);
+    }
 
     private void Update()
     {
@@ -90,4 +106,54 @@ public class Tower : MonoBehaviour
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
+
+    //This is for upgrade function
+    #region Upgrade Methods
+    public void openUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void closeUpgradeUI()
+    {
+        upgradeUI.SetActive(false);
+        UIManager.main.setHoveringState(false);
+    }
+
+    public void UpgradeTurrent()
+    {
+
+        //Calculates the cost and will automatically update the new price
+        if (calculateCost() > LevelManager.main.currency) return;
+
+        LevelManager.main.SpendMoney(calculateCost());
+
+        level++;
+
+        //Calculates the new FireRate
+        fireRate = CalculateFireRate();
+
+        //Calculates the new Range
+        targetingRange = calculateRange();
+
+        closeUpgradeUI();
+        Debug.Log("New Fire Rate and Turrent range: " + fireRate + targetingRange);
+        Debug.Log("New Cost: " + calculateCost());
+    }
+
+    private int calculateCost()
+    {
+        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+    }
+
+    private float CalculateFireRate()
+    {
+        return bpsBase * Mathf.Pow(level, 0.5f);
+    }
+
+    private float calculateRange()
+    {
+        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+    #endregion
 }

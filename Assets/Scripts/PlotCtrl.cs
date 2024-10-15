@@ -9,7 +9,8 @@ public class PlotCtrl : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
 
-    private GameObject tower;
+    public GameObject towerObj;
+    public Tower turrent;
     private Color startColor;
 
 
@@ -29,11 +30,28 @@ public class PlotCtrl : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //Checks if pointer is hovering on a turrent
+        if ((UIManager.main.IsHoveringUI())) return;
+    
         //This function is for torrent drop or torrent build
         Debug.Log("Build Here: " + name);
-        if (tower != null) return;
+        if (towerObj != null) 
+        {
+            turrent.openUpgradeUI();
+            return; 
+        }
 
         UiTower towerBuild = BuildManager.main.GetSelectedTower();
-        tower = Instantiate(towerBuild.prefab, transform.position, Quaternion.identity);
+        if (towerBuild.cost > LevelManager.main.currency)
+        {
+            Debug.Log("Insufficient Currency");
+            return;
+        }
+        //The Currency spending system
+        LevelManager.main.SpendMoney(towerBuild.cost);
+
+        towerObj = Instantiate(towerBuild.prefab, transform.position, Quaternion.identity);
+        //Checks if the turrent is ready to drop with the right price
+        turrent = towerObj.GetComponent<Tower>();
     }
 }
