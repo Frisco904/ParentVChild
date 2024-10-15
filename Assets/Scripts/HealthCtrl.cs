@@ -39,7 +39,6 @@ public class HealthCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enemy collided.");
         Destroy(collision.gameObject);
         TakeDamage();
     }

@@ -13,7 +13,7 @@ public enum SpawnPoints
     SpawnPoint4 = 3,
 }
 
-public class SpawnEnemies : MonoBehaviour
+public class WaveSpawnEnemies : MonoBehaviour
 {
 
 
@@ -23,23 +23,22 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecCap = 15f;
+    [SerializeField] private SpawnPoints spawnPoint;
+    [SerializeField] public float spawnFrequency;
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefab;
-    //[SerializeField] private LevelManager levelManager;
+    [SerializeField] public static WaveSpawnEnemies main;
 
     [Header("Events")]
     public static UnityEvent onEnemyDeath = new UnityEvent();
 
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    private float eps;
+    private float enemiesPerSecond; 
     private int enemyAlive;
     private int enemyLeftToSpawn;
     private bool isSpawning = false;
-    public static SpawnEnemies main;
-    public float spawnFrequency;
-    public SpawnPoints spawnPoint;
     private int index;
 
 
@@ -57,7 +56,7 @@ public class SpawnEnemies : MonoBehaviour
 
         timeSinceLastSpawn += Time.deltaTime;
 
-        if(timeSinceLastSpawn >= (1f / eps) && enemyLeftToSpawn > 0)
+        if(timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemyLeftToSpawn > 0)
         {
             SpawnEnemy();
             enemyLeftToSpawn--;
@@ -78,7 +77,6 @@ public class SpawnEnemies : MonoBehaviour
     void Start()
     { 
         StartCoroutine(StartWave());
-        //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
 
         switch (spawnPoint)
         {
@@ -97,7 +95,7 @@ public class SpawnEnemies : MonoBehaviour
 
         }
 
-        InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
+        //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
 
     }
 
@@ -105,9 +103,7 @@ public class SpawnEnemies : MonoBehaviour
     {
         int prefabIndex = Random.Range(0, enemyPrefab.Length);
         GameObject prefabToSPawn = enemyPrefab[prefabIndex];
-        Instantiate(prefabToSPawn, LevelManager.main.startPoint[index]);
-        //Instantiate(prefabToSPawn, LevelManager.main.startPoint[0], Quaternion.identity);
-        //Instantiate(enemyType, levelManager.startPoint[index]);
+        Instantiate(prefabToSPawn, LevelManager.main.startPoints[index]);
 
     }
 
@@ -127,7 +123,7 @@ public class SpawnEnemies : MonoBehaviour
 
         isSpawning = true;
         enemyLeftToSpawn = EnemeiesPerWave();
-        eps = EnemiesPerSeconds();
+        enemiesPerSecond = EnemiesPerSeconds();
     }
 
     private void EndWave()

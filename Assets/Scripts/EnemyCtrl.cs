@@ -9,21 +9,22 @@ public class EnemyCtrl : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float movSpeed = 2f;
-    [SerializeField] public float enemyStunTimer = 3;
+    [SerializeField] private float enemyStunTimer = 3;
+    [SerializeField] private float knockbackAmount = 100000000;
     [SerializeField] private float currentFull;
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
-    [SerializeField] private int currenyWorth = 50;
+    [SerializeField] private int currencyWorth = 50;
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private float targetingRange = 5f;
+    [SerializeField] private float candyproximity = .1f;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
-    //[SerializeField] private SpawnEnemies enemySpawner;
 
 
-    private SpawnEnemies spawnEnemies;
+    private WaveSpawnEnemies spawnEnemies;
     private SpawnPoints spawnPoint;
     private Transform target;
     private int pathIndex = 0;
@@ -36,12 +37,13 @@ public class EnemyCtrl : MonoBehaviour
     private void Awake()
     {
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
-
+        //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
+        target = LevelManager.main.CandyPile.transform;
     }
 
     private void Start()
     {
-        spawnPoint = gameObject.GetComponentInParent<SpawnEnemies>().GetSpawnPoint();
+        spawnPoint = gameObject.GetComponentInParent<WaveSpawnEnemies>().GetSpawnPoint();
 
         switch (spawnPoint)
         {
@@ -62,13 +64,15 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
-        CandyInRange();
-        if (Vector2.Distance(target.position, transform.position) <= .1f)
+        //CandyInRange();
+
+        if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
+        if (Vector2.Distance(target.position, transform.position) <= targetingRange)
         {
             pathIndex++;
             if (pathIndex == path.Length)
             {
-                SpawnEnemies.onEnemyDeath.Invoke();
+                WaveSpawnEnemies.onEnemyDeath.Invoke();
                 Destroy(gameObject);
                 return;
             }
@@ -99,23 +103,31 @@ public class EnemyCtrl : MonoBehaviour
     }
     private void CandyInRange()
     {
+        //Checks to see if candy is within range of target, if so the target is set to the candy pile.
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, candyMask);
         if (hits.Length > 0)
         {
+            Debug.Log("Candy is in range");
+            //We are setting the target to be the Candy Pile.
             target = hits[0].transform;
+            //We are reducing the circumfrence of the area that the enemy has to be within to be smaller in order to get the Enemy to collide with the candy pile.
+            targetingRange = candyproximity;
+
         }
 
     }
 
     public void TakeDamage()
     {
+
+        gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
         Freeze();
         currentFull += fillAmount;
         feedMeter.UpdateFeedMeter(currentFull, maxFull);
         if(currentFull == maxFull && !isDestroyed)
         {
             //Calculates the enemy killed and won't go overboard to negative numbers
-            SpawnEnemies.onEnemyDeath.Invoke();
+            WaveSpawnEnemies.onEnemyDeath.Invoke();
             isDestroyed = true;
             Eliminate();
         }
@@ -130,7 +142,7 @@ public class EnemyCtrl : MonoBehaviour
     public void Eliminate()
     {
         //This gains money when enemy are killed by the torrents
-        LevelManager.main.GainMoney(currenyWorth);
+        LevelManager.main.GainMoney(currencyWorth);
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)

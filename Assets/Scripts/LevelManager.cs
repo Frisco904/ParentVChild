@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     //Static means it can be called from anywhere.
     public static LevelManager main;
-    [SerializeField] public Transform[] startPoint;
+    [SerializeField] public Transform[] startPoints;
     [SerializeField] public List<Transform> path1;
     [SerializeField] public List<Transform> path2;
     [SerializeField] public List<Transform> path3;
