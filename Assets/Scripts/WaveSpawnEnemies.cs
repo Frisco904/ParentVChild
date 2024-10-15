@@ -13,7 +13,7 @@ public enum SpawnPoints
     SpawnPoint4 = 3,
 }
 
-public class SpawnEnemies : MonoBehaviour
+public class WaveSpawnEnemies : MonoBehaviour
 {
 
 
@@ -28,7 +28,7 @@ public class SpawnEnemies : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefab;
-    [SerializeField] public static SpawnEnemies main;
+    [SerializeField] public static WaveSpawnEnemies main;
 
     [Header("Events")]
     public static UnityEvent onEnemyDeath = new UnityEvent();
@@ -95,7 +95,7 @@ public class SpawnEnemies : MonoBehaviour
 
         }
 
-        InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
+        //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
 
     }
 

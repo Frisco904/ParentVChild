@@ -568,10 +568,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movSpeed: 2
   enemyStunTimer: 1
+  knockbackAmount: 0
   currentFull: 0
   maxFull: 5
   fillAmount: 1
-  currenyWorth: 100
+  currencyWorth: 50
   candyMask:
     serializedVersion: 2
     m_Bits: 256
