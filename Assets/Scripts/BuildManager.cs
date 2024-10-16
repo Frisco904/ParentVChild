@@ -17,7 +17,7 @@ public class BuildManager : MonoBehaviour
         main = this;
     }
 
-    //This is for selecting a turrent.
+    //This is for selecting a turret.
     public UiTower GetSelectedTower()
     {
         return towers[SelectedTower];
