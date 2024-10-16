@@ -2444,6 +2444,7 @@ MonoBehaviour:
   - {fileID: 1623010381}
   - {fileID: 1288401725}
   CandyPile: {fileID: 527487019}
+  currency: 100
 --- !u!4 &1236265530
 Transform:
   m_ObjectHideFlags: 0
