@@ -20,7 +20,7 @@ public class Tower : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject upgradeUI;
-    [SerializeField] private Button upgradeBtn;
+    [SerializeField] private Button upgradeButton;
     [SerializeField] private int baseUpgradeCost = 100;
 
     private float bpsBase;
@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour
         bpsBase = fireRate;
         targetingRangeBase = targetingRange;
 
-        upgradeBtn.onClick.AddListener(UpgradeTurrent);
+        upgradeButton.onClick.AddListener(UpgradeTurret);
     }
 
     private void Update()
@@ -120,11 +120,11 @@ public class Tower : MonoBehaviour
         UIManager.main.setHoveringState(false);
     }
 
-    public void UpgradeTurrent()
+    public void UpgradeTurret()
     {
 
         //Calculates the cost and will automatically update the new price
-        if (calculateCost() > LevelManager.main.currency) return;
+        if (calculateCost() > LevelManager.main.GetCurrency()) return;
 
         LevelManager.main.SpendMoney(calculateCost());
 
@@ -137,7 +137,7 @@ public class Tower : MonoBehaviour
         targetingRange = calculateRange();
 
         closeUpgradeUI();
-        Debug.Log("New Fire Rate and Turrent range: " + fireRate + targetingRange);
+        Debug.Log("New Fire Rate and Turret range: " + fireRate + targetingRange);
         Debug.Log("New Cost: " + calculateCost());
     }
 
