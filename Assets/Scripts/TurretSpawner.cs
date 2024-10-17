@@ -1,72 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TurretSpawner : MonoBehaviour
 {
-    private GameObject towerObj;
-    private Tower Turret;
-    private LevelManager levelManager;
-    private bool bPlaceTurret = false;
-    //public Camera camera;
 
-    [Header("References")]
-    [SerializeField] private Button turretButton;
+    public GameObject towerObj;
+    private GameObject tower;
+    public Tower turrent;
 
-    private void Start()
-    {
-        turretButton.onClick.AddListener(PlaceTurretToggle);
-        levelManager = LevelManager.main;
-    }
     void Update()
     {
-        
-        if (Input.GetMouseButtonDown(0) && bPlaceTurret) { 
 
-            //Spawning turret where the mouse is hovering over.
+        if (Input.GetMouseButtonDown(0)) {
 
-            if (levelManager.SpendMoney(BuildManager.main.GetSelectedTower().cost)) {
-                Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                UiTower towerBuild = BuildManager.main.GetSelectedTower();
-                towerObj = Instantiate(towerBuild.prefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
-                //Turret = towerObj.GetComponent<Tower>();
-                bPlaceTurret = false;
-
-            }
-            else
+            //Checks if pointer is hovering on a turrent
+            if ((UIManager.main.IsHoveringUI())) return;
+            //This function is for torrent drop or torrent build
+            //Debug.Log("Build Here: " + name);
+            if (towerObj != null)
             {
-                Debug.Log("Not enough money to buy tower.");
+                turrent.openUpgradeUI();
+                return;
             }
-        }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            if (DetectObject() != null)
+            Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            UiTower towerBuild = BuildManager.main.GetSelectedTower();
+            if (towerBuild.cost > LevelManager.main.currency)
             {
-                Turret = DetectObject().GetComponent<Tower>();
-                Turret.openUpgradeUI();
+                Debug.Log("Insufficient Currency");
+                return;
             }
+
+            //The Currency spending system
+            LevelManager.main.SpendMoney(towerBuild.cost);
+
+
+            //Checks if the turrent is ready to drop with the right price
+            //turrent = towerObj.GetComponent<Tower>();
+            tower = Instantiate(towerBuild.prefab, new Vector3(cursorPos.x,cursorPos.y, 0), Quaternion.identity);
+
         }
             
-    }
-
-    //Will raycast on mouse position to check if there exists a tower at that transform.
-    private GameObject DetectObject()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hits2d = Physics2D.GetRayIntersection(ray);
-        if(hits2d.collider != null)
-        {
-            if(hits2d.collider.tag == "Player")
-            {
-                Debug.Log("Hit 2D Collider " + hits2d.collider.tag);
-                return hits2d.collider.gameObject;
-            }
-        }
-        return null;
-    }
-    void PlaceTurretToggle()
-    {
-        bPlaceTurret=true;
     }
 }

@@ -28,10 +28,11 @@ public class HealthCtrl : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth--;
-        if (currentHealth == 0 && !isDestroyed)
+        currentHealth --;
+        if (currentHealth <= 0 && !isDestroyed)
         {
             //Just in case if enemy spawn reached -1 to below
+            WaveSpawnEnemies.onEnemyDeath.Invoke();
             isDestroyed = true;
             Destroy(gameObject);
         }
