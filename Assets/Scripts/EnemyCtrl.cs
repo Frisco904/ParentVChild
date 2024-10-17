@@ -64,7 +64,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
-        //CandyInRange();
+        CandyInRange();
 
         if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
         if (Vector2.Distance(target.position, transform.position) <= targetingRange)

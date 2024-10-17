@@ -62,6 +62,7 @@ public class WaveSpawnEnemies : MonoBehaviour
             enemyLeftToSpawn--;
             enemyAlive++;
             timeSinceLastSpawn = 0f;
+            Debug.Log("Spawn Enemies");
         }
 
         if(enemyAlive == 0 && enemyLeftToSpawn == 0)
@@ -73,10 +74,10 @@ public class WaveSpawnEnemies : MonoBehaviour
     private void EnemyDeath()
     {
         enemyAlive--;
+
     }
     void Start()
     { 
-        StartCoroutine(StartWave());
 
         switch (spawnPoint)
         {
@@ -95,6 +96,7 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         }
 
+        StartCoroutine(StartWave());
         //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
 
     }
