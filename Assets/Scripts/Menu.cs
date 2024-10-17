@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
 
     private void OnGUI()
     {
-        currencyUI.text = LevelManager.main.currency.ToString();
+        currencyUI.text = LevelManager.main.GetCurrency().ToString();
     }
 
     //This is where the currency system works

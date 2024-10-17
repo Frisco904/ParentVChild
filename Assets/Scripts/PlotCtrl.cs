@@ -42,7 +42,7 @@ public class PlotCtrl : MonoBehaviour
         }
 
         UiTower towerBuild = BuildManager.main.GetSelectedTower();
-        if (towerBuild.cost > LevelManager.main.currency)
+        if (towerBuild.cost > LevelManager.main.GetCurrency())
         {
             Debug.Log("Insufficient Currency");
             return;
