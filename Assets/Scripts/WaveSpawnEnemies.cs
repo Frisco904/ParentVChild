@@ -62,10 +62,11 @@ public class WaveSpawnEnemies : MonoBehaviour
             enemyLeftToSpawn--;
             enemyAlive++;
             timeSinceLastSpawn = 0f;
-            Debug.Log("Spawn Enemies");
+            //Debug.Log("Spawn Enemies");
         }
-
-        if(enemyAlive == 0 && enemyLeftToSpawn == 0)
+        //Use this code something related to this will help to move on to the next stage.
+        //enemyAlive == 0 &&
+        if (enemyLeftToSpawn == 0)
         {
             EndWave();
         }
