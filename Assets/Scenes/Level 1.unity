@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencyUI: {fileID: 2102183781}
   anim: {fileID: 506154363}
+  menuButton: {fileID: 1955256860}
 --- !u!95 &506154363
 Animator:
   serializedVersion: 5
@@ -2175,6 +2176,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1220051814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1220051816}
+  - component: {fileID: 1220051815}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1220051815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220051814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ee5bae53b6885947aaba11175e2ddb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundFXObject: {fileID: 2653018224431272604, guid: c1997a073b293754c963d65ae74d60c4, type: 3}
+--- !u!4 &1220051816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220051814}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236265528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,6 +2273,7 @@ MonoBehaviour:
   - {fileID: 1623010381}
   - {fileID: 1288401725}
   CandyPile: {fileID: 527487019}
+  currency: 100
 --- !u!4 &1236265530
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,10 +2304,7 @@ MonoBehaviour:
   towers:
   - name: Turret
     cost: 25
-    prefab: {fileID: 7046588463905791149, guid: 2ceacd3972912d7409ad480ee35651f6, type: 3}
-  - name: New Turrent
-    cost: 150
-    prefab: {fileID: 7046588463905791149, guid: 972be1ed5074f7c48abb4c2733517a19, type: 3}
+    prefab: {fileID: 7046588463905791149, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
 --- !u!114 &1236265532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3104,7 +3148,7 @@ AudioSource:
   m_GameObject: {fileID: 1615024258}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7396543257009893793, guid: f812f84009449ce44a383f0bccb65e19, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4bf6571af726a8840b2ad25ef5e31caf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4237,3 +4281,4 @@ SceneRoots:
   - {fileID: 1239679361}
   - {fileID: 1565850893}
   - {fileID: 1615024260}
+  - {fileID: 1220051816}
