@@ -682,6 +682,7 @@ MonoBehaviour:
   upgradeUI: {fileID: 1285373654639643698}
   upgradeButton: {fileID: 8966721821688973272}
   baseUpgradeCost: 100
+  shotSFX: {fileID: 8300000, guid: 53b7336b223a9b94791326627f95ac51, type: 3}
 --- !u!61 &-6092140016763046395
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -22,6 +22,9 @@ public class Tower : MonoBehaviour
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private Button upgradeButton;
     [SerializeField] private int baseUpgradeCost = 100;
+    
+    [Header("FX")]
+    [SerializeField] private AudioClip shotSFX;
 
     private float bpsBase;
     private float targetingRangeBase;
@@ -72,6 +75,7 @@ public class Tower : MonoBehaviour
     {
         //Instantiating the projectile and calling the SetTarget function for the projectile.
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
+        SoundFXManager.instance.PlaySoundFXClip(shotSFX, MixerGroup.World, transform, .8f, 1f, false, Random.Range(.8f, 1.2f));
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
     }

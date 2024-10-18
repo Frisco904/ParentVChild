@@ -11,6 +11,9 @@ public class HealthCtrl : MonoBehaviour
     [SerializeField] private int currentHealth = 3;
     [SerializeField] private int maxHealth = 3;
 
+    [Header("FX")]
+    [SerializeField] private AudioClip damageSFX;
+
     private bool isDestroyed = false;
 
 
@@ -29,6 +32,7 @@ public class HealthCtrl : MonoBehaviour
     public void TakeDamage()
     {
         currentHealth --;
+        SoundFXManager.instance.PlaySoundFXClip(damageSFX, MixerGroup.World, transform, 1f, 1f, false, Random.Range(.9f, 1.1f));
         if (currentHealth <= 0 && !isDestroyed)
         {
             //Just in case if enemy spawn reached -1 to below
