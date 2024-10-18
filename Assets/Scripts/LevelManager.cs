@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path2;
     [SerializeField] public List<Transform> path3;
     [SerializeField] public GameObject CandyPile;
-    private int currency;
+    [SerializeField] private int currency = 100;
 
     private void Awake()
     {
@@ -29,8 +29,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        //Game starts with 100
-        currency = 10000;
+
     }
 
     public void GainMoney(int cash)
