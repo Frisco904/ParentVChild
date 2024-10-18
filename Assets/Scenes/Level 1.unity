@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencyUI: {fileID: 2102183781}
   anim: {fileID: 506154363}
+  menuButton: {fileID: 1955256860}
 --- !u!95 &506154363
 Animator:
   serializedVersion: 5
