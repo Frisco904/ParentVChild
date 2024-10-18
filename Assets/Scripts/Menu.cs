@@ -17,8 +17,8 @@ public class Menu : MonoBehaviour
     //This is for the menu animation
     public void ToggleMenu()
     {
-        isMenuOpen = !isMenuOpen;
         if (isMenuOpen) anim.Play("MenuClose"); else anim.Play("MenuOpen");
+        isMenuOpen = !isMenuOpen;
     }
 
     private void OnGUI()
