@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencyUI: {fileID: 2102183781}
   anim: {fileID: 506154363}
+  menuButton: {fileID: 1955256860}
 --- !u!95 &506154363
 Animator:
   serializedVersion: 5
@@ -2272,6 +2273,7 @@ MonoBehaviour:
   - {fileID: 1623010381}
   - {fileID: 1288401725}
   CandyPile: {fileID: 527487019}
+  currency: 100
 --- !u!4 &1236265530
 Transform:
   m_ObjectHideFlags: 0
@@ -2302,10 +2304,7 @@ MonoBehaviour:
   towers:
   - name: Turret
     cost: 25
-    prefab: {fileID: 7046588463905791149, guid: 2ceacd3972912d7409ad480ee35651f6, type: 3}
-  - name: New Turrent
-    cost: 150
-    prefab: {fileID: 7046588463905791149, guid: 972be1ed5074f7c48abb4c2733517a19, type: 3}
+    prefab: {fileID: 7046588463905791149, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
 --- !u!114 &1236265532
 MonoBehaviour:
   m_ObjectHideFlags: 0
