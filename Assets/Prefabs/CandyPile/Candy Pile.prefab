@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0462ba5493fe943ac6a7c34c345a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
   currentHealth: 3
-  healthBar: {fileID: 137518985565042696}
+  maxHealth: 3
+  damageSFX: {fileID: 8300000, guid: 43c75c4897d17764da47bedb34e079a2, type: 3}
 --- !u!61 &-2175763789801925837
 BoxCollider2D:
   m_ObjectHideFlags: 0
