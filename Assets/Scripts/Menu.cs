@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] TextMeshProUGUI currencyUI;
-    [SerializeField] Animator anim;
+    [SerializeField] private TextMeshProUGUI currencyUI;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Button menuButton;
 
     private bool isMenuOpen = true;
 
@@ -15,7 +18,7 @@ public class Menu : MonoBehaviour
     public void ToggleMenu()
     {
         isMenuOpen = !isMenuOpen;
-        anim.SetBool("MenuOpen", isMenuOpen);
+        if (isMenuOpen) anim.Play("MenuClose"); else anim.Play("MenuOpen");
     }
 
     private void OnGUI()
@@ -27,5 +30,10 @@ public class Menu : MonoBehaviour
     public void setSelected()
     {
 
+    }
+
+    private void Start()
+    {
+        menuButton.onClick.AddListener(ToggleMenu);
     }
 }
