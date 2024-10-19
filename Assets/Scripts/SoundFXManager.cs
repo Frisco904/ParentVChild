@@ -37,7 +37,7 @@ public class SoundFXManager : MonoBehaviour
         switch (mixerGroup)
         {
             case MixerGroup.Music:
-                audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Muisic")[0];
+                audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Music")[0];
                 break;
             case MixerGroup.World:
                 audioSource.outputAudioMixerGroup = mixer.FindMatchingGroups("World")[0];
