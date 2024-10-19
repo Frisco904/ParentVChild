@@ -650,6 +650,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret Button
       objectReference: {fileID: 0}
+    - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6808943136384107532, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1979,6 +2003,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37196743641304882, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 37196743641304882, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
+      propertyPath: currentHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1779559012946460511, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
       propertyPath: m_Name
       value: Candy Pile

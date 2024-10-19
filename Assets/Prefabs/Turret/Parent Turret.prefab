@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db855dedae8e56242b07195353789abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetingRange: 8.05
+  targetingRange: 15
   rotationSpeed: 200
   enemyMask:
     serializedVersion: 2

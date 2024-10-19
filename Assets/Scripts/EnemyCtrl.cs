@@ -17,7 +17,7 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private int currencyWorth = 50;
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private LayerMask pathingMask;
-    [SerializeField] private float targetingRange = 5f;
+    [SerializeField] private float targetingRange = 15f;
     [SerializeField] private float candyproximity = .1f;
 
     [Header("References")]
