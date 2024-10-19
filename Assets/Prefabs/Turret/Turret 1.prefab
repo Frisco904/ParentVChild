@@ -603,8 +603,9 @@ MonoBehaviour:
   fireRate: 1.5
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
   upgradeUI: {fileID: 4342286090543064211}
-  upgradeBtn: {fileID: 6853503628688732575}
+  upgradeButton: {fileID: 0}
   baseUpgradeCost: 100
+  shotSFX: {fileID: 8300000, guid: 53b7336b223a9b94791326627f95ac51, type: 3}
 --- !u!1 &7869813011362088542
 GameObject:
   m_ObjectHideFlags: 0

@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 5770532717898428514}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -576,6 +576,10 @@ MonoBehaviour:
   candyMask:
     serializedVersion: 2
     m_Bits: 256
+  pathingMask:
+    serializedVersion: 2
+    m_Bits: 0
   targetingRange: 5
+  candyproximity: 0.1
   rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}

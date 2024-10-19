@@ -12,7 +12,6 @@ public class TurretSpawner : MonoBehaviour
     private LevelManager levelManager;
     private bool bPlaceTurret = false;
     private BoxCollider2D boundsCollider;
-    //public Camera camera;
 
     [Header("References")]
     [SerializeField] private Button turretButton;
@@ -45,16 +44,19 @@ public class TurretSpawner : MonoBehaviour
                 Debug.Log("Not enough money to buy tower.");
             }
         }
-        else if (Input.GetMouseButtonDown(0) && WithinBounds())
+        else if (Input.GetMouseButtonDown(0) && WithinBounds() && DetectObject())
         {
             if (DetectObject().tag == "Player")
             {
                 Turret = DetectObject().GetComponent<Tower>();
                 Turret.openUpgradeUI();
             }
+            else 
+            { 
+
+            }
             
         }
-
         else
         {
 
@@ -69,13 +71,14 @@ public class TurretSpawner : MonoBehaviour
         RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
         if (hits2d.Length > 0)
         {
-            Debug.Log("Hits Exist");
+            //Debug.Log("Hits Exist");
             foreach (RaycastHit2D hit in hits2d)
             {
                 if (hit.collider.gameObject.tag == "Player")
                 { 
                     return hit.collider.gameObject;
                 }
+                else { }
             }
             
         }
