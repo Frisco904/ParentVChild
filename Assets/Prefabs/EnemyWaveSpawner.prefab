@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseEnemies: 8
-  enemyPerSecond: 0.5
+  enemyPerSecond: 0.3
   timeBetweenWaves: 5
   diffScalingFactor: 0.75
   enemiesPerSecCap: 15

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,22 +11,24 @@ public class TurretSpawner : MonoBehaviour
     private Tower Turret;
     private LevelManager levelManager;
     private bool bPlaceTurret = false;
+    private BoxCollider2D boundsCollider;
     //public Camera camera;
 
     [Header("References")]
     [SerializeField] private Button turretButton;
-
+    [SerializeField] private GameObject BoundsGameObj;
     private void Start()
     {
         turretButton.onClick.AddListener(PlaceTurretToggle);
         levelManager = LevelManager.main;
+        boundsCollider = BoundsGameObj.GetComponent<BoxCollider2D>();
     }
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0) && bPlaceTurret)
-        {
 
+        if (Input.GetMouseButtonDown(0) && bPlaceTurret && WithinBounds())
+            { 
             //Spawning turret where the mouse is hovering over.
 
             if (levelManager.SpendMoney(BuildManager.main.GetSelectedTower().cost))
@@ -42,13 +45,19 @@ public class TurretSpawner : MonoBehaviour
                 Debug.Log("Not enough money to buy tower.");
             }
         }
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0) && WithinBounds())
         {
-            if (DetectObject() != null)
+            if (DetectObject().tag == "Player")
             {
                 Turret = DetectObject().GetComponent<Tower>();
                 Turret.openUpgradeUI();
             }
+            
+        }
+
+        else
+        {
+
         }
 
     }
@@ -57,17 +66,41 @@ public class TurretSpawner : MonoBehaviour
     private GameObject DetectObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hits2d = Physics2D.GetRayIntersection(ray);
-        if (hits2d.collider != null)
+        RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
+        if (hits2d.Length > 0)
         {
-            if (hits2d.collider.tag == "Player")
+            Debug.Log("Hits Exist");
+            foreach (RaycastHit2D hit in hits2d)
             {
-                Debug.Log("Hit 2D Collider " + hits2d.collider.tag);
-                return hits2d.collider.gameObject;
+                if (hit.collider.gameObject.tag == "Player")
+                { 
+                    return hit.collider.gameObject;
+                }
             }
+            
         }
         return null;
     }
+
+    private bool WithinBounds()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
+        foreach (RaycastHit2D hit in hits2d)
+        {
+            if(hit.collider.gameObject.tag == "Bounds")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return false;
+
+    }
+
     void PlaceTurretToggle()
     {
         bPlaceTurret = true;
