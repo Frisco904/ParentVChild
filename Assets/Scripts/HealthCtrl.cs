@@ -47,9 +47,9 @@ public class HealthCtrl : MonoBehaviour
         Destroy(collision.gameObject);
         TakeDamage();
     }
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, 3.5f);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Handles.color = Color.cyan;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, 3.5f);
+    //}
 }

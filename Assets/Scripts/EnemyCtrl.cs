@@ -40,6 +40,7 @@ public class EnemyCtrl : MonoBehaviour
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
         target = LevelManager.main.CandyPile.transform;
+        LevelManager.main.IncrementEnemiesAlive();
     }
 
     private void Start()
@@ -74,6 +75,7 @@ public class EnemyCtrl : MonoBehaviour
             pathIndex++;
             if (pathIndex == path.Length)
             {
+                
                 WaveSpawnEnemies.onEnemyDeath.Invoke();
                 Destroy(gameObject);
                 return;
@@ -145,17 +147,19 @@ public class EnemyCtrl : MonoBehaviour
     {
         //This gains money when enemy are killed by the torrents
         LevelManager.main.GainMoney(currencyWorth);
+        LevelManager.main.DecrementEnemiesAlive();
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
 
     }
+    /*
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    }*/
     private void DetectObject()
     { 
         float distToTarget = Vector3.Distance(transform.position, target.transform.position);

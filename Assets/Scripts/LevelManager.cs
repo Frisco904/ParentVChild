@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +15,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path3;
     [SerializeField] public GameObject CandyPile;
     [SerializeField] private int currency = 100;
+    [SerializeField] private int MaxWaves = 3;
+    private int enemiesAlive = 0;
+    private bool WindConditionMet = false;
 
     private void Awake()
     {
@@ -30,6 +32,13 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
 
+    }
+    private void Update()
+    {
+        if (WindConditionMet)
+        {
+            SceneController.instance.Invoke("NextLevel", 5);
+        }
     }
 
     public void GainMoney(int cash)
@@ -53,6 +62,20 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    //Getters
+    //Getters and Setters
     public int GetCurrency() {return currency; }
+    public void IncrementEnemiesAlive()
+    {
+        enemiesAlive++;
+    }
+    public void DecrementEnemiesAlive()
+    {
+        enemiesAlive--;
+    }
+    public int GetEnemiesAlive()
+    {
+        return enemiesAlive;
+    }
+    public int GetMaxWaves() { return MaxWaves; }
+    public void SetWinCondition(bool bSetWinCondition) { WindConditionMet = bSetWinCondition; }
 }
