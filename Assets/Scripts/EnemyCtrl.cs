@@ -24,6 +24,8 @@ public class EnemyCtrl : MonoBehaviour
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
+    [SerializeField] Sprite[] kidImg;
+    [SerializeField] SpriteRenderer kidRenderer;
 
 
     private WaveSpawnEnemies spawnEnemies;
@@ -35,6 +37,9 @@ public class EnemyCtrl : MonoBehaviour
     private bool isDestroyed = false;
     private Transform[] path;
 
+    int randomKidImg;
+
+    
 
     private void Awake()
     {
@@ -63,6 +68,7 @@ public class EnemyCtrl : MonoBehaviour
                 path = LevelManager.main.path3.ToArray();
                 break;
         }
+        SpawnRandomKids();
     }
 
     private void Update()
@@ -183,6 +189,13 @@ public class EnemyCtrl : MonoBehaviour
                 //Debug.Log(hits[0].collider.gameObject);
             }
         }
+    }
+
+    void SpawnRandomKids()
+    {
+        randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
+        kidRenderer.sprite = kidImg[randomKidImg - 1];
+        print(randomKidImg);
     }
 
 }

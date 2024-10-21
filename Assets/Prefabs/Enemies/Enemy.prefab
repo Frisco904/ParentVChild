@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 1802094526821825809}
   - component: {fileID: 6012972045146098421}
   - component: {fileID: 1868348428217885863}
-  - component: {fileID: 853035905162260313}
+  - component: {fileID: -5775762235875954574}
   - component: {fileID: 5770532717898428514}
   m_Layer: 6
   m_Name: Enemy
@@ -502,7 +502,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!212 &853035905162260313
+--- !u!212 &-5775762235875954574
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -543,15 +543,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.96470594, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5770532717898428514
@@ -583,3 +583,7 @@ MonoBehaviour:
   candyproximity: 0.1
   rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}
+  kidImg:
+  - {fileID: 21300000, guid: 2ca94d8a72aa7fe4d87529d7b5671e07, type: 3}
+  - {fileID: 21300000, guid: 5953822c35289874bb7a746f07f49bf3, type: 3}
+  kidRenderer: {fileID: -5775762235875954574}
