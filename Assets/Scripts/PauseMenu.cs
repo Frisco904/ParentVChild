@@ -73,12 +73,10 @@ public class PauseMenu : MonoBehaviour
     public void Victory()
     {
         victoryScreenUI.SetActive(true);
-        //pauseMenuUI.SetActive((!pauseMenuUI.activeSelf));
     }
     public void Defeat()
     {
         defeatScreenUI.SetActive(true);
-
     }
 
     public void ReloadScene()
@@ -89,6 +87,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings) { Application.Quit(); }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame()

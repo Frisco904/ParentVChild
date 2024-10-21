@@ -53,26 +53,28 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private void Update()
     {
-        if (LevelManager.main.CandyPile.IsDestroyed()) { return; }
-        if (!isSpawning) return;
 
-        timeSinceLastSpawn += Time.deltaTime;
+        if (LevelManager.main.CandyPile)
+        {
+            if (!isSpawning) return;
 
-        if(timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemyLeftToSpawn > 0)
-        {
-            SpawnEnemy();
-            enemyLeftToSpawn--;
-            timeSinceLastSpawn = 0f;
-            //Debug.Log("Spawn Enemies");
-        }
-        //Use this code something related to this will help to move on to the next stage.
-        //enemyAlive == 0 &&
-        if (enemyLeftToSpawn <= 0)
-        {
-            EndWave();
+            timeSinceLastSpawn += Time.deltaTime;
+
+            if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemyLeftToSpawn > 0)
+            {
+                SpawnEnemy();
+                enemyLeftToSpawn--;
+                timeSinceLastSpawn = 0f;
+                //Debug.Log("Spawn Enemies");
+            }
+            //Use this code something related to this will help to move on to the next stage.
+            //enemyAlive == 0 &&
+            if (enemyLeftToSpawn <= 0)
+            {
+                EndWave();
+            }
         }
     }
-
     private void EnemyDeath()
     {
         enemyAlive--;
@@ -112,7 +114,7 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     }
 
-    private int EnemeiesPerWave()
+    public int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, diffScalingFactor));
     }
@@ -124,11 +126,12 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private IEnumerator StartWave()
     {
-       if (currentWave == 1) yield return new WaitForSeconds(5); else yield return new WaitForSeconds(timeBetweenWaves);
+        LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
+        if (currentWave == 1) yield return new WaitForSeconds(5); else yield return new WaitForSeconds(timeBetweenWaves);
        //yield return new WaitForSeconds(timeBetweenWaves);
 
         isSpawning = true;
-        enemyLeftToSpawn = EnemeiesPerWave();
+        enemyLeftToSpawn = EnemiesPerWave();
         enemiesPerSecond = EnemiesPerSeconds();
     }
 
@@ -139,6 +142,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         currentWave++;
         if (currentWave <= LevelManager.main.GetMaxWaves())
         {
+            //LevelManager.main.SetEnemiesLeft(enemyLeftToSpawn);
             StartCoroutine(StartWave());
         }
         else

@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public GameObject CandyPile;
     [SerializeField] private int currency = 100;
     [SerializeField] private int MaxWaves = 3;
-    private int enemiesAlive = 0;
+    private int enemiesLeft = 0;
     private bool WindConditionMet = false;
     private int score = 0;
     public PauseMenu MenuObj;
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        if (WindConditionMet && enemiesAlive == 0)
+        if (WindConditionMet && enemiesLeft == 0)
         {
             MenuObj.Invoke("Victory", 5);
         }
@@ -69,18 +69,12 @@ public class LevelManager : MonoBehaviour
 
     //Getters and Setters
     public int GetCurrency() {return currency; }
-    public void IncrementEnemiesAlive()
+    public int GetEnemiesLeft()
     {
-        enemiesAlive++;
+        return enemiesLeft;
     }
-    public void DecrementEnemiesAlive()
-    {
-        enemiesAlive--;
-    }
-    public int GetEnemiesAlive()
-    {
-        return enemiesAlive;
-    }
+    public void SetEnemiesLeft(int value) { enemiesLeft += value; }
+    public void DecrementEnemiesLeft() { enemiesLeft--; }
     public int GetMaxWaves() { return MaxWaves; }
     public void SetWinCondition(bool bSetWinCondition) { WindConditionMet = bSetWinCondition; }
     public void AddScore(int value) { score += value; }

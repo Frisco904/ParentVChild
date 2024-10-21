@@ -45,6 +45,7 @@ public class HealthCtrl : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
+        LevelManager.main.DecrementEnemiesLeft();
         TakeDamage();
     }
     //private void OnDrawGizmosSelected()
