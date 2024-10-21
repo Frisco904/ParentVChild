@@ -68,6 +68,8 @@ MonoBehaviour:
   - {fileID: 0}
   CandyPile: {fileID: 0}
   currency: 100
+  MaxWaves: 3
+  MenuObj: {fileID: 0}
 --- !u!114 &5038833332000329976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - name: Turret
-    cost: 25
+    cost: 50
     prefab: {fileID: 7046588463905791149, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
 --- !u!114 &5683014487667516458
 MonoBehaviour:
