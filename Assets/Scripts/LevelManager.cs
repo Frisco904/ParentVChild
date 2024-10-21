@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int MaxWaves = 3;
     private int enemiesAlive = 0;
     private bool WindConditionMet = false;
+    private int score = 0;
+    public PauseMenu MenuObj;
 
     private void Awake()
     {
@@ -35,9 +37,12 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        if (WindConditionMet)
+        if (WindConditionMet && enemiesAlive == 0)
         {
-            SceneController.instance.Invoke("NextLevel", 5);
+            MenuObj.Invoke("Victory", 5);
+        }
+        if (CandyPile.IsDestroyed()) {
+            MenuObj.Defeat();
         }
     }
 
@@ -78,4 +83,6 @@ public class LevelManager : MonoBehaviour
     }
     public int GetMaxWaves() { return MaxWaves; }
     public void SetWinCondition(bool bSetWinCondition) { WindConditionMet = bSetWinCondition; }
+    public void AddScore(int value) { score += value; }
+    public int GetScore() { return score; }
 }

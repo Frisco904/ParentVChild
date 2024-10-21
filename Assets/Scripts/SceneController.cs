@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    //public GameOverScreen;
 
     public static SceneController instance;
+    private PauseMenu MenuObj;
 
     private void Awake()
     {
@@ -20,9 +22,14 @@ public class SceneController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //public void GameOver()
+    //{
+    //    GameOverScreen.Setup(LevelManager.main.GetScore());
+    //}
     public void NextLevel()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        MenuObj.Victory();
     }
 
     public void LoadScene(string sceneName)

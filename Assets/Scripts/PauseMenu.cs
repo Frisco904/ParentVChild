@@ -15,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     [Header("UI Components")]
     [SerializeField] public GameObject pauseMenuUI;
     [SerializeField] public GameObject settingsMenuUI;
+    [SerializeField] private GameObject victoryScreenUI;
+    [SerializeField] private GameObject defeatScreenUI;
 
     
     public float masterVolume;
@@ -62,16 +64,27 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
-    
+
     public void Settings()
     {
        settingsMenuUI.SetActive(!settingsMenuUI.activeSelf);
        pauseMenuUI.SetActive(!pauseMenuUI.activeSelf);
     }
+    public void Victory()
+    {
+        victoryScreenUI.SetActive(true);
+        //pauseMenuUI.SetActive((!pauseMenuUI.activeSelf));
+    }
+    public void Defeat()
+    {
+        defeatScreenUI.SetActive(true);
+
+    }
 
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     public void LoadNextLevel()
