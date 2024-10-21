@@ -566,6 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockPost: 0
   movSpeed: 5
   enemyStunTimer: 1
   knockbackAmount: 0

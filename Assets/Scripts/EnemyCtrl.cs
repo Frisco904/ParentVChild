@@ -9,6 +9,7 @@ public class EnemyCtrl : MonoBehaviour
 {
 
     [Header("Attributes")]
+    [SerializeField] private float lockPost = 0;
     [SerializeField] private float movSpeed = 2f;
     [SerializeField] private float enemyStunTimer = 3;
     [SerializeField] private float knockbackAmount = 100000000;
@@ -107,6 +108,8 @@ public class EnemyCtrl : MonoBehaviour
                 }
             }
         }
+
+        transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
     }   
 
     private void FixedUpdate()
