@@ -567,13 +567,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockPost: 0
-  movSpeed: 5
+  movSpeed: 3.5
   enemyStunTimer: 1
   knockbackAmount: 0
   currentFull: 0
   maxFull: 3
   fillAmount: 1
-  currencyWorth: 50
+  currencyWorth: 5
   candyMask:
     serializedVersion: 2
     m_Bits: 256
