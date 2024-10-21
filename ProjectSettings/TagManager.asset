@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Candy
+  - Enemy
+  - Bounds
+  - Light Enemy
+  - SpotPath
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - Enemy
   - Projectile
   - Candy
-  - 
+  - Pathing
   - 
   - 
   - 

@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
     //[SerializeField] private Transform turretRotationPoint;
 
     [Header("Attributes")]
-    [SerializeField] private float targetingRange = 5f;
+    [SerializeField] private float targetingRange = 50f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
     [SerializeField] private Transform turretRotationPoint;
@@ -40,14 +40,13 @@ public class Tower : MonoBehaviour
     {
         bpsBase = fireRate;
         targetingRangeBase = targetingRange;
-
         upgradeButton.onClick.AddListener(UpgradeTurret);
     }
 
     private void Update()
     {
         if (target == null)
-        {
+        { 
             FindTarget();
             return;
         }
@@ -105,12 +104,13 @@ public class Tower : MonoBehaviour
     {
         return Vector2.Distance(target.position,transform.position) <= targetingRange;
     }
+   /*
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
-
+   */
     //This is for upgrade function
     #region Upgrade Methods
     public void openUpgradeUI()

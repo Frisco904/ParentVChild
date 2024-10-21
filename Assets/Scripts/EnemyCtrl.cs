@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class EnemyCtrl : MonoBehaviour
 {
 
     [Header("Attributes")]
+    [SerializeField] private float lockPost = 0;
     [SerializeField] private float movSpeed = 2f;
     [SerializeField] private float enemyStunTimer = 3;
     [SerializeField] private float knockbackAmount = 100000000;
@@ -16,12 +18,15 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float fillAmount;
     [SerializeField] private int currencyWorth = 50;
     [SerializeField] private LayerMask candyMask;
-    [SerializeField] private float targetingRange = 5f;
+    [SerializeField] private LayerMask pathingMask;
+    [SerializeField] private float targetingRange = 15f;
     [SerializeField] private float candyproximity = .1f;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] EnemyFloatingFeedMeter feedMeter;
+    [SerializeField] Sprite[] kidImg;
+    [SerializeField] SpriteRenderer kidRenderer;
 
 
     private WaveSpawnEnemies spawnEnemies;
@@ -33,12 +38,16 @@ public class EnemyCtrl : MonoBehaviour
     private bool isDestroyed = false;
     private Transform[] path;
 
+    int randomKidImg;
+
+    
 
     private void Awake()
     {
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
         target = LevelManager.main.CandyPile.transform;
+
     }
 
     private void Start()
@@ -60,46 +69,57 @@ public class EnemyCtrl : MonoBehaviour
                 path = LevelManager.main.path3.ToArray();
                 break;
         }
+        SpawnRandomKids();
     }
 
     private void Update()
     {
-        CandyInRange();
-
-        if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
-        if (Vector2.Distance(target.position, transform.position) <= targetingRange)
+        if (LevelManager.main.CandyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
+        if (LevelManager.main.CandyPile)
         {
-            pathIndex++;
-            if (pathIndex == path.Length)
+            CandyInRange();
+            DetectObject();
+
+            if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
+            if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
-                WaveSpawnEnemies.onEnemyDeath.Invoke();
-                Destroy(gameObject);
-                return;
+                pathIndex++;
+                if (pathIndex == path.Length)
+                {
+
+                    WaveSpawnEnemies.onEnemyDeath.Invoke();
+                    Destroy(gameObject);
+                    return;
+                }
+                else
+                {
+                    target = path[pathIndex];
+                }
+
             }
-            else
+
+            if (timer > 0)
             {
-                target = path[pathIndex];
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    timer = -1;
+                    frozen = false;
+                }
             }
-             
         }
 
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                timer = -1;
-                frozen = false;
-            }
-        }
+        transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
     }   
 
     private void FixedUpdate()
     {
-        if (frozen) return;
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * movSpeed;
-
+        if (LevelManager.main.CandyPile)
+        {
+            if (frozen) return;
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.velocity = direction * movSpeed;
+        }
     }
     private void CandyInRange()
     {
@@ -121,7 +141,7 @@ public class EnemyCtrl : MonoBehaviour
     {
 
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
-        Freeze();
+        //Freeze();
         currentFull += fillAmount;
         feedMeter.UpdateFeedMeter(currentFull, maxFull);
         if(currentFull == maxFull && !isDestroyed)
@@ -143,15 +163,42 @@ public class EnemyCtrl : MonoBehaviour
     {
         //This gains money when enemy are killed by the torrents
         LevelManager.main.GainMoney(currencyWorth);
+        LevelManager.main.DecrementEnemiesLeft();
+        LevelManager.main.AddScore(1);
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
 
     }
+    /*
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    }*/
+    private void DetectObject()
+    {
+        if (target)
+        {
+            float distToTarget = Vector3.Distance(transform.position, target.transform.position);
+            Vector3 dirToTarget = transform.position - target.transform.position;
+            RaycastHit2D[] hits;
+            hits = Physics2D.RaycastAll(transform.position, dirToTarget, distToTarget, pathingMask);
+
+            if (hits.Length > 0)
+            {
+                //Debug.Log("The target is " + target.ToString() + " and the gameObject is " + hits[0].collider.gameObject);
+                //Debug.Log(hits[0].collider.gameObject);
+            }
+        }
     }
+
+    void SpawnRandomKids()
+    {
+        randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
+        kidRenderer.sprite = kidImg[randomKidImg - 1];
+        print(randomKidImg);
+    }
+
 }
