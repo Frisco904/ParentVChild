@@ -45,11 +45,12 @@ public class HealthCtrl : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(collision.gameObject);
+        LevelManager.main.DecrementEnemiesLeft();
         TakeDamage();
     }
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, 3.5f);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Handles.color = Color.cyan;
+    //    Handles.DrawWireDisc(transform.position, transform.forward, 3.5f);
+    //}
 }

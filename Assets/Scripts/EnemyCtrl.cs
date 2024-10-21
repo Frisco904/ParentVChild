@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -40,6 +41,7 @@ public class EnemyCtrl : MonoBehaviour
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
         target = LevelManager.main.CandyPile.transform;
+
     }
 
     private void Start()
@@ -65,43 +67,50 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
-        CandyInRange();
-        DetectObject();
-
-        if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
-        if (Vector2.Distance(target.position, transform.position) <= targetingRange)
+        if (LevelManager.main.CandyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
+        if (LevelManager.main.CandyPile)
         {
-            pathIndex++;
-            if (pathIndex == path.Length)
-            {
-                WaveSpawnEnemies.onEnemyDeath.Invoke();
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                target = path[pathIndex];
-            }
-             
-        }
+            CandyInRange();
+            DetectObject();
 
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+            if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
+            if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
-                timer = -1;
-                frozen = false;
+                pathIndex++;
+                if (pathIndex == path.Length)
+                {
+
+                    WaveSpawnEnemies.onEnemyDeath.Invoke();
+                    Destroy(gameObject);
+                    return;
+                }
+                else
+                {
+                    target = path[pathIndex];
+                }
+
+            }
+
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0)
+                {
+                    timer = -1;
+                    frozen = false;
+                }
             }
         }
     }   
 
     private void FixedUpdate()
     {
-        if (frozen) return;
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * movSpeed;
-
+        if (LevelManager.main.CandyPile)
+        {
+            if (frozen) return;
+            Vector2 direction = (target.position - transform.position).normalized;
+            rb.velocity = direction * movSpeed;
+        }
     }
     private void CandyInRange()
     {
@@ -145,28 +154,34 @@ public class EnemyCtrl : MonoBehaviour
     {
         //This gains money when enemy are killed by the torrents
         LevelManager.main.GainMoney(currencyWorth);
+        LevelManager.main.DecrementEnemiesLeft();
+        LevelManager.main.AddScore(1);
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
 
     }
+    /*
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    }*/
     private void DetectObject()
-    { 
-        float distToTarget = Vector3.Distance(transform.position, target.transform.position);
-        Vector3 dirToTarget = transform.position - target.transform.position;
-        RaycastHit2D[] hits;
-        hits = Physics2D.RaycastAll(transform.position, dirToTarget, distToTarget, pathingMask);
-
-        if (hits.Length > 0) 
+    {
+        if (target)
         {
-            //Debug.Log("The target is " + target.ToString() + " and the gameObject is " + hits[0].collider.gameObject);
-            //Debug.Log(hits[0].collider.gameObject);
+            float distToTarget = Vector3.Distance(transform.position, target.transform.position);
+            Vector3 dirToTarget = transform.position - target.transform.position;
+            RaycastHit2D[] hits;
+            hits = Physics2D.RaycastAll(transform.position, dirToTarget, distToTarget, pathingMask);
+
+            if (hits.Length > 0)
+            {
+                //Debug.Log("The target is " + target.ToString() + " and the gameObject is " + hits[0].collider.gameObject);
+                //Debug.Log(hits[0].collider.gameObject);
+            }
         }
     }
 
