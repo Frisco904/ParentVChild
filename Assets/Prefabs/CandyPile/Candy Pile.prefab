@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0462ba5493fe943ac6a7c34c345a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 3
-  maxHealth: 3
+  currentHealth: 7
+  maxHealth: 7
   damageSFX: {fileID: 8300000, guid: 43c75c4897d17764da47bedb34e079a2, type: 3}
+  healthBar: {fileID: 137518985565042696}
 --- !u!61 &-2175763789801925837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -241,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9686275, g: 0.83921576, b: 0.8078432, a: 1}
+  m_Color: {r: 0.014042587, g: 0.4339623, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -475,7 +476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 8.77}
+  m_AnchoredPosition: {x: 0, y: 6.79}
   m_SizeDelta: {x: 1035.8, y: 393.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9168072493482343127

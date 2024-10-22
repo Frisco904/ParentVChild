@@ -2328,14 +2328,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 37196743641304882, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
-      propertyPath: maxHealth
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 37196743641304882, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
-      propertyPath: currentHealth
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 1779559012946460511, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
       propertyPath: m_Name
       value: Candy Pile

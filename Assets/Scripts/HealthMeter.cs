@@ -16,8 +16,7 @@ public class HealthMeter : MonoBehaviour
 
     }
     public void Awake()
-    { 
-
+    {
     }
 
     // Update is called once per frame
