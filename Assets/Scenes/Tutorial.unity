@@ -581,9 +581,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1542360726516491423, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_Value
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542360726516491423, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_MaxValue
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542360726516491423, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: -16
+      objectReference: {fileID: 0}
     - target: {fileID: 1703645063906916736, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134961850727655531, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_Name
+      value: Music Slider
       objectReference: {fileID: 0}
     - target: {fileID: 3951545393977899569, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1081,10 +1097,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1676901102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 26, y: -32}
-  m_SizeDelta: {x: 619.2139, y: 244.7942}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -337, y: -20}
+  m_SizeDelta: {x: 638.1238, y: 165.1023}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &756401831
 MonoBehaviour:
@@ -1106,13 +1122,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1) Click on Turret button each time you want to place a turret.
+  m_text: '1) Click on Turret button each time you place a turret.
 
-    2)
-    Turrets are placed when player clicks on valid spot within bounds.
+    2) Turrets
+    are placed when player clicks on valid spots.
 
-    3) Click
-    on placed turrets to upgrade them.'
+    3) Click on placed turrets
+    to upgrade them.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1139,8 +1155,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1175,7 +1191,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.000106737454, w: 0.0002403951}
+  m_margin: {x: 0, y: 0, z: 1.3506317, w: 0.0002403951}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2423,10 +2439,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1676901102}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -921.29, y: -256.5}
-  m_SizeDelta: {x: 301.1732, y: 71.6264}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 148.71002, y: 228.5}
+  m_SizeDelta: {x: 301.17322, y: 71.6264}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1694044489
 MonoBehaviour:

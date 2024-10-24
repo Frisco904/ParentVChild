@@ -2687,7 +2687,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7396543257009893793, guid: f812f84009449ce44a383f0bccb65e19, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5576241425a3c8544980069cff2dfa83, type: 3}
+  m_audioClip: {fileID: 8300000, guid: df2d2acd76b737f4e8ba581e5b766671, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3090,6 +3090,22 @@ PrefabInstance:
     - target: {fileID: 308275966494332430, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_Name
       value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542360726516491423, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_Value
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542360726516491423, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_MaxValue
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542360726516491423, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3134961850727655531, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
+      propertyPath: m_Name
+      value: Music Volume Slider
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalPosition.x

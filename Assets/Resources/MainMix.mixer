@@ -15,7 +15,10 @@ AudioMixerSnapshotController:
     cc374922131489c4cb767fdbb4e530d7: -5.8
     e885bdc3052aeba40b82182a1c8ffad4: 5.7
     0203fd86ef9eaef4090fbeb6563368f2: 2231
+    b0d84a48c614d9f4ba27c38600d861e6: 0.8
+    29558cd8887baf3498218e98b45aed76: 45
     3fb8be2af2e27044a9b1cdcf96455788: -2328
+    c31b0fdbad8b66748a246f430cb9b0a2: 2.81
     6f79f7cc332aa02488b6e38407f49ae3: -10
     7310530e61d9a7842b03ea080ff81905: 0.0357
     c340306ed35571741b390bad09e12778: 14
@@ -75,6 +78,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 4896275171116442639}
   - {fileID: 691710259639103244}
+  - {fileID: 4440843531672306558}
   m_UserColorIndex: 6
   m_Mute: 0
   m_Solo: 0
@@ -178,7 +182,10 @@ AudioMixerSnapshotController:
     cc374922131489c4cb767fdbb4e530d7: -5.8
     e885bdc3052aeba40b82182a1c8ffad4: 2.7
     0203fd86ef9eaef4090fbeb6563368f2: 22000
+    b0d84a48c614d9f4ba27c38600d861e6: 0.8
+    29558cd8887baf3498218e98b45aed76: 45
     3fb8be2af2e27044a9b1cdcf96455788: -3192
+    c31b0fdbad8b66748a246f430cb9b0a2: 2.81
     6f79f7cc332aa02488b6e38407f49ae3: -16.239672
     7310530e61d9a7842b03ea080ff81905: 0.0357
     c340306ed35571741b390bad09e12778: 14
@@ -234,6 +241,26 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 5c31a9b4b4db7d04ba905b8cf3f0a370
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &4440843531672306558
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 4a6ecc8833c0bf54b9b42e5ff35f873d
+  m_EffectName: ParamEQ
+  m_MixLevel: 0fbbf0313d2b43e4180d6cfc85c333eb
+  m_Parameters:
+  - m_ParameterName: Center freq
+    m_GUID: 29558cd8887baf3498218e98b45aed76
+  - m_ParameterName: Octave range
+    m_GUID: c31b0fdbad8b66748a246f430cb9b0a2
+  - m_ParameterName: Frequency gain
+    m_GUID: b0d84a48c614d9f4ba27c38600d861e6
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
