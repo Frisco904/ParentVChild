@@ -9,7 +9,7 @@ public class EnemyCtrl : MonoBehaviour
 {
 
     [Header("Attributes")]
-    [SerializeField] private float lockPost = 0;
+    //[SerializeField] private float lockPost = 0;
     [SerializeField] private float movSpeed = 2f;
     [SerializeField] private float enemyStunTimer = 3;
     [SerializeField] private float knockbackAmount = 100000000;
@@ -74,7 +74,9 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
+        // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
         if (LevelManager.main.CandyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
+        //Checking that Candy Pile is valid.
         if (LevelManager.main.CandyPile)
         {
             CandyInRange();
@@ -109,7 +111,7 @@ public class EnemyCtrl : MonoBehaviour
             }
         }
 
-        transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
+        //transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
     }   
 
     private void FixedUpdate()

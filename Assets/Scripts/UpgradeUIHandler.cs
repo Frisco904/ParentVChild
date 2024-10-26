@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class UpgradeUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private bool mouse_over = false;
+    [SerializeField] private SpriteRenderer sr;
 
     private void Update()
     {

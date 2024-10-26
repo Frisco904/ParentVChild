@@ -15,7 +15,9 @@ public class TurretSpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Button turretButton;
+    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private GameObject BoundsGameObj;
+
     private void Start()
     {
         turretButton.onClick.AddListener(PlaceTurretToggle);
@@ -36,7 +38,7 @@ public class TurretSpawner : MonoBehaviour
                 UiTower towerBuild = BuildManager.main.GetSelectedTower();
                 towerObj = Instantiate(towerBuild.prefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
                 //Turret = towerObj.GetComponent<Tower>();
-                bPlaceTurret = false;
+                PlaceTurretToggle();
 
             }
             else
@@ -106,6 +108,11 @@ public class TurretSpawner : MonoBehaviour
 
     void PlaceTurretToggle()
     {
-        bPlaceTurret = true;
+        //if (isMenuOpen) anim.Play("MenuClose"); else anim.Play("MenuOpen");
+
+        if (!bPlaceTurret) { turretButton.image.color = Color.gray ; }else{ turretButton.image.color = Color.white; }
+        bPlaceTurret = !bPlaceTurret;
+        
+
     }
 }
