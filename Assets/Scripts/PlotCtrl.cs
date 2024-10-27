@@ -30,7 +30,7 @@ public class PlotCtrl : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //Checks if pointer is hovering on a turrent
+        //Checks if pointer is hovering on a turret
         if ((UIManager.main.IsHoveringUI())) return;
     
         //This function is for torrent drop or torrent build

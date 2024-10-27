@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TurretSpawner : MonoBehaviour
@@ -12,38 +14,41 @@ public class TurretSpawner : MonoBehaviour
     private LevelManager levelManager;
     private bool bPlaceTurret = false;
     private BoxCollider2D boundsCollider;
+    private UiMouseHover uiMouseScript;
 
     [Header("References")]
     [SerializeField] private Button turretButton;
-    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private GameObject BoundsGameObj;
 
     private void Start()
-    {
+    { 
         turretButton.onClick.AddListener(PlaceTurretToggle);
         levelManager = LevelManager.main;
         boundsCollider = BoundsGameObj.GetComponent<BoxCollider2D>();
+        uiMouseScript = BoundsGameObj.GetComponent<UiMouseHover>();
     }
     void Update()
     {
-
-
+        Debug.Log(levelManager.GetCurrency());
+        Debug.Log(BuildManager.main.GetSelectedTower().cost);
+        //Checking if player is clicking in area within bounds and is able to place a turret.
         if (Input.GetMouseButtonDown(0) && bPlaceTurret && WithinBounds())
             { 
             //Spawning turret where the mouse is hovering over.
-
-            if (levelManager.SpendMoney(BuildManager.main.GetSelectedTower().cost))
+            if (CanBuyTurret() && levelManager.SpendMoney(BuildManager.main.GetSelectedTower().cost))
             {
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 UiTower towerBuild = BuildManager.main.GetSelectedTower();
                 towerObj = Instantiate(towerBuild.prefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
                 //Turret = towerObj.GetComponent<Tower>();
+                
                 PlaceTurretToggle();
+                uiMouseScript.MouseDown();
 
             }
             else
             {
-                Debug.Log("Not enough money to buy tower.");
+                //Logic to be executed when there is not enough money.
             }
         }
         else if (Input.GetMouseButtonDown(0) && WithinBounds() && DetectObject())
@@ -106,13 +111,15 @@ public class TurretSpawner : MonoBehaviour
 
     }
 
-    void PlaceTurretToggle()
+    //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
+    private void PlaceTurretToggle()
     {
-        //if (isMenuOpen) anim.Play("MenuClose"); else anim.Play("MenuOpen");
-
-        if (!bPlaceTurret) { turretButton.image.color = Color.gray ; }else{ turretButton.image.color = Color.white; }
+        if (CanBuyTurret()) { turretButton.image.color = Color.gray; } else { turretButton.image.color = Color.white; }
         bPlaceTurret = !bPlaceTurret;
-        
-
     }
+
+    public bool GetCanPlaceTurret(){ return bPlaceTurret; }
+    public bool CanBuyTurret() { return levelManager.GetCurrency() >= BuildManager.main.GetSelectedTower().cost; }
+    public void SetCanPlaceTurret(bool value) { bPlaceTurret = value; }
+
 }
