@@ -24,31 +24,18 @@ public class UiMouseHover : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        //Debug.Log("Mouse is hovering over the Bounds.");
         if(turretSpawner.GetCanPlaceTurret())
             Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto);
     }
 
     private void OnMouseExit()
     {
-        //Debug.Log("Mouse is Not hovering over the Bounds.");
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
     }
     public void MouseDown()
     {
-        if (turretSpawner.GetCanPlaceTurret())
-        {
-            Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto);
-            turretSpawner.SetCanPlaceTurret(false);
-
-        }
-        else
-        {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-            //turretSpawner.SetCanPlaceTurret(true);
-        }
-            
+        if (turretSpawner.GetCanPlaceTurret()) { Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto); } else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
     

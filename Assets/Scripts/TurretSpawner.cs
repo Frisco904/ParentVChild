@@ -1,3 +1,4 @@
+using Packages.Rider.Editor.UnitTesting;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ public class TurretSpawner : MonoBehaviour
 
     private void Start()
     { 
-        turretButton.onClick.AddListener(PlaceTurretToggle);
+        turretButton.onClick.AddListener(ClickTurretButton);
         levelManager = LevelManager.main;
         boundsCollider = BoundsGameObj.GetComponent<BoxCollider2D>();
         uiMouseScript = BoundsGameObj.GetComponent<UiMouseHover>();
@@ -40,11 +41,9 @@ public class TurretSpawner : MonoBehaviour
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 UiTower towerBuild = BuildManager.main.GetSelectedTower();
                 towerObj = Instantiate(towerBuild.prefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
-                //Turret = towerObj.GetComponent<Tower>();
-                
-                PlaceTurretToggle();
-                uiMouseScript.MouseDown();
 
+                UnclickTurretButton();
+                uiMouseScript.MouseDown();
             }
             else
             {
@@ -112,14 +111,25 @@ public class TurretSpawner : MonoBehaviour
     }
 
     //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
-    private void PlaceTurretToggle()
+    private void ClickTurretButton()
     {
-        if (CanBuyTurret()) { turretButton.image.color = Color.gray; } else { turretButton.image.color = Color.white; }
-        bPlaceTurret = !bPlaceTurret;
+        if (CanBuyTurret())
+        {
+            turretButton.image.color = Color.gray;
+            bPlaceTurret = true;
+        }
+        else
+        {
+            turretButton.image.color = Color.white;
+            bPlaceTurret = false;
+        }
     }
-
+    private void UnclickTurretButton()
+    {
+        turretButton.image.color = Color.white;
+        bPlaceTurret = false;
+    }
     public bool GetCanPlaceTurret(){ return bPlaceTurret; }
     public bool CanBuyTurret() { return levelManager.GetCurrency() >= BuildManager.main.GetSelectedTower().cost; }
-    public void SetCanPlaceTurret(bool value) { bPlaceTurret = value; }
 
 }
