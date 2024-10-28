@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2200493824309688847}
   - component: {fileID: 344810057709616752}
   - component: {fileID: 384078118292200793}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083dd9ae460aacd4298c3ea40e1c42f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
 --- !u!1 &1493870859069156702
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4117516163942617377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PivotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3721840948370413079}
   - component: {fileID: 8984692276501320057}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9024184806864647534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +275,7 @@ GameObject:
   - component: {fileID: 747287721244384685}
   - component: {fileID: 8001872694921823400}
   - component: {fileID: 226546027398875797}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +410,7 @@ GameObject:
   - component: {fileID: 3811194550922576872}
   - component: {fileID: 13269691911534525}
   - component: {fileID: 8966721821688973272}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Upgrade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +530,7 @@ GameObject:
   - component: {fileID: 477739155010751067}
   - component: {fileID: 7902516227747306451}
   - component: {fileID: 5091142529219715445}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +609,7 @@ GameObject:
   - component: {fileID: 1789711799301193740}
   - component: {fileID: 6179901042209188499}
   - component: {fileID: -6092140016763046395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Parent Turret
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -813,7 +814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5896416643030610518}
   - component: {fileID: 2864431180763783052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
