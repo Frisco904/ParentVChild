@@ -7,8 +7,8 @@ public class UiMouseHover : MonoBehaviour
     [SerializeField] private Vector2 hoverCursorHotspot;
     [SerializeField] private Texture2D onHoverCursor;
 
-    [Header("Reference")]
-    [SerializeField] private TurretSpawner turretSpawner;
+
+    private TurretSpawner turretSpawner;
 
 
     // Start is called before the first frame update

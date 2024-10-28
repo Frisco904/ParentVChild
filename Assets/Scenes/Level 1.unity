@@ -1125,17 +1125,6 @@ Transform:
   - {fileID: 1105946194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &818814194 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5683014487667516458, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
-  m_PrefabInstance: {fileID: 436946503}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0036fe2ba831fbe4e8651484c9b5bcdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &822293321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1182,30 +1171,6 @@ PrefabInstance:
     - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 818814194}
-    - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlaceTurretToggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TurretSpawner, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5252462655742419094, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_IsActive
