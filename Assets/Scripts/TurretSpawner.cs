@@ -112,7 +112,7 @@ public class TurretSpawner : MonoBehaviour
     //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
     private void ClickTurretButton()
     {
-        if (CanBuyTurret())
+        if (CanBuyTurret() && !bPlaceTurret)
         {
             turretButton.image.color = Color.gray;
             bPlaceTurret = true;
