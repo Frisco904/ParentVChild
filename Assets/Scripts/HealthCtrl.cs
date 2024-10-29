@@ -55,9 +55,13 @@ public class HealthCtrl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
-        LevelManager.main.DecrementEnemiesLeft();
-        TakeDamage();
+        //If the collider is an enemy then we destroy the enemy game object, decrement the enemy counter, and call TakeDamage function. Enemy counter is used as the objective to move to the next level.
+        if (collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
+            LevelManager.main.DecrementEnemiesLeft();
+            TakeDamage();
+        }
     }
     //private void OnDrawGizmosSelected()
     //{

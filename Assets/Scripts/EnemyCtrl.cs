@@ -54,6 +54,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         spawnPoint = gameObject.GetComponentInParent<WaveSpawnEnemies>().GetSpawnPoint();
 
+        //Switch that sets the relevant path/target for the enemy based on which spawner they spawned at.
         switch (spawnPoint)
         {
             case SpawnPoints.SpawnPoint1:
@@ -69,7 +70,8 @@ public class EnemyCtrl : MonoBehaviour
                 path = LevelManager.main.path3.ToArray();
                 break;
         }
-        SpawnRandomKids();
+
+        GenerateRandomKidImage();
     }
 
     private void Update()
@@ -82,7 +84,10 @@ public class EnemyCtrl : MonoBehaviour
             CandyInRange();
             DetectObject();
 
+            //Makes the radius smaller if the target is the candypile, to make the enemy collide with the candy pile to trigger the appropriate logic.
             if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
+            
+            //Check if target is within range, if so move on to next target in list.
             if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
                 pathIndex++;
@@ -90,7 +95,7 @@ public class EnemyCtrl : MonoBehaviour
                 {
 
                     WaveSpawnEnemies.onEnemyDeath.Invoke();
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                     return;
                 }
                 else
@@ -190,17 +195,18 @@ public class EnemyCtrl : MonoBehaviour
 
             if (hits.Length > 0)
             {
+                //Beginning to create logic for pathing of enemies to avoid getting stuck on turret if in its path.
                 //Debug.Log("The target is " + target.ToString() + " and the gameObject is " + hits[0].collider.gameObject);
                 //Debug.Log(hits[0].collider.gameObject);
             }
         }
     }
 
-    void SpawnRandomKids()
+    void GenerateRandomKidImage()
     {
         randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
         kidRenderer.sprite = kidImg[randomKidImg - 1];
-        print(randomKidImg);
+        //print(randomKidImg);
     }
 
 }

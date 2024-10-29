@@ -2268,6 +2268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candy Pile
       objectReference: {fileID: 0}
+    - target: {fileID: 1779559012946460511, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
+      propertyPath: m_TagString
+      value: Candy
+      objectReference: {fileID: 0}
     - target: {fileID: 5949550309494206763, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -24,17 +24,20 @@ public class UiMouseHover : MonoBehaviour
     }
     private void OnMouseEnter()
     {
+        //When cursor enters the collider area we check to see if we can place a turret, if so we will change the cursor.
         if(turretSpawner.GetCanPlaceTurret())
             Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto);
     }
 
     private void OnMouseExit()
     {
+        //Anytime the cursor exits the collider area we will change the cursor back to the original image.
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
     }
     public void MouseDown()
     {
+        //When we place the turret we change the cursor back to the default image, indicating that we can no longer place turrets until another turret is purchased.
         if (turretSpawner.GetCanPlaceTurret()) { Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto); } else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
     }
 
