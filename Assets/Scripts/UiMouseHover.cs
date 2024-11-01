@@ -17,6 +17,7 @@ public class UiMouseHover : MonoBehaviour
     void Start()
     {
         turretSpawner = FindAnyObjectByType<TurretSpawner>();
+        
     }
 
     // Update is called once per frame

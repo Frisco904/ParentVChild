@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path1;
     [SerializeField] public List<Transform> path2;
     [SerializeField] public List<Transform> path3;
+
     private int enemiesLeft = 0;
     private bool WindConditionMet = false;
     private int score = 0;
