@@ -25,7 +25,6 @@ public class WaveSpawnEnemies : MonoBehaviour
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecCap = 15f;
     [SerializeField] private SpawnPoints spawnPoint;
-    [SerializeField] public float spawnFrequency;
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefab;
@@ -37,8 +36,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private float enemiesPerSecond; 
-    private int enemyAlive;
-    private int enemyLeftToSpawn;
+    private int enemiesLeftToSpawn;
     private bool isSpawning = false;
     private int index;
 
@@ -48,38 +46,9 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private void Awake()
     {
-        onEnemyDeath.AddListener(EnemyDeath);
+        //onEnemyDeath.AddListener(EnemyDeath);
     }
 
-    private void Update()
-    {
-
-        if (LevelManager.main.CandyPile)
-        {
-            if (!isSpawning) return;
-
-            timeSinceLastSpawn += Time.deltaTime;
-
-            if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemyLeftToSpawn > 0)
-            {
-                SpawnEnemy();
-                enemyLeftToSpawn--;
-                timeSinceLastSpawn = 0f;
-                //Debug.Log("Spawn Enemies");
-            }
-            //Use this code something related to this will help to move on to the next stage.
-            //enemyAlive == 0 &&
-            if (enemyLeftToSpawn <= 0)
-            {
-                EndWave();
-            }
-        }
-    }
-    private void EnemyDeath()
-    {
-        enemyAlive--;
-
-    }
     void Start()
     { 
 
@@ -100,14 +69,39 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         }
 
-        StartCoroutine(StartWave());
-        //InvokeRepeating("SpawnEnemy", 0.0f, spawnFrequency);
+        StartCoroutine(SpawnWave());
+    }
 
+    private void Update()
+    {
+        //Debug.Log("Spawn point : "+ spawnPoint+ " enemies left to spawn: " + enemiesLeftToSpawn);
+
+
+        if (LevelManager.main.CandyPile)
+        {
+
+            if (LevelManager.main.GetEnemiesLeft() == 0)
+            {
+                //EndWave();
+            }
+
+            if (!isSpawning) return;
+
+            timeSinceLastSpawn += Time.deltaTime;
+
+            if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
+            {
+                SpawnEnemy();
+                enemiesLeftToSpawn--;
+                timeSinceLastSpawn = 0f;
+            }
+
+        }
     }
 
     void SpawnEnemy()
     {
-        enemyAlive++;
+        //enemiesAlive++;
         int prefabIndex = Random.Range(0, enemyPrefab.Length);
         GameObject prefabToSPawn = enemyPrefab[prefabIndex];
         Instantiate(prefabToSPawn, LevelManager.main.startPoints[index]);
@@ -124,30 +118,35 @@ public class WaveSpawnEnemies : MonoBehaviour
         return Mathf.Clamp((enemyPerSecond * Mathf.Pow(currentWave, diffScalingFactor)), 0f, enemiesPerSecCap);
     }
 
-    private IEnumerator StartWave()
+    private IEnumerator SpawnWave()
     {
         LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
-        if (currentWave == 1) yield return new WaitForSeconds(5); else yield return new WaitForSeconds(timeBetweenWaves);
+        if (currentWave == 1) yield return new WaitForSeconds(LevelManager.main.GetInitialWaveDelay()); else yield return new WaitForSeconds(timeBetweenWaves);
        //yield return new WaitForSeconds(timeBetweenWaves);
 
         isSpawning = true;
-        enemyLeftToSpawn = EnemiesPerWave();
+        enemiesLeftToSpawn = EnemiesPerWave();
         enemiesPerSecond = EnemiesPerSeconds();
     }
 
-    private void EndWave()
+    public void EndWave()
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
+        //Debug.Log("End Wave has started, values for enemies left are :" + LevelManager.main.GetEnemiesLeft() +" and get max waves: " +LevelManager.main.GetMaxWaves());
         if (currentWave <= LevelManager.main.GetMaxWaves())
         {
-            //LevelManager.main.SetEnemiesLeft(enemyLeftToSpawn);
-            StartCoroutine(StartWave());
+            //Debug.Log("Starting next wave");
+            StartCoroutine(SpawnWave());
+        }
+        else if(currentWave > LevelManager.main.GetMaxWaves())
+        {
+            LevelManager.main.SetWinCondition(true);
         }
         else
         {
-            LevelManager.main.SetWinCondition(true);
+            
         }
     }
 
@@ -155,6 +154,4 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         return spawnPoint;
     }
-    public int GetCurrentWave() { return currentWave; }
-    public int GetEnemiesLeftToSpawn() { return enemyLeftToSpawn; }
 }

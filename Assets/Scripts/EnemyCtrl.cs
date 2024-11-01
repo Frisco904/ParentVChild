@@ -37,13 +37,13 @@ public class EnemyCtrl : MonoBehaviour
     private float timer = -1;
     private bool isDestroyed = false;
     private Transform[] path;
-
     int randomKidImg;
 
     
 
     private void Awake()
     {
+        
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
         target = LevelManager.main.CandyPile.transform;
@@ -76,6 +76,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
+
         // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
         if (LevelManager.main.CandyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
         //Checking that Candy Pile is valid.
