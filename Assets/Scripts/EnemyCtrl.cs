@@ -9,7 +9,7 @@ public class EnemyCtrl : MonoBehaviour
 {
 
     [Header("Attributes")]
-    [SerializeField] private float lockPost = 0;
+    //[SerializeField] private float lockPost = 0;
     [SerializeField] private float movSpeed = 2f;
     [SerializeField] private float enemyStunTimer = 3;
     [SerializeField] private float knockbackAmount = 100000000;
@@ -37,13 +37,13 @@ public class EnemyCtrl : MonoBehaviour
     private float timer = -1;
     private bool isDestroyed = false;
     private Transform[] path;
-
     int randomKidImg;
 
     
 
     private void Awake()
     {
+        
         feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
         target = LevelManager.main.CandyPile.transform;
@@ -54,6 +54,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         spawnPoint = gameObject.GetComponentInParent<WaveSpawnEnemies>().GetSpawnPoint();
 
+        //Switch that sets the relevant path/target for the enemy based on which spawner they spawned at.
         switch (spawnPoint)
         {
             case SpawnPoints.SpawnPoint1:
@@ -69,18 +70,25 @@ public class EnemyCtrl : MonoBehaviour
                 path = LevelManager.main.path3.ToArray();
                 break;
         }
-        SpawnRandomKids();
+
+        GenerateRandomKidImage();
     }
 
     private void Update()
     {
+
+        // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
         if (LevelManager.main.CandyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
+        //Checking that Candy Pile is valid.
         if (LevelManager.main.CandyPile)
         {
             CandyInRange();
             DetectObject();
 
+            //Makes the radius smaller if the target is the candypile, to make the enemy collide with the candy pile to trigger the appropriate logic.
             if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
+            
+            //Check if target is within range, if so move on to next target in list.
             if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
                 pathIndex++;
@@ -88,7 +96,7 @@ public class EnemyCtrl : MonoBehaviour
                 {
 
                     WaveSpawnEnemies.onEnemyDeath.Invoke();
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                     return;
                 }
                 else
@@ -109,7 +117,7 @@ public class EnemyCtrl : MonoBehaviour
             }
         }
 
-        transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
+        //transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
     }   
 
     private void FixedUpdate()
@@ -188,17 +196,18 @@ public class EnemyCtrl : MonoBehaviour
 
             if (hits.Length > 0)
             {
+                //Beginning to create logic for pathing of enemies to avoid getting stuck on turret if in its path.
                 //Debug.Log("The target is " + target.ToString() + " and the gameObject is " + hits[0].collider.gameObject);
                 //Debug.Log(hits[0].collider.gameObject);
             }
         }
     }
 
-    void SpawnRandomKids()
+    void GenerateRandomKidImage()
     {
         randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
         kidRenderer.sprite = kidImg[randomKidImg - 1];
-        print(randomKidImg);
+        //print(randomKidImg);
     }
 
 }

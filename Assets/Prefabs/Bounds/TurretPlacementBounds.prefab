@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2819453731857245959}
   - component: {fileID: 2210371234591918494}
+  - component: {fileID: 7812704488500724680}
   m_Layer: 0
   m_Name: TurretPlacementBounds
   m_TagString: Bounds
@@ -77,3 +78,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 69.08281, y: 47.57966}
   m_EdgeRadius: 0
+--- !u!114 &7812704488500724680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367759757610364122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766d7457d7376e6419830506a752aff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverCursorHotspot: {x: 32, y: 32}
+  onHoverCursor: {fileID: 2800000, guid: e422451c2a4ef654282aa69336f0359d, type: 3}
+  turretSpawner: {fileID: 0}

@@ -14,6 +14,10 @@ public class Menu : MonoBehaviour
 
     private bool isMenuOpen = true;
 
+    private void Start()
+    {
+        menuButton.onClick.AddListener(ToggleMenu);
+    }
     //This is for the menu animation
     public void ToggleMenu()
     {
@@ -30,10 +34,5 @@ public class Menu : MonoBehaviour
     public void setSelected()
     {
 
-    }
-
-    private void Start()
-    {
-        menuButton.onClick.AddListener(ToggleMenu);
     }
 }

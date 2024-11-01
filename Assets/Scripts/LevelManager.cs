@@ -9,17 +9,27 @@ public class LevelManager : MonoBehaviour
 
     //Static means it can be called from anywhere.
     public static LevelManager main;
+
     [SerializeField] public Transform[] startPoints;
     [SerializeField] public List<Transform> path1;
     [SerializeField] public List<Transform> path2;
     [SerializeField] public List<Transform> path3;
-    [SerializeField] public GameObject CandyPile;
-    [SerializeField] private int currency = 100;
-    [SerializeField] private int MaxWaves = 3;
     private int enemiesLeft = 0;
     private bool WindConditionMet = false;
     private int score = 0;
+    private WaveSpawnEnemies[] WaveSpawners;
+
+    [Header("Enemy Wave Attributes")]
+    [SerializeField] private int MaxWaves = 3;
+    [SerializeField] private float initialWaveDelay = 5f;
+
+    [Header("References")]
+    [SerializeField] public GameObject CandyPile;
     public PauseMenu MenuObj;
+
+    [Header("Currency System")]
+    [SerializeField] private int currency = 100;
+
 
     private void Awake()
     {
@@ -37,12 +47,23 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(enemiesLeft);
         if (WindConditionMet && enemiesLeft == 0)
         {
             MenuObj.Invoke("Victory", 5);
         }
         if (CandyPile.IsDestroyed()) {
             MenuObj.Defeat();
+        }
+        if (enemiesLeft == 0) {
+            Debug.Log("Level Manager debug for reaching zero enemies in wave");
+            WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
+
+            foreach (WaveSpawnEnemies spawner in WaveSpawners)
+            {
+                spawner.EndWave();
+                Debug.Log(spawner.GetSpawnPoint());
+            }
         }
     }
 
@@ -79,4 +100,5 @@ public class LevelManager : MonoBehaviour
     public void SetWinCondition(bool bSetWinCondition) { WindConditionMet = bSetWinCondition; }
     public void AddScore(int value) { score += value; }
     public int GetScore() { return score; }
+    public float GetInitialWaveDelay() { return initialWaveDelay; }
 }
