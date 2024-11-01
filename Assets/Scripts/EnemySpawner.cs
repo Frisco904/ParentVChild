@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
+    //Independent enemy wave spawner not connected to wave spawners.
 
 
     [Header("Attributes")]
