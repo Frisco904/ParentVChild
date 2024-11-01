@@ -21,7 +21,9 @@ public class Tower : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject upgradeUI;
     [SerializeField] private Button upgradeButton;
+    [SerializeField] private Button sellBtn;
     [SerializeField] private int baseUpgradeCost = 100;
+    [SerializeField] private int baseSellCost = 100;
     
     [Header("FX")]
     [SerializeField] private AudioClip shotSFX;
@@ -41,6 +43,7 @@ public class Tower : MonoBehaviour
         bpsBase = fireRate;
         targetingRangeBase = targetingRange;
         upgradeButton.onClick.AddListener(UpgradeTurret);
+        sellBtn.onClick.AddListener(SellTorrent);
     }
 
     private void Update()
@@ -160,4 +163,14 @@ public class Tower : MonoBehaviour
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
     }
     #endregion
+
+    //For selling turrents
+    public void SellTorrent()
+    {
+        LevelManager.main.GainMoney(baseSellCost);
+
+        closeUpgradeUI();
+
+        Destroy(this.gameObject);
+    }
 }
