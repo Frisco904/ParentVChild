@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class UiMouseHover : MonoBehaviour
 {
-    [SerializeField] private Vector2 hoverCursorHotspot;
-    [SerializeField] private Texture2D onHoverCursor;
+    [SerializeField] private Texture2D onHoverCursorInBounds;
+    [SerializeField] private Vector2 hoverInBoundsCursorHotspot;
 
+    [SerializeField] private Texture2D onHoverCursorOutOfBounds;
+    [SerializeField] private Vector2 hoverOutBoundsCursorHotspot;
 
     private TurretSpawner turretSpawner;
 
@@ -15,31 +17,53 @@ public class UiMouseHover : MonoBehaviour
     void Start()
     {
         turretSpawner = FindAnyObjectByType<TurretSpawner>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void OnMouseEnter()
     {
         //When cursor enters the collider area we check to see if we can place a turret, if so we will change the cursor.
-        if(turretSpawner.GetCanPlaceTurret())
-            Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto);
+        if (turretSpawner.GetCanPlaceTurret())
+            Cursor.SetCursor(onHoverCursorInBounds, hoverInBoundsCursorHotspot, CursorMode.Auto);
     }
 
     private void OnMouseExit()
     {
         //Anytime the cursor exits the collider area we will change the cursor back to the original image.
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        if (turretSpawner.GetCanPlaceTurret())
+        {
+
+            Cursor.SetCursor(onHoverCursorOutOfBounds, hoverOutBoundsCursorHotspot, CursorMode.Auto);
+
+        }
+        else
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
     }
+
+
     public void MouseDown()
-    {
-        //When we place the turret we change the cursor back to the default image, indicating that we can no longer place turrets until another turret is purchased.
-        if (turretSpawner.GetCanPlaceTurret()) { Cursor.SetCursor(onHoverCursor, hoverCursorHotspot, CursorMode.Auto); } else { Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); }
-    }
 
-    
+        //Add logic to change the cursor based on if we can place a turret down or now and update the cursor accordingly.
+    {
+        
+        if (turretSpawner.GetCanPlaceTurret() && turretSpawner.WithinBounds())
+        {
+            Cursor.SetCursor(onHoverCursorInBounds, hoverInBoundsCursorHotspot, CursorMode.Auto);
+        }
+        else if (turretSpawner.GetCanPlaceTurret() && !turretSpawner.WithinBounds())
+        {
+            Cursor.SetCursor(onHoverCursorOutOfBounds, hoverOutBoundsCursorHotspot, CursorMode.Auto);
+        }
+        else
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
+        }
+    }
 }

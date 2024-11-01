@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path1;
     [SerializeField] public List<Transform> path2;
     [SerializeField] public List<Transform> path3;
+
     private int enemiesLeft = 0;
     private bool WindConditionMet = false;
     private int score = 0;
@@ -47,7 +48,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(enemiesLeft);
+
         if (WindConditionMet && enemiesLeft == 0)
         {
             MenuObj.Invoke("Victory", 5);
@@ -56,13 +57,12 @@ public class LevelManager : MonoBehaviour
             MenuObj.Defeat();
         }
         if (enemiesLeft == 0) {
-            Debug.Log("Level Manager debug for reaching zero enemies in wave");
             WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
 
             foreach (WaveSpawnEnemies spawner in WaveSpawners)
             {
                 spawner.EndWave();
-                Debug.Log(spawner.GetSpawnPoint());
+
             }
         }
     }
