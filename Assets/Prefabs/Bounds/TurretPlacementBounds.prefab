@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -8.8672905, y: -0.37685776}
+  m_Offset: {x: -10.693623, y: -10.4020195}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 69.08281, y: 47.57966}
+  m_Size: {x: 47.88935, y: 22.102852}
   m_EdgeRadius: 0
 --- !u!114 &7812704488500724680
 MonoBehaviour:
@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766d7457d7376e6419830506a752aff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverCursorHotspot: {x: 32, y: 32}
-  onHoverCursor: {fileID: 2800000, guid: e422451c2a4ef654282aa69336f0359d, type: 3}
-  turretSpawner: {fileID: 0}
+  onHoverCursorInBounds: {fileID: 2800000, guid: e422451c2a4ef654282aa69336f0359d, type: 3}
+  hoverInBoundsCursorHotspot: {x: 32, y: 32}
+  onHoverCursorOutOfBounds: {fileID: 2800000, guid: 497b916ea810ee54ebea780179e1c8d3, type: 3}
+  hoverOutBoundsCursorHotspot: {x: 32, y: 32}
