@@ -160,7 +160,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         }
     }
 
-    public string GetCurrentWaveTxt(int wave)
+    private string GetCurrentWaveTxt(int wave)
     {
         return waveUI.text = "Wave: " + wave.ToString();
     }
