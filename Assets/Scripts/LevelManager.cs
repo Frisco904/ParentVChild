@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(enemiesLeft);
+        //Debug.Log(enemiesLeft);
         if (WindConditionMet && enemiesLeft == 0)
         {
             MenuObj.Invoke("Victory", 5);
