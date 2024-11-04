@@ -47,6 +47,7 @@ public class TurretSpawner : MonoBehaviour
                 //Logic to be executed when there is not enough money.
             }
         }
+        //Checking if player is clicking in an area within bounds and there is a detectable object within the raycast (Player Turret).
         else if (Input.GetMouseButtonDown(0) && WithinBounds() && DetectObject())
         {
             if (DetectObject().tag == "Player")
@@ -60,10 +61,6 @@ public class TurretSpawner : MonoBehaviour
             }
             
         }
-        else
-        {
-
-        }
 
     }
 
@@ -74,7 +71,6 @@ public class TurretSpawner : MonoBehaviour
         RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
         if (hits2d.Length > 0)
         {
-            //Debug.Log("Hits Exist");
             foreach (RaycastHit2D hit in hits2d)
             {
                 if (hit.collider.gameObject.tag == "Player")
@@ -88,7 +84,7 @@ public class TurretSpawner : MonoBehaviour
         return null;
     }
 
-    private bool WithinBounds()
+    public bool WithinBounds()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
@@ -110,6 +106,7 @@ public class TurretSpawner : MonoBehaviour
     //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
     private void ClickTurretButton()
     {
+
         if (CanBuyTurret() && !bPlaceTurret)
         {
             turretButton.image.color = Color.gray;
@@ -120,6 +117,7 @@ public class TurretSpawner : MonoBehaviour
             turretButton.image.color = Color.white;
             bPlaceTurret = false;
         }
+        uiMouseScript.MouseDown();
     }
     private void UnclickTurretButton()
     {
