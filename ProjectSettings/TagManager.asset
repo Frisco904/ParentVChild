@@ -9,7 +9,7 @@ TagManager:
   - Bounds
   - Light Enemy
   - SpotPath
-  - TurretButton
+
   layers:
   - Default
   - TransparentFX

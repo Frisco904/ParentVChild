@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
+using TMPro;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public enum SpawnPoints
@@ -29,6 +33,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] public static WaveSpawnEnemies main;
+    [SerializeField] private TextMeshProUGUI waveUI;
 
     [Header("Events")]
     public static UnityEvent onEnemyDeath = new UnityEvent();
@@ -47,11 +52,11 @@ public class WaveSpawnEnemies : MonoBehaviour
     private void Awake()
     {
         //onEnemyDeath.AddListener(EnemyDeath);
+        
     }
 
     void Start()
-    { 
-
+    {
         switch (spawnPoint)
         {
             case SpawnPoints.SpawnPoint1:
@@ -76,6 +81,8 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         //Debug.Log("Spawn point : "+ spawnPoint+ " enemies left to spawn: " + enemiesLeftToSpawn);
 
+        int wave = currentWave;
+        GetCurrentWaveTxt(wave);
 
         if (LevelManager.main.CandyPile)
         {
@@ -102,6 +109,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     void SpawnEnemy()
     {
         //enemiesAlive++;
+
         int prefabIndex = Random.Range(0, enemyPrefab.Length);
         GameObject prefabToSPawn = enemyPrefab[prefabIndex];
         Instantiate(prefabToSPawn, LevelManager.main.startPoints[index]);
@@ -121,8 +129,9 @@ public class WaveSpawnEnemies : MonoBehaviour
     private IEnumerator SpawnWave()
     {
         LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
+        //GameObject main = GameObject.FindGameObjectWithTag("Prime");
         if (currentWave == 1) yield return new WaitForSeconds(LevelManager.main.GetInitialWaveDelay()); else yield return new WaitForSeconds(timeBetweenWaves);
-       //yield return new WaitForSeconds(timeBetweenWaves);
+        //yield return new WaitForSeconds(timeBetweenWaves);
 
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
@@ -131,6 +140,7 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     public void EndWave()
     {
+        
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
@@ -148,6 +158,11 @@ public class WaveSpawnEnemies : MonoBehaviour
         {
             
         }
+    }
+
+    public string GetCurrentWaveTxt(int wave)
+    {
+        return waveUI.text = "Wave: " + wave.ToString();
     }
 
     public SpawnPoints GetSpawnPoint()
