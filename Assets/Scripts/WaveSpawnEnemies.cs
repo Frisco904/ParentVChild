@@ -82,7 +82,11 @@ public class WaveSpawnEnemies : MonoBehaviour
         //Debug.Log("Spawn point : "+ spawnPoint+ " enemies left to spawn: " + enemiesLeftToSpawn);
 
         int wave = currentWave;
-        GetCurrentWaveTxt(wave);
+        
+        if(isSpawning)
+        {
+            GetCurrentWaveTxt(wave);
+        }
 
         if (LevelManager.main.CandyPile)
         {
@@ -90,6 +94,7 @@ public class WaveSpawnEnemies : MonoBehaviour
             if (LevelManager.main.GetEnemiesLeft() == 0)
             {
                 //EndWave();
+               
             }
 
             if (!isSpawning) return;
@@ -133,6 +138,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         if (currentWave == 1) yield return new WaitForSeconds(LevelManager.main.GetInitialWaveDelay()); else yield return new WaitForSeconds(timeBetweenWaves);
         //yield return new WaitForSeconds(timeBetweenWaves);
 
+
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
         enemiesPerSecond = EnemiesPerSeconds();
@@ -140,7 +146,7 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     public void EndWave()
     {
-        
+
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
@@ -156,13 +162,13 @@ public class WaveSpawnEnemies : MonoBehaviour
         }
         else
         {
-            
+
         }
     }
 
     private string GetCurrentWaveTxt(int wave)
     {
-        return waveUI.text = "Wave: " + wave.ToString();
+        return waveUI.text = "Wave: " + wave.ToString() + " out of " + LevelManager.main.GetMaxWaves();
     }
 
     public SpawnPoints GetSpawnPoint()

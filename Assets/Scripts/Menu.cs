@@ -13,12 +13,16 @@ public class Menu : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Button menuButton;
 
+    private float delayTime = 5f;
+    private float startTime;
+
 
     private bool isMenuOpen = true;
 
     private void Start()
     {
         menuButton.onClick.AddListener(ToggleMenu);
+        startTime = Time.time;
     }
     //This is for the menu animation
     public void ToggleMenu()
@@ -30,6 +34,10 @@ public class Menu : MonoBehaviour
     private void OnGUI()
     {
         currencyUI.text = LevelManager.main.GetCurrency().ToString();
-        EnemyUI.text = "Enemy Left: " + LevelManager.main.GetEnemiesLeft().ToString();
+        if (Time.time >= startTime + delayTime)
+        {
+            EnemyUI.text = "Enemies Left: " + LevelManager.main.GetEnemiesLeft().ToString();
+        }
     }
+
 }

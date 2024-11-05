@@ -753,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3004931882738759893, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4810588207672621648, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -795,6 +795,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
+      propertyPath: waveUI
+      value: 
+      objectReference: {fileID: 796183796}
+    - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
+      propertyPath: EnemyUI
+      value: 
+      objectReference: {fileID: 1590329129}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: spawnPoint
       value: 2
@@ -1514,7 +1522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3004931882738759893, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4810588207672621648, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1556,6 +1564,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
+      propertyPath: waveUI
+      value: 
+      objectReference: {fileID: 796183796}
+    - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
+      propertyPath: EnemyUI
+      value: 
+      objectReference: {fileID: 1590329129}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: spawnPoint
       value: 1
@@ -3079,7 +3095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3004931882738759893, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4810588207672621648, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3121,6 +3137,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
+      propertyPath: waveUI
+      value: 
+      objectReference: {fileID: 796183796}
+    - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
+      propertyPath: EnemyUI
+      value: 
+      objectReference: {fileID: 1590329129}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: spawnPoint
       value: 0
