@@ -34,6 +34,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] public static WaveSpawnEnemies main;
     [SerializeField] private TextMeshProUGUI waveUI;
+    [SerializeField] private TextMeshProUGUI IndicateWaveUI;
     [SerializeField] private GameObject finalWaveTxt;
 
     [Header("Events")]
@@ -44,7 +45,8 @@ public class WaveSpawnEnemies : MonoBehaviour
     private float enemiesPerSecond; 
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    private bool isFinished = false;
+    private bool isLvlFinished = false;
+    private bool isWaveFinished = false;
     private int index;
 
 
@@ -88,6 +90,10 @@ public class WaveSpawnEnemies : MonoBehaviour
         if(isSpawning)
         {
             GetCurrentWaveTxt(wave);
+            if(LevelManager.main.GetMaxWaves() != wave && !isWaveFinished)
+            {
+                ShowWave(wave);
+            }
         }
 
         if (LevelManager.main.CandyPile)
@@ -100,7 +106,6 @@ public class WaveSpawnEnemies : MonoBehaviour
             }
 
             if (!isSpawning) return;
-
             timeSinceLastSpawn += Time.deltaTime;
 
             if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
@@ -112,13 +117,13 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         }
         //This is for the final wave text to spawn after it reaches the max wave
-        if (LevelManager.main.GetMaxWaves() == wave && !isFinished)
+        if (LevelManager.main.GetMaxWaves() == wave && !isLvlFinished)
         {
             finalWaveTxt.SetActive(true);
 
             Invoke("DelayAction", 4f);
 
-            isFinished = true;
+            isLvlFinished = true;
         }
     }
 
@@ -149,8 +154,8 @@ public class WaveSpawnEnemies : MonoBehaviour
         if (currentWave == 1) yield return new WaitForSeconds(LevelManager.main.GetInitialWaveDelay()); else yield return new WaitForSeconds(timeBetweenWaves);
         //yield return new WaitForSeconds(timeBetweenWaves);
 
-
         isSpawning = true;
+        isWaveFinished = false;
         enemiesLeftToSpawn = EnemiesPerWave();
         enemiesPerSecond = EnemiesPerSeconds();
     }
@@ -176,10 +181,29 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         }
     }
-
-    public string GetCurrentWaveTxt(int wave)
+    private void ShowWave(int waveNum)
     {
-        return waveUI.text = "Wave: " + wave.ToString() + " out of " + LevelManager.main.GetMaxWaves();
+        IndicateWaveUI.text = GetIndicateWave(waveNum);
+        IndicateWaveUI.gameObject.SetActive(true);
+        Invoke("WaveDisappearTxt", 3f);
+        isWaveFinished = true;
+    }
+
+    private string GetCurrentWaveTxt(int wave)
+    {
+        return waveUI.text = "Wave: " + wave.ToString();
+    }
+
+    private string GetIndicateWave(int wavNum)
+    {
+        switch (wavNum)
+        {
+            case 1: return "First Wave";
+            case 2: return "Second Wave";
+            case 3: return "Third Wave";
+            default: return wavNum + "th Wave";
+        }
+
     }
 
     public SpawnPoints GetSpawnPoint()
@@ -191,5 +215,10 @@ public class WaveSpawnEnemies : MonoBehaviour
     void DelayAction()
     {
         finalWaveTxt.SetActive(false);
+    }
+
+    void WaveDisappearTxt()
+    {
+        IndicateWaveUI.gameObject.SetActive(false);
     }
 }
