@@ -17,9 +17,14 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int currency = 100;
     [SerializeField] private int MaxWaves = 3;
     private int enemiesLeft = 0;
-    private bool WindConditionMet = false;
+    private bool WinConditionMet = false;
     private int score = 0;
+    private WaveSpawnEnemies[] WaveSpawners;
     public PauseMenu MenuObj;
+    private bool bMoveToNextWaveFlag = false;
+    public float waveDelayTime = 5f;
+    public float initialWaveDelayTime = 5f;
+    private float startTime;
 
     private void Awake()
     {
@@ -33,11 +38,44 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
+        startTime = Time.time;
     }
     private void Update()
     {
-        if (WindConditionMet && enemiesLeft == 0)
+        //Debug.Log(enemiesLeft);
+
+        WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
+        List<bool> allSpawnsFinished = new List<bool>();
+
+
+        foreach (WaveSpawnEnemies spawner in WaveSpawners)
+        {
+            //if(spawner.GetIsSpawning()) { return; }
+
+            if (Time.time >= waveDelayTime + startTime + 3f)
+            {
+                Debug.Log("Checking for the end wave condition now");
+                if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
+                {
+                    allSpawnsFinished.Add(true);
+                }
+            }
+        }
+
+        if (allSpawnsFinished.Count == WaveSpawners.Length)
+        {
+
+            foreach (WaveSpawnEnemies spawner in WaveSpawners) 
+            {
+                Debug.Log("The wave is finished.");
+                bMoveToNextWaveFlag = true;
+
+            }
+        }
+
+
+        if (WinConditionMet && enemiesLeft == 0)
         {
             MenuObj.Invoke("Victory", 5);
         }
@@ -76,7 +114,10 @@ public class LevelManager : MonoBehaviour
     public void SetEnemiesLeft(int value) { enemiesLeft += value; }
     public void DecrementEnemiesLeft() { enemiesLeft--; }
     public int GetMaxWaves() { return MaxWaves; }
-    public void SetWinCondition(bool bSetWinCondition) { WindConditionMet = bSetWinCondition; }
+    public void SetWinCondition(bool bSetWinCondition) { WinConditionMet = bSetWinCondition; }
     public void AddScore(int value) { score += value; }
     public int GetScore() { return score; }
+
+    public bool GetMoveToNextWave() { return bMoveToNextWaveFlag; }
+    public void SetMoveToNextWave(bool value) {  bMoveToNextWaveFlag = value; }
 }

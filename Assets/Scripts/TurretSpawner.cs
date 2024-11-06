@@ -29,8 +29,6 @@ public class TurretSpawner : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(levelManager.GetCurrency());
-        Debug.Log(BuildManager.main.GetSelectedTower().cost);
         //Checking if player is clicking in area within bounds and is able to place a turret.
         if (Input.GetMouseButtonDown(0) && bPlaceTurret && WithinBounds())
             { 

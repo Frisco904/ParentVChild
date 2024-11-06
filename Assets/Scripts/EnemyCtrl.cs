@@ -94,7 +94,7 @@ public class EnemyCtrl : MonoBehaviour
                 if (pathIndex == path.Length)
                 {
 
-                    WaveSpawnEnemies.onEnemyDeath.Invoke();
+                    //WaveSpawnEnemies.onEnemyDeath.Invoke();
                     //Destroy(gameObject);
                     return;
                 }
@@ -154,7 +154,6 @@ public class EnemyCtrl : MonoBehaviour
         if(currentFull == maxFull && !isDestroyed)
         {
             //Calculates the enemy killed and won't go overboard to negative numbers
-            WaveSpawnEnemies.onEnemyDeath.Invoke();
             isDestroyed = true;
             Eliminate();
         }
@@ -172,6 +171,8 @@ public class EnemyCtrl : MonoBehaviour
         LevelManager.main.GainMoney(currencyWorth);
         LevelManager.main.DecrementEnemiesLeft();
         LevelManager.main.AddScore(1);
+        gameObject.GetComponentInParent<WaveSpawnEnemies>().DecrementEnemiesAlvie();
+        //WaveSpawnEnemies.onEnemyDeath.Invoke();
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
