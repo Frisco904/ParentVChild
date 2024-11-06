@@ -34,6 +34,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] public static WaveSpawnEnemies main;
     [SerializeField] private TextMeshProUGUI waveUI;
+    [SerializeField] private GameObject finalWaveTxt;
 
     [Header("Events")]
     public static UnityEvent onEnemyDeath = new UnityEvent();
@@ -43,6 +44,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     private float enemiesPerSecond; 
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private bool isFinished = false;
     private int index;
 
 
@@ -90,11 +92,11 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         if (LevelManager.main.CandyPile)
         {
-
+            
             if (LevelManager.main.GetEnemiesLeft() == 0)
             {
                 //EndWave();
-               
+                
             }
 
             if (!isSpawning) return;
@@ -108,6 +110,15 @@ public class WaveSpawnEnemies : MonoBehaviour
                 timeSinceLastSpawn = 0f;
             }
 
+        }
+        //This is for the final wave text to spawn after it reaches the max wave
+        if (LevelManager.main.GetMaxWaves() == wave && !isFinished)
+        {
+            finalWaveTxt.SetActive(true);
+
+            Invoke("DelayAction", 4f);
+
+            isFinished = true;
         }
     }
 
@@ -166,7 +177,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         }
     }
 
-    private string GetCurrentWaveTxt(int wave)
+    public string GetCurrentWaveTxt(int wave)
     {
         return waveUI.text = "Wave: " + wave.ToString() + " out of " + LevelManager.main.GetMaxWaves();
     }
@@ -174,5 +185,11 @@ public class WaveSpawnEnemies : MonoBehaviour
     public SpawnPoints GetSpawnPoint()
     {
         return spawnPoint;
+    }
+
+    //Do once
+    void DelayAction()
+    {
+        finalWaveTxt.SetActive(false);
     }
 }
