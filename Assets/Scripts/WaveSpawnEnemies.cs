@@ -25,29 +25,31 @@ public class WaveSpawnEnemies : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemyPerSecond = 0.5f;
-    [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecCap = 15f;
     [SerializeField] private SpawnPoints spawnPoint;
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefab;
-    [SerializeField] public static WaveSpawnEnemies main;
     [SerializeField] private TextMeshProUGUI waveUI;
     [SerializeField] private TextMeshProUGUI IndicateWaveUI;
     [SerializeField] private GameObject finalWaveTxt;
 
-    [Header("Events")]
-    public static UnityEvent onEnemyDeath = new UnityEvent();
+    //public static UnityEvent onEnemyDeath = new UnityEvent();
 
+    private float timeBetweenWaves;
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private float enemiesPerSecond; 
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private int enemiesAlive;
     private bool isLvlFinished = false;
     private bool isWaveFinished = false;
     private int index;
+    private bool enemyHasSpawned = false;
+    private WaveSpawnEnemies[] WaveSpawners;
+    //private bool updatedNextWave = false;
 
 
 
@@ -78,7 +80,7 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         }
 
-        StartCoroutine(SpawnWave());
+        StartCoroutine(StartWave());
     }
 
     private void Update()
@@ -86,8 +88,11 @@ public class WaveSpawnEnemies : MonoBehaviour
         //Debug.Log("Spawn point : "+ spawnPoint+ " enemies left to spawn: " + enemiesLeftToSpawn);
 
         int wave = currentWave;
-        
-        if(isSpawning)
+
+        if (currentWave == 1) { timeBetweenWaves = LevelManager.main.initialWaveDelay; } else { timeBetweenWaves = LevelManager.main.timeBetweenWaves; }
+
+
+        if (isSpawning)
         {
             GetCurrentWaveTxt(wave);
             if(LevelManager.main.GetMaxWaves() != wave && !isWaveFinished)
@@ -98,14 +103,9 @@ public class WaveSpawnEnemies : MonoBehaviour
 
         if (LevelManager.main.CandyPile)
         {
-            
-            if (LevelManager.main.GetEnemiesLeft() == 0)
-            {
-                //EndWave();
-                
-            }
 
             if (!isSpawning) return;
+
             timeSinceLastSpawn += Time.deltaTime;
 
             if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
@@ -113,6 +113,11 @@ public class WaveSpawnEnemies : MonoBehaviour
                 SpawnEnemy();
                 enemiesLeftToSpawn--;
                 timeSinceLastSpawn = 0f;
+            }
+            if (enemiesAlive == 0 && enemiesLeftToSpawn == 0 && LevelManager.main.GetMoveToNextWave())
+            {
+                //EndWave();
+                //LevelManager.main.SetMoveToNextWave(false);
             }
 
         }
@@ -129,12 +134,11 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     void SpawnEnemy()
     {
-        //enemiesAlive++;
-
+        enemyHasSpawned = true;
+        enemiesAlive++;
         int prefabIndex = Random.Range(0, enemyPrefab.Length);
         GameObject prefabToSPawn = enemyPrefab[prefabIndex];
         Instantiate(prefabToSPawn, LevelManager.main.startPoints[index]);
-
     }
 
     public int EnemiesPerWave()
@@ -147,16 +151,16 @@ public class WaveSpawnEnemies : MonoBehaviour
         return Mathf.Clamp((enemyPerSecond * Mathf.Pow(currentWave, diffScalingFactor)), 0f, enemiesPerSecCap);
     }
 
-    private IEnumerator SpawnWave()
+    private IEnumerator StartWave()
     {
         LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
-        //GameObject main = GameObject.FindGameObjectWithTag("Prime");
-        if (currentWave == 1) yield return new WaitForSeconds(LevelManager.main.GetInitialWaveDelay()); else yield return new WaitForSeconds(timeBetweenWaves);
-        //yield return new WaitForSeconds(timeBetweenWaves);
+        LevelManager.main.SetMoveToNextWave(false);
+
+        if (currentWave == 1) yield return new WaitForSeconds(timeBetweenWaves); else yield return new WaitForSeconds(timeBetweenWaves);
 
         isSpawning = true;
         isWaveFinished = false;
-        enemiesLeftToSpawn = EnemiesPerWave();
+        enemiesLeftToSpawn += EnemiesPerWave();
         enemiesPerSecond = EnemiesPerSeconds();
     }
 
@@ -170,7 +174,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         if (currentWave <= LevelManager.main.GetMaxWaves())
         {
             //Debug.Log("Starting next wave");
-            StartCoroutine(SpawnWave());
+            StartCoroutine(StartWave());
         }
         else if(currentWave > LevelManager.main.GetMaxWaves())
         {
@@ -206,6 +210,11 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     }
 
+    private void EnemyDeath()
+    {
+        enemiesAlive--;
+
+    }
     public SpawnPoints GetSpawnPoint()
     {
         return spawnPoint;
@@ -221,4 +230,10 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         IndicateWaveUI.gameObject.SetActive(false);
     }
+    public int GetEnemiesAlive() { return enemiesAlive; }
+    public bool GetIsSpawning() { return isSpawning; }
+    public bool GetEnemyHasSpawned() { return enemyHasSpawned; }
+    public float GetWaveDelayTime() { return timeBetweenWaves; }
+    public int GetEnemiesLeftToSpawn() { return enemiesLeftToSpawn; }
+    public void DecrementEnemiesAlive() { enemiesAlive--; }
 }

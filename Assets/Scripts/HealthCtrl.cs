@@ -46,8 +46,6 @@ public class HealthCtrl : MonoBehaviour
         healthBar.UpdateMeter(currentHealth, maxHealth);
         if (currentHealth <= 0 && !isDestroyed)
         {
-            //Just in case if enemy spawn reached -1 to below
-            WaveSpawnEnemies.onEnemyDeath.Invoke();
             isDestroyed = true;
             Destroy(gameObject);
         }
@@ -58,8 +56,8 @@ public class HealthCtrl : MonoBehaviour
         //If the collider is an enemy then we destroy the enemy game object, decrement the enemy counter, and call TakeDamage function. Enemy counter is used as the objective to move to the next level.
         if (collision.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
-            LevelManager.main.DecrementEnemiesLeft();
+
+            collision.gameObject.GetComponent<EnemyCtrl>().CandyReached();
             TakeDamage();
         }
     }

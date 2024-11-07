@@ -16,13 +16,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path3;
 
     private int enemiesLeft = 0;
-    private bool WindConditionMet = false;
+    private bool WinConditionMet = false;
     private int score = 0;
     private WaveSpawnEnemies[] WaveSpawners;
+    private bool bMoveToNextWaveFlag = false;
+    private float startTime;
+    public float waveDelayTime;
 
     [Header("Enemy Wave Attributes")]
     [SerializeField] private int MaxWaves = 3;
-    [SerializeField] private float initialWaveDelay = 5f;
+    [SerializeField] public float initialWaveDelay = 5f;
+    [SerializeField] public float timeBetweenWaves = 5f;
 
     [Header("References")]
     [SerializeField] public GameObject CandyPile;
@@ -44,28 +48,67 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-
+        waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
     }
     private void Update()
     {
+        //Debug.Log("Bool for reset flag" + bMoveToNextWaveFlag);
 
-        if (WindConditionMet && enemiesLeft == 0)
+        WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
+        List<bool> allSpawnsFinished = new List<bool>();
+
+
+        foreach (WaveSpawnEnemies spawner in WaveSpawners)
         {
-            MenuObj.Invoke("Victory", 5);
+            //Logic will be bypased if spawner is actively spawning
+            //Debug.Log(spawner.GetIsSpawning());
+            //if(spawner.GetIsSpawning()) { return; }
+
+            if (spawner.GetIsSpawning())
+            {
+                if (Time.time >= waveDelayTime + startTime + 3f)
+                {
+                    //Debug.Log("Checking for the end wave condition now");
+                    if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
+                    {
+                        Debug.Log("Spawner is finished");
+                        allSpawnsFinished.Add(true);
+                    }
+                }
+            }
         }
-        if (CandyPile.IsDestroyed()) {
-            MenuObj.Defeat();
-        }
-        if (enemiesLeft == 0) {
-            WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
+        //Debug.Log(allSpawnsFinished.Count);
+
+        //At this logic check all spawners would be done witht heir waves.
+        if (allSpawnsFinished.Count == WaveSpawners.Length)
+        {
 
             foreach (WaveSpawnEnemies spawner in WaveSpawners)
             {
+                //bMoveToNextWaveFlag = true;
+                //Debug.Log("For spawner: " + spawner.name + "Called end wave funciton");
                 spawner.EndWave();
-
+                if (spawner == WaveSpawners[WaveSpawners.Length - 1])
+                {
+                    Debug.Log("This should occure once.");
+                    allSpawnsFinished.Clear();
+                }
             }
         }
+
+
+        if (WinConditionMet && enemiesLeft == 0)
+        {
+            Debug.Log("Victory should be dispalyed");
+            MenuObj.Invoke("Victory", 5);
+        }
+        if (CandyPile.IsDestroyed())
+        {
+            MenuObj.Defeat();
+        }
+
     }
+
 
     public void GainMoney(int cash)
     {
@@ -97,8 +140,10 @@ public class LevelManager : MonoBehaviour
     public void SetEnemiesLeft(int value) { enemiesLeft += value; }
     public void DecrementEnemiesLeft() { enemiesLeft--; }
     public int GetMaxWaves() { return MaxWaves; }
-    public void SetWinCondition(bool bSetWinCondition) { WindConditionMet = bSetWinCondition; }
+    public void SetWinCondition(bool bSetWinCondition) { WinConditionMet = bSetWinCondition; }
     public void AddScore(int value) { score += value; }
     public int GetScore() { return score; }
     public float GetInitialWaveDelay() { return initialWaveDelay; }
+    public bool GetMoveToNextWave() { return bMoveToNextWaveFlag; }
+    public void SetMoveToNextWave(bool value) { bMoveToNextWaveFlag = value; }
 }

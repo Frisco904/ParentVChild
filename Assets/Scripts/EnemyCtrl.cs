@@ -93,10 +93,7 @@ public class EnemyCtrl : MonoBehaviour
             {
                 pathIndex++;
                 if (pathIndex == path.Length)
-                {
-
-                    WaveSpawnEnemies.onEnemyDeath.Invoke();
-                    //Destroy(gameObject);
+                { 
                     return;
                 }
                 else
@@ -116,8 +113,6 @@ public class EnemyCtrl : MonoBehaviour
                 }
             }
         }
-
-        //transform.rotation = Quaternion.Euler (lockPost, lockPost, lockPost);
     }   
 
     private void FixedUpdate()
@@ -154,8 +149,6 @@ public class EnemyCtrl : MonoBehaviour
         feedMeter.UpdateFeedMeter(currentFull, maxFull);
         if(currentFull == maxFull && !isDestroyed)
         {
-            //Calculates the enemy killed and won't go overboard to negative numbers
-            WaveSpawnEnemies.onEnemyDeath.Invoke();
             isDestroyed = true;
             Eliminate();
         }
@@ -169,10 +162,17 @@ public class EnemyCtrl : MonoBehaviour
 
     public void Eliminate()
     {
-        //This gains money when enemy are killed by the torrents
+        //This gains money when enemy are killed by the turrets
         LevelManager.main.GainMoney(currencyWorth);
         LevelManager.main.DecrementEnemiesLeft();
         LevelManager.main.AddScore(1);
+        gameObject.GetComponentInParent<WaveSpawnEnemies>().DecrementEnemiesAlive();
+        Destroy(gameObject);
+    }
+    public void CandyReached()
+    {
+        LevelManager.main.DecrementEnemiesLeft();
+        gameObject.GetComponentInParent<WaveSpawnEnemies>().DecrementEnemiesAlive();
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)
