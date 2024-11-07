@@ -10,7 +10,7 @@ public class UpgradeUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void Update()
     {
-        if (mouse_over) Debug.Log("Mouse Over: " + name);
+        
     }
 
     //Point is entering or clicking the turrent

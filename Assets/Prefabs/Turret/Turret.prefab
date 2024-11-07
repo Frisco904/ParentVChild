@@ -931,14 +931,16 @@ MonoBehaviour:
   rotationSpeed: 200
   enemyMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   turretRotationPoint: {fileID: 4117516163942617377}
   projectileSpawnLocation: {fileID: 9024184806864647534}
   fireRate: 1.5
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
   upgradeUI: {fileID: 1285373654639643698}
   upgradeButton: {fileID: 8966721821688973272}
+  sellBtn: {fileID: 0}
   baseUpgradeCost: 100
+  baseSellCost: 100
   shotSFX: {fileID: 8300000, guid: 53b7336b223a9b94791326627f95ac51, type: 3}
 --- !u!61 &-6092140016763046395
 BoxCollider2D:

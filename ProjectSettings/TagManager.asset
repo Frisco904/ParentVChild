@@ -9,18 +9,18 @@ TagManager:
   - Bounds
   - Light Enemy
   - SpotPath
-
+  - Prime
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - Enemy
-  - Projectile
-  - Candy
-  - Pathing
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -46,10 +46,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Turrets
-    uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 3193660399
     locked: 0

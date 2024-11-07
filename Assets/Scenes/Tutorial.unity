@@ -380,6 +380,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 613806907}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: waveDelayTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: path1.Array.size
       value: 4
       objectReference: {fileID: 0}
