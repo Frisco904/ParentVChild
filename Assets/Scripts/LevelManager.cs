@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class LevelManager : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(enemiesLeft);
+        //Debug.Log("Bool for reset flag" + bMoveToNextWaveFlag);
 
         WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
         List<bool> allSpawnsFinished = new List<bool>();
@@ -51,27 +52,42 @@ public class LevelManager : MonoBehaviour
 
         foreach (WaveSpawnEnemies spawner in WaveSpawners)
         {
+            //Logic will be bypased if spawner is actively spawning
+            Debug.Log(spawner.GetIsSpawning());
             //if(spawner.GetIsSpawning()) { return; }
 
-            if (Time.time >= waveDelayTime + startTime + 3f)
+            if (spawner.GetIsSpawning())
             {
-                Debug.Log("Checking for the end wave condition now");
-                if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
+                if (Time.time >= waveDelayTime + startTime + 3f)
                 {
-                    allSpawnsFinished.Add(true);
+                    Debug.Log("Checking for the end wave condition now");
+                    if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
+                    {
+                        Debug.Log("Spawner is finished");
+                        allSpawnsFinished.Add(true);
+                    }
                 }
             }
-        }
 
+        }
+        Debug.Log(allSpawnsFinished.Count);
+
+        //At this logic check all spawners would be done witht heir waves.
         if (allSpawnsFinished.Count == WaveSpawners.Length)
         {
 
             foreach (WaveSpawnEnemies spawner in WaveSpawners) 
             {
-                Debug.Log("The wave is finished.");
-                bMoveToNextWaveFlag = true;
-
+                //bMoveToNextWaveFlag = true;
+                Debug.Log("For spawner: " + spawner.name + "Called end wave funciton");
+                spawner.EndWave();
+                if (spawner == WaveSpawners[WaveSpawners.Length - 1])
+                {
+                    Debug.Log("This should occure once.");
+                    allSpawnsFinished.Clear();
+                }
             }
+
         }
 
 

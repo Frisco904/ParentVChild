@@ -93,8 +93,6 @@ public class EnemyCtrl : MonoBehaviour
                 pathIndex++;
                 if (pathIndex == path.Length)
                 {
-
-                    //WaveSpawnEnemies.onEnemyDeath.Invoke();
                     //Destroy(gameObject);
                     return;
                 }
@@ -172,7 +170,6 @@ public class EnemyCtrl : MonoBehaviour
         LevelManager.main.DecrementEnemiesLeft();
         LevelManager.main.AddScore(1);
         gameObject.GetComponentInParent<WaveSpawnEnemies>().DecrementEnemiesAlvie();
-        //WaveSpawnEnemies.onEnemyDeath.Invoke();
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D collision)

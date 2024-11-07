@@ -42,6 +42,9 @@ public class WaveSpawnEnemies : MonoBehaviour
     private bool isSpawning = false;
     private int index;
     private bool enemyHasSpawned = false;
+    private WaveSpawnEnemies[] WaveSpawners;
+    private bool updatedNextWave = false;
+
 
 
 
@@ -56,8 +59,6 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         if(currentWave == 1) { timeBetweenWaves = LevelManager.main.initialWaveDelayTime; } else { timeBetweenWaves = LevelManager.main.waveDelayTime; }
 
-        //Debug.Log("Enemies alive: " +enemiesAlive);
-        //Debug.Log("Enemies left to spawn: " + enemiesLeftToSpawn);
         if (LevelManager.main.CandyPile)
         {
             if (!isSpawning) return;
@@ -69,14 +70,11 @@ public class WaveSpawnEnemies : MonoBehaviour
                 SpawnEnemy();
                 enemiesLeftToSpawn--;
                 timeSinceLastSpawn = 0f;
-                //Debug.Log("Spawn Enemies");
             }
-            //Use this code something related to this will help to move on to the next stage.
-            //enemyAlive == 0 && enemies left to spawn
             if (enemiesAlive == 0 && enemiesLeftToSpawn == 0 && LevelManager.main.GetMoveToNextWave())
             {
-                EndWave();
-                LevelManager.main.SetMoveToNextWave(false);
+                //EndWave();
+                //LevelManager.main.SetMoveToNextWave(false);
             }
         }
     }
@@ -133,6 +131,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     private IEnumerator StartWave()
     {
         LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
+        LevelManager.main.SetMoveToNextWave(false);
         if (currentWave == 1) yield return new WaitForSeconds(timeBetweenWaves); else yield return new WaitForSeconds(timeBetweenWaves);
        //yield return new WaitForSeconds(timeBetweenWaves);
 
@@ -146,6 +145,24 @@ public class WaveSpawnEnemies : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
+
+        /*
+        //When all wavespawners have incremented the wave counter we need to reset the flag.
+        WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
+        List<bool> allSpawnsUpdated = new List<bool>();
+        foreach (WaveSpawnEnemies spawner in WaveSpawners)
+        {
+            if (spawner.updatedNextWave)
+            {
+                allSpawnsUpdated.Add(true);
+            }
+
+            if(allSpawnsUpdated.Count == 1)
+            {
+                //There is only one updated left to update
+                LevelManager.main.SetMoveToNextWave(false);
+            }
+        }*/
 
         if (currentWave <= LevelManager.main.GetMaxWaves())
         {
