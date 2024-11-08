@@ -127,9 +127,28 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         enemyHasSpawned = true;
         enemiesAlive++;
-        int prefabIndex = Random.Range(0, enemyPrefab.Length);
-        GameObject prefabToSPawn = enemyPrefab[prefabIndex];
-        Instantiate(prefabToSPawn, LevelManager.main.startPoints[index]);
+        //This is to determine of what type of enemies to spawn
+        int prefabIndex;
+
+        if(currentWave == 1)
+        {
+            prefabIndex = 0;
+        }
+        else if (currentWave == 2)
+        {
+            prefabIndex = 1;    
+        }
+        else if (currentWave == LevelManager.main.GetMaxWaves())
+        {
+            prefabIndex = Random.Range(0, enemyPrefab.Length);
+        } 
+        else
+        {
+            prefabIndex = Random.Range(0, enemyPrefab.Length);
+        }
+
+        GameObject prefabToSpawn = enemyPrefab[prefabIndex];
+        Instantiate(prefabToSpawn, LevelManager.main.startPoints[index]);
     }
 
     public int EnemiesPerWave()
