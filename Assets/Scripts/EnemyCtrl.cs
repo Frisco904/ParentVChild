@@ -207,7 +207,6 @@ public class EnemyCtrl : MonoBehaviour
     {
         randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
         kidRenderer.sprite = kidImg[randomKidImg - 1];
-        //print(randomKidImg);
     }
 
 }

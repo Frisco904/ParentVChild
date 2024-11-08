@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.PlayerLoop;
 
 public enum SpawnPoints
 {
@@ -20,8 +21,6 @@ public enum SpawnPoints
 
 public class WaveSpawnEnemies : MonoBehaviour
 {
-
-
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemyPerSecond = 0.5f;
@@ -34,8 +33,6 @@ public class WaveSpawnEnemies : MonoBehaviour
     [SerializeField] private TextMeshProUGUI waveUI;
     [SerializeField] private TextMeshProUGUI IndicateWaveUI;
     [SerializeField] private GameObject finalWaveTxt;
-
-    //public static UnityEvent onEnemyDeath = new UnityEvent();
 
     private float timeBetweenWaves;
     private int currentWave = 1;
@@ -52,13 +49,15 @@ public class WaveSpawnEnemies : MonoBehaviour
     //private bool updatedNextWave = false;
 
 
-
-    // Start is called before the first frame update
-
     private void Awake()
     {
-        //onEnemyDeath.AddListener(EnemyDeath);
         
+        
+    }
+    private void LateUpdate()
+    {
+        //Initializing time between wave values which are set in the Level Manager game object.
+        timeBetweenWaves = LevelManager.main.GetInitialWaveDelay();
     }
 
     void Start()
@@ -85,12 +84,8 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("Spawn point : "+ spawnPoint+ " enemies left to spawn: " + enemiesLeftToSpawn);
 
         int wave = currentWave;
-
-        if (currentWave == 1) { timeBetweenWaves = LevelManager.main.initialWaveDelay; } else { timeBetweenWaves = LevelManager.main.timeBetweenWaves; }
-
 
         if (isSpawning)
         {
@@ -114,13 +109,9 @@ public class WaveSpawnEnemies : MonoBehaviour
                 enemiesLeftToSpawn--;
                 timeSinceLastSpawn = 0f;
             }
-            if (enemiesAlive == 0 && enemiesLeftToSpawn == 0 && LevelManager.main.GetMoveToNextWave())
-            {
-                //EndWave();
-                //LevelManager.main.SetMoveToNextWave(false);
-            }
 
         }
+
         //This is for the final wave text to spawn after it reaches the max wave
         if (LevelManager.main.GetMaxWaves() == wave && !isLvlFinished)
         {
@@ -153,9 +144,11 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private IEnumerator StartWave()
     {
+        //Setting value of total enimies alive in the Level manager, used for tracking the total number of enemies alive.
         LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
-        LevelManager.main.SetMoveToNextWave(false);
-
+        
+        //Checking if its the first wave, to apply the initial wave delay, else we apply the time between waves.
+        if (currentWave == 1) { timeBetweenWaves = LevelManager.main.GetInitialWaveDelay(); } else { timeBetweenWaves = LevelManager.main.GetTimeBetweenWavesDelay(); }
         if (currentWave == 1) yield return new WaitForSeconds(timeBetweenWaves); else yield return new WaitForSeconds(timeBetweenWaves);
 
         isSpawning = true;
@@ -170,10 +163,10 @@ public class WaveSpawnEnemies : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        //Debug.Log("End Wave has started, values for enemies left are :" + LevelManager.main.GetEnemiesLeft() +" and get max waves: " +LevelManager.main.GetMaxWaves());
+        
+
         if (currentWave <= LevelManager.main.GetMaxWaves())
         {
-            //Debug.Log("Starting next wave");
             StartCoroutine(StartWave());
         }
         else if(currentWave > LevelManager.main.GetMaxWaves())

@@ -144,8 +144,8 @@ public class Tower : MonoBehaviour
         targetingRange = calculateRange();
 
         closeUpgradeUI();
-        Debug.Log("New Fire Rate and Turret range: " + fireRate + targetingRange);
-        Debug.Log("New Cost: " + calculateCost());
+        //Debug.Log("New Fire Rate and Turret range: " + fireRate + targetingRange);
+        //Debug.Log("New Cost: " + calculateCost());
     }
 
     private int calculateCost()

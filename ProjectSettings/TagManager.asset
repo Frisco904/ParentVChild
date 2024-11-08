@@ -9,6 +9,7 @@ TagManager:
   - Bounds
   - Light Enemy
   - SpotPath
+  - Prime
   layers:
   - Default
   - TransparentFX
