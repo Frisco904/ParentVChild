@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="World" ID="{929AF332-3517-4A00-BA37-9A4C7DA859FB}" ShortID="1062846984">
+					<ChildrenList>
+						<RandomSequenceContainer Name="TurretShot" ID="{7462FFF9-F16C-4F71-A6E6-8362F80EC710}" ShortID="569991952">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{A67A633E-F5DA-43EE-9A7F-E14C6E241541}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="300"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Shot" ID="{2997EBEC-D592-4E1A-8A0D-6A65FA9C97E5}" ShortID="248937650">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{DCDE3BCF-747E-4376-B2DF-69F5C228BD50}">
+														<PropertyList>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Shot" ID="{87F348BC-EB79-41D6-8D3D-D0BB637A2553}">
+											<Language>SFX</Language>
+											<AudioFile>Shot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="598466673"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Shot" ID="{87F348BC-EB79-41D6-8D3D-D0BB637A2553}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Shot2" ID="{A42F5870-7CE1-454B-9390-B7686DE8E554}" ShortID="80321290">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{FCD2ABD1-A15A-426F-AD9E-C0F0CAFFA97C}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="300"/>
+															<Property Name="Min" Type="Real64" Value="-300"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Shot2" ID="{C04FB4D7-1443-4A13-B17E-02C2EEEAB27C}">
+											<Language>SFX</Language>
+											<AudioFile>Shot2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="29953317"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Shot2" ID="{C04FB4D7-1443-4A13-B17E-02C2EEEAB27C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{8E145245-4D9A-47F0-AB83-50BC1F9B5498}" ShortID="1031204210">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+														<ObjectRef Name="Bass_Remover_3" ID="{B37BD0FB-6847-4C9C-8019-708F8AA292D1}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{8B452013-AA90-4055-90A6-8ED32D8B2158}" ShortID="592035292">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+														<ObjectRef Name="High_Impact" ID="{2AFD6FB0-C906-4683-A377-FEEEF72967B0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

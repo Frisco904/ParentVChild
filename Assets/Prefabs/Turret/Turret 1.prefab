@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083dd9ae460aacd4298c3ea40e1c42f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
 --- !u!1 &4381859972332818742
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,15 +598,20 @@ MonoBehaviour:
   rotationSpeed: 200
   enemyMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   turretRotationPoint: {fileID: 4117516163942617377}
   projectileSpawnLocation: {fileID: 9024184806864647534}
   fireRate: 1.5
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
   upgradeUI: {fileID: 4342286090543064211}
   upgradeButton: {fileID: 0}
+  sellBtn: {fileID: 0}
   baseUpgradeCost: 100
-  shotSFX: {fileID: 8300000, guid: 53b7336b223a9b94791326627f95ac51, type: 3}
+  baseSellCost: 100
+  TurretShot:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!1 &7869813011362088542
 GameObject:
   m_ObjectHideFlags: 0

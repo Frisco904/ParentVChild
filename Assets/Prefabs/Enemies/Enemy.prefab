@@ -541,7 +541,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1716971961
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -566,7 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockPost: 0
   movSpeed: 3.5
   enemyStunTimer: 1
   knockbackAmount: 0
@@ -576,7 +575,7 @@ MonoBehaviour:
   currencyWorth: 5
   candyMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   pathingMask:
     serializedVersion: 2
     m_Bits: 0

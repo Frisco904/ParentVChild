@@ -35,6 +35,9 @@ public class LevelManager : MonoBehaviour
     [Header("Currency System")]
     [SerializeField] private int currency = 100;
 
+    [Header("Music")]
+    [SerializeField] public AK.Wwise.Event LevelMusicStart;
+
 
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
+        LevelMusicStart.Post(gameObject);
     }
     private void Update()
     {

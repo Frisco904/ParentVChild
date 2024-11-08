@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}" SchemaVersion="119">
+	<Busses>
+		<WorkUnit Name="Default Work Unit" ID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{1D83807B-10DF-4E93-B0D5-406CFFEE77AD}" WorkUnitID="{4E4F7968-9D50-4254-A5D1-7634DA24EC10}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Music Bus" ID="{A8AA4E7D-AA32-4044-B84C-7E519221827A}"/>
+						<Bus Name="SFX" ID="{B6EE9DBF-4215-4448-B5DE-DC6A45C09FAE}">
+							<ChildrenList>
+								<Bus Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}"/>
+								<Bus Name="UI" ID="{0680658B-6E1D-4F77-8CF1-A5FA7BFC520C}"/>
+							</ChildrenList>
+						</Bus>
+						<AuxBus Name="Reverb" ID="{872815C3-A0D6-4239-B1B9-1223BEB697DB}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{F4D9393A-ACE4-44A4-9454-9FBD24A25434}" ShortID="630445827">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+														<ObjectRef Name="Room_Small" ID="{577F1466-A63B-47F7-98BD-C56E433F8B5D}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</AuxBus>
+					</ChildrenList>
+				</Bus>
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>

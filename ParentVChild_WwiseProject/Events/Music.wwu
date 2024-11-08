@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8E40962C-2E0E-45AA-8031-1B636C0114FA}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Music" ID="{8E40962C-2E0E-45AA-8031-1B636C0114FA}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="LevelMusicStart" ID="{923ECB54-F45C-4F7B-A524-FD6CF3E9E81F}">
+					<ChildrenList>
+						<Action Name="" ID="{3A4EEB8E-3228-408F-80B8-A643C2899B3D}" ShortID="34317774">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{2FF0D099-7223-4D23-9AE7-B174793A8E63}" ShortID="144408741">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

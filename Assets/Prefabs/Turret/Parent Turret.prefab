@@ -1006,7 +1006,7 @@ MonoBehaviour:
   rotationSpeed: 200
   enemyMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1
   turretRotationPoint: {fileID: 4117516163942617377}
   projectileSpawnLocation: {fileID: 9024184806864647534}
   fireRate: 1.5
@@ -1016,7 +1016,10 @@ MonoBehaviour:
   sellBtn: {fileID: 4236531192795754943}
   baseUpgradeCost: 100
   baseSellCost: 25
-  shotSFX: {fileID: 8300000, guid: 53b7336b223a9b94791326627f95ac51, type: 3}
+  TurretShot:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 134186e1e79d6f744946274fdcb83be0, type: 2}
 --- !u!61 &-6092140016763046395
 BoxCollider2D:
   m_ObjectHideFlags: 0

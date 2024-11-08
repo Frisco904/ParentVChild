@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../../../ParentVChild_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../ParentVChild_WwiseProject/.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../../ParentVChild_WwiseProject/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F0E748E8-0E7C-EE23-9960-0E7B34F95240}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{2D4C885D-88B6-E3F7-FD62-3B89EFBB4F4F}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="29953317" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot2.wav</ShortName>
+					<CachePath>SFX/Shot2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="598466673" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot.wav</ShortName>
+					<CachePath>SFX/Shot_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="3013737261" Name="Bass_Remover_3" LibName="Wwise Parametric EQ" LibId="6881283"/>
+					<Plugin Id="3043085106" Name="High_Impact" LibName="Wwise Compressor" LibId="7077891"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="493550803" Name="TurretShot" DurationType="OneShot" DurationMin="0.15020512" DurationMax="0.9642579">
+					<MediaRefs>
+						<MediaRef Id="29953317"/>
+						<MediaRef Id="598466673"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3013737261"/>
+							<PluginRef Id="3043085106"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{A33ED78F-2987-CA14-487E-E7FCEB25ABB4}">
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<Media>
+				<File Id="62806833" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-SynthPads_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-SynthPads_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="87828236" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Bass_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Bass_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="89743136" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-IntroSound_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-IntroSound_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="103559844" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideC_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideC_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="183176488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RhythmPiano_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RhythmPiano_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="223714923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Breaks1_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Breaks1_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="332379066" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BassTransition_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BassTransition_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="515125203" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BreaksBridge_178bpm4-4_L8M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BreaksBridge_178bpm4-4_L8M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="724685751" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BreaksBridge2_178bpm4-4_L8M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BreaksBridge2_178bpm4-4_L8M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="831484337" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideA_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideA_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="838032950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Break1A_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Break1A_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="958169048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-LeadPiano_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-LeadPiano_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1005649521" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideB_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideB_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2652646462" Name="Dialog_Leveler_Soft" LibName="Wwise Compressor" LibId="7077891"/>
+					<Plugin Id="3013737263" Name="Bass_Remover_1" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="920150558" Name="LevelMusicStart" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="62806833"/>
+						<MediaRef Id="87828236"/>
+						<MediaRef Id="89743136"/>
+						<MediaRef Id="103559844"/>
+						<MediaRef Id="183176488"/>
+						<MediaRef Id="223714923"/>
+						<MediaRef Id="332379066"/>
+						<MediaRef Id="515125203"/>
+						<MediaRef Id="724685751"/>
+						<MediaRef Id="831484337"/>
+						<MediaRef Id="838032950"/>
+						<MediaRef Id="958169048"/>
+						<MediaRef Id="1005649521"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2652646462"/>
+							<PluginRef Id="3013737263"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{214AB5DA-5BBE-43B0-919A-DB7B0EF28A31}</FileHash>
+</SoundBanksInfo>

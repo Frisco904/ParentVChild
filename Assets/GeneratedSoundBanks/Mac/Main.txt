@@ -1,0 +1,11 @@
+Event	ID	Name			Wwise Object Path	Notes
+	493550803	TurretShot			\Default Work Unit\TurretShot	
+
+Effect plug-ins	ID	Name	Type				Notes
+	3013737261	Bass_Remover_3	Wwise Parametric EQ			
+	3043085106	High_Impact	Wwise Compressor			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	29953317	Shot2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Mac\SFX\Shot2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\TurretShot\Shot2		131008
+	598466673	Shot	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Mac\SFX\Shot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\TurretShot\Shot		34392
+

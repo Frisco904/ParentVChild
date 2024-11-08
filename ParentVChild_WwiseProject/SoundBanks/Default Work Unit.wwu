@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B440BDD8-624F-4279-B941-693759FE58C5}" SchemaVersion="119">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{B440BDD8-624F-4279-B941-693759FE58C5}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{48DBEABE-7ACE-4BE5-8026-309FA640B4B8}">
+					<ObjectInclusionList>
+						<ObjectRef Name="TurretShot" ID="{5E2CF95E-238C-407C-B2D5-5B26750A510B}" WorkUnitID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Music" ID="{194E1F4F-019E-48C2-803D-16D6B4BA6331}">
+					<ObjectInclusionList>
+						<ObjectRef Name="LevelMusicStart" ID="{923ECB54-F45C-4F7B-A524-FD6CF3E9E81F}" WorkUnitID="{8E40962C-2E0E-45AA-8031-1B636C0114FA}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
