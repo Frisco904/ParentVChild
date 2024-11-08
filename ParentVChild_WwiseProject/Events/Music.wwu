@@ -11,16 +11,35 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+									<ObjectRef Name="Level Music" ID="{69A4A021-2218-4D4F-B8A0-734B8895432F}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
 						<Action Name="" ID="{2FF0D099-7223-4D23-9AE7-B174793A8E63}" ShortID="144408741">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+									<ObjectRef Name="Level Music" ID="{69A4A021-2218-4D4F-B8A0-734B8895432F}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
 								</Reference>
 							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopMusic" ID="{49F8E286-BB0A-4BC3-BD00-A29DB426B2A7}">
+					<ChildrenList>
+						<Action Name="" ID="{32BFFCB3-A33D-4DC0-9887-0799EFFAEBD1}" ShortID="792308110">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+							<ChildrenList>
+								<EventActionException Name="" ID="{7B9E0BDB-9AD8-411F-BDDA-5046960EA5FB}">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Level Music" ID="{69A4A021-2218-4D4F-B8A0-734B8895432F}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+										</Reference>
+									</ReferenceList>
+								</EventActionException>
+							</ChildrenList>
 						</Action>
 					</ChildrenList>
 				</Event>

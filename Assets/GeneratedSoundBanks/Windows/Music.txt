@@ -1,19 +1,41 @@
 Event	ID	Name			Wwise Object Path	Notes
 	920150558	LevelMusicStart			\Music\LevelMusicStart	
 
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2782712965	Level			\Default Work Unit\Level	
+
+Switch	ID	Name	Switch Group			Notes
+	2607556080	Menu	Level			
+	2678230381	Level2	Level			
+	2678230382	Level1	Level			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1431182499	Playing_State			\Default Work Unit\Playing_State	
+
+State	ID	Name	State Group			Notes
+	319258907	Paused	Playing_State			
+	748895195	None	Playing_State			
+	1655200910	Failed	Playing_State			
+	1852808225	Playing	Playing_State			
+	2716678721	Victory	Playing_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1316067302	DangerLevel			\Default Work Unit\DangerLevel	
+
 Effect plug-ins	ID	Name	Type				Notes
 	2652646462	Dialog_Leveler_Soft	Wwise Compressor			
-	3013737263	Bass_Remover_1	Wwise Parametric EQ			
+	3013737260	Bass_Remover_2	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	62806833	Caffinated-SynthPads_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-SynthPads_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Intro\Caffinated-SynthPads_178bpm4-4_L8M		2210332
 	87828236	Caffinated-Bass_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-Bass_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-Bass_178bpm4-4_L8M		2210332
 	89743136	Caffinated-IntroSound_178bpm4-4_L4M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-IntroSound_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Intro\Caffinated-IntroSound_178bpm4-4_L4M		803820
-	103559844	Caffinated-Ride_178bpm4-4_L4M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-RideC_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-Ride_178bpm4-4_L4M		1071724
+	103559844	Ride Bell	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-RideC_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Ride Bell		1071724
 	183176488	Caffinated-RhythmPiano_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-RhythmPiano_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-RhythmPiano_178bpm4-4_L8M		2210332
 	223714923	Caffinated-Breaks1_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-Breaks1_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Transition\Caffinated-Breaks1_178bpm4-4_L8M		2210332
 	332379066	Caffinated-BassTransition_178bpm4-4_L4M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-BassTransition_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Intro\Caffinated-BassTransition_178bpm4-4_L4M		1339632
 	515125203	Caffinated-BreaksBridge_178bpm4-4_L16M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-BreaksBridge_178bpm4-4_L8M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-BreaksBridge_178bpm4-4_L16M		4554516
+	645269099	Failure-130bpm	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Failure-130bpm_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\FailureTrack\Failure-130bpm		12142436
 	724685751	Caffinated-BreaksBridge_178bpm4-4_L16M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-BreaksBridge2_178bpm4-4_L8M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-BreaksBridge_178bpm4-4_L16M		4554516
 	831484337	Caffinated-Ride_178bpm4-4_L4M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-RideA_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-Ride_178bpm4-4_L4M		2210332
 	838032950	Caffinated-Breaks1_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Caffinated-Break1A_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Verse\Caffinated-Breaks1_178bpm4-4_L8M		2210332

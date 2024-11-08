@@ -13,7 +13,10 @@ public class HealthCtrl : MonoBehaviour
     [SerializeField] private int currentHealth = 3;
     [SerializeField] private int maxHealth = 3;
     [SerializeField] HealthMeter healthBar;
-    [SerializeField] public AK.Wwise.RTPC DanagerLevel ;
+    [SerializeField] public float dangerRange;
+
+    [Header("Wwise")]
+    [SerializeField] public AK.Wwise.RTPC DanagerLevel;
 
     private bool isDestroyed = false;
     private int enemiesNearby = 0;
@@ -33,7 +36,7 @@ public class HealthCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       UpdateDangerLevel();
     }
 
     public void TakeDamage()
@@ -47,14 +50,17 @@ public class HealthCtrl : MonoBehaviour
         }
     }
 
-    private void CheckForNearbyEnemies()
+    // Check for nearby enemies and send the current "danger level" to Wwise
+    private void UpdateDangerLevel()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 10f, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, dangerRange, (Vector2)transform.position, 0f, enemyMask);
+        Debug.Log("Hits - " + hits.Length);
 
         if (hits.Length != enemiesNearby) 
         {
+            Debug.Log("Danger Level - " + enemiesNearby);
             enemiesNearby = hits.Length;
-            DanagerLevel.Equals(enemiesNearby);
+            DanagerLevel.SetGlobalValue(enemiesNearby);
         }
     }
 

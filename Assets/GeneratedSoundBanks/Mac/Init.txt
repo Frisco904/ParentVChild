@@ -1,5 +1,30 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1431182499	Playing_State			\Default Work Unit\Playing_State	
+
+State	ID	Name	State Group			Notes
+	319258907	Paused	Playing_State			
+	748895195	None	Playing_State			
+	1655200910	Failed	Playing_State			
+	1852808225	Playing	Playing_State			
+	2716678721	Victory	Playing_State			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SfxVolume			\Music\Mix Values\SfxVolume	
+	2346531308	MusicVolume			\Music\Mix Values\MusicVolume	
+	2918011349	MasterVolume			\Music\Mix Values\MasterVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\UI	
+	2609808943	World			\Default Work Unit\Master Audio Bus\SFX\World	
+	3127962312	Music Bus			\Default Work Unit\Master Audio Bus\Music Bus	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	348963605	Reverb			\Default Work Unit\Master Audio Bus\Reverb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2995775460	Room_Small	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

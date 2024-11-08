@@ -1006,7 +1006,7 @@ MonoBehaviour:
   rotationSpeed: 200
   enemyMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   turretRotationPoint: {fileID: 4117516163942617377}
   projectileSpawnLocation: {fileID: 9024184806864647534}
   fireRate: 1.5

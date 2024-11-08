@@ -18,17 +18,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject victoryScreenUI;
     [SerializeField] private GameObject defeatScreenUI;
 
-    
-    public float masterVolume;
-    public float musicVolume;
-    public float sfxVolume;
-
-    private AudioMixer mixer;
-    
-    private void Awake()
-    {
-         mixer = Resources.Load("MainMix") as AudioMixer;
-    }
+    [Header("Wwise")]
+    [SerializeField] public AK.Wwise.Event StopMusic;
+    [SerializeField] public AK.Wwise.State Paused;
+    [SerializeField] public AK.Wwise.State Playing;
+    [SerializeField] public AK.Wwise.State Victory;
+    [SerializeField] public AK.Wwise.State Failed;
 
     // Update is called once per frame
     void Update()
@@ -41,11 +36,6 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }  
-
-        if (gameIsPaused)
-        {
-            // mixer.SetFloat("volume", volume);
-        }
     }
 
     public void Resume()
@@ -54,7 +44,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        Playing.SetValue(); // WWise state change
         gameIsPaused = false;
+
     }
 
     void Pause()
@@ -62,6 +54,7 @@ public class PauseMenu : MonoBehaviour
         pausedMixer.TransitionTo(.01f);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        Paused.SetValue(); // Wwise state change
         gameIsPaused = true;
     }
 
@@ -70,28 +63,32 @@ public class PauseMenu : MonoBehaviour
        settingsMenuUI.SetActive(!settingsMenuUI.activeSelf);
        pauseMenuUI.SetActive(!pauseMenuUI.activeSelf);
     }
-    public void Victory()
+    public void VictoryScreen()
     {
         victoryScreenUI.SetActive(true);
+        Victory.SetValue();
     }
     public void Defeat()
     {
         defeatScreenUI.SetActive(true);
+        Failed.SetValue();
     }
 
     public void ReloadScene()
     {
+        StopMusic.Post(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
     public void LoadNextLevel()
     {
+        StopMusic.Post(gameObject);
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings) { Application.Quit(); }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame()
     {
+        StopMusic.Post(gameObject);
         Debug.Log("Quitting Game");
         Application.Quit();
     }

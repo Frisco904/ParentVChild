@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2202928278159139636}
   - component: {fileID: 2498740651111956334}
   - component: {fileID: 619006461113309397}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: FeedMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 6874079932718619565}
   - component: {fileID: 7656454857114057061}
   - component: {fileID: 1122823586603759798}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 265716272574426333}
   - component: {fileID: 1756118222837472370}
   - component: {fileID: 2665751999378360087}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 5780270420546331474}
   - component: {fileID: 3765156782981233160}
   - component: {fileID: 5823037532525230768}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5036887675300490675}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 1868348428217885863}
   - component: {fileID: 853035905162260313}
   - component: {fileID: 5770532717898428514}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: HeavyEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1716971961
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -566,7 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879e13b6e13a1974081d48503b37dc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockPost: 0
   movSpeed: 1.5
   enemyStunTimer: 1
   knockbackAmount: 0
@@ -576,7 +575,7 @@ MonoBehaviour:
   currencyWorth: 10
   candyMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   pathingMask:
     serializedVersion: 2
     m_Bits: 0

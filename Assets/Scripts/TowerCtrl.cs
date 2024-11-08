@@ -25,7 +25,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private int baseUpgradeCost = 100;
     [SerializeField] private int baseSellCost = 100;
     
-    [Header("FX")]
+    [Header("Wwise")]
     [SerializeField] public AK.Wwise.Event TurretShot;
 
     private float bpsBase;
