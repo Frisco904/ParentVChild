@@ -29,7 +29,7 @@ public class SceneController : MonoBehaviour
     //}
     public void NextLevel()
     {
-        MenuObj.Victory();
+        MenuObj.VictoryScreen();
     }
 
     public void LoadScene(string sceneName)

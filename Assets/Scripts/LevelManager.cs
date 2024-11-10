@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-
-    //Static means it can be called from anywhere.
     public static LevelManager main;
 
     [SerializeField] public Transform[] startPoints;
@@ -35,6 +34,10 @@ public class LevelManager : MonoBehaviour
     [Header("Currency System")]
     [SerializeField] private int currency = 100;
 
+    [Header("Wwise")]
+    [SerializeField] public AK.Wwise.Event LevelMusicStart;
+    [SerializeField] public AK.Wwise.State Playing;
+
 
     private void Awake()
     {
@@ -49,6 +52,11 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        // Let Wwise know what level we are on.
+        AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
+        Playing.SetValue();
+        // Wwise call to start music.
+        LevelMusicStart.Post(gameObject);
         //waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
     }
     private void Update()

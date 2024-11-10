@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Linux" BasePlatform="Linux" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../../../ParentVChild_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../ParentVChild_WwiseProject/.cache/Linux</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../../ParentVChild_WwiseProject/GeneratedSoundBanks/Linux</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ABA81A73-B534-BB8A-8B20-6BDBA5529491}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2995775460" Name="Room_Small" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="1551306167" Name="UI"/>
+				<Bus Id="2609808943" Name="World"/>
+				<Bus Id="3127962312" Name="Music Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<AuxBusses>
+				<AuxBus Id="348963605" Name="Reverb">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2995775460"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
+			</AuxBusses>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SfxVolume"/>
+				<GameParameter Id="1316067302" Name="DangerLevel"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2918011349" Name="MasterVolume"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1431182499" Name="Playing_State">
+					<States>
+						<State Id="319258907" Name="Paused"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1655200910" Name="Failed"/>
+						<State Id="1852808225" Name="Playing"/>
+						<State Id="2716678721" Name="Victory"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2782712965" Name="Level">
+					<Switches>
+						<Switch Id="2607556080" Name="Menu"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CC029658-41B8-0E36-8FF5-DB390D113605}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="29953317" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot2.wav</ShortName>
+					<CachePath>SFX/Shot2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="598466673" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot.wav</ShortName>
+					<CachePath>SFX/Shot_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="3013737261" Name="Bass_Remover_3" LibName="Wwise Parametric EQ" LibId="6881283"/>
+					<Plugin Id="3043085106" Name="High_Impact" LibName="Wwise Compressor" LibId="7077891"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="493550803" Name="TurretShot" DurationType="OneShot" DurationMin="0.15020512" DurationMax="0.9642579">
+					<MediaRefs>
+						<MediaRef Id="29953317"/>
+						<MediaRef Id="598466673"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3013737261"/>
+							<PluginRef Id="3043085106"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{3B827CDD-D05E-F0DB-B815-80838074EF22}">
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<Media>
+				<File Id="62806833" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-SynthPads_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-SynthPads_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="87828236" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Bass_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Bass_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="89743136" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-IntroSound_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-IntroSound_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="103559844" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideC_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideC_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="183176488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RhythmPiano_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RhythmPiano_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="223714923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Breaks1_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Breaks1_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="332379066" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BassTransition_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BassTransition_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="515125203" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BreaksBridge_178bpm4-4_L8M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BreaksBridge_178bpm4-4_L8M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="645269099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Failure-130bpm.wav</ShortName>
+					<CachePath>SFX/Failure-130bpm_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="724685751" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BreaksBridge2_178bpm4-4_L8M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BreaksBridge2_178bpm4-4_L8M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="831484337" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideA_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideA_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="838032950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Break1A_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Break1A_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="958169048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-LeadPiano_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-LeadPiano_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1005649521" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideB_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideB_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2652646462" Name="Dialog_Leveler_Soft" LibName="Wwise Compressor" LibId="7077891"/>
+					<Plugin Id="3013737260" Name="Bass_Remover_2" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="920150558" Name="LevelMusicStart" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1431182499" Id="0"/>
+							<Children/>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1431182499" Id="0"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230382"/>
+									<MediaRefs>
+										<MediaRef Id="62806833"/>
+										<MediaRef Id="87828236"/>
+										<MediaRef Id="89743136"/>
+										<MediaRef Id="103559844"/>
+										<MediaRef Id="183176488"/>
+										<MediaRef Id="223714923"/>
+										<MediaRef Id="332379066"/>
+										<MediaRef Id="515125203"/>
+										<MediaRef Id="724685751"/>
+										<MediaRef Id="831484337"/>
+										<MediaRef Id="838032950"/>
+										<MediaRef Id="958169048"/>
+										<MediaRef Id="1005649521"/>
+									</MediaRefs>
+									<PluginRefs>
+										<ShareSets>
+											<PluginRef Id="2652646462"/>
+											<PluginRef Id="3013737260"/>
+										</ShareSets>
+									</PluginRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1431182499" Id="1655200910"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230382"/>
+									<MediaRefs>
+										<MediaRef Id="645269099"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1431182499" Id="1655200910"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230381"/>
+									<MediaRefs>
+										<MediaRef Id="645269099"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="1316067302" Name="DangerLevel"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1431182499" Name="Playing_State">
+					<States>
+						<State Id="319258907" Name="Paused"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1655200910" Name="Failed"/>
+						<State Id="1852808225" Name="Playing"/>
+						<State Id="2716678721" Name="Victory"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2782712965" Name="Level">
+					<Switches>
+						<Switch Id="2607556080" Name="Menu"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{9F5FA55D-3675-9DA0-D8EE-61BC148BF446}</FileHash>
+</SoundBanksInfo>

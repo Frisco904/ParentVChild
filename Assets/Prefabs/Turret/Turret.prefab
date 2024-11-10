@@ -941,7 +941,10 @@ MonoBehaviour:
   sellBtn: {fileID: 0}
   baseUpgradeCost: 100
   baseSellCost: 100
-  shotSFX: {fileID: 8300000, guid: 53b7336b223a9b94791326627f95ac51, type: 3}
+  TurretShot:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!61 &-6092140016763046395
 BoxCollider2D:
   m_ObjectHideFlags: 0

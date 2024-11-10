@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+
 
 
 public class MixAudio : MonoBehaviour
 {
-    public AudioMixer masterMixer;
-    
+    [SerializeField] public AK.Wwise.RTPC MasterVolume;
+    [SerializeField] public AK.Wwise.RTPC MusicVolume;
+    [SerializeField] public AK.Wwise.RTPC SfxVolume;
+
     public void SetMasterVolume(float vol)
     {
-        masterMixer.SetFloat("masterVolume", vol);
+        MasterVolume.SetGlobalValue(vol);
     }
 
     public void SetMusicVolume(float vol)
     {
-        masterMixer.SetFloat("musicVolume", vol);
+        MusicVolume.SetGlobalValue(vol);
     }
 
     public void SetSfxVolume(float vol)
     {
-        masterMixer.SetFloat("sfxVolume", vol);
+        SfxVolume.SetGlobalValue(vol);
     }
 }

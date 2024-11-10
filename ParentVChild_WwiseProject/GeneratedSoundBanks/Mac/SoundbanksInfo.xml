@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{508E57D9-AC50-4ABE-B8A3-BB42F6992F2C}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A966240E-9E98-38F0-0903-244305EA9923}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="302328447" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot2.wav</ShortName>
+					<CachePath>SFX/Shot2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="504062152" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot.wav</ShortName>
+					<CachePath>SFX/Shot_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2301880513" Name="Many_Even_Harm_Peaks" LibName="Wwise Flanger" LibId="8192003"/>
+					<Plugin Id="3013737258" Name="Bass_Remover_4" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="493550803" Name="TurretShot" DurationType="OneShot" DurationMin="0.178625" DurationMax="0.6818333">
+					<MediaRefs>
+						<MediaRef Id="302328447"/>
+						<MediaRef Id="504062152"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2301880513"/>
+							<PluginRef Id="3013737258"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{FF556AC6-9E21-B599-B4F0-904E841180AE}</FileHash>
+</SoundBanksInfo>

@@ -9,18 +9,18 @@ public class HealthCtrl : MonoBehaviour
 {
 
     [Header("Attributes")]
+    [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
     [SerializeField] private int currentHealth = 3;
     [SerializeField] private int maxHealth = 3;
-
-    [Header("FX")]
-    [SerializeField] private AudioClip damageSFX;
-
-    [Header("References")]
     [SerializeField] HealthMeter healthBar;
+    [SerializeField] public float dangerRange;
+
+    [Header("Wwise")]
+    [SerializeField] public AK.Wwise.RTPC DanagerLevel;
 
     private bool isDestroyed = false;
-
-
+    private int enemiesNearby = 0;
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,18 +36,29 @@ public class HealthCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       UpdateDangerLevel();
     }
 
     public void TakeDamage()
     {
         currentHealth --;
-        SoundFXManager.instance.PlaySoundFXClip(damageSFX, MixerGroup.World, transform, 1f, 1f, false, Random.Range(.9f, 1.1f));
         healthBar.UpdateMeter(currentHealth, maxHealth);
         if (currentHealth <= 0 && !isDestroyed)
         {
             isDestroyed = true;
             Destroy(gameObject);
+        }
+    }
+
+    // Check for nearby enemies and send the current "danger level" to Wwise
+    private void UpdateDangerLevel()
+    {
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, dangerRange, (Vector2)transform.position, 0f, enemyMask);
+
+        if (hits.Length != enemiesNearby) 
+        {
+            enemiesNearby = hits.Length;
+            DanagerLevel.SetGlobalValue(enemiesNearby);
         }
     }
 
