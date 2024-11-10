@@ -54,11 +54,9 @@ public class HealthCtrl : MonoBehaviour
     private void UpdateDangerLevel()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, dangerRange, (Vector2)transform.position, 0f, enemyMask);
-        Debug.Log("Hits - " + hits.Length);
 
         if (hits.Length != enemiesNearby) 
         {
-            Debug.Log("Danger Level - " + enemiesNearby);
             enemiesNearby = hits.Length;
             DanagerLevel.SetGlobalValue(enemiesNearby);
         }
