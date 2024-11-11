@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log(allSpawnsFinishedList.Count);
+        //Debug.Log(allSpawnsFinishedList.Count);
 
         //At this logic check all spawners would be done witht their waves.
         if (allSpawnsFinishedList.Count == WaveSpawners.Length)
@@ -98,7 +98,7 @@ public class LevelManager : MonoBehaviour
                 spawner.EndWave();
                 if (spawner == WaveSpawners[WaveSpawners.Length - 1])
                 {
-                    Debug.Log("This should occur once.");
+                    //Debug.Log("This should occur once.");
                     allSpawnsFinishedList.Clear();
                 }
             }
@@ -106,7 +106,7 @@ public class LevelManager : MonoBehaviour
 
         if (WinConditionMet && enemiesLeft == 0)
         {
-            MenuObj.Invoke("Victory", 5);
+            MenuObj.Invoke("VictoryScreen", 5);
         }
         if (CandyPile.IsDestroyed())
         {
