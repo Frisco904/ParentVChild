@@ -97,8 +97,27 @@ public class EnemyCtrl : MonoBehaviour
                     return;
                 }
                 else
-                {
+                { 
                     target = path[pathIndex];
+
+                    //We only want to adjust the values if its not the candy pile
+                    if (target != LevelManager.main.CandyPile.transform)
+                    {
+                        GameObject trackingPoint = new GameObject("TrackingPoint");
+                        trackingPoint.tag = "TrackingPoint";
+                        trackingPoint.transform.SetParent(target);
+
+                        float xPos = AdjustPathing(target.transform.position.x);
+                        float yPos = target.transform.position.y;
+                        float zPos = target.transform.position.z;
+
+                        trackingPoint.transform.position = new Vector3(xPos, yPos, zPos);
+                        target = trackingPoint.transform;
+                    }
+                    else
+                    {
+                        Debug.Log("Targeting Candy pile now.");
+                    }
                 }
 
             }
@@ -121,6 +140,8 @@ public class EnemyCtrl : MonoBehaviour
         {
             if (frozen) return;
             Vector2 direction = (target.position - transform.position).normalized;
+            
+            //Create a vector and add the y- points to shift where the move and add variability to the path.
             rb.velocity = direction * movSpeed;
         }
     }
@@ -201,6 +222,12 @@ public class EnemyCtrl : MonoBehaviour
                 //Debug.Log(hits[0].collider.gameObject);
             }
         }
+    }
+
+    private float AdjustPathing(float xValueDirection)
+    {
+        xValueDirection = UnityEngine.Random.Range(xValueDirection - 10, xValueDirection + 10);
+        return xValueDirection;
     }
 
     void GenerateRandomKidImage()

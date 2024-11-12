@@ -575,10 +575,10 @@ MonoBehaviour:
   currencyWorth: 5
   candyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   pathingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   targetingRange: 5
   candyproximity: 0.1
   rb: {fileID: 6012972045146098421}

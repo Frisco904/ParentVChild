@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 582279025484403626}
   - component: {fileID: 37196743641304882}
   - component: {fileID: -2175763789801925837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Candy Pile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,10 +99,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0462ba5493fe943ac6a7c34c345a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   currentHealth: 7
   maxHealth: 7
-  damageSFX: {fileID: 8300000, guid: 43c75c4897d17764da47bedb34e079a2, type: 3}
   healthBar: {fileID: 137518985565042696}
+  dangerRange: 0
+  DanagerLevel:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!61 &-2175763789801925837
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8406671063240348840}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +202,7 @@ GameObject:
   - component: {fileID: 9044848154872434741}
   - component: {fileID: 6765340993047022223}
   - component: {fileID: 2425561827974589145}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +277,7 @@ GameObject:
   - component: {fileID: 415825163459534284}
   - component: {fileID: 4290854204927928725}
   - component: {fileID: 8405088154133364353}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +352,7 @@ GameObject:
   - component: {fileID: 5987550929903196901}
   - component: {fileID: 3620950793077089255}
   - component: {fileID: 137518985565042696}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +459,7 @@ GameObject:
   - component: {fileID: 9168072493482343127}
   - component: {fileID: 5069715531101503094}
   - component: {fileID: 2037836562438870291}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
