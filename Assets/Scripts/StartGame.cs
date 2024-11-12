@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
     [SerializeField] public AK.Wwise.Switch Menu;
-    [SerializeField] public AK.Wwise.Event LevelMusicStart;
+    [SerializeField] public AK.Wwise.Event MusicStart;
 
     void Start() {
         // Wwise call to start music.
         Menu.SetValue(gameObject);
-        LevelMusicStart.Post(gameObject);
+        MusicStart.Post(gameObject);
     }
     void Update()
     {

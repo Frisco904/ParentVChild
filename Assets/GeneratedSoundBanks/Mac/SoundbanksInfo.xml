@@ -98,7 +98,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{3B827CDD-D05E-F0DB-B815-80838074EF22}">
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{4A9FC2E7-7140-B98E-B0BE-225E1BB2C50E}">
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<Media>
@@ -129,6 +129,10 @@
 				<File Id="332379066" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Caffinated-BassTransition_178bpm4-4_L4M.wav</ShortName>
 					<CachePath>SFX/Caffinated-BassTransition_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="400985638" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Give Me Some Sugar.wav</ShortName>
+					<CachePath>SFX/Give Me Some Sugar_878E18E0.wem</CachePath>
 				</File>
 				<File Id="515125203" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Caffinated-BreaksBridge_178bpm4-4_L8M.wav</ShortName>
@@ -166,17 +170,14 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
-				<Event Id="920150558" Name="LevelMusicStart" DurationType="Infinite">
+				<Event Id="3674062802" Name="LevelLoaded" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1122283870" Name="MusicStart" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1431182499" Id="0"/>
-							<Children/>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1431182499" Id="0"/>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230382"/>
 							<Children>
 								<SwitchContainer>
-									<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230382"/>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="1852808225"/>
 									<MediaRefs>
 										<MediaRef Id="62806833"/>
 										<MediaRef Id="87828236"/>
@@ -202,10 +203,10 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1431182499" Id="1655200910"/>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="0"/>
 							<Children>
 								<SwitchContainer>
-									<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230382"/>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="1655200910"/>
 									<MediaRefs>
 										<MediaRef Id="645269099"/>
 									</MediaRefs>
@@ -213,17 +214,20 @@
 							</Children>
 						</SwitchContainer>
 						<SwitchContainer>
-							<SwitchValue GroupType="State" GroupId="1431182499" Id="1655200910"/>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2607556080"/>
 							<Children>
 								<SwitchContainer>
-									<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230381"/>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="0"/>
 									<MediaRefs>
-										<MediaRef Id="645269099"/>
+										<MediaRef Id="400985638"/>
 									</MediaRefs>
 								</SwitchContainer>
 							</Children>
 						</SwitchContainer>
 					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1431182499" Id="1852808225" Name="Playing"/>
+					</ActionSetState>
 				</Event>
 			</Events>
 			<GameParameters>
@@ -251,5 +255,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D58CDCE9-DCE8-D75C-8CF4-74B240688D33}</FileHash>
+	<FileHash>{378CD116-C820-ABD5-15D1-05A3FFF3DF76}</FileHash>
 </SoundBanksInfo>

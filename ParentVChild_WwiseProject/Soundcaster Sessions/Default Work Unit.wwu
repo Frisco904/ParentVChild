@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{738CA8B5-7CF1-4F07-BFB9-1F9B85F8E27F}" SchemaVersion="119">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{738CA8B5-7CF1-4F07-BFB9-1F9B85F8E27F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{738CA8B5-7CF1-4F07-BFB9-1F9B85F8E27F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Main_Test" ID="{BFE7B057-4751-41FC-AB10-B3D79C663886}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MusicStart" ID="{923ECB54-F45C-4F7B-A524-FD6CF3E9E81F}" WorkUnitID="{8E40962C-2E0E-45AA-8031-1B636C0114FA}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MenuTrack" ID="{E12A21B3-D583-49D5-9C64-DEFFB674D122}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Failed" ID="{64203060-5CD3-49C6-810B-5198B22128F9}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

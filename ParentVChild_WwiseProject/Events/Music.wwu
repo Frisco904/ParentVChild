@@ -3,15 +3,26 @@
 	<Events>
 		<WorkUnit Name="Music" ID="{8E40962C-2E0E-45AA-8031-1B636C0114FA}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="LevelMusicStart" ID="{923ECB54-F45C-4F7B-A524-FD6CF3E9E81F}">
+				<Event Name="MusicStart" ID="{923ECB54-F45C-4F7B-A524-FD6CF3E9E81F}">
 					<ChildrenList>
 						<Action Name="" ID="{3A4EEB8E-3228-408F-80B8-A643C2899B3D}" ShortID="34317774">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Level Music" ID="{69A4A021-2218-4D4F-B8A0-734B8895432F}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{3216763E-587D-4B38-83C1-1B99AF728F1C}" ShortID="806879794">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Playing" ID="{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -24,22 +35,14 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="StopMusic" ID="{49F8E286-BB0A-4BC3-BD00-A29DB426B2A7}">
+				<Event Name="LevelLoaded" ID="{965F86D4-A246-47B1-9B88-94863D82BCF7}">
 					<ChildrenList>
-						<Action Name="" ID="{32BFFCB3-A33D-4DC0-9887-0799EFFAEBD1}" ShortID="792308110">
+						<Action Name="" ID="{C4AE0591-186A-4934-A2FA-EBE76B9A7A0E}" ShortID="589279602">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList/>
-							<ChildrenList>
-								<EventActionException Name="" ID="{7B9E0BDB-9AD8-411F-BDDA-5046960EA5FB}">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Level Music" ID="{69A4A021-2218-4D4F-B8A0-734B8895432F}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-										</Reference>
-									</ReferenceList>
-								</EventActionException>
-							</ChildrenList>
 						</Action>
 					</ChildrenList>
 				</Event>

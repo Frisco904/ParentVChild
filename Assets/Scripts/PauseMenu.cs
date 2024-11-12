@@ -19,7 +19,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject defeatScreenUI;
 
     [Header("Wwise")]
-    [SerializeField] public AK.Wwise.Event StopMusic;
     [SerializeField] public AK.Wwise.State Paused;
     [SerializeField] public AK.Wwise.State Playing;
     [SerializeField] public AK.Wwise.State Victory;
@@ -76,19 +75,16 @@ public class PauseMenu : MonoBehaviour
 
     public void ReloadScene()
     {
-        StopMusic.Post(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void LoadNextLevel()
     {
-        StopMusic.Post(gameObject);
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings) { Application.Quit(); }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame()
     {
-        StopMusic.Post(gameObject);
         Debug.Log("Quitting Game");
         Application.Quit();
     }

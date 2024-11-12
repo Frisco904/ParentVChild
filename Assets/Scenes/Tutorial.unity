@@ -464,6 +464,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 3e56d92d154fd1e4ebdd6cef39462415, type: 2}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: StopMusic.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 0085cd189efa92c4eabcd93f94c55bfd, type: 2}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: MusicStart.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: fb7b09caf53bff54bb6d9f704519e4b7, type: 2}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: LevelLoaded.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: dbfd2d68ca32b1d489774f7237bc1b25, type: 2}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: LevelMusicStart.WwiseObjectReference
       value: 
       objectReference: {fileID: 11400000, guid: fb7b09caf53bff54bb6d9f704519e4b7, type: 2}

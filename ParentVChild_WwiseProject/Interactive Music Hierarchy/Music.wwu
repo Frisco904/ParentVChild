@@ -23,16 +23,12 @@
 										</MusicTransition>
 										<MusicTransition Name="Transition" ID="{0A32182C-565A-48D3-BDB0-84116B191014}">
 											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
 												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
 												<Property Name="SourceContextType" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-												</Reference>
 												<Reference Name="SourceContextObject">
 													<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
 												</Reference>
@@ -57,16 +53,12 @@
 										</MusicTransition>
 										<MusicTransition Name="Transition" ID="{EBE613EF-B4D4-4892-BB82-407F66604391}">
 											<PropertyList>
-												<Property Name="DestinationContextType" Type="int16" Value="2"/>
 												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
 												<Property Name="SourceContextType" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
-												<Reference Name="DestinationContextObject">
-													<ObjectRef Name="Caffinated-Bridge" ID="{198C870C-6DA0-4D8A-8030-A97CCDBFF9F7}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-												</Reference>
 												<Reference Name="SourceContextObject">
 													<ObjectRef Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
 												</Reference>
@@ -3788,6 +3780,11 @@
 										<MusicTrack Name="Ride Bell" ID="{EA1990D6-A556-4893-BB9F-05016BE25251}" ShortID="973550297">
 											<PropertyList>
 												<Property Name="MusicTrackType" Type="int16" Value="1"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-7</Value>
+													</ValueList>
+												</Property>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
@@ -4218,6 +4215,11 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicSegment Name="MenuTrack" ID="{E12A21B3-D583-49D5-9C64-DEFFB674D122}" ShortID="136934280">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="328807.938388626"/>
+								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+								<Property Name="Tempo" Type="Real64" Value="114"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
@@ -4226,6 +4228,129 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Give Me Some Sugar-114bpm" ID="{2E9A5505-543B-44EE-8790-E9CFA3E3FE56}" ShortID="571355487">
+									<PropertyList>
+										<Property Name="OverrideConversion" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<Custom CreatedFrom="{01D20CF3-9A4C-4EEE-AE3E-2942B47543E9}">
+												<Conversion Name="Vorbis Quality Medium (Custom)" ID="{0C5D54F4-DDAB-4129-A582-BBCEB0186001}">
+													<PropertyList>
+														<Property Name="Channels" Type="int32">
+															<ValueList>
+																<Value Platform="Linux">4</Value>
+																<Value Platform="Mac">4</Value>
+																<Value Platform="Windows">4</Value>
+															</ValueList>
+														</Property>
+														<Property Name="LRMix" Type="Real64">
+															<ValueList>
+																<Value Platform="Linux">0</Value>
+																<Value Platform="Mac">0</Value>
+																<Value Platform="Windows">0</Value>
+															</ValueList>
+														</Property>
+														<Property Name="MaxSampleRate" Type="int32">
+															<ValueList>
+																<Value Platform="Linux">0</Value>
+																<Value Platform="Mac">0</Value>
+																<Value Platform="Windows">0</Value>
+															</ValueList>
+														</Property>
+														<Property Name="MinSampleRate" Type="int32">
+															<ValueList>
+																<Value Platform="Linux">0</Value>
+																<Value Platform="Mac">0</Value>
+																<Value Platform="Windows">0</Value>
+															</ValueList>
+														</Property>
+														<Property Name="SampleRate" Type="int32">
+															<ValueList>
+																<Value Platform="Linux">0</Value>
+																<Value Platform="Mac">0</Value>
+																<Value Platform="Windows">0</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ConversionPluginInfoList>
+														<ConversionPluginInfo Platform="Linux">
+															<ConversionPlugin Name="" ID="{17FC8671-CEB5-47E2-98A7-BE391014E89B}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																<PropertyList>
+																	<Property Name="QualityFactor" Type="Real32" Value="2"/>
+																</PropertyList>
+															</ConversionPlugin>
+														</ConversionPluginInfo>
+														<ConversionPluginInfo Platform="Mac">
+															<ConversionPlugin Name="" ID="{B63B6FFD-69C8-4775-8535-9507BD02721E}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																<PropertyList>
+																	<Property Name="QualityFactor" Type="Real32" Value="2"/>
+																</PropertyList>
+															</ConversionPlugin>
+														</ConversionPluginInfo>
+														<ConversionPluginInfo Platform="Windows">
+															<ConversionPlugin Name="" ID="{0E02FBDC-A9C9-4CFF-8FDB-D07BA2200AA3}" PluginName="Vorbis" CompanyID="0" PluginID="4">
+																<PropertyList>
+																	<Property Name="QualityFactor" Type="Real32" Value="2"/>
+																</PropertyList>
+															</ConversionPlugin>
+														</ConversionPluginInfo>
+													</ConversionPluginInfoList>
+												</Conversion>
+											</Custom>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{FF4E485D-B7A0-4669-8C97-F227DD047000}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Give Me Some Sugar" ID="{4A8F2765-8BC7-4750-8559-FB20FD4B9F51}">
+											<Language>SFX</Language>
+											<AudioFile>Give Me Some Sugar.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="400985638"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{A32567FA-4E4E-48C1-9E91-3CF86ACDE150}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="Give Me Some Sugar" ID="{C4E10415-573D-4904-AB6A-08320D4E14D1}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="292105.270833333"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="Give Me Some Sugar" ID="{4A8F2765-8BC7-4750-8559-FB20FD4B9F51}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="Cues">
 									<Reference>
@@ -4238,7 +4363,7 @@
 											<MusicCue Name="Exit Cue" ID="{DF99B0EB-788F-47EB-8344-B40BE8A0C9F5}">
 												<PropertyList>
 													<Property Name="CueType" Type="int16" Value="1"/>
-													<Property Name="TimeMs" Type="Real64" Value="1000"/>
+													<Property Name="TimeMs" Type="Real64" Value="288482.665156083"/>
 												</PropertyList>
 											</MusicCue>
 										</Local>
@@ -4250,37 +4375,16 @@
 					<ObjectLists>
 						<ObjectList Name="Arguments">
 							<Reference>
-								<ObjectRef Name="Playing_State" ID="{8368CD0C-7A31-4202-AF3E-273DBC8C3623}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
+								<ObjectRef Name="Level" ID="{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
 							</Reference>
 							<Reference>
-								<ObjectRef Name="Level" ID="{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+								<ObjectRef Name="Playing_State" ID="{8368CD0C-7A31-4202-AF3E-273DBC8C3623}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
 							</Reference>
 						</ObjectList>
 						<ObjectList Name="Entries">
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{08075AB1-4B24-4795-ABD7-5B4A64157DB8}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="MenuTrack" ID="{E12A21B3-D583-49D5-9C64-DEFFB674D122}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Playing_State" ID="{8368CD0C-7A31-4202-AF3E-273DBC8C3623}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
-												</Reference>
-												<Reference>
-													<ObjectRef Name="Menu" ID="{0D85A406-7585-4FE0-B128-362C4E7F7B62}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{8791FC96-82A1-4DDD-BF4F-D830F869A211}">
+									<MultiSwitchEntry Name="" ID="{6F660061-70FA-47B9-9BB5-05F26CA148AC}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
@@ -4289,52 +4393,52 @@
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
+													<ObjectRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Playing" ID="{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{0506724C-64A5-486C-821C-5C46236A4BC4}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Level" ID="{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Failed" ID="{64203060-5CD3-49C6-810B-5198B22128F9}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{04882FEE-EBE2-4CD8-A0FA-CD9A3F940194}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="MenuTrack" ID="{E12A21B3-D583-49D5-9C64-DEFFB674D122}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Menu" ID="{0D85A406-7585-4FE0-B128-362C4E7F7B62}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+												</Reference>
+												<Reference>
 													<ObjectRef Name="Playing_State" ID="{8368CD0C-7A31-4202-AF3E-273DBC8C3623}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
-												</Reference>
-												<Reference>
-													<ObjectRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{5DA814DF-FE61-4101-9531-2501255B452A}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Failed" ID="{64203060-5CD3-49C6-810B-5198B22128F9}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
-												</Reference>
-												<Reference>
-													<ObjectRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{4D349193-F255-45FF-A0D3-F0DE6FB97881}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Failed" ID="{64203060-5CD3-49C6-810B-5198B22128F9}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
-												</Reference>
-												<Reference>
-													<ObjectRef Name="Level2" ID="{BBCDDA62-CF80-4F99-8607-DD9C7C701243}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>

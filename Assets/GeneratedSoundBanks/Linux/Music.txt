@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
-	920150558	LevelMusicStart			\Music\LevelMusicStart	
+	1122283870	MusicStart			\Music\MusicStart	
+	3674062802	LevelLoaded			\Music\LevelLoaded	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	2782712965	Level			\Default Work Unit\Level	
@@ -34,6 +35,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	183176488	Caffinated-RhythmPiano_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Caffinated-RhythmPiano_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-RhythmPiano_178bpm4-4_L8M		2210332
 	223714923	Caffinated-Breaks1_178bpm4-4_L8M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Caffinated-Breaks1_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Transition\Caffinated-Breaks1_178bpm4-4_L8M		2210332
 	332379066	Caffinated-BassTransition_178bpm4-4_L4M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Caffinated-BassTransition_178bpm4-4_L4M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Intro\Caffinated-BassTransition_178bpm4-4_L4M		1339632
+	400985638	Give Me Some Sugar-114bpm	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Give Me Some Sugar_878E18E0.wem		\Interactive Music Hierarchy\Music\Level Music\MenuTrack\Give Me Some Sugar-114bpm		3478615
 	515125203	Caffinated-BreaksBridge_178bpm4-4_L16M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Caffinated-BreaksBridge_178bpm4-4_L8M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-BreaksBridge_178bpm4-4_L16M		4554516
 	645269099	Failure-130bpm	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Failure-130bpm_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\FailureTrack\Failure-130bpm		12142436
 	724685751	Caffinated-BreaksBridge_178bpm4-4_L16M	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Linux\SFX\Caffinated-BreaksBridge2_178bpm4-4_L8M_FBC78EF0.wem		\Interactive Music Hierarchy\Music\Level Music\Caffinated\Caffinated-Bridge\Caffinated-BreaksBridge_178bpm4-4_L16M		4554516

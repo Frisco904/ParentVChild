@@ -35,9 +35,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int currency = 100;
 
     [Header("Wwise")]
-    [SerializeField] public AK.Wwise.Event LevelMusicStart;
     [SerializeField] public AK.Wwise.State Playing;
 
+    [SerializeField] public AK.Wwise.Event LevelLoaded;
+
+    [SerializeField] public AK.Wwise.Event MusicStart;
 
     private void Awake()
     {
@@ -52,12 +54,11 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        LevelLoaded.Post(gameObject);
         // Let Wwise know what level we are on.
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
-        Playing.SetValue();
-        // Wwise call to start music.
-        LevelMusicStart.Post(gameObject);
         //waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
+        MusicStart.Post(gameObject);
     }
     private void Update()
     {
