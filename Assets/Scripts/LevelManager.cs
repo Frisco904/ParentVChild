@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,8 @@ public class LevelManager : MonoBehaviour
     List<int> allSpawnsFinishedList = new List<int>();
     private float startTime;
     public float waveDelayTime;
+    public int preparationTime = 5;
+    private bool isCountdownActive = false;
 
     [Header("Enemy Wave Attributes")]
     [SerializeField] private int MaxWaves = 3;
@@ -29,6 +32,8 @@ public class LevelManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] public GameObject CandyPile;
+    [SerializeField] private GameObject countDownTxt;
+    [SerializeField] private TextMeshProUGUI countDown;
     public PauseMenu MenuObj;
 
     [Header("Currency System")]
@@ -58,7 +63,13 @@ public class LevelManager : MonoBehaviour
         // Let Wwise know what level we are on.
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
         //waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
+<<<<<<< HEAD
         MusicStart.Post(gameObject);
+=======
+        StartCountDown();
+        countDownTxt.gameObject.SetActive(true);
+
+>>>>>>> Kbranch
     }
     private void Update()
     {
@@ -67,17 +78,20 @@ public class LevelManager : MonoBehaviour
         WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
         //allSpawnsFinishedList = new List<bool>();
 
-
         foreach (WaveSpawnEnemies spawner in WaveSpawners)
         {
             if (spawner.GetIsSpawning())
             {
                 if (Time.time >= initialWaveDelay + startTime)
                 {
+<<<<<<< HEAD
                     // Debug.Log("Checking for the end wave condition now");
+=======
+                    //Debug.Log("Checking for the end wave condition now");
+>>>>>>> Kbranch
                     if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
                     {
-                        Debug.Log("Spawner is finished");
+                        //Debug.Log("Spawner is finished");
                         if (!allSpawnsFinishedList.Contains(spawner.GetInstanceID()))
                         {
                             allSpawnsFinishedList.Add(spawner.GetInstanceID());
@@ -138,6 +152,28 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void StartCountDown()
+    {
+        if(!isCountdownActive)
+        {
+            isCountdownActive = true;
+            StartCoroutine(CountDownTimer());
+        }
+    }
+
+    IEnumerator CountDownTimer()
+    {
+        int timeRemaining = preparationTime;
+
+        while (timeRemaining > 0)
+        {
+            countDown.text = timeRemaining.ToString();
+            yield return new WaitForSeconds(1);
+            timeRemaining --;
+        }
+
+        countDownTxt.gameObject.SetActive(false);
+    }
     //Getters and Setters
     public int GetCurrency() {return currency; }
     public int GetEnemiesLeft()

@@ -10,6 +10,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public enum SpawnPoints
 {
@@ -33,12 +34,17 @@ public class WaveSpawnEnemies : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] private TextMeshProUGUI waveUI;
     [SerializeField] private TextMeshProUGUI IndicateWaveUI;
+    [SerializeField] private TextMeshProUGUI warningUI;
     [SerializeField] private GameObject finalWaveTxt;
 
+<<<<<<< HEAD
     [Header("Wwise")]
     [SerializeField] private AK.Wwise.Event ZombieSFX;
 
     private float timeBetweenWaves;
+=======
+    private float timeBetweenWaves = 5f;
+>>>>>>> Kbranch
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private float enemiesPerSecond;
@@ -49,7 +55,6 @@ public class WaveSpawnEnemies : MonoBehaviour
     private bool isWaveFinished = false;
     private int index;
     private bool enemyHasSpawned = false;
-    private WaveSpawnEnemies[] WaveSpawners;
     //private bool updatedNextWave = false;
 
 
@@ -82,7 +87,6 @@ public class WaveSpawnEnemies : MonoBehaviour
                 break;
 
         }
-
         StartCoroutine(StartWave());
     }
 
@@ -121,10 +125,11 @@ public class WaveSpawnEnemies : MonoBehaviour
         if (LevelManager.main.GetMaxWaves() == wave && !isLvlFinished)
         {
             finalWaveTxt.SetActive(true);
-
-            Invoke("DelayAction", 4f);
+            Invoke("ChangeTxt", 3f);
+            Invoke("DelayAction", 6f);
 
             isLvlFinished = true;
+            
         }
     }
 
@@ -141,6 +146,10 @@ public class WaveSpawnEnemies : MonoBehaviour
         }
         else if (currentWave == 2)
         {
+<<<<<<< HEAD
+=======
+            Debug.Log("This is where to put the pause for the UI");
+>>>>>>> Kbranch
             prefabIndex = 1;
         }
         else if (currentWave == LevelManager.main.GetMaxWaves())
@@ -206,7 +215,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         IndicateWaveUI.text = GetIndicateWave(waveNum);
         IndicateWaveUI.gameObject.SetActive(true);
-        Invoke("WaveDisappearTxt", 3f);
+        Invoke("ChangeTxt", 2f);
         isWaveFinished = true;
     }
 
@@ -225,6 +234,7 @@ public class WaveSpawnEnemies : MonoBehaviour
             default: return wavNum + "th Wave";
         }
 
+
     }
 
     private void EnemyDeath()
@@ -241,6 +251,33 @@ public class WaveSpawnEnemies : MonoBehaviour
     void DelayAction()
     {
         finalWaveTxt.SetActive(false);
+    }
+
+    void ChangeTxt()
+    {
+        if(SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            warningUI.text = "Incoming small kids";
+        }
+        else if (currentWave == 1)
+        {
+            IndicateWaveUI.text = "Meh just small kids.";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+        else if (currentWave == 2)
+        {
+            IndicateWaveUI.text = "Big kids incoming!!!";
+            Invoke("WaveDisappearTxt", 3f);
+        } 
+        else if (currentWave != LevelManager.main.GetMaxWaves())
+        {
+            IndicateWaveUI.text = "Here they come!!!";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+        else if (currentWave == LevelManager.main.GetMaxWaves() && LevelManager.main.GetEnemiesLeft() > 20)
+        {
+            warningUI.text = "HORDE OF KIDS ARE COMING!!!";
+        }
     }
 
     void WaveDisappearTxt()
