@@ -27,7 +27,7 @@
 						<CurrentStateRef Name="Paused" ID="{5188546E-1263-4EA5-A1AA-15B5FA9510D2}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Level2" ID="{BBCDDA62-CF80-4F99-8607-DD9C7C701243}"/>
+						<CurrentSwitchRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

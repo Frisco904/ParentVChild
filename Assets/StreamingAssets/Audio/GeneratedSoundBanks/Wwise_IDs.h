@@ -13,9 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID JAWBREAKER_DAMAGE = 1656416929U;
         static const AkUniqueID LEVELLOADED = 3674062802U;
         static const AkUniqueID MUSICSTART = 1122283870U;
         static const AkUniqueID TURRETSHOT = 493550803U;
+        static const AkUniqueID ZOMBIE_SPAWN = 2394958751U;
     } // namespace EVENTS
 
     namespace STATES

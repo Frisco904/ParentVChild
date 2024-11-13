@@ -15,7 +15,7 @@ public enum SpawnPoints
 {
     SpawnPoint1 = 0,
     SpawnPoint2 = 1,
-    SpawnPoint3= 2,
+    SpawnPoint3 = 2,
     SpawnPoint4 = 3,
 }
 
@@ -24,6 +24,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
     [SerializeField] private float enemyPerSecond = 0.5f;
+    [SerializeField] private float spawnVariance = .2f;
     [SerializeField] private float diffScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecCap = 15f;
     [SerializeField] private SpawnPoints spawnPoint;
@@ -34,10 +35,13 @@ public class WaveSpawnEnemies : MonoBehaviour
     [SerializeField] private TextMeshProUGUI IndicateWaveUI;
     [SerializeField] private GameObject finalWaveTxt;
 
+    [Header("Wwise")]
+    [SerializeField] private AK.Wwise.Event ZombieSFX;
+
     private float timeBetweenWaves;
     private int currentWave = 1;
     private float timeSinceLastSpawn;
-    private float enemiesPerSecond; 
+    private float enemiesPerSecond;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
     private int enemiesAlive;
@@ -51,8 +55,8 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private void Awake()
     {
-        
-        
+
+
     }
     private void LateUpdate()
     {
@@ -90,7 +94,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         if (isSpawning)
         {
             GetCurrentWaveTxt(wave);
-            if(LevelManager.main.GetMaxWaves() != wave && !isWaveFinished)
+            if (LevelManager.main.GetMaxWaves() != wave && !isWaveFinished)
             {
                 ShowWave(wave);
             }
@@ -106,6 +110,7 @@ public class WaveSpawnEnemies : MonoBehaviour
             if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
             {
                 SpawnEnemy();
+                ZombieSFX.Post(gameObject);
                 enemiesLeftToSpawn--;
                 timeSinceLastSpawn = 0f;
             }
@@ -130,18 +135,18 @@ public class WaveSpawnEnemies : MonoBehaviour
         //This is to determine of what type of enemies to spawn
         int prefabIndex;
 
-        if(currentWave == 1)
+        if (currentWave == 1)
         {
             prefabIndex = 0;
         }
         else if (currentWave == 2)
         {
-            prefabIndex = 1;    
+            prefabIndex = 1;
         }
         else if (currentWave == LevelManager.main.GetMaxWaves())
         {
             prefabIndex = Random.Range(0, enemyPrefab.Length);
-        } 
+        }
         else
         {
             prefabIndex = Random.Range(0, enemyPrefab.Length);
@@ -158,14 +163,14 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     private float EnemiesPerSeconds()
     {
-        return Mathf.Clamp((enemyPerSecond * Mathf.Pow(currentWave, diffScalingFactor)), 0f, enemiesPerSecCap);
+        return Mathf.Clamp((Random.Range(enemyPerSecond - spawnVariance, enemiesPerSecond + spawnVariance) * Mathf.Pow(currentWave, diffScalingFactor)), 0f, enemiesPerSecCap);
     }
 
     private IEnumerator StartWave()
     {
         //Setting value of total enimies alive in the Level manager, used for tracking the total number of enemies alive.
         LevelManager.main.SetEnemiesLeft(EnemiesPerWave());
-        
+
         //Checking if its the first wave, to apply the initial wave delay, else we apply the time between waves.
         if (currentWave == 1) { timeBetweenWaves = LevelManager.main.GetInitialWaveDelay(); } else { timeBetweenWaves = LevelManager.main.GetTimeBetweenWavesDelay(); }
         if (currentWave == 1) yield return new WaitForSeconds(timeBetweenWaves); else yield return new WaitForSeconds(timeBetweenWaves);
@@ -182,13 +187,13 @@ public class WaveSpawnEnemies : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        
+
 
         if (currentWave <= LevelManager.main.GetMaxWaves())
         {
             StartCoroutine(StartWave());
         }
-        else if(currentWave > LevelManager.main.GetMaxWaves())
+        else if (currentWave > LevelManager.main.GetMaxWaves())
         {
             LevelManager.main.SetWinCondition(true);
         }

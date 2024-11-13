@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
             {
                 if (Time.time >= initialWaveDelay + startTime)
                 {
-                    Debug.Log("Checking for the end wave condition now");
+                    // Debug.Log("Checking for the end wave condition now");
                     if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
                     {
                         Debug.Log("Spawner is finished");

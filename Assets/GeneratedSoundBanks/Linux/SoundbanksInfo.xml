@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ABA81A73-B534-BB8A-8B20-6BDBA5529491}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C871EAC7-E901-D2AF-4A40-202B3BD27C49}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -24,7 +24,11 @@
 			<Busses>
 				<Bus Id="393239870" Name="SFX"/>
 				<Bus Id="1551306167" Name="UI"/>
-				<Bus Id="2609808943" Name="World"/>
+				<Bus Id="2609808943" Name="World">
+					<AuxBusRefs>
+						<AuxBusRef Id="348963605" Name="Reverb"/>
+					</AuxBusRefs>
+				</Bus>
 				<Bus Id="3127962312" Name="Music Bus"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
@@ -64,7 +68,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{CC029658-41B8-0E36-8FF5-DB390D113605}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{8378661E-0B73-B91A-7419-7803B76B19B7}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -72,18 +76,83 @@
 					<ShortName>Shot2.wav</ShortName>
 					<CachePath>SFX/Shot2_818F3B66.wem</CachePath>
 				</File>
+				<File Id="154565013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\More_Candy.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/More_Candy_818F3B66.wem</CachePath>
+				</File>
+				<File Id="164574102" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\More_Sugar.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/More_Sugar_818F3B66.wem</CachePath>
+				</File>
+				<File Id="268847850" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_Long_3.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_Long_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="369593336" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_3.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="391787963" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_4.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_4_818F3B66.wem</CachePath>
+				</File>
+				<File Id="399867020" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_1.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="443640229" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\Candy.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/Candy_818F3B66.wem</CachePath>
+				</File>
+				<File Id="520694194" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_Long_1.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_Long_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="593691112" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Munch_1.wav</ShortName>
+					<CachePath>SFX/Crunch/Munch_1_818F3B66.wem</CachePath>
+				</File>
 				<File Id="598466673" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Shot.wav</ShortName>
 					<CachePath>SFX/Shot_818F3B66.wem</CachePath>
 				</File>
+				<File Id="653342821" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_2.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="697006857" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_Long_2.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_Long_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="809827003" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\Sugar.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/Sugar_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1033706604" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\More_Candy2.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/More_Candy2_818F3B66.wem</CachePath>
+				</File>
 			</Media>
 			<Plugins>
 				<ShareSets>
+					<Plugin Id="1125262053" Name="Blue_Distant_Echoes" LibName="Wwise Stereo Delay" LibId="8847363"/>
 					<Plugin Id="3013737261" Name="Bass_Remover_3" LibName="Wwise Parametric EQ" LibId="6881283"/>
 					<Plugin Id="3043085106" Name="High_Impact" LibName="Wwise Compressor" LibId="7077891"/>
 				</ShareSets>
 			</Plugins>
 			<Events>
+				<Event Id="1656416929" Name="Jawbreaker_Damage" DurationType="OneShot" DurationMin="0.5454583" DurationMax="0.8181875">
+					<MediaRefs>
+						<MediaRef Id="268847850"/>
+						<MediaRef Id="369593336"/>
+						<MediaRef Id="391787963"/>
+						<MediaRef Id="399867020"/>
+						<MediaRef Id="520694194"/>
+						<MediaRef Id="593691112"/>
+						<MediaRef Id="653342821"/>
+						<MediaRef Id="697006857"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="493550803" Name="TurretShot" DurationType="OneShot" DurationMin="0.15020512" DurationMax="0.9642579">
 					<MediaRefs>
 						<MediaRef Id="29953317"/>
@@ -96,9 +165,23 @@
 						</ShareSets>
 					</PluginRefs>
 				</Event>
+				<Event Id="2394958751" Name="Zombie_Spawn" DurationType="OneShot" DurationMin="4.5" DurationMax="4.7675843">
+					<MediaRefs>
+						<MediaRef Id="154565013"/>
+						<MediaRef Id="164574102"/>
+						<MediaRef Id="443640229"/>
+						<MediaRef Id="809827003"/>
+						<MediaRef Id="1033706604"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1125262053"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{ED34EF6D-7EA0-7CBB-FCDE-FF3A7123002A}">
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{BA7D664B-1978-B519-DC2B-73F8562D596A}">
 			<ShortName>Music</ShortName>
 			<Path>Music.bnk</Path>
 			<Media>
@@ -295,5 +378,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{8BAE45E3-06BE-D94F-0DAA-0BA8892F054E}</FileHash>
+	<FileHash>{D012EA14-CCE0-0EE9-5082-03774604CFD9}</FileHash>
 </SoundBanksInfo>

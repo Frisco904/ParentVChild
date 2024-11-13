@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefab;
-
+    
 
 
     private void Awake()
@@ -34,7 +34,6 @@ public class EnemySpawner : MonoBehaviour
         int prefabIndex = Random.Range(0, enemyPrefab.Length);
         GameObject prefabToSPawn = enemyPrefab[prefabIndex];
         Instantiate(prefabToSPawn, gameObject.transform);
-
     }
 
 }

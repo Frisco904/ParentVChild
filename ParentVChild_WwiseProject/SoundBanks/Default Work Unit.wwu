@@ -6,6 +6,8 @@
 				<SoundBank Name="Main" ID="{48DBEABE-7ACE-4BE5-8026-309FA640B4B8}">
 					<ObjectInclusionList>
 						<ObjectRef Name="TurretShot" ID="{5E2CF95E-238C-407C-B2D5-5B26750A510B}" WorkUnitID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Jawbreaker_Damage" ID="{D70F9E6B-A3E8-42ED-AEF1-BAF23D6DAB62}" WorkUnitID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Zombie_Spawn" ID="{6869A7C0-8712-446A-8780-9F2C1CB65A33}" WorkUnitID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

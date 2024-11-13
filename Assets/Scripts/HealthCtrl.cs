@@ -17,6 +17,7 @@ public class HealthCtrl : MonoBehaviour
 
     [Header("Wwise")]
     [SerializeField] public AK.Wwise.RTPC DanagerLevel;
+    [SerializeField] public AK.Wwise.Event DamageTaken;
 
     private bool isDestroyed = false;
     private int enemiesNearby = 0;
@@ -43,6 +44,7 @@ public class HealthCtrl : MonoBehaviour
     {
         currentHealth --;
         healthBar.UpdateMeter(currentHealth, maxHealth);
+        DamageTaken.Post(gameObject); // Wwise Event
         if (currentHealth <= 0 && !isDestroyed)
         {
             isDestroyed = true;

@@ -47,3 +47,7 @@ MonoBehaviour:
   enemyPrefab:
   - {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
   - {fileID: 8920871317090917991, guid: fcd3b6ea5ebe30d4a9abc92777e4b9bb, type: 3}
+  ZombieSFX:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bf8b00946629df2439627ee17a4a5519, type: 2}

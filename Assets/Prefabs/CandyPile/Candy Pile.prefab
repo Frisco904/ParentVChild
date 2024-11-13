@@ -99,10 +99,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0462ba5493fe943ac6a7c34c345a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   currentHealth: 7
   maxHealth: 7
-  damageSFX: {fileID: 8300000, guid: 43c75c4897d17764da47bedb34e079a2, type: 3}
   healthBar: {fileID: 137518985565042696}
+  dangerRange: 0
+  DanagerLevel:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 153220dbacc42f345853f947f951b2ed, type: 2}
+  DamageTaken:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ad3ff3c414f9c2443b4e2992cc23da32, type: 2}
 --- !u!61 &-2175763789801925837
 BoxCollider2D:
   m_ObjectHideFlags: 0

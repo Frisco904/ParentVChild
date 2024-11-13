@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 5f31ed4309475d4a8003fd1f2ca77db2
     GuidInternal: 
-    m_lastTime: -8584702380846839182
+    m_lastTime: -8584700936452248270
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -157,7 +157,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d8bd40b44f627942b941693759fe58c5
     GuidInternal: 
-    m_lastTime: -8584702203356599010
+    m_lastTime: -8584700894677035636
     List:
     - name: Main
       guid: beeadb48ce7ae54b8026309fa640b4b8
@@ -199,8 +199,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 3306e532382f2746bfbaabe45bcf3797
     GuidInternal: 
-    m_lastTime: -8584702380846959204
+    m_lastTime: -8584700936452083148
     List:
+    - name: Jawbreaker_Damage
+      guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
+      id: 1656416929
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: Jawbreaker_Damage
+        ObjectType: 3
+        guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
+      Path: Events\Default Work Unit\Jawbreaker_Damage
+      maxAttenuation: 0
+      maxDuration: 0.8181875
+      minDuration: 0.5454583
     - name: TurretShot
       guid: 5ef92c5e8c237c40b2d55b26750a510b
       id: 493550803
@@ -218,6 +235,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.9642579
       minDuration: 0.15020512
+    - name: Zombie_Spawn
+      guid: c0a7696812876a4487809f2c1cb65a33
+      id: 2394958751
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: Zombie_Spawn
+        ObjectType: 3
+        guid: c0a7696812876a4487809f2c1cb65a33
+      Path: Events\Default Work Unit\Zombie_Spawn
+      maxAttenuation: 0
+      maxDuration: 4.7675843
+      minDuration: 4.5
   - PhysicalPath: Events\Music.wwu
     PathAndIcons:
     - ElementName: Events
@@ -578,7 +612,7 @@ MonoBehaviour:
     m_lastTime: -8584702380842278158
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 02000000050000000600000008000000090000000b0000000c0000000d0000000e0000000f00000012000000130000001400000017000000190000001a000000
+  ExpandedWaapiItemIds: 02000000050000000600000008000000090000000b0000000c0000000d0000000e0000000f00000012000000130000001400000017000000190000001a0000001b0000001c0000001e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

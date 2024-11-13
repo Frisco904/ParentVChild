@@ -7,6 +7,12 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="TurretShot" ID="{7462FFF9-F16C-4F71-A6E6-8362F80EC710}" ShortID="569991952">
 							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>
@@ -19,6 +25,11 @@
 											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -130,6 +141,374 @@
 									</Reference>
 								</ObjectList>
 							</ObjectLists>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Child_Zombie" ID="{0DDC2461-3DDB-4390-A5AA-0A46E8AB5126}" ShortID="1034436396">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>21</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{3D3CB717-76D9-4281-8507-9C3140D58874}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Candy" ID="{F4434216-593C-46F0-B65C-AB8F0DB6124F}" ShortID="260030211">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Candy" ID="{1E377E29-8B58-4E3F-8686-FB3F99E56A88}">
+											<Language>SFX</Language>
+											<AudioFile>Child_Zombie\Candy.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="443640229"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Candy" ID="{1E377E29-8B58-4E3F-8686-FB3F99E56A88}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="More_Candy" ID="{DF9FCF5C-6CB1-4327-8D42-F847A4371ACD}" ShortID="225276392">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="More_Candy" ID="{69D5B484-AA2A-45D7-AE05-6E283385EF27}">
+											<Language>SFX</Language>
+											<AudioFile>Child_Zombie\More_Candy.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="154565013"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="More_Candy" ID="{69D5B484-AA2A-45D7-AE05-6E283385EF27}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="More_Candy2" ID="{67A153F8-A2AF-4142-A615-093234577439}" ShortID="676088218">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="More_Candy2" ID="{C7E9BCE8-A7A8-484D-873A-8FF7E805E731}">
+											<Language>SFX</Language>
+											<AudioFile>Child_Zombie\More_Candy2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1033706604"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="More_Candy2" ID="{C7E9BCE8-A7A8-484D-873A-8FF7E805E731}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="More_Sugar" ID="{1B821883-2901-4F69-9B77-19BD274CF57A}" ShortID="771233927">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="More_Sugar" ID="{EAF83B54-2AC6-4E77-BFB7-5C7D91CCD2A7}">
+											<Language>SFX</Language>
+											<AudioFile>Child_Zombie\More_Sugar.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="164574102"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="More_Sugar" ID="{EAF83B54-2AC6-4E77-BFB7-5C7D91CCD2A7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Sugar" ID="{589A5207-5D2B-4ED6-8077-CE05E49BF3E7}" ShortID="527921349">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Sugar" ID="{7790E618-6DEA-482B-B26E-79DFE9A038E7}">
+											<Language>SFX</Language>
+											<AudioFile>Child_Zombie\Sugar.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="809827003"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Sugar" ID="{7790E618-6DEA-482B-B26E-79DFE9A038E7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{34FE1F09-D70F-4A85-8DE3-4BCCD16C0B7A}" ShortID="336008774">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Stereo Delay" CompanyID="0" PluginID="135" PluginType="3">
+														<ObjectRef Name="Blue_Distant_Echoes" ID="{ABFA9875-521E-451F-AAB9-AB148847B9C0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Crunch" ID="{DDE2176D-C19F-4786-94F1-1B6F9DE8F287}" ShortID="776346157">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Crunch_1" ID="{3FA0AE8F-FF0E-45FC-AB4E-33806ACE51D3}" ShortID="948589925">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_1" ID="{5F29DB25-2326-4A1E-98E8-0D4CDBF23F4F}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="399867020"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_1" ID="{5F29DB25-2326-4A1E-98E8-0D4CDBF23F4F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crunch_2" ID="{71569A01-4EFC-43B7-B3D7-4814E0F28FC5}" ShortID="716917221">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_2" ID="{2984506D-034E-403B-939B-EE60B96AA6AD}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="653342821"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_2" ID="{2984506D-034E-403B-939B-EE60B96AA6AD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crunch_3" ID="{D27A3C94-F6D9-4CC8-9559-5FDE3241371F}" ShortID="688389045">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_3" ID="{4117A0E7-B2D3-4D02-8C21-259107517E49}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="369593336"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_3" ID="{4117A0E7-B2D3-4D02-8C21-259107517E49}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crunch_4" ID="{E9CDA5DC-350D-4111-96E9-9521ADB6FFAF}" ShortID="133608090">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_4" ID="{2F8EBAEF-471D-4D9B-86CC-BBF201142122}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="391787963"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_4" ID="{2F8EBAEF-471D-4D9B-86CC-BBF201142122}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crunch_Long_1" ID="{9C76FD00-6E26-412C-820B-488AEACCB330}" ShortID="126713777">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_Long_1" ID="{20B7BC53-92C7-4E72-AB55-89400B87634D}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_Long_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="520694194"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_Long_1" ID="{20B7BC53-92C7-4E72-AB55-89400B87634D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crunch_Long_2" ID="{85AFB15C-E06A-4DA1-AA83-B6813DA1AF1E}" ShortID="1032215375">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_Long_2" ID="{9E7303F0-B8B4-43F5-9968-BEC20F4872EC}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_Long_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="697006857"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_Long_2" ID="{9E7303F0-B8B4-43F5-9968-BEC20F4872EC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crunch_Long_3" ID="{769BA9E9-44FF-4D8A-A4AD-5727C718ACC3}" ShortID="895231272">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crunch_Long_3" ID="{1CBF93D4-53EA-4C0C-B117-3658D22F6A05}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Crunch_Long_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="268847850"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crunch_Long_3" ID="{1CBF93D4-53EA-4C0C-B117-3658D22F6A05}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Munch_1" ID="{C1BE497B-960A-4A85-A18F-802B16A3B031}" ShortID="1048401332">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Munch_1" ID="{AD196368-4172-4E26-A00F-2EF59FE7A1C1}">
+											<Language>SFX</Language>
+											<AudioFile>Crunch\Munch_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="593691112"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Munch_1" ID="{AD196368-4172-4E26-A00F-2EF59FE7A1C1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>

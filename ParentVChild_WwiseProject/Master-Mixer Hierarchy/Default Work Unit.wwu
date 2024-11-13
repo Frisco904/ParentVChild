@@ -89,7 +89,20 @@
 						</Bus>
 						<Bus Name="SFX" ID="{B6EE9DBF-4215-4448-B5DE-DC6A45C09FAE}">
 							<ChildrenList>
-								<Bus Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}"/>
+								<Bus Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="Reverb" ID="{872815C3-A0D6-4239-B1B9-1223BEB697DB}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+								</Bus>
 								<Bus Name="UI" ID="{0680658B-6E1D-4F77-8CF1-A5FA7BFC520C}"/>
 							</ChildrenList>
 							<ObjectLists>
