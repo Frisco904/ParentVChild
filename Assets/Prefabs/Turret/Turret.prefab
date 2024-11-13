@@ -935,9 +935,12 @@ MonoBehaviour:
   turretRotationPoint: {fileID: 4117516163942617377}
   projectileSpawnLocation: {fileID: 9024184806864647534}
   fireRate: 1.5
+  turrentDmg: 1
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
-  upgradeUI: {fileID: 1285373654639643698}
-  upgradeButton: {fileID: 8966721821688973272}
+  upgradeUI: {fileID: 6397373988978653532}
+  upgradeRange: {fileID: 8772462787558097861}
+  upgradeDamage: {fileID: 0}
+  upgradeFireRate: {fileID: 0}
   sellBtn: {fileID: 0}
   baseUpgradeCost: 100
   baseSellCost: 100

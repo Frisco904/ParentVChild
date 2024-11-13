@@ -16,12 +16,15 @@ public class Tower : MonoBehaviour
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private Transform projectileSpawnLocation;
     [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float turrentDmg = 1f;
 
     [Header("References")]
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private GameObject upgradeUI;
-    [SerializeField] private Button upgradeButton;
-    [SerializeField] private Button sellBtn;
+    //[SerializeField] public GameObject upgradeUI;
+    //[SerializeField] private Button upgradeRange;
+    //[SerializeField] private Button upgradeDamage;
+    //[SerializeField] private Button upgradeFireRate;
+    //[SerializeField] private Button sellBtn;
     [SerializeField] private int baseUpgradeCost = 100;
     [SerializeField] private int baseSellCost = 100;
     
@@ -29,6 +32,7 @@ public class Tower : MonoBehaviour
     [SerializeField] public AK.Wwise.Event TurretShot;
 
     private float bpsBase;
+    private float turrentDmgBase;
     private float targetingRangeBase;
 
     private int level = 1;
@@ -36,14 +40,26 @@ public class Tower : MonoBehaviour
     private float timeUntilFire;
 
     private Transform target;
+    public static Tower main;
 
+    LevelManager Range;
 
+    //public GameObject upgradeUI;
+    //public Button upgradeRange;
+    //public Button upgradeDamage;
+    //public Button upgradeFireRate;
+    //public Button sellBtn;
     private void Start()
     {
         bpsBase = fireRate;
         targetingRangeBase = targetingRange;
-        upgradeButton.onClick.AddListener(UpgradeTurret);
-        sellBtn.onClick.AddListener(SellTorrent);
+        turrentDmgBase = turrentDmg;
+        //upgradeRange.onClick.AddListener(UpgradeTRange);
+        //upgradeDamage.onClick.AddListener(UpgradeTDamage);
+        //upgradeFireRate.onClick.AddListener(UpgradeTFireSpeed);
+        //sellBtn.onClick.AddListener(SellTorrent);
+        //Range = LevelManager.main.upgradeRange.onClick.AddListener(UpgradeTRange);
+
     }
 
     private void Update()
@@ -118,34 +134,54 @@ public class Tower : MonoBehaviour
     #region Upgrade Methods
     public void openUpgradeUI()
     {
-        upgradeUI.SetActive(true);
+        //upgradeUI.SetActive(true);
     }
 
     public void closeUpgradeUI()
     {
-        upgradeUI.SetActive(false);
-        UIManager.main.setHoveringState(false);
+        //upgradeUI.SetActive(false);
+        //UIManager.main.setHoveringState(false);
     }
 
-    public void UpgradeTurret()
+    public void UpgradeTRange()
     {
-
         //Calculates the cost and will automatically update the new price
         if (calculateCost() > LevelManager.main.GetCurrency()) return;
 
         LevelManager.main.SpendMoney(calculateCost());
-
         level++;
-
-        //Calculates the new FireRate
-        fireRate = CalculateFireRate();
 
         //Calculates the new Range
         targetingRange = calculateRange();
 
-        closeUpgradeUI();
-        //Debug.Log("New Fire Rate and Turret range: " + fireRate + targetingRange);
-        //Debug.Log("New Cost: " + calculateCost());
+       //closeUpgradeUI();
+    }
+
+    public void UpgradeTDamage()
+    {
+        //Calculates the cost and will automatically update the new price
+        if (calculateCost() > LevelManager.main.GetCurrency()) return;
+
+        LevelManager.main.SpendMoney(calculateCost());
+        level++;
+
+        turrentDmg = calculateDamage();
+
+        //closeUpgradeUI();
+    }
+
+    public void UpgradeTFireSpeed()
+    {
+        //Calculates the cost and will automatically update the new price
+        if (calculateCost() > LevelManager.main.GetCurrency()) return;
+
+        LevelManager.main.SpendMoney(calculateCost());
+        level++;
+
+        //Calculates the new FireRate
+        fireRate = calculateFireRate();
+
+        //closeUpgradeUI();
     }
 
     private int calculateCost()
@@ -153,7 +189,7 @@ public class Tower : MonoBehaviour
         return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
     }
 
-    private float CalculateFireRate()
+    private float calculateFireRate()
     {
         return bpsBase * Mathf.Pow(level, 0.5f);
     }
@@ -161,6 +197,11 @@ public class Tower : MonoBehaviour
     private float calculateRange()
     {
         return targetingRangeBase * Mathf.Pow(level, 0.4f);
+    }
+
+    private float calculateDamage()
+    {
+        return turrentDmgBase * Mathf.Pow(level, 1f);
     }
     #endregion
 

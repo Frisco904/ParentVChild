@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -29,6 +30,11 @@ public class LevelManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] public GameObject CandyPile;
+    [SerializeField] private GameObject upgradeUI;
+    [SerializeField] private Button upgradeRange;
+    [SerializeField] private Button upgradeDamage;
+    [SerializeField] private Button upgradeFireRate;
+    [SerializeField] private Button sellBtn;
     public PauseMenu MenuObj;
 
     [Header("Currency System")]
@@ -59,6 +65,10 @@ public class LevelManager : MonoBehaviour
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
         //waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
         MusicStart.Post(gameObject);
+        //upgradeRange.onClick.AddListener(Tower.main.UpgradeTRange);
+        //upgradeDamage.onClick.AddListener(Tower.main.UpgradeTDamage);
+        //upgradeFireRate.onClick.AddListener(Tower.main.UpgradeTFireSpeed);
+        //sellBtn.onClick.AddListener(Tower.main.SellTorrent);
     }
     private void Update()
     {
@@ -137,6 +147,8 @@ public class LevelManager : MonoBehaviour
             return false;
         }
     }
+
+
 
     //Getters and Setters
     public int GetCurrency() {return currency; }

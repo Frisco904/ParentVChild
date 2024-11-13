@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: d9a388cb284d70449f8872684bd04289
     GuidInternal: 
-    m_lastTime: -8584702380842278158
+    m_lastTime: -8584700758484152300
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 5f31ed4309475d4a8003fd1f2ca77db2
     GuidInternal: 
-    m_lastTime: -8584700798399441302
+    m_lastTime: -8584700758489300596
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -157,7 +157,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d8bd40b44f627942b941693759fe58c5
     GuidInternal: 
-    m_lastTime: -8584700798399181248
+    m_lastTime: -8584700758484172527
     List:
     - name: Main
       guid: beeadb48ce7ae54b8026309fa640b4b8
@@ -199,7 +199,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 3306e532382f2746bfbaabe45bcf3797
     GuidInternal: 
-    m_lastTime: -8584700807228939508
+    m_lastTime: -8584700758489400629
     List:
     - name: Jawbreaker_Damage
       guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
@@ -280,7 +280,7 @@ MonoBehaviour:
     ParentPath: Events\Music
     guid: 2c96408e0e2eaa4580311b636c0114fa
     GuidInternal: 
-    m_lastTime: -8584702196688202461
+    m_lastTime: -8584700758489390614
     List:
     - name: LevelLoaded
       guid: d4865f9646a2b1479b8894863d82bcf7
@@ -328,7 +328,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 23db579c3d6a0f4a86437cea3a8ed264
     GuidInternal: 
-    m_lastTime: -8584702380846949204
+    m_lastTime: -8584700758489390614
     List:
     - name: DangerLevel
       guid: deccaf02a8dd1147abe6bf5bbd8220f6
@@ -355,7 +355,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Music
     guid: e1ea283514ffdd41aaff1e09044f1a22
     GuidInternal: 
-    m_lastTime: -8584702380846949204
+    m_lastTime: -8584700758489390614
     List:
     - name: MasterVolume
       guid: 40d277c426ce8b4ebe0e4a30ba728162
@@ -434,7 +434,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 0f5b0b460e61ae47a69d17e03466109a
     GuidInternal: 
-    m_lastTime: -8584702380842288157
+    m_lastTime: -8584700758484162522
     List:
     - name: Playing_State
       guid: 0ccd6883317a0242af3e273dbc8c3623
@@ -546,7 +546,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: e54ee7fc3bfa114caf1ebadc2984650b
     GuidInternal: 
-    m_lastTime: -8584702380842278158
+    m_lastTime: -8584700758484162522
     List:
     - name: Level
       guid: 8ee465bac89fa7439abe1fa2af26e893
@@ -626,7 +626,7 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: df1966a98d47394d965ad99673d36002
     GuidInternal: 
-    m_lastTime: -8584702380842278158
+    m_lastTime: -8584700758484162522
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 02000000050000000600000008000000090000000b0000000c0000000d0000000e0000000f00000012000000130000001400000017000000190000001a0000001b0000001c0000001e000000
