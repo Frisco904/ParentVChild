@@ -15,18 +15,18 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	29953317	Shot2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Shot2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\TurretShot\Shot2		131008
 	154565013	More_Candy	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Child_Zombie\More_Candy_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Child_Zombie\More_Candy		864096
 	164574102	More_Sugar	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Child_Zombie\More_Sugar_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Child_Zombie\More_Sugar		864096
-	268847850	Crunch_Long_3	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_Long_3_838D7C26.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_Long_3		92692
-	369593336	Crunch_3	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_3_34616D47.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_3		65492
-	391787963	Crunch_4	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_4_F630CF6A.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_4		63828
-	399867020	Crunch_1	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_1_5512E435.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_1		75160
+	268847850	Crunch_Long_3	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_Long_3_EBD89E74.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_Long_3		92692
+	369593336	Crunch_3	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_3_992246EC.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_3		65492
+	391787963	Crunch_4	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_4_759BD892.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_4		63828
+	399867020	Crunch_1	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_1_27DCCCDD.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_1		75160
 	443640229	Candy	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Child_Zombie\Candy_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Child_Zombie\Candy		864096
-	520694194	Crunch_Long_1	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_Long_1_03881372.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_Long_1		117760
-	593691112	Munch_1	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Munch_1_126F5423.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Munch_1		130888
+	520694194	Crunch_Long_1	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_Long_1_80E4473C.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_Long_1		117760
+	593691112	Munch_1	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Munch_1_CFDF3B0D.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Munch_1		130888
 	598466673	Shot	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Shot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\TurretShot\Shot		34392
-	653342821	Crunch_2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_2_EDAC3FE0.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_2		81960
-	697006857	Crunch_Long_2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_Long_2_6BCD6859.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_Long_2		117592
+	653342821	Crunch_2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_2_521B2FD7.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_2		81960
+	697006857	Crunch_Long_2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Crunch\Crunch_Long_2_C3532FFC.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Crunch\Crunch_Long_2		117592
 	809827003	Sugar	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Child_Zombie\Sugar_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Child_Zombie\Sugar		864096
-	1005575725	Splat	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Splat_84D17FC0.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Splat\Splat		90344
+	1005575725	Splat	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Splat_2DD45327.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Splat\Splat		90344
 	1033706604	More_Candy2	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Child_Zombie\More_Candy2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Child_Zombie\More_Candy2		864096
-	1072762256	Splat_01	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Splat_3150E344.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Splat\Splat_01		56092
+	1072762256	Splat_01	C:\Users\genna\Workspace\ParentVChild\ParentVChild_WwiseProject\.cache\Windows\SFX\Splat_A55BB36A.wem		\Actor-Mixer Hierarchy\Default Work Unit\World\Splat\Splat_01		56092
 

@@ -75,7 +75,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B36B969F-0683-6A6E-A782-2EEDB7F3DBB0}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{465B306A-A984-F636-FE1C-62704B590722}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -93,19 +93,19 @@
 				</File>
 				<File Id="268847850" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_Long_3.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_Long_3_838D7C26.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_Long_3_EBD89E74.wem</CachePath>
 				</File>
 				<File Id="369593336" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_3.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_3_34616D47.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_3_992246EC.wem</CachePath>
 				</File>
 				<File Id="391787963" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_4.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_4_F630CF6A.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_4_759BD892.wem</CachePath>
 				</File>
 				<File Id="399867020" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_1.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_1_5512E435.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_1_27DCCCDD.wem</CachePath>
 				</File>
 				<File Id="443640229" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Child_Zombie\Candy.wav</ShortName>
@@ -113,11 +113,11 @@
 				</File>
 				<File Id="520694194" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_Long_1.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_Long_1_03881372.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_Long_1_80E4473C.wem</CachePath>
 				</File>
 				<File Id="593691112" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Munch_1.wav</ShortName>
-					<CachePath>SFX/Crunch/Munch_1_126F5423.wem</CachePath>
+					<CachePath>SFX/Crunch/Munch_1_CFDF3B0D.wem</CachePath>
 				</File>
 				<File Id="598466673" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Shot.wav</ShortName>
@@ -125,11 +125,11 @@
 				</File>
 				<File Id="653342821" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_2.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_2_EDAC3FE0.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_2_521B2FD7.wem</CachePath>
 				</File>
 				<File Id="697006857" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Crunch\Crunch_Long_2.wav</ShortName>
-					<CachePath>SFX/Crunch/Crunch_Long_2_6BCD6859.wem</CachePath>
+					<CachePath>SFX/Crunch/Crunch_Long_2_C3532FFC.wem</CachePath>
 				</File>
 				<File Id="809827003" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Child_Zombie\Sugar.wav</ShortName>
@@ -137,7 +137,7 @@
 				</File>
 				<File Id="1005575725" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Splat.wav</ShortName>
-					<CachePath>SFX/Splat_84D17FC0.wem</CachePath>
+					<CachePath>SFX/Splat_2DD45327.wem</CachePath>
 				</File>
 				<File Id="1033706604" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Child_Zombie\More_Candy2.wav</ShortName>
@@ -145,7 +145,7 @@
 				</File>
 				<File Id="1072762256" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Splat.wav</ShortName>
-					<CachePath>SFX/Splat_3150E344.wem</CachePath>
+					<CachePath>SFX/Splat_A55BB36A.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -411,5 +411,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EE8227E4-7DF9-5486-F255-4F62A4D60EC2}</FileHash>
+	<FileHash>{8C26D271-31F3-8D2A-136F-6D3BF15E6E30}</FileHash>
 </SoundBanksInfo>

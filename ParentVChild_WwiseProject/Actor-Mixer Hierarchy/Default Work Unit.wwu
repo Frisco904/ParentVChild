@@ -176,8 +176,19 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-15</Value>
+										<Value>-18</Value>
 									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9CB7DD6A-C5CF-41A5-9B3E-53D3459DA3C8}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="2"/>
+													<Property Name="Min" Type="Real64" Value="-2"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
 								</Property>
 							</PropertyList>
 							<ReferenceList>
@@ -185,7 +196,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+									<ObjectRef Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -365,7 +376,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+									<ObjectRef Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -631,12 +642,30 @@
 							</ObjectLists>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Splat" ID="{F45DE9DE-503B-4675-AE33-885B3C272EC7}" ShortID="16767468">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-16</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+									<ObjectRef Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
