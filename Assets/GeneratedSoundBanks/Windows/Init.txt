@@ -25,6 +25,7 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 
 Effect plug-ins	ID	Name	Type				Notes
 	2995775460	Room_Small	Wwise RoomVerb			
+	3796564934	Hard_Knee_Minus_3dB_RMS	Wwise Compressor			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

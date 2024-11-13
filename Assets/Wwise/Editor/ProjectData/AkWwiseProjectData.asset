@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 5f31ed4309475d4a8003fd1f2ca77db2
     GuidInternal: 
-    m_lastTime: -8584700936452248270
+    m_lastTime: -8584700807229159589
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -199,7 +199,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 3306e532382f2746bfbaabe45bcf3797
     GuidInternal: 
-    m_lastTime: -8584700936452083148
+    m_lastTime: -8584700807228939508
     List:
     - name: Jawbreaker_Damage
       guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
@@ -216,8 +216,25 @@ MonoBehaviour:
         guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
       Path: Events\Default Work Unit\Jawbreaker_Damage
       maxAttenuation: 0
-      maxDuration: 0.8181875
-      minDuration: 0.5454583
+      maxDuration: 0.7217225
+      minDuration: 0.31329784
+    - name: Projectile_Hit
+      guid: 02143ca7e3f7d64db0d13dc73f325b59
+      id: 2422838114
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: Projectile_Hit
+        ObjectType: 3
+        guid: 02143ca7e3f7d64db0d13dc73f325b59
+      Path: Events\Default Work Unit\Projectile_Hit
+      maxAttenuation: 0
+      maxDuration: 0.5275968
+      minDuration: 0.27528682
     - name: TurretShot
       guid: 5ef92c5e8c237c40b2d55b26750a510b
       id: 493550803
@@ -250,8 +267,8 @@ MonoBehaviour:
         guid: c0a7696812876a4487809f2c1cb65a33
       Path: Events\Default Work Unit\Zombie_Spawn
       maxAttenuation: 0
-      maxDuration: 4.7675843
-      minDuration: 4.5
+      maxDuration: 4.9072847
+      minDuration: 4.247434
   - PhysicalPath: Events\Music.wwu
     PathAndIcons:
     - ElementName: Events

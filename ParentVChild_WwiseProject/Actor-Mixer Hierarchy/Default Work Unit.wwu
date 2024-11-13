@@ -162,7 +162,8 @@
 											<Modifier Name="" ID="{3D3CB717-76D9-4281-8507-9C3140D58874}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Min" Type="Real64" Value="-100"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-150"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -303,6 +304,23 @@
 								<ObjectList Name="Effects">
 									<Reference>
 										<Local>
+											<EffectSlot Name="" ID="{80F05B08-C1B6-42F0-9718-C88F1A39E903}" ShortID="901477806">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Time Stretch (Custom)" ID="{6353C401-77E5-4808-BC37-876D17262B00}" ShortID="22706034" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+																<PropertyList>
+																	<Property Name="TimeStretch" Type="Real32" Value="146"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
 											<EffectSlot Name="" ID="{34FE1F09-D70F-4A85-8DE3-4BCCD16C0B7A}" ShortID="336008774">
 												<ReferenceList>
 													<Reference Name="Effect" PluginName="Wwise Stereo Delay" CompanyID="0" PluginID="135" PluginType="3">
@@ -317,9 +335,28 @@
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Crunch" ID="{DDE2176D-C19F-4786-94F1-1B6F9DE8F287}" ShortID="776346157">
 							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7B1FB541-D037-448D-B58E-C51D8FF188B6}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-16</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -343,6 +380,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_1" ID="{5F29DB25-2326-4A1E-98E8-0D4CDBF23F4F}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0642328400169744"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.390952312751963"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_1.wav</AudioFile>
 											<MediaIDList>
@@ -365,6 +407,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_2" ID="{2984506D-034E-403B-939B-EE60B96AA6AD}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0440949766603013"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.160061293231487"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.426367175896457"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_2.wav</AudioFile>
 											<MediaIDList>
@@ -387,6 +435,14 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_3" ID="{4117A0E7-B2D3-4D02-8C21-259107517E49}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.00138881816252917"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0440949766603014"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.029512385953745"/>
+												<Property Name="LoopEnd" Type="Real64" Value="0.338524427116486"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.34060765436028"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_3.wav</AudioFile>
 											<MediaIDList>
@@ -409,6 +465,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_4" ID="{2F8EBAEF-471D-4D9B-86CC-BBF201142122}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0368036813070232"/>
+												<Property Name="LoopEnd" Type="Real64" Value="0.33158033630384"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.331927540844473"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_4.wav</AudioFile>
 											<MediaIDList>
@@ -431,6 +493,12 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_Long_1" ID="{20B7BC53-92C7-4E72-AB55-89400B87634D}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0347209845109273"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.15407436876724"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.612825376617865"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_Long_1.wav</AudioFile>
 											<MediaIDList>
@@ -453,6 +521,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_Long_2" ID="{9E7303F0-B8B4-43F5-9968-BEC20F4872EC}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0822874761298537"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0609343968809675"/>
+												<Property Name="LoopEnd" Type="Real64" Value="0.586428469127944"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.611948002864418"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_Long_2.wav</AudioFile>
 											<MediaIDList>
@@ -475,6 +550,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Crunch_Long_3" ID="{1CBF93D4-53EA-4C0C-B117-3658D22F6A05}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0510390674729472"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.482267106938256"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Crunch_Long_3.wav</AudioFile>
 											<MediaIDList>
@@ -497,6 +577,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Munch_1" ID="{AD196368-4172-4E26-A00F-2EF59FE7A1C1}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0463518061744111"/>
+												<Property Name="LoopEnd" Type="Real64" Value="0.793709579885423"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.119264759707193"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.800480068427753"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Crunch\Munch_1.wav</AudioFile>
 											<MediaIDList>
@@ -506,6 +593,168 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Munch_1" ID="{AD196368-4172-4E26-A00F-2EF59FE7A1C1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{672932A2-FA4F-4B6B-9552-49D83763F240}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-0.352733686067018"/>
+										<Property Name="PanY" Type="Real64" Value="-22.011385199241"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{5C5E1739-28DB-4800-994F-FB52744FE887}" ShortID="63074113">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Time Stretch (Custom)" ID="{6D6CBFC2-66A8-4941-889E-F54B9DE06562}" ShortID="1030951940" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+																<PropertyList>
+																	<Property Name="PitchShiftRandom" Type="Real32" Value="100"/>
+																	<Property Name="Quality" Type="Real32" Value="71"/>
+																	<Property Name="QualityEnable" Type="int16" Value="1"/>
+																	<Property Name="TimeStretchRandom" Type="Real32" Value="4"/>
+																	<Property Name="WindowSize" Type="int32" Value="1280"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Splat" ID="{F45DE9DE-503B-4675-AE33-885B3C272EC7}" ShortID="16767468">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Splat" ID="{BF1DF877-162B-44EC-AA51-A0E7658F50BF}" ShortID="592723751">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{B9395FE9-67D8-436C-979D-9B3AD78516FF}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{07B8CEA6-9762-499F-90F4-CF6B7CC5B58A}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Splat" ID="{81C710F5-DF46-47E4-B5F8-B68B86C9AB72}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.178813070231275"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0841983874389985"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.470035327816677"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Splat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1005575725"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Splat" ID="{81C710F5-DF46-47E4-B5F8-B68B86C9AB72}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Splat_01" ID="{B513B6E9-3886-44C9-85C6-73DBB430BE28}" ShortID="594234491">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>8</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{04E9B39D-D39D-4B5E-A6C7-AACCABBFDFA7}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{9C6A9AD7-81BE-4E93-A550-9BD18346CCDB}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-200"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Splat" ID="{E731FE70-B9C7-46C8-A698-183527009B2B}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.178813070231275"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.291656269891789"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Splat.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1072762256"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Splat" ID="{E731FE70-B9C7-46C8-A698-183527009B2B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

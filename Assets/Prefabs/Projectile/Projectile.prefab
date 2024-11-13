@@ -173,3 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 6
   projectileSpeed: 15
+  spinSpeed: 80
+  Projectile_Hit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 7aa2f69b43f6aa047bb24db2362c52e4, type: 2}
