@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path3;
 
     private int enemiesLeft = 0;
+    private int enemiesAlive;
     private bool WinConditionMet = false;
     private int score = 0;
     private WaveSpawnEnemies[] WaveSpawners;
@@ -73,10 +74,8 @@ public class LevelManager : MonoBehaviour
             {
                 if (Time.time >= initialWaveDelay + startTime)
                 {
-                    Debug.Log("Checking for the end wave condition now");
                     if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
                     {
-                        Debug.Log("Spawner is finished");
                         if (!allSpawnsFinishedList.Contains(spawner.GetInstanceID()))
                         {
                             allSpawnsFinishedList.Add(spawner.GetInstanceID());
@@ -86,7 +85,6 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-        //Debug.Log(allSpawnsFinishedList.Count);
 
         //At this logic check all spawners would be done witht their waves.
         if (allSpawnsFinishedList.Count == WaveSpawners.Length)
@@ -132,7 +130,6 @@ public class LevelManager : MonoBehaviour
             return true;
         } else
         {
-            Debug.Log("Not enough cash");
             return false;
         }
     }

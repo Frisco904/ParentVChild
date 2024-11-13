@@ -1441,9 +1441,6 @@ PrefabInstance:
       addedObject: {fileID: 1369777666}
     - targetCorrespondingSourceObject: {fileID: 6808943136384107532, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1870995065}
-    - targetCorrespondingSourceObject: {fileID: 6808943136384107532, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1641826205}
     - targetCorrespondingSourceObject: {fileID: 6808943136384107532, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       insertIndex: -1
@@ -3654,7 +3651,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 827173967}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 308275966494332430, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_Name
@@ -3678,23 +3675,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.9859765
+      value: 1.0779707
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9859765
+      value: 1.0779707
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.9859765
+      value: 1.0779707
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1005.8971
+      value: -1.4921875
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -515.3609
+      value: 0.76657104
       objectReference: {fileID: 0}
     - target: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3744,11 +3741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7ccc4207fce6343a713171ee345713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1870995065 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4210915302890855881, guid: 0dd1411fc653bdd48a7e0cdc2e96f002, type: 3}
-  m_PrefabInstance: {fileID: 1870995063}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1896622005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,3 +4707,4 @@ SceneRoots:
   - {fileID: 972355734}
   - {fileID: 827173965}
   - {fileID: 2019247997}
+  - {fileID: 1870995063}

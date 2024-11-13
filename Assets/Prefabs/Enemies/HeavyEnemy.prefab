@@ -573,13 +573,6 @@ MonoBehaviour:
   maxFull: 6
   fillAmount: 1
   currencyWorth: 10
-  candyMask:
-    serializedVersion: 2
-    m_Bits: 64
-  pathingMask:
-    serializedVersion: 2
-    m_Bits: 8
-  targetingRange: 5
   candyproximity: 0.1
   rb: {fileID: 6012972045146098421}
   feedMeter: {fileID: 619006461113309397}
@@ -587,3 +580,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 59c9f74d21b3c4645a2cc11597a619bb, type: 3}
   - {fileID: 21300000, guid: 27cf963c93a86fd41bd9fd1ed519cadd, type: 3}
   kidRenderer: {fileID: 853035905162260313}
+  xTargetDisplacement: 8
+  targetingRange: 5
+  candyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  pathingMask:
+    serializedVersion: 2
+    m_Bits: 8

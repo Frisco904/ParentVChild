@@ -17,9 +17,6 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float maxFull;
     [SerializeField] private float fillAmount;
     [SerializeField] private int currencyWorth = 50;
-    [SerializeField] private LayerMask candyMask;
-    [SerializeField] private LayerMask pathingMask;
-    [SerializeField] private float targetingRange = 15f;
     [SerializeField] private float candyproximity = .1f;
 
     [Header("References")]
@@ -28,6 +25,11 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] Sprite[] kidImg;
     [SerializeField] SpriteRenderer kidRenderer;
 
+    [Header("AI Pathing Attributes")]
+    [SerializeField] private float horizontalVariation = 8f;
+    [SerializeField] private float targetingRange = 15f;
+    [SerializeField] private LayerMask candyMask;
+    [SerializeField] private LayerMask pathingMask;
 
     private WaveSpawnEnemies spawnEnemies;
     private SpawnPoints spawnPoint;
@@ -91,6 +93,11 @@ public class EnemyCtrl : MonoBehaviour
             //Check if target is within range, if so move on to next target in list.
             if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
+                if(target.CompareTag("TrackingPoint"))
+                {
+                    //Once the Enemy reaches the point we will destroy the game object.
+                    target.GetComponent<TrackingPoints>().DestroyGameObject();
+                }
                 pathIndex++;
                 if (pathIndex == path.Length)
                 { 
@@ -103,7 +110,14 @@ public class EnemyCtrl : MonoBehaviour
                     //We only want to adjust the values if its not the candy pile
                     if (target != LevelManager.main.CandyPile.transform)
                     {
+
+                        //Creating game object to hold the transform information for where the AI will be moving towards. Adding components to the game object
                         GameObject trackingPoint = new GameObject("TrackingPoint");
+                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(5,5);
+                        trackingPoint.GetComponent<BoxCollider2D>().isTrigger = true;
+                        trackingPoint.AddComponent<TrackingPoints>();
+                        
+                        //Setting tag and parent to created game object
                         trackingPoint.tag = "TrackingPoint";
                         trackingPoint.transform.SetParent(target);
 
@@ -116,7 +130,7 @@ public class EnemyCtrl : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("Targeting Candy pile now.");
+
                     }
                 }
 
@@ -139,10 +153,15 @@ public class EnemyCtrl : MonoBehaviour
         if (LevelManager.main.CandyPile)
         {
             if (frozen) return;
+
+
+            //this.transform.position = Vector2.Lerp(target.position, transform.position, .5f).normalized;
             Vector2 direction = (target.position - transform.position).normalized;
             
             //Create a vector and add the y- points to shift where the move and add variability to the path.
+
             rb.velocity = direction * movSpeed;
+
         }
     }
     private void CandyInRange()
@@ -151,7 +170,6 @@ public class EnemyCtrl : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, candyMask);
         if (hits.Length > 0)
         {
-            Debug.Log("Candy is in range");
             //We are setting the target to be the Candy Pile.
             target = hits[0].transform;
             //We are reducing the circumfrence of the area that the enemy has to be within to be smaller in order to get the Enemy to collide with the candy pile.
@@ -226,7 +244,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private float AdjustPathing(float xValueDirection)
     {
-        xValueDirection = UnityEngine.Random.Range(xValueDirection - 10, xValueDirection + 10);
+        xValueDirection = UnityEngine.Random.Range(xValueDirection - horizontalVariation, xValueDirection + horizontalVariation);
         return xValueDirection;
     }
 
