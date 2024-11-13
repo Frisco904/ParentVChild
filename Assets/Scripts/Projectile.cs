@@ -7,13 +7,16 @@ public class Projectile : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float life = 3;
     [SerializeField] private float projectileSpeed = 5f;
+    [SerializeField] private float spinSpeed = 80f;
 
     private Transform target;
+    private float spinDirection = 1f;
 
     // Update is called once per frame
     void Awake()
     {
         Destroy(gameObject, life);
+        if (Random.Range(0,1) == 0) spinDirection = -1f;
     }
 
     public void SetTarget(Transform _target)
@@ -21,13 +24,20 @@ public class Projectile : MonoBehaviour
         target = _target; 
     }
 
-    private void FixedUpdate()
+    void Update()
+    {
+        transform.Rotate(Vector3.forward, spinDirection * projectileSpeed * spinSpeed * Time.deltaTime);
+    }
+
+    void FixedUpdate()
     {
         if (!target) return;
 
         Vector2 direction = (target.position - transform.position).normalized;
 
         gameObject.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
+
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
