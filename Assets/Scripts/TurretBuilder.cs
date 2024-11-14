@@ -1,45 +1,50 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TurretSpawner : MonoBehaviour
+public class TurretBuilder : MonoBehaviour
 {
+    public static TurretBuilder main;
 
-    private GameObject towerObj;
-    private Tower Turret;
+    private Turret Turret;
     private LevelManager levelManager;
-    private bool bPlaceTurret = false;
+    public bool canPlaceTurret = false;
     private BoxCollider2D boundsCollider;
-    private UiMouseHover uiMouseScript;
+    private UIMouseHover uiMouseScript;
+
+    [Header("Parameters")]
+    [SerializeField] private int buildCost; // The amoutn of $ required to build a turret.
 
     [Header("References")]
-    [SerializeField] private Button turretButton;
-    [SerializeField] private GameObject BoundsGameObj;
+    [SerializeField] public GameObject towerPrefab;
+    [SerializeField] public Button buildButton;
+    [SerializeField] public GameObject BoundsGameObj;
+    [SerializeField] public SlideMenu SideMenu;
 
-    private void Start()
-    { 
-        turretButton.onClick.AddListener(ClickTurretButton);
+    void Awake()
+    {
+        if (main == null) main = this;
+    }
+
+    void Start()
+    {
         levelManager = LevelManager.main;
         boundsCollider = BoundsGameObj.GetComponent<BoxCollider2D>();
-        uiMouseScript = BoundsGameObj.GetComponent<UiMouseHover>();
+        uiMouseScript = BoundsGameObj.GetComponent<UIMouseHover>();
     }
+
     void Update()
     {
         //Checking if player is clicking in area within bounds and is able to place a turret.
-        if (Input.GetMouseButtonDown(0) && bPlaceTurret && WithinBounds())
-            { 
+        if (Input.GetMouseButtonDown(0) && canPlaceTurret && WithinBounds())
+        {
             //Spawning turret where the mouse is hovering over.
-            if (CanBuyTurret() && levelManager.SpendMoney(BuildManager.main.GetSelectedTower().cost))
+            if (CanBuildTurret() && levelManager.SpendMoney(buildCost))
             {
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                UiTower towerBuild = BuildManager.main.GetSelectedTower();
-                towerObj = Instantiate(towerBuild.prefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
-
-                UnclickTurretButton();
+                var newTurret = Instantiate(towerPrefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
+                newTurret.GetComponent<Turret>().SelectTurret();
+                SideMenu.ToggleMenu();
+                DeselectBuildButton();
                 uiMouseScript.MouseDown();
             }
             else
@@ -48,20 +53,20 @@ public class TurretSpawner : MonoBehaviour
             }
         }
         //Checking if player is clicking in an area within bounds and there is a detectable object within the raycast (Player Turret).
-        else if (Input.GetMouseButtonDown(0) && WithinBounds() && DetectObject())
+        else if (Input.GetMouseButtonDown(0) && DetectObject())
         {
             if (DetectObject().tag == "Player")
             {
-                Turret = DetectObject().GetComponent<Tower>();
-                Turret.openUpgradeUI();
+                // This is where the selected current turret is.
+                Turret = DetectObject().GetComponent<Turret>();
+                Turret.SelectTurret();
+                SideMenu.ToggleMenu();
             }
-            else 
-            { 
-
+            else
+            {
+                DeselectAll();
             }
-            
         }
-
     }
 
     //Will raycast on mouse position to check if there exists a tower at that transform.
@@ -74,12 +79,12 @@ public class TurretSpawner : MonoBehaviour
             foreach (RaycastHit2D hit in hits2d)
             {
                 if (hit.collider.gameObject.tag == "Player")
-                { 
+                {
                     return hit.collider.gameObject;
                 }
                 else { }
             }
-            
+
         }
         return null;
     }
@@ -90,7 +95,7 @@ public class TurretSpawner : MonoBehaviour
         RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
         foreach (RaycastHit2D hit in hits2d)
         {
-            if(hit.collider.gameObject.tag == "Bounds")
+            if (hit.collider.gameObject.tag == "Bounds")
             {
                 return true;
             }
@@ -104,27 +109,33 @@ public class TurretSpawner : MonoBehaviour
     }
 
     //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
-    private void ClickTurretButton()
+    public void BuildMode()
     {
-
-        if (CanBuyTurret() && !bPlaceTurret)
+        if (CanBuildTurret() && !canPlaceTurret)
         {
-            turretButton.image.color = Color.gray;
-            bPlaceTurret = true;
+            buildButton.image.color = Color.gray;
+            canPlaceTurret = true;
         }
         else
         {
-            turretButton.image.color = Color.white;
-            bPlaceTurret = false;
+            buildButton.image.color = Color.white;
+            canPlaceTurret = false;
         }
         uiMouseScript.MouseDown();
     }
-    private void UnclickTurretButton()
-    {
-        turretButton.image.color = Color.white;
-        bPlaceTurret = false;
-    }
-    public bool GetCanPlaceTurret(){ return bPlaceTurret; }
-    public bool CanBuyTurret() { return levelManager.GetCurrency() >= BuildManager.main.GetSelectedTower().cost; }
 
+    // Resets all selected mouse elements.
+    private void DeselectAll()
+    {
+        if (levelManager.selectedTurret != null) levelManager.selectedTurret.DeselectTurret();
+        DeselectBuildButton();
+    }
+
+    private void DeselectBuildButton()
+    {
+        buildButton.image.color = Color.white;
+        canPlaceTurret = false;
+    }
+
+    public bool CanBuildTurret() { return levelManager.GetCurrency() >= buildCost; }
 }

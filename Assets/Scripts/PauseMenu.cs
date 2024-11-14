@@ -8,10 +8,6 @@ public class PauseMenu : MonoBehaviour
 {
     public bool gameIsPaused = false;
 
-    [Header("Mixer Snapshots")]
-    [SerializeField] public AudioMixerSnapshot pausedMixer;
-    [SerializeField] public AudioMixerSnapshot unpausedMixer;
-
     [Header("UI Components")]
     [SerializeField] public GameObject pauseMenuUI;
     [SerializeField] public GameObject settingsMenuUI;
@@ -39,7 +35,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        unpausedMixer.TransitionTo(.01f);
         pauseMenuUI.SetActive(false);
         settingsMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -50,7 +45,6 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
-        pausedMixer.TransitionTo(.01f);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         Paused.SetValue(); // Wwise state change

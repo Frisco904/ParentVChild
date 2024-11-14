@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager main;
 
+    
     private bool isHoveringUI;
 
     // Update is called once per frame
@@ -14,7 +15,12 @@ public class UIManager : MonoBehaviour
         main = this;
     }
 
-    //For Hovering on the turrent or Menu
+    private void Start()
+    {
+        
+    }
+
+    //For Hovering on the turret or Menu
     public void setHoveringState(bool state)
     {
         isHoveringUI = state;
