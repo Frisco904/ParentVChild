@@ -10,7 +10,8 @@ public class Menu : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI currencyUI;
     [SerializeField] private TextMeshProUGUI EnemyUI;
-    [SerializeField] private Animator anim;
+    [SerializeField] private Animator leftAnim;
+    [SerializeField] private Animator rightAnim;
     [SerializeField] private Button menuButton;
 
     private float delayTime = 5f;
@@ -27,8 +28,9 @@ public class Menu : MonoBehaviour
     //This is for the menu animation
     public void ToggleMenu()
     {
-        if (isMenuOpen) anim.Play("MenuClose"); else anim.Play("MenuOpen");
         isMenuOpen = !isMenuOpen;
+        rightAnim.SetBool("MenuOpen", isMenuOpen);
+        leftAnim.SetBool("MenuOpen", isMenuOpen);
     }
 
     private void OnGUI()
