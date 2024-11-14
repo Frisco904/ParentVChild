@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class EnemyCtrl : MonoBehaviour
@@ -21,7 +17,6 @@ public class EnemyCtrl : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] EnemyFloatingFeedMeter feedMeter;
     [SerializeField] Sprite[] kidImg;
     [SerializeField] SpriteRenderer kidRenderer;
 
@@ -46,7 +41,6 @@ public class EnemyCtrl : MonoBehaviour
     private void Awake()
     {
         
-        feedMeter = GetComponentInChildren<EnemyFloatingFeedMeter>();
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
         target = LevelManager.main.CandyPile.transform;
 
@@ -185,7 +179,6 @@ public class EnemyCtrl : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
         //Freeze();
         currentFull += fillAmount;
-        feedMeter.UpdateFeedMeter(currentFull, maxFull);
         if(currentFull == maxFull && !isDestroyed)
         {
             isDestroyed = true;

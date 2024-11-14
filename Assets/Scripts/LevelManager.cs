@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -15,6 +12,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public List<Transform> path2;
     [SerializeField] public List<Transform> path3;
 
+    public Turret selectedTurret = null;
     private int enemiesLeft = 0;
     private bool WinConditionMet = false;
     private int score = 0;
@@ -44,13 +42,13 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        main = this;
-
-        //Adding the Candy Pile transform to the end of the list for the AI pathing.
-        path1.Add(CandyPile.transform);
-        path2.Add(CandyPile.transform);
-        path3.Add(CandyPile.transform);
-
+        if (main == null)
+        {
+            main = this;
+            path1.Add(CandyPile.transform);
+            path2.Add(CandyPile.transform);
+            path3.Add(CandyPile.transform);
+        }
     }
 
     private void Start()
@@ -58,18 +56,13 @@ public class LevelManager : MonoBehaviour
         LevelLoaded.Post(gameObject);
         // Let Wwise know what level we are on.
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
-        //waveDelayTime = FindObjectOfType<WaveSpawnEnemies>().GetWaveDelayTime();
         MusicStart.Post(gameObject);
-        
     }
+
     private void Update()
     {
-
         //Finding all instances of WaveSpawnEnemies and i
         WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
-        //allSpawnsFinishedList = new List<bool>();
-
-
         foreach (WaveSpawnEnemies spawner in WaveSpawners)
         {
             if (spawner.GetIsSpawning())
@@ -118,7 +111,6 @@ public class LevelManager : MonoBehaviour
 
     }
 
-
     public void GainMoney(int cash)
     {
         //Called in the EnemyCtrl to gain Money
@@ -130,7 +122,7 @@ public class LevelManager : MonoBehaviour
     {
         if(cash <= currency)
         {
-            //Buy Torrent
+            //Buy Turret
             currency -= cash;
             return true;
         } else
@@ -141,11 +133,8 @@ public class LevelManager : MonoBehaviour
     }
 
     //Getters and Setters
-    public int GetCurrency() {return currency; }
-    public int GetEnemiesLeft()
-    {
-        return enemiesLeft;
-    }
+    public int GetCurrency() { return currency; }
+    public int GetEnemiesLeft() { return enemiesLeft; }
     public void SetEnemiesLeft(int value) { enemiesLeft += value; }
     public void DecrementEnemiesLeft() { enemiesLeft--; }
     public int GetMaxWaves() { return MaxWaves; }

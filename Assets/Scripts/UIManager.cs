@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
         
     }
 
-    //For Hovering on the turrent or Menu
+    //For Hovering on the turret or Menu
     public void setHoveringState(bool state)
     {
         isHoveringUI = state;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +11,6 @@ public class HealthMeter : MonoBehaviour
     public void UpdateMeter(float currentValue, float maxValue)
     {
         slider.value = currentValue / maxValue;
-
-    }
-    public void Awake()
-    {
     }
 
     // Update is called once per frame

@@ -1,69 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class Tower : MonoBehaviour
+public class Turret : MonoBehaviour
 {
     //[SerializeField] private Transform turretRotationPoint;
 
     [Header("Attributes")]
-    [SerializeField] private float targetingRange = 50f;
-    [SerializeField] private float rotationSpeed = 200f;
+    [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
+    [SerializeField] private float rotationSpeed = 200f; // Time it takes to rotate then fire on new target.
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
-    [SerializeField] private Transform turretRotationPoint;
+    [SerializeField] private Transform turretRotationPoint; 
     [SerializeField] private Transform projectileSpawnLocation;
-    [SerializeField] private float fireRate = 1f;
-    [SerializeField] private float turrentDmg = 1f;
+    [SerializeField] private float fireRate = 1f; // Time in seconds between shots.
+    [SerializeField] private float turretDmg = 1f; // Damage done by projectile.
 
-    [Header("References")]
-    [SerializeField] private GameObject projectilePrefab;
-    //[SerializeField] public GameObject upgradeUI;
-    //[SerializeField] private Button upgradeRange;
-    //[SerializeField] private Button upgradeDamage;
-    //[SerializeField] private Button upgradeFireRate;
-    //[SerializeField] private Button sellBtn;
-    [SerializeField] private int baseUpgradeRange = 10;
+    private float bpsBase;
+    private float turretDmgBase;
+    private float targetingRangeBase;
+    public int dmgLevel = 1;
+    public int spdLevel = 1;
+    public int ctrlLevel = 1;
+    public int sprtLevel = 1;
+
+    [Header("Upgrades")]
+    [SerializeField] private int baseUpgradeRange = 10; 
     [SerializeField] private int baseUpgradeDamage = 20;
     [SerializeField] private int baseUpgradeFireRate = 15;
     [SerializeField] private int baseSellCost = 100;
     
+    [Header("References")]
+    [SerializeField] private GameObject projectilePrefab; // Prefab turret will shoot.
+
     [Header("Wwise")]
     [SerializeField] public AK.Wwise.Event TurretShot;
 
-    private float bpsBase;
-    private float turrentDmgBase;
-    private float targetingRangeBase;
-
-    private int level = 1;
-
     private float timeUntilFire;
-
     private Transform target;
-    public static Tower main;
 
-
-    //public GameObject upgradeUI;
-    //public Button upgradeRange;
-    //public Button upgradeDamage;
-    //public Button upgradeFireRate;
-    //public Button sellBtn;
-    private void Start()
+    void Start()
     {
         bpsBase = fireRate;
         targetingRangeBase = targetingRange;
-        turrentDmgBase = turrentDmg;
-        //upgradeRange.onClick.AddListener(UpgradeTRange);
-        //upgradeDamage.onClick.AddListener(UpgradeTDamage);
-        //upgradeFireRate.onClick.AddListener(UpgradeTFireSpeed);
-        //sellBtn.onClick.AddListener(SellTorrent);
-        //Range = LevelManager.main.upgradeRange.onClick.AddListener(UpgradeTRange);
-
+        turretDmgBase = turretDmg;
     }
 
-    private void Update()
+    void Update()
     {
         if (target == null)
         { 
@@ -98,6 +78,7 @@ public class Tower : MonoBehaviour
         projectileScript.SetTarget(target);
         TurretShot.Post(gameObject); // Wwise Event
     }
+
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
@@ -124,110 +105,108 @@ public class Tower : MonoBehaviour
     {
         return Vector2.Distance(target.position,transform.position) <= targetingRange;
     }
-   /*
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
-   */
+
     //This is for upgrade function
-    #region Upgrade Methods
-    public void selectedTower()
+    public void SelectTurret()
     {
+        LevelManager.main.selectedTurret = this;
         GetComponent<Renderer>().material.color = Color.red;
+        Debug.Log(gameObject.name + " - Turrent now selected");
     }
 
-    public void unSelectTower()
+    public void DeselectTurret()
     {
+        Debug.Log(gameObject.name + " - Turrent now deselected");
+        LevelManager.main.selectedTurret = null;
         GetComponent<Renderer>().material.color = Color.white;
     }
 
-    public void closeUpgradeUI()
-    {
-        //upgradeUI.SetActive(false);
-        //UIManager.main.setHoveringState(false);
-    }
-
-    public void UpgradeTRange()
+    public void UpgradeSpd()
     {
         //Calculates the cost and will automatically update the new price
         if (calculateCostRange() > LevelManager.main.GetCurrency()) return;
 
         LevelManager.main.SpendMoney(calculateCostRange());
-        level++;
+        spdLevel++;
 
         //Calculates the new Range
         targetingRange = calculateRange();
-
-       //closeUpgradeUI();
+        Debug.Log(gameObject.name + " - Speed Upgraded");
     }
 
-    public void UpgradeTDamage()
+    public void UpgradeDmg()
     {
         //Calculates the cost and will automatically update the new price
         if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
 
         LevelManager.main.SpendMoney(calculateCostDamage());
-        level++;
+        dmgLevel++;
 
-        turrentDmg = calculateDamage();
+        turretDmg = calculateDamage();
+        Debug.Log(gameObject.name + " - Damage Upgraded");
 
-        //closeUpgradeUI();
     }
 
-    public void UpgradeTFireSpeed()
+    public void UpgradeCtrl()
     {
         //Calculates the cost and will automatically update the new price
         if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
 
         LevelManager.main.SpendMoney(calculateCostFireRate());
-        level++;
+        ctrlLevel++;
 
         //Calculates the new FireRate
         fireRate = calculateFireRate();
+        Debug.Log(gameObject.name + " - Control Upgraded");
 
-        //closeUpgradeUI();
+    }
+
+    public void UpgradeSprt()
+    {
+        //Calculates the cost and will automatically update the new price
+        if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
+
+        LevelManager.main.SpendMoney(calculateCostFireRate());
+        sprtLevel++;
+
+        //Calculates the new FireRate
+        fireRate = calculateFireRate();
+        Debug.Log(gameObject.name + " - Support Upgraded");
     }
 
     private int calculateCostRange()
     {
-        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(level, 0.8f));
+        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(sprtLevel, 0.8f));
     }
 
     private int calculateCostDamage()
     {
-        return Mathf.RoundToInt(baseUpgradeDamage * Mathf.Pow(level, 0.8f));
+        return Mathf.RoundToInt(baseUpgradeDamage * Mathf.Pow(dmgLevel, 0.8f));
     }
 
     private int calculateCostFireRate()
     {
-        return Mathf.RoundToInt(baseUpgradeFireRate * Mathf.Pow(level, 0.8f));
+        return Mathf.RoundToInt(baseUpgradeFireRate * Mathf.Pow(spdLevel, 0.8f));
     }
 
     private float calculateFireRate()
     {
-        return bpsBase * Mathf.Pow(level, 0.5f);
+        return bpsBase * Mathf.Pow(spdLevel, 0.5f);
     }
 
     private float calculateRange()
     {
-        return targetingRangeBase * Mathf.Pow(level, 0.4f);
+        return targetingRangeBase * Mathf.Pow(sprtLevel, 0.4f);
     }
 
     private float calculateDamage()
     {
-        return turrentDmgBase * Mathf.Pow(level, 1f);
+        return turretDmgBase * Mathf.Pow(dmgLevel, 1f);
     }
-    #endregion
 
-    //For selling turrents
-    public void SellTorrent()
+    public void SellTurret()
     {
         LevelManager.main.GainMoney(baseSellCost);
-
-        //closeUpgradeUI();
-
         Destroy(this.gameObject);
     }
 }
