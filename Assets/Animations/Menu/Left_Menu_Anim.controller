@@ -7,7 +7,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: MenuOpen
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7612590349643343895}
   m_Solo: 0
@@ -81,7 +84,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: MenuOpen
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -469632289841865756}
   m_Solo: 0
@@ -132,7 +138,7 @@ AnimatorController:
   m_Name: Left_Menu_Anim
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: MenuAnimation
+  - m_Name: MenuOpen
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

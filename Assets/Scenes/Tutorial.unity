@@ -491,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 5683014487667516458, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: turretButton
       value: 
-      objectReference: {fileID: 1363500785}
+      objectReference: {fileID: 1808411462}
     - target: {fileID: 5683014487667516458, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: BoundsGameObj
       value: 
@@ -2800,17 +2800,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 679661040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1363500785 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3786699424604765518, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
-  m_PrefabInstance: {fileID: 1455525594}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1455525594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2865,7 +2854,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 3877f2b2b31220a48b5cc5ff6188134d, type: 2}
     - target: {fileID: 2089626310328185542, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_ApplyRootMotion
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2344473072352218772, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_Name
@@ -3015,16 +3004,42 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -300
       objectReference: {fileID: 0}
+    - target: {fileID: 7222108176203433640, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_text
+      value: Overlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222108176203433640, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7222108176203433640, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7984253107479838902, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_Name
       value: ShopUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8059563372334088059, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 121.1665
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059563372334088059, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 24.2333
+      objectReference: {fileID: 0}
+    - target: {fileID: 8059563372334088059, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 164.1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4213124722156642342, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+    - {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3340899280919975628, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
     - {fileID: 1716962802428677677, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
     - {fileID: 3566124228002144449, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+    - {fileID: 3771206346000880786, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6808943136384107532, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       insertIndex: -1
@@ -3278,6 +3293,10 @@ PrefabInstance:
     - target: {fileID: 1779559012946460511, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
       propertyPath: m_TagString
       value: Candy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3620950793077089255, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5949550309494206763, guid: 66d55aee247b24b459f96da9eecb854c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3557,6 +3576,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5367759757610364122, guid: 971419ec6652bc64a92960e6e005a6c4, type: 3}
   m_PrefabInstance: {fileID: 942178467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1808411462 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8484326450342286511, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+  m_PrefabInstance: {fileID: 1455525594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1843441248 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2245801302350933000, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
