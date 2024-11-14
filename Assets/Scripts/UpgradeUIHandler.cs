@@ -16,7 +16,7 @@ public class UpgradeUIHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //Point is entering or clicking the turrent
     public void OnPointerEnter(PointerEventData pData)
     {
-        //mouse_over = true; 
+        mouse_over = true; 
         //UIManager.main.setHoveringState(true);
     }
 

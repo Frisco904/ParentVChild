@@ -48,16 +48,19 @@ public class TurretSpawner : MonoBehaviour
             }
         }
         //Checking if player is clicking in an area within bounds and there is a detectable object within the raycast (Player Turret).
-        else if (Input.GetMouseButtonDown(0) && WithinBounds() && DetectObject())
+        else if (Input.GetMouseButtonDown(0) && DetectObject())
         {
             if (DetectObject().tag == "Player")
             {
+                //This is where the selected current torrent is.
                 Turret = DetectObject().GetComponent<Tower>();
-                Turret.openUpgradeUI();
+                Turret.selectedTower();
+                Menu.menu.SetSelectedTower(this.gameObject);
             }
             else 
             { 
-
+                Turret.unSelectTower();
+                Menu.menu.SetSelectedTower(null);
             }
             
         }

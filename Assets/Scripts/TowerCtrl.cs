@@ -25,7 +25,9 @@ public class Tower : MonoBehaviour
     //[SerializeField] private Button upgradeDamage;
     //[SerializeField] private Button upgradeFireRate;
     //[SerializeField] private Button sellBtn;
-    [SerializeField] private int baseUpgradeCost = 100;
+    [SerializeField] private int baseUpgradeRange = 10;
+    [SerializeField] private int baseUpgradeDamage = 20;
+    [SerializeField] private int baseUpgradeFireRate = 15;
     [SerializeField] private int baseSellCost = 100;
     
     [Header("Wwise")]
@@ -42,7 +44,6 @@ public class Tower : MonoBehaviour
     private Transform target;
     public static Tower main;
 
-    LevelManager Range;
 
     //public GameObject upgradeUI;
     //public Button upgradeRange;
@@ -132,9 +133,14 @@ public class Tower : MonoBehaviour
    */
     //This is for upgrade function
     #region Upgrade Methods
-    public void openUpgradeUI()
+    public void selectedTower()
     {
-        //upgradeUI.SetActive(true);
+        GetComponent<Renderer>().material.color = Color.red;
+    }
+
+    public void unSelectTower()
+    {
+        GetComponent<Renderer>().material.color = Color.white;
     }
 
     public void closeUpgradeUI()
@@ -146,9 +152,9 @@ public class Tower : MonoBehaviour
     public void UpgradeTRange()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCost() > LevelManager.main.GetCurrency()) return;
+        if (calculateCostRange() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCost());
+        LevelManager.main.SpendMoney(calculateCostRange());
         level++;
 
         //Calculates the new Range
@@ -160,9 +166,9 @@ public class Tower : MonoBehaviour
     public void UpgradeTDamage()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCost() > LevelManager.main.GetCurrency()) return;
+        if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCost());
+        LevelManager.main.SpendMoney(calculateCostDamage());
         level++;
 
         turrentDmg = calculateDamage();
@@ -173,9 +179,9 @@ public class Tower : MonoBehaviour
     public void UpgradeTFireSpeed()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCost() > LevelManager.main.GetCurrency()) return;
+        if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCost());
+        LevelManager.main.SpendMoney(calculateCostFireRate());
         level++;
 
         //Calculates the new FireRate
@@ -184,9 +190,19 @@ public class Tower : MonoBehaviour
         //closeUpgradeUI();
     }
 
-    private int calculateCost()
+    private int calculateCostRange()
     {
-        return Mathf.RoundToInt(baseUpgradeCost * Mathf.Pow(level, 0.8f));
+        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(level, 0.8f));
+    }
+
+    private int calculateCostDamage()
+    {
+        return Mathf.RoundToInt(baseUpgradeDamage * Mathf.Pow(level, 0.8f));
+    }
+
+    private int calculateCostFireRate()
+    {
+        return Mathf.RoundToInt(baseUpgradeFireRate * Mathf.Pow(level, 0.8f));
     }
 
     private float calculateFireRate()
@@ -210,7 +226,7 @@ public class Tower : MonoBehaviour
     {
         LevelManager.main.GainMoney(baseSellCost);
 
-        closeUpgradeUI();
+        //closeUpgradeUI();
 
         Destroy(this.gameObject);
     }

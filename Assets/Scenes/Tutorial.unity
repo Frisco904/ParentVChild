@@ -4209,6 +4209,26 @@ PrefabInstance:
       propertyPath: EnemyUI
       value: 
       objectReference: {fileID: 1590329129}
+    - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: sellBtn
+      value: 
+      objectReference: {fileID: 348374583}
+    - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: upgradeUI
+      value: 
+      objectReference: {fileID: 2089996469}
+    - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: upgradeRange
+      value: 
+      objectReference: {fileID: 1582903620}
+    - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: upgradeDamage
+      value: 
+      objectReference: {fileID: 256669524}
+    - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: upgradeFireRate
+      value: 
+      objectReference: {fileID: 971254843}
     - target: {fileID: 1718352203387028714, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -4243,27 +4263,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729464505091313242, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6808943136384107532, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_Pivot.x
