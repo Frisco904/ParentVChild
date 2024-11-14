@@ -19,6 +19,7 @@ public class TurretSpawner : MonoBehaviour
     [Header("References")]
     [SerializeField] private Button turretButton;
     [SerializeField] private GameObject BoundsGameObj;
+    [SerializeField] private float timeScaleSlowdownSpeed = .5f;
 
     private void Start()
     { 
@@ -106,11 +107,12 @@ public class TurretSpawner : MonoBehaviour
     //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
     private void ClickTurretButton()
     {
-
         if (CanBuyTurret() && !bPlaceTurret)
         {
             turretButton.image.color = Color.gray;
             bPlaceTurret = true;
+            //Slowing down time when placing a turret down.
+            Time.timeScale = timeScaleSlowdownSpeed;
         }
         else
         {
@@ -121,6 +123,8 @@ public class TurretSpawner : MonoBehaviour
     }
     private void UnclickTurretButton()
     {
+        //Setting the time scale back to normal.
+        Time.timeScale = 1f;
         turretButton.image.color = Color.white;
         bPlaceTurret = false;
     }
