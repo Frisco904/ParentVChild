@@ -52,7 +52,6 @@ public class WaveSpawnEnemies : MonoBehaviour
     private WaveSpawnEnemies[] WaveSpawners;
     //private bool updatedNextWave = false;
 
-
     private void Awake()
     {
 
