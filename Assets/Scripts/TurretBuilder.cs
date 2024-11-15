@@ -62,9 +62,10 @@ public class TurretBuilder : MonoBehaviour
         {
             if (DetectObject().tag == "Player")
             {
+                //Check if there is a prev selected turret then deselect it.
+                if (levelManager.selectedTurret != null) { levelManager.selectedTurret.DeselectTurret(); }
                 // This is where the selected current turret is.
                 Turret = DetectObject().GetComponent<Turret>();
-                if(levelManager.selectedTurret != null) { levelManager.selectedTurret.DeselectTurret(); }
                 Turret.SelectTurret();
                 SideMenu.SetMenu(true);
             }
