@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
                     // Debug.Log("Checking for the end wave condition now");
                     if (spawner.GetEnemiesAlive() == 0 && spawner.GetEnemiesLeftToSpawn() == 0)
                     {
-                        Debug.Log("Spawner is finished");
+                        //Debug.Log("Spawner is finished");
                         if (!allSpawnsFinishedList.Contains(spawner.GetInstanceID()))
                         {
                             allSpawnsFinishedList.Add(spawner.GetInstanceID());
