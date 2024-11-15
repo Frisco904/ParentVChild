@@ -22,15 +22,16 @@ public class SlideMenu : MonoBehaviour
     private void Start()
     {
         startTime = Time.time;
-        ToggleMenu();
+        SetMenu(false);
 
     }
 
     //This is for the menu animation
-    public void ToggleMenu()
+    public void SetMenu(bool value)
     {
-        if (isMenuOpen) anim.Play("MenuClose"); else anim.Play("MenuOpen");
-        isMenuOpen = !isMenuOpen;
+        
+        isMenuOpen = value;
+        anim.SetBool("MenuAnimation", isMenuOpen);
 
         // Check the Level manager for the selected turret every time the menu is toggled
         selectedTurret = LevelManager.main.selectedTurret;
@@ -58,6 +59,8 @@ public class SlideMenu : MonoBehaviour
     
     public void SellTurret() {
        selectedTurret.SellTurret();
+        TurretBuilder.main.DeselectTurretCheck();
+        SetMenu(false);
     }
     private void OnGUI()
     {

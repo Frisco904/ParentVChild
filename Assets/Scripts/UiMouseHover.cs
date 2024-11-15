@@ -49,16 +49,19 @@ public class UIMouseHover : MonoBehaviour
         //Add logic to change the cursor based on if we can place a turret down or now and update the cursor accordingly.
     {
         
+        //If we can place a turret and we are within bounds
         if (turretBuilder.canPlaceTurret && turretBuilder.WithinBounds())
         {
             Cursor.SetCursor(onHoverCursorInBounds, hoverInBoundsCursorHotspot, CursorMode.Auto);
         }
+        //If we can place a turret but clicked out of bounds then the cursor stays red
         else if (turretBuilder.canPlaceTurret && !turretBuilder.WithinBounds())
         {
             Cursor.SetCursor(onHoverCursorOutOfBounds, hoverOutBoundsCursorHotspot, CursorMode.Auto);
         }
         else
         {
+            //When we have placed a turret.
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
         }
