@@ -48,7 +48,7 @@ public class TurretBuilder : MonoBehaviour
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var newTurret = Instantiate(towerPrefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
                 newTurret.GetComponent<Turret>().SelectTurret();
-                SideMenu.ToggleMenu();
+                SideMenu.SetMenu(true);
                 DeselectBuildButton();
                 uiMouseScript.MouseDown();
             }
@@ -64,24 +64,16 @@ public class TurretBuilder : MonoBehaviour
             {
                 // This is where the selected current turret is.
                 Turret = DetectObject().GetComponent<Turret>();
+                if(levelManager.selectedTurret != null) { levelManager.selectedTurret.DeselectTurret(); }
                 Turret.SelectTurret();
-                SideMenu.ToggleMenu();
+                SideMenu.SetMenu(true);
             }
             else
             {
                 //Debug.Log("Clicked on something other than turret.");
                 DeselectAll();
-                //
+                SideMenu.SetMenu(false);
             }
-        }
-        else if (Input.GetMouseButtonDown(0)) 
-        {
-            //DeselectAll();
-        }
-        else
-        {
-            //DeselectAll();
-
         }
     }
 
@@ -106,38 +98,6 @@ public class TurretBuilder : MonoBehaviour
             {
                 return hits2d[0].collider.gameObject;
             }
-
-            //var playerPresent = detectedList.Where(hit => hit.collider.gameObject.CompareTag("Player")).ToList();
-
-
-            
-            //detectedList.Contains()
-            /*
-            if (playerPresent.Count == 1) 
-            {
-                RaycastHit2D hit = playerPresent.ToList().First();    
-                
-                return hit.collider.gameObject;
-            }
-            else
-            {
-                RaycastHit2D hit = playerPresent.ToList().First();
-                return hit.collider.gameObject; ;
-            }
-
-            */
-            /*foreach (RaycastHit2D hit in hits2d)
-            {
-                if (hit.collider.gameObject.tag == "Player")
-                {
-                    return hit.collider.gameObject;
-                }
-                else
-                {
-                    return hit.collider.gameObject;
-
-                }
-            }*/
 
         }
         else
