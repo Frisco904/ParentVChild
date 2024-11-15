@@ -1,3 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,8 +69,19 @@ public class TurretBuilder : MonoBehaviour
             }
             else
             {
+                //Debug.Log("Clicked on something other than turret.");
                 DeselectAll();
+                //
             }
+        }
+        else if (Input.GetMouseButtonDown(0)) 
+        {
+            //DeselectAll();
+        }
+        else
+        {
+            //DeselectAll();
+
         }
     }
 
@@ -74,17 +90,59 @@ public class TurretBuilder : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
+
+
+        //There are objects that were captured in the raycast.
         if (hits2d.Length > 0)
         {
-            foreach (RaycastHit2D hit in hits2d)
+            var detectedList = hits2d.ToList();
+
+            //Will execute if there exists a game object with the tag "Player" in the hits2d array.
+            if (detectedList.Where(x=> x.collider.CompareTag("Player")).ToList().Count > 0) 
+            {
+                return detectedList.Where(x => x.collider.CompareTag("Player")).ToList().First().collider.gameObject;
+            }
+            else
+            {
+                return hits2d[0].collider.gameObject;
+            }
+
+            //var playerPresent = detectedList.Where(hit => hit.collider.gameObject.CompareTag("Player")).ToList();
+
+
+            
+            //detectedList.Contains()
+            /*
+            if (playerPresent.Count == 1) 
+            {
+                RaycastHit2D hit = playerPresent.ToList().First();    
+                
+                return hit.collider.gameObject;
+            }
+            else
+            {
+                RaycastHit2D hit = playerPresent.ToList().First();
+                return hit.collider.gameObject; ;
+            }
+
+            */
+            /*foreach (RaycastHit2D hit in hits2d)
             {
                 if (hit.collider.gameObject.tag == "Player")
                 {
                     return hit.collider.gameObject;
                 }
-                else { }
-            }
+                else
+                {
+                    return hit.collider.gameObject;
 
+                }
+            }*/
+
+        }
+        else
+        {
+            //Debug.Log("hits is empty.");
         }
         return null;
     }
@@ -125,7 +183,7 @@ public class TurretBuilder : MonoBehaviour
     }
 
     // Resets all selected mouse elements.
-    private void DeselectAll()
+    public void DeselectAll()
     {
         if (levelManager.selectedTurret != null) levelManager.selectedTurret.DeselectTurret();
         DeselectBuildButton();

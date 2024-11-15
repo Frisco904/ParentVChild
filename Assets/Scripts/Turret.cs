@@ -111,12 +111,12 @@ public class Turret : MonoBehaviour
     {
         LevelManager.main.selectedTurret = this;
         GetComponent<Renderer>().material.color = Color.red;
-        Debug.Log(gameObject.name + " - Turrent now selected");
+        Debug.Log(gameObject.name + " - Turret now selected");
     }
 
     public void DeselectTurret()
     {
-        Debug.Log(gameObject.name + " - Turrent now deselected");
+        Debug.Log(gameObject.name + " - Turret now deselected");
         LevelManager.main.selectedTurret = null;
         GetComponent<Renderer>().material.color = Color.white;
     }
