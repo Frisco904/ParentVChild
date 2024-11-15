@@ -111,12 +111,12 @@ public class Turret : MonoBehaviour
     {
         LevelManager.main.selectedTurret = this;
         GetComponent<Renderer>().material.color = Color.red;
-        Debug.Log(gameObject.name + " - Turret now selected");
+        //Debug.Log(gameObject.name + " - Turret now selected");
     }
 
     public void DeselectTurret()
     {
-        Debug.Log(gameObject.name + " - Turret now deselected");
+        //Debug.Log(gameObject.name + " - Turret now deselected");
         LevelManager.main.selectedTurret = null;
         GetComponent<Renderer>().material.color = Color.white;
     }
@@ -131,7 +131,7 @@ public class Turret : MonoBehaviour
 
         //Calculates the new Range
         targetingRange = calculateRange();
-        Debug.Log(gameObject.name + " - Speed Upgraded");
+        //Debug.Log(gameObject.name + " - Speed Upgraded");
     }
 
     public void UpgradeDmg()
@@ -143,7 +143,7 @@ public class Turret : MonoBehaviour
         dmgLevel++;
 
         turretDmg = calculateDamage();
-        Debug.Log(gameObject.name + " - Damage Upgraded");
+        //Debug.Log(gameObject.name + " - Damage Upgraded");
 
     }
 
@@ -157,7 +157,7 @@ public class Turret : MonoBehaviour
 
         //Calculates the new FireRate
         fireRate = calculateFireRate();
-        Debug.Log(gameObject.name + " - Control Upgraded");
+        //Debug.Log(gameObject.name + " - Control Upgraded");
 
     }
 
@@ -171,7 +171,7 @@ public class Turret : MonoBehaviour
 
         //Calculates the new FireRate
         fireRate = calculateFireRate();
-        Debug.Log(gameObject.name + " - Support Upgraded");
+        //Debug.Log(gameObject.name + " - Support Upgraded");
     }
 
     private int calculateCostRange()

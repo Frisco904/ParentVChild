@@ -59,6 +59,8 @@ public class SlideMenu : MonoBehaviour
     
     public void SellTurret() {
        selectedTurret.SellTurret();
+        TurretBuilder.main.DeselectTurretCheck();
+        SetMenu(false);
     }
     private void OnGUI()
     {

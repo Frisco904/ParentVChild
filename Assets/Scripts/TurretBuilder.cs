@@ -4,6 +4,7 @@ using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TurretBuilder : MonoBehaviour
@@ -39,12 +40,16 @@ public class TurretBuilder : MonoBehaviour
 
     void Update()
     {
+        if(IsMouseOverUI()) { return; }
         //Checking if player is clicking in area within bounds and is able to place a turret.
         if (Input.GetMouseButtonDown(0) && canPlaceTurret && WithinBounds())
         {
             //Spawning turret where the mouse is hovering over.
             if (CanBuildTurret() && levelManager.SpendMoney(buildCost))
             {
+                //Check if there is a prev selected turret then deselect it.
+                DeselectTurretCheck();
+
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var newTurret = Instantiate(towerPrefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
                 newTurret.GetComponent<Turret>().SelectTurret();
@@ -60,10 +65,10 @@ public class TurretBuilder : MonoBehaviour
         //Checking if player is clicking in an area within bounds and there is a detectable object within the raycast (Player Turret).
         else if (Input.GetMouseButtonDown(0) && DetectObject())
         {
-            if (DetectObject().tag == "Player")
+            if (DetectObject().CompareTag("Player"))
             {
                 //Check if there is a prev selected turret then deselect it.
-                if (levelManager.selectedTurret != null) { levelManager.selectedTurret.DeselectTurret(); }
+                DeselectTurretCheck();
                 // This is where the selected current turret is.
                 Turret = DetectObject().GetComponent<Turret>();
                 Turret.SelectTurret();
@@ -76,6 +81,9 @@ public class TurretBuilder : MonoBehaviour
                 SideMenu.SetMenu(false);
             }
         }
+
+
+        
     }
 
     //Will raycast on mouse position to check if there exists a tower at that transform.
@@ -103,7 +111,9 @@ public class TurretBuilder : MonoBehaviour
         }
         else
         {
-            //Debug.Log("hits is empty.");
+           //Debug.Log("hits is empty.");
+            DeselectTurretCheck();
+            SideMenu.SetMenu(false);
         }
         return null;
     }
@@ -156,5 +166,11 @@ public class TurretBuilder : MonoBehaviour
         canPlaceTurret = false;
     }
 
+    private bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
+    }
+
+    public void DeselectTurretCheck() { if (levelManager.selectedTurret != null) { levelManager.selectedTurret.DeselectTurret(); } }
     public bool CanBuildTurret() { return levelManager.GetCurrency() >= buildCost; }
 }
