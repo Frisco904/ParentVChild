@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
@@ -28,7 +30,11 @@ public class LevelManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] public GameObject CandyPile;
+    [SerializeField] private GameObject countDownTxt;
+    [SerializeField] private TextMeshProUGUI countDown;
     public PauseMenu MenuObj;
+    public int preparationTime = 5;
+    private bool isCountdownActive = false;
 
     [Header("Currency System")]
     [SerializeField] private int currency = 100;
@@ -56,6 +62,8 @@ public class LevelManager : MonoBehaviour
         LevelLoaded.Post(gameObject);
         // Let Wwise know what level we are on.
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
+        StartCountDown();
+        countDownTxt.gameObject.SetActive(true);
         MusicStart.Post(gameObject);
     }
 
@@ -130,6 +138,29 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Not enough cash");
             return false;
         }
+    }
+
+    public void StartCountDown()
+    {
+        if (!isCountdownActive)
+        {
+            isCountdownActive = true;
+            StartCoroutine(CountDownTimer());
+        }
+    }
+
+    IEnumerator CountDownTimer()
+    {
+        int timeRemaining = preparationTime;
+
+        while (timeRemaining > 0)
+        {
+            countDown.text = timeRemaining.ToString();
+            yield return new WaitForSeconds(1);
+            timeRemaining--;
+        }
+
+        countDownTxt.gameObject.SetActive(false);
     }
 
     //Getters and Setters

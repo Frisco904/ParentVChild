@@ -10,6 +10,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public enum SpawnPoints
 {
@@ -38,7 +39,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     [Header("Wwise")]
     [SerializeField] private AK.Wwise.Event ZombieSFX;
 
-    private float timeBetweenWaves;
+    private float timeBetweenWaves = 5f;
     private int currentWave = 1;
     private float timeSinceLastSpawn;
     private float enemiesPerSecond;
@@ -121,7 +122,8 @@ public class WaveSpawnEnemies : MonoBehaviour
         {
             finalWaveTxt.SetActive(true);
 
-            Invoke("DelayAction", 4f);
+            Invoke("ChangeTxt", 3f);
+            Invoke("DelayAction", 6f);
 
             isLvlFinished = true;
         }
@@ -205,7 +207,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         IndicateWaveUI.text = GetIndicateWave(waveNum);
         IndicateWaveUI.gameObject.SetActive(true);
-        Invoke("WaveDisappearTxt", 3f);
+        Invoke("ChangeTxt", 2f);
         isWaveFinished = true;
     }
 
@@ -242,6 +244,34 @@ public class WaveSpawnEnemies : MonoBehaviour
         finalWaveTxt.SetActive(false);
     }
 
+    void ChangeTxt()
+    {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            IndicateWaveUI.text = "Incoming small kids";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+        else if (currentWave == 1 && SceneManager.GetActiveScene().name != "Tutorial")
+        {
+            IndicateWaveUI.text = "Meh just small kids.";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+        else if (currentWave == 2)
+        {
+            IndicateWaveUI.text = "Big kids incoming!!!";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+        else if (currentWave != LevelManager.main.GetMaxWaves())
+        {
+            IndicateWaveUI.text = "Here they come!!!";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+        else if (currentWave == LevelManager.main.GetMaxWaves() && LevelManager.main.GetEnemiesLeft() > 20)
+        {
+            IndicateWaveUI.text = "HORDE OF KIDS ARE COMING!!!";
+            Invoke("WaveDisappearTxt", 3f);
+        }
+    }
     void WaveDisappearTxt()
     {
         IndicateWaveUI.gameObject.SetActive(false);

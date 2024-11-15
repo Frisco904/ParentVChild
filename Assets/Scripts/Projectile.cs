@@ -15,10 +15,13 @@ public class Projectile : MonoBehaviour
 
     private Transform target;
     private float spinDirection = 1f;
+    public int PDmg = 1;
+    public static Projectile main;
 
     // Update is called once per frame
-    void Awake()    
+    void Awake()
     {
+        main = this;
         Destroy(gameObject, life);
         if (Random.Range(0,1) == 0) spinDirection = -1f;
     }
@@ -45,7 +48,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.tag != "Enemy") return;
         //Adding knockback to the collided object and calling the TakeDamage function from the EnemyCtrl Script.
         EnemyCtrl enemy = collision.gameObject.GetComponent<EnemyCtrl>();
-        enemy.TakeDamage();
+        enemy.TakeDamage(PDmg);
         Projectile_Hit.Post(gameObject);
         Destroy(gameObject);
     }

@@ -76,6 +76,7 @@ public class Turret : MonoBehaviour
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
+        projectileScript.PDmg = dmgLevel;
         TurretShot.Post(gameObject); // Wwise Event
     }
 
@@ -141,8 +142,8 @@ public class Turret : MonoBehaviour
 
         LevelManager.main.SpendMoney(calculateCostDamage());
         dmgLevel++;
-
         turretDmg = calculateDamage();
+
         Debug.Log(gameObject.name + " - Damage Upgraded");
 
     }
@@ -181,7 +182,7 @@ public class Turret : MonoBehaviour
 
     private int calculateCostDamage()
     {
-        return Mathf.RoundToInt(baseUpgradeDamage * Mathf.Pow(dmgLevel, 0.8f));
+        return Mathf.RoundToInt(baseUpgradeDamage * Mathf.Pow(dmgLevel, 0.4f));
     }
 
     private int calculateCostFireRate()

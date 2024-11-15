@@ -173,13 +173,12 @@ public class EnemyCtrl : MonoBehaviour
 
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int dmg)
     {
-
+        currentFull += dmg;
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
         //Freeze();
-        currentFull += fillAmount;
-        if(currentFull == maxFull && !isDestroyed)
+        if(currentFull >= maxFull && !isDestroyed)
         {
             isDestroyed = true;
             Eliminate();
