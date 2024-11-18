@@ -29,7 +29,10 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab; // Prefab turret will shoot.
 
     [Header("Wwise")]
-    [SerializeField] public AK.Wwise.Event TurretShot;
+    [SerializeField] public AK.Wwise.Event Turret_Built;
+    [SerializeField] public AK.Wwise.Event Turret_Shot;
+    [SerializeField] public AK.Wwise.Event Turret_Sold;
+    [SerializeField] public AK.Wwise.Event Turret_Upgraded;
 
     private float timeUntilFire;
     private Transform target;
@@ -39,6 +42,7 @@ public class Turret : MonoBehaviour
         bpsBase = fireRate;
         targetingRangeBase = targetingRange;
         turretDmgBase = turretDmg;
+        Turret_Built.Post(gameObject);
     }
 
     void Update()
@@ -74,7 +78,7 @@ public class Turret : MonoBehaviour
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
-        TurretShot.Post(gameObject); // Wwise Event
+        Turret_Shot.Post(gameObject); // Wwise Event
     }
 
     private void FindTarget()
@@ -129,6 +133,8 @@ public class Turret : MonoBehaviour
 
         //Calculates the new Range
         targetingRange = calculateRange();
+        
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
         //Debug.Log(gameObject.name + " - Speed Upgraded");
     }
 
@@ -141,6 +147,8 @@ public class Turret : MonoBehaviour
         dmgLevel++;
 
         turretDmg = calculateDamage();
+
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
         //Debug.Log(gameObject.name + " - Damage Upgraded");
 
     }
@@ -155,6 +163,8 @@ public class Turret : MonoBehaviour
 
         //Calculates the new FireRate
         fireRate = calculateFireRate();
+       
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
         //Debug.Log(gameObject.name + " - Control Upgraded");
 
     }
@@ -169,6 +179,8 @@ public class Turret : MonoBehaviour
 
         //Calculates the new FireRate
         fireRate = calculateFireRate();
+        
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
         //Debug.Log(gameObject.name + " - Support Upgraded");
     }
 
@@ -204,6 +216,7 @@ public class Turret : MonoBehaviour
 
     public void SellTurret()
     {
+        Turret_Sold.Post(gameObject); // Send Wwise Event.
         LevelManager.main.GainMoney(baseSellCost);
         Destroy(this.gameObject);
     }

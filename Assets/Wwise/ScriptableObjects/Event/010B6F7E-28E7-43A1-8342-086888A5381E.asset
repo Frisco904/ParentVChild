@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7e71238d0999848b6bbf56403b6dd6, type: 3}
+  m_Name: 010B6F7E-28E7-43A1-8342-086888A5381E
+  m_EditorClassIdentifier: 
+  objectName: Turret_Built
+  id: 1259520878
+  guid: 010B6F7E-28E7-43A1-8342-086888A5381E
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

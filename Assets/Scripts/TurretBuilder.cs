@@ -1,8 +1,4 @@
-using System.Collections.Generic;
 using System.Linq;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -27,7 +23,6 @@ public class TurretBuilder : MonoBehaviour
     [SerializeField] public GameObject BoundsGameObj;
     [SerializeField] public SlideMenu SideMenu;
 
-
     void Awake()
     {
         if (main == null) main = this;
@@ -43,15 +38,16 @@ public class TurretBuilder : MonoBehaviour
     void Update()
     {
         if(IsMouseOverUI()) { return; }
-        //Checking if player is clicking in area within bounds and is able to place a turret.
+    
+        // Checking if player is clicking in area within bounds and is able to place a turret.
         if (Input.GetMouseButtonDown(0) && canPlaceTurret && WithinBounds())
         {
-            //Spawning turret where the mouse is hovering over.
+            // Spawning turret where the mouse is hovering over.
             if (CanBuildTurret() && levelManager.SpendMoney(buildCost))
             {
+                // Build Turret 
                 //Check if there is a prev selected turret then deselect it.
                 DeselectTurretCheck();
-
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var newTurret = Instantiate(towerPrefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
                 newTurret.GetComponent<Turret>().SelectTurret();
