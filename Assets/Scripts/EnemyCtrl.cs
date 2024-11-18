@@ -42,7 +42,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         
         //Target is set to candy by default for any enemy that is spawned outside of using the AiPathing.
-        target = LevelManager.main.CandyPile.transform;
+        target = LevelManager.main.candyPile.transform;
 
     }
 
@@ -74,15 +74,15 @@ public class EnemyCtrl : MonoBehaviour
     {
 
         // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
-        if (LevelManager.main.CandyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
+        if (LevelManager.main.candyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
         //Checking that Candy Pile is valid.
-        if (LevelManager.main.CandyPile)
+        if (LevelManager.main.candyPile)
         {
             CandyInRange();
             DetectObject();
 
             //Makes the radius smaller if the target is the candypile, to make the enemy collide with the candy pile to trigger the appropriate logic.
-            if (target == LevelManager.main.CandyPile.transform) targetingRange = candyproximity;
+            if (target == LevelManager.main.candyPile.transform) targetingRange = candyproximity;
             
             //Check if target is within range, if so move on to next target in list.
             if (Vector2.Distance(target.position, transform.position) <= targetingRange)
@@ -102,7 +102,7 @@ public class EnemyCtrl : MonoBehaviour
                     target = path[pathIndex];
 
                     //We only want to adjust the values if its not the candy pile
-                    if (target != LevelManager.main.CandyPile.transform)
+                    if (target != LevelManager.main.candyPile.transform)
                     {
 
                         //Creating game object to hold the transform information for where the AI will be moving towards. Adding components to the game object
@@ -144,7 +144,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (LevelManager.main.CandyPile)
+        if (LevelManager.main.candyPile)
         {
             if (frozen) return;
 

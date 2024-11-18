@@ -16,23 +16,24 @@ public class LevelManager : MonoBehaviour
 
     public Turret selectedTurret = null;
     private int enemiesLeft = 0;
-    private bool WinConditionMet = false;
+    private bool winConditionMet = false;
     private int score = 0;
-    private WaveSpawnEnemies[] WaveSpawners;
+    private WaveSpawnEnemies[] waveSpawners;
     List<int> allSpawnsFinishedList = new List<int>();
     private float startTime;
     public float waveDelayTime;
 
     [Header("Enemy Wave Attributes")]
-    [SerializeField] private int MaxWaves = 3;
+    [SerializeField] private bool levelStart;
+    [SerializeField] private int maxWaves = 3;
     [SerializeField] private float initialWaveDelay;
     [SerializeField] private float timeBetweenWaves;
 
     [Header("References")]
-    [SerializeField] public GameObject CandyPile;
+    [SerializeField] public GameObject candyPile;
     [SerializeField] private GameObject countDownTxt;
     [SerializeField] private TextMeshProUGUI countDown;
-    public PauseMenu MenuObj;
+    public PauseMenu menuObj;
     public int preparationTime = 5;
     private bool isCountdownActive = false;
 
@@ -51,9 +52,10 @@ public class LevelManager : MonoBehaviour
         if (main == null)
         {
             main = this;
-            path1.Add(CandyPile.transform);
-            path2.Add(CandyPile.transform);
-            path3.Add(CandyPile.transform);
+            path1.Add(candyPile.transform);
+            path2.Add(candyPile.transform);
+            path3.Add(candyPile.transform);
+            levelStart = false;
         }
     }
 
@@ -70,8 +72,8 @@ public class LevelManager : MonoBehaviour
     private void Update()
     {
         //Finding all instances of WaveSpawnEnemies and i
-        WaveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
-        foreach (WaveSpawnEnemies spawner in WaveSpawners)
+        waveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
+        foreach (WaveSpawnEnemies spawner in waveSpawners)
         {
             if (spawner.GetIsSpawning())
             {
@@ -93,14 +95,14 @@ public class LevelManager : MonoBehaviour
         //Debug.Log(allSpawnsFinishedList.Count);
 
         //At this logic check all spawners would be done witht their waves.
-        if (allSpawnsFinishedList.Count == WaveSpawners.Length)
+        if (allSpawnsFinishedList.Count == waveSpawners.Length)
         {
 
-            foreach (WaveSpawnEnemies spawner in WaveSpawners)
+            foreach (WaveSpawnEnemies spawner in waveSpawners)
             {
                 //Debug.Log("For spawner: " + spawner.name + "Called end wave funciton");
                 spawner.EndWave();
-                if (spawner == WaveSpawners[WaveSpawners.Length - 1])
+                if (spawner == waveSpawners[waveSpawners.Length - 1])
                 {
                     //Debug.Log("This should occur once.");
                     allSpawnsFinishedList.Clear();
@@ -108,13 +110,13 @@ public class LevelManager : MonoBehaviour
             }
         }
 
-        if (WinConditionMet && enemiesLeft == 0)
+        if (winConditionMet && enemiesLeft == 0)
         {
-            MenuObj.Invoke("VictoryScreen", 5);
+            menuObj.Invoke("VictoryScreen", 5);
         }
-        if (CandyPile.IsDestroyed())
+        if (candyPile.IsDestroyed())
         {
-            MenuObj.Defeat();
+            menuObj.Defeat();
         }
 
     }
@@ -168,10 +170,13 @@ public class LevelManager : MonoBehaviour
     public int GetEnemiesLeft() { return enemiesLeft; }
     public void SetEnemiesLeft(int value) { enemiesLeft += value; }
     public void DecrementEnemiesLeft() { enemiesLeft--; }
-    public int GetMaxWaves() { return MaxWaves; }
-    public void SetWinCondition(bool bSetWinCondition) { WinConditionMet = bSetWinCondition; }
+    public int GetMaxWaves() { return maxWaves; }
+    public void SetWinCondition(bool bSetWinCondition) { winConditionMet = bSetWinCondition; }
     public void AddScore(int value) { score += value; }
     public int GetScore() { return score; }
     public float GetInitialWaveDelay() { return initialWaveDelay; }
     public float GetTimeBetweenWavesDelay() { return timeBetweenWaves; }
+    public bool GetStartWave() {  return levelStart; }
+    public void StartWave() { levelStart = true; }
+
 }

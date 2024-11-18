@@ -89,6 +89,8 @@ public class WaveSpawnEnemies : MonoBehaviour
     private void Update()
     {
 
+        if (!LevelManager.main.GetStartWave()) { return; }
+
         int wave = currentWave;
 
         if (isSpawning)
@@ -100,7 +102,7 @@ public class WaveSpawnEnemies : MonoBehaviour
             }
         }
 
-        if (LevelManager.main.CandyPile)
+        if (LevelManager.main.candyPile)
         {
 
             if (!isSpawning) return;
