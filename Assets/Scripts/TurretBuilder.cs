@@ -19,12 +19,14 @@ public class TurretBuilder : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private int buildCost; // The amoutn of $ required to build a turret.
+    [SerializeField] private float timeScaleSlowdownSpeed = .5f;
 
     [Header("References")]
     [SerializeField] public GameObject towerPrefab;
     [SerializeField] public Button buildButton;
     [SerializeField] public GameObject BoundsGameObj;
     [SerializeField] public SlideMenu SideMenu;
+
 
     void Awake()
     {
@@ -144,11 +146,13 @@ public class TurretBuilder : MonoBehaviour
         {
             buildButton.image.color = Color.gray;
             canPlaceTurret = true;
+            Time.timeScale = timeScaleSlowdownSpeed;
         }
         else
         {
             buildButton.image.color = Color.white;
             canPlaceTurret = false;
+            Time.timeScale = 1f;
         }
         uiMouseScript.MouseDown();
     }
@@ -164,6 +168,7 @@ public class TurretBuilder : MonoBehaviour
     {
         buildButton.image.color = Color.white;
         canPlaceTurret = false;
+        Time.timeScale = 1f;
     }
 
     private bool IsMouseOverUI()
