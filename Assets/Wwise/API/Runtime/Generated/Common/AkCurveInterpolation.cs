@@ -21,6 +21,7 @@ public enum AkCurveInterpolation {
   AkCurveInterpolation_SineRecip = 7,
   AkCurveInterpolation_Exp3 = 8,
   AkCurveInterpolation_LastFadeCurve = 8,
-  AkCurveInterpolation_Constant = 9
+  AkCurveInterpolation_Constant = 9,
+  AkCurveInterpolation_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

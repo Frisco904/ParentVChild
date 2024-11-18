@@ -16,6 +16,7 @@ public enum AkAudioDeviceState {
   AkDeviceState_Disabled = 1 << 1,
   AkDeviceState_NotPresent = 1 << 2,
   AkDeviceState_Unplugged = 1 << 3,
+  AkDeviceState_Last,
   AkDeviceState_All = AkDeviceState_Active|AkDeviceState_Disabled|AkDeviceState_NotPresent|AkDeviceState_Unplugged
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

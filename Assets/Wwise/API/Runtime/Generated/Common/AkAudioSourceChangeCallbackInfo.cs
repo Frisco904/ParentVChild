@@ -42,7 +42,7 @@ public class AkAudioSourceChangeCallbackInfo : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkAudioSourceChangeCallbackInfo(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkAudioSourceChangeCallbackInfo(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,10 +50,10 @@ public class AkAudioSourceChangeCallbackInfo : global::System.IDisposable {
     }
   }
 
-  public bool bOtherAudioPlaying { get { return AkSoundEnginePINVOKE.CSharp_AkAudioSourceChangeCallbackInfo_bOtherAudioPlaying_get(swigCPtr); } 
+  public bool bOtherAudioPlaying { get { return AkUnitySoundEnginePINVOKE.CSharp_AkAudioSourceChangeCallbackInfo_bOtherAudioPlaying_get(swigCPtr); } 
   }
 
-  public AkAudioSourceChangeCallbackInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkAudioSourceChangeCallbackInfo(), true) {
+  public AkAudioSourceChangeCallbackInfo() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkAudioSourceChangeCallbackInfo(), true) {
   }
 
 }

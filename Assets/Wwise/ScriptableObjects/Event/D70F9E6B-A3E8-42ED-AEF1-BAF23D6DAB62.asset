@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Jawbreaker_Damage
   id: 1656416929
   guid: D70F9E6B-A3E8-42ED-AEF1-BAF23D6DAB62
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

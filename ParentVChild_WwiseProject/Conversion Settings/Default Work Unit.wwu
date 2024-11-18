@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}" SchemaVersion="123">
 	<Conversions>
 		<WorkUnit Name="Default Work Unit" ID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}" PersistMode="Standalone">
 			<ChildrenList>
@@ -21,9 +21,9 @@
 						</Property>
 						<Property Name="MaxSampleRate" Type="int32">
 							<ValueList>
-								<Value Platform="Linux">0</Value>
-								<Value Platform="Mac">0</Value>
-								<Value Platform="Windows">0</Value>
+								<Value Platform="Linux">48000</Value>
+								<Value Platform="Mac">48000</Value>
+								<Value Platform="Windows">48000</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MinSampleRate" Type="int32">

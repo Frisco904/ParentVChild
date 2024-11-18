@@ -16,7 +16,7 @@ in a written agreement between you and Audiokinetic Inc.
 Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
-[UnityEditor.CustomEditor(typeof(AkEnvironmentPortal))]
+[UnityEditor.CustomEditor(typeof(AkEnvironmentPortal), true)]
 public class AkEnvironmentPortalInspector : UnityEditor.Editor
 {
 	private readonly int[] m_selectedIndex = new int[AkEnvironmentPortal.MAX_ENVIRONMENTS_PER_PORTAL];

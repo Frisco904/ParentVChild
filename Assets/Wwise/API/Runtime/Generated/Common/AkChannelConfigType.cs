@@ -15,6 +15,7 @@ public enum AkChannelConfigType {
   AK_ChannelConfigType_Standard = 0x1,
   AK_ChannelConfigType_Ambisonic = 0x2,
   AK_ChannelConfigType_Objects = 0x3,
+  AK_ChannelConfigType_Last,
   AK_ChannelConfigType_UseDeviceMain = 0xE,
   AK_ChannelConfigType_UseDevicePassthrough = 0xF
 }

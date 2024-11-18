@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: MusicStart
   id: 1122283870
   guid: 923ECB54-F45C-4F7B-A524-FD6CF3E9E81F
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

@@ -13,6 +13,7 @@
 public enum Ak3DSpatializationMode : byte {
   AK_SpatializationMode_None = 0,
   AK_SpatializationMode_PositionOnly = 1,
-  AK_SpatializationMode_PositionAndOrientation = 2
+  AK_SpatializationMode_PositionAndOrientation = 2,
+  AK_SpatializationMode_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

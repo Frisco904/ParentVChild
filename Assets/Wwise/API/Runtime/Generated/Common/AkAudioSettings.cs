@@ -42,7 +42,7 @@ public class AkAudioSettings : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkAudioSettings(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkAudioSettings(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,13 +50,13 @@ public class AkAudioSettings : global::System.IDisposable {
     }
   }
 
-  public uint uNumSamplesPerFrame { set { AkSoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerFrame_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerFrame_get(swigCPtr); } 
+  public uint uNumSamplesPerFrame { set { AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerFrame_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerFrame_get(swigCPtr); } 
   }
 
-  public uint uNumSamplesPerSecond { set { AkSoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerSecond_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerSecond_get(swigCPtr); } 
+  public uint uNumSamplesPerSecond { set { AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerSecond_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkAudioSettings_uNumSamplesPerSecond_get(swigCPtr); } 
   }
 
-  public AkAudioSettings() : this(AkSoundEnginePINVOKE.CSharp_new_AkAudioSettings(), true) {
+  public AkAudioSettings() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkAudioSettings(), true) {
   }
 
 }

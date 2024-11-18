@@ -42,7 +42,7 @@ public class AkCallbackInfo : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkCallbackInfo(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkCallbackInfo(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,13 +50,13 @@ public class AkCallbackInfo : global::System.IDisposable {
     }
   }
 
-  public global::System.IntPtr pCookie { get { return AkSoundEnginePINVOKE.CSharp_AkCallbackInfo_pCookie_get(swigCPtr); }
+  public global::System.IntPtr pCookie { get { return AkUnitySoundEnginePINVOKE.CSharp_AkCallbackInfo_pCookie_get(swigCPtr); }
   }
 
-  public ulong gameObjID { get { return AkSoundEnginePINVOKE.CSharp_AkCallbackInfo_gameObjID_get(swigCPtr); } 
+  public ulong gameObjID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkCallbackInfo_gameObjID_get(swigCPtr); } 
   }
 
-  public AkCallbackInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkCallbackInfo(), true) {
+  public AkCallbackInfo() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkCallbackInfo(), true) {
   }
 
 }
