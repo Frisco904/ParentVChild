@@ -26,8 +26,8 @@ public class LevelManager : MonoBehaviour
     private bool autoLevelStarted = false;
     private bool levelStart;
 
-    [Header("Enemy Wave Attributes")]
     [SerializeField] private bool autoLevelStart;
+    [Header("Enemy Wave Attributes")]
     [SerializeField] private int maxWaves = 3;
     [SerializeField] private float initialWaveDelay;
     [SerializeField] private float timeBetweenWaves;
