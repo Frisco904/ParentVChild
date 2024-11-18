@@ -89,7 +89,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     private void Update()
     {
 
-        if (!LevelManager.main.GetStartWave()) { return; }
+        if (!LevelManager.main.GetStartLevel()) { return; }
 
         int wave = currentWave;
 

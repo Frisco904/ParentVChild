@@ -180,6 +180,7 @@ MonoBehaviour:
   fillAmount: 3
   currencyWorth: 5
   candyproximity: 0.1
+  redTickDmgLength: 0.03
   rb: {fileID: 6012972045146098421}
   kidImg:
   - {fileID: 21300000, guid: 2ca94d8a72aa7fe4d87529d7b5671e07, type: 3}

@@ -22,9 +22,12 @@ public class LevelManager : MonoBehaviour
     List<int> allSpawnsFinishedList = new List<int>();
     private float startTime;
     public float waveDelayTime;
+    private bool isCountdownActive = false;
+    private bool autoLevelStarted = false;
+    private bool levelStart;
 
     [Header("Enemy Wave Attributes")]
-    [SerializeField] private bool levelStart;
+    [SerializeField] private bool autoLevelStart;
     [SerializeField] private int maxWaves = 3;
     [SerializeField] private float initialWaveDelay;
     [SerializeField] private float timeBetweenWaves;
@@ -35,7 +38,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countDown;
     public PauseMenu menuObj;
     public int preparationTime = 5;
-    private bool isCountdownActive = false;
 
     [Header("Currency System")]
     [SerializeField] private int currency = 100;
@@ -64,13 +66,17 @@ public class LevelManager : MonoBehaviour
         LevelLoaded.Post(gameObject);
         // Let Wwise know what level we are on.
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
-        StartCountDown();
-        countDownTxt.gameObject.SetActive(true);
         MusicStart.Post(gameObject);
     }
 
     private void Update()
     {
+        //Using autoLevelStarted as flas as a way to tell if we have already started the level, and only calling the function once.
+        if (autoLevelStart && !autoLevelStarted)
+        {
+            StartLevel();
+            autoLevelStarted = true;
+        }
         //Finding all instances of WaveSpawnEnemies and i
         waveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
         foreach (WaveSpawnEnemies spawner in waveSpawners)
@@ -176,7 +182,11 @@ public class LevelManager : MonoBehaviour
     public int GetScore() { return score; }
     public float GetInitialWaveDelay() { return initialWaveDelay; }
     public float GetTimeBetweenWavesDelay() { return timeBetweenWaves; }
-    public bool GetStartWave() {  return levelStart; }
-    public void StartWave() { levelStart = true; }
+    public bool GetStartLevel() {  return levelStart; }
+    public void StartLevel() { 
+        levelStart = true;
+        StartCountDown();
+        countDownTxt.gameObject.SetActive(true);
+    }
 
 }

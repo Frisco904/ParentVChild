@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float fillAmount;
     [SerializeField] private int currencyWorth = 50;
     [SerializeField] private float candyproximity = .1f;
+    [SerializeField] private float redTickDmgLength = .03f;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
@@ -122,10 +124,6 @@ public class EnemyCtrl : MonoBehaviour
                         trackingPoint.transform.position = new Vector3(xPos, yPos, zPos);
                         target = trackingPoint.transform;
                     }
-                    else
-                    {
-
-                    }
                 }
 
             }
@@ -178,6 +176,7 @@ public class EnemyCtrl : MonoBehaviour
         currentFull += dmg;
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
         //Freeze();
+        StartCoroutine(FlashRed());
         if(currentFull >= maxFull && !isDestroyed)
         {
             isDestroyed = true;
@@ -244,6 +243,15 @@ public class EnemyCtrl : MonoBehaviour
     {
         randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
         kidRenderer.sprite = kidImg[randomKidImg - 1];
+    }
+
+    public IEnumerator FlashRed()
+    {
+        //Debug.Log("Flash red logic is called.");
+        kidRenderer.color = Color.red;
+        yield return new WaitForSeconds(redTickDmgLength);
+        kidRenderer.color = Color.white;
+
     }
 
 }
