@@ -155,9 +155,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: d8bd40b44f627942b941693759fe58c5
     ParentPath: SoundBanks\Default Work Unit
-    guid: 00000000000000000000000000000000
+    guid: d8bd40b44f627942b941693759fe58c5
     GuidInternal: 
-    m_lastTime: -8584696495348165673
+    m_lastTime: -8584696479565630448
     List:
     - name: Main
       guid: beeadb48ce7ae54b8026309fa640b4b8
@@ -219,8 +219,8 @@ MonoBehaviour:
         guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
       Path: Events\Default Work Unit\World\Jawbreaker_Damage
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.7217225
+      minDuration: 0.31329784
     - name: MouseClick_Candy
       guid: b98bcfa370896e4294157017977a33a1
       id: 3478105612
@@ -239,8 +239,8 @@ MonoBehaviour:
         guid: b98bcfa370896e4294157017977a33a1
       Path: Events\Default Work Unit\UI\MouseClick_Candy
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.9949223
+      minDuration: 0.41911215
     - name: MouseHover_Candy
       guid: 4ceec9fc6cf3d94c8783fecaa8d641f6
       id: 646295870
@@ -259,8 +259,8 @@ MonoBehaviour:
         guid: 4ceec9fc6cf3d94c8783fecaa8d641f6
       Path: Events\Default Work Unit\UI\MouseHover_Candy
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Projectile_Hit
       guid: 02143ca7e3f7d64db0d13dc73f325b59
       id: 2422838114
@@ -279,8 +279,8 @@ MonoBehaviour:
         guid: 02143ca7e3f7d64db0d13dc73f325b59
       Path: Events\Default Work Unit\World\Projectile_Hit
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.5275968
+      minDuration: 0.27528682
     - name: Turret_Built
       guid: 7e6f0b01e728a1438342086888a5381e
       id: 1259520878
@@ -299,8 +299,8 @@ MonoBehaviour:
         guid: 7e6f0b01e728a1438342086888a5381e
       Path: Events\Default Work Unit\World\Turret_Built
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3.0803666
+      minDuration: 1.6623157
     - name: Turret_Sold
       guid: e8b6b7ec71cf4945b62811aa56434f12
       id: 3875385212
@@ -319,8 +319,8 @@ MonoBehaviour:
         guid: e8b6b7ec71cf4945b62811aa56434f12
       Path: Events\Default Work Unit\World\Turret_Sold
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.0882083
+      minDuration: 1.0882083
     - name: Turret_Upgraded
       guid: d38e64b596d2514398f4cb5e3745dd4b
       id: 1728073150
@@ -339,8 +339,8 @@ MonoBehaviour:
         guid: d38e64b596d2514398f4cb5e3745dd4b
       Path: Events\Default Work Unit\World\Turret_Upgraded
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.5803666
+      minDuration: 1.1623157
     - name: TurretShot
       guid: 5ef92c5e8c237c40b2d55b26750a510b
       id: 493550803
@@ -359,8 +359,8 @@ MonoBehaviour:
         guid: 5ef92c5e8c237c40b2d55b26750a510b
       Path: Events\Default Work Unit\World\TurretShot
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1.17668
+      minDuration: 0.63233405
     - name: UI
       guid: babd6ec455ae2b4883f4ba5c973eaa6d
       id: 1551306167
@@ -413,8 +413,8 @@ MonoBehaviour:
         guid: c0a7696812876a4487809f2c1cb65a33
       Path: Events\Default Work Unit\World\Zombie_Spawn
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 4.9072847
+      minDuration: 0
   - PhysicalPath: Events\Music.wwu
     PathAndIcons:
     - ElementName: Events
@@ -443,8 +443,8 @@ MonoBehaviour:
         guid: d4865f9646a2b1479b8894863d82bcf7
       Path: Events\Music\LevelLoaded
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: MusicStart
       guid: 54cb3e925cf47b4fa524fd6cf3e9e81f
       id: 1122283870
@@ -460,8 +460,8 @@ MonoBehaviour:
         guid: 54cb3e925cf47b4fa524fd6cf3e9e81f
       Path: Events\Music\MusicStart
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

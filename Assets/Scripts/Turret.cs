@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    //[SerializeField] private Transform turretRotationPoint;
-
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
     [SerializeField] private float rotationSpeed = 200f; // Time it takes to rotate then fire on new target.

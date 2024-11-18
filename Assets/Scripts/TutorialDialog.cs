@@ -55,8 +55,8 @@ public class TutorialDialog : MonoBehaviour
                 textComponent.text = string.Empty;;
                 StartCoroutine(TypeLine());
             } else {
+                LevelManager.main.StartWave();
                 gameObject.SetActive(false);
-
             }
 
         }

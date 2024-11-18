@@ -663,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canPlaceTurret: 0
   buildCost: 50
+  timeScaleSlowdownSpeed: 0.5
   towerPrefab: {fileID: 7046588463905791149, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
   buildButton: {fileID: 308463821}
   BoundsGameObj: {fileID: 1750068632}
@@ -817,6 +818,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2044936005}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: menuObj
+      value: 
+      objectReference: {fileID: 2044936005}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: sellBtn
       value: 
       objectReference: {fileID: 348374583}
@@ -830,6 +835,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: CandyPile
+      value: 
+      objectReference: {fileID: 527487019}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: candyPile
       value: 
       objectReference: {fileID: 527487019}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
@@ -860,6 +869,10 @@ PrefabInstance:
       propertyPath: waveDelayTime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: selectedTurret
+      value: 
+      objectReference: {fileID: 6179901042209188499, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: upgradeFireRate
       value: 
