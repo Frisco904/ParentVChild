@@ -5,15 +5,17 @@ public class Turret : MonoBehaviour
     //[SerializeField] private Transform turretRotationPoint;
 
     [Header("Attributes")]
-    [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
     [SerializeField] private float rotationSpeed = 200f; // Time it takes to rotate then fire on new target.
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
     [SerializeField] private Transform turretRotationPoint; 
     [SerializeField] private Transform projectileSpawnLocation;
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots.
     [SerializeField] private float turretDmg = 1f; // Damage done by projectile.
+    [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
+    [SerializeField] private float sprtRate = 0.5f; // Range the tower can find a target.
 
     private float bpsBase;
+    private float sprtBase;
     private float turretDmgBase;
     private float targetingRangeBase;
     public int dmgLevel = 1;
@@ -25,6 +27,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private int baseUpgradeRange = 10; 
     [SerializeField] private int baseUpgradeDamage = 20;
     [SerializeField] private int baseUpgradeFireRate = 15;
+    [SerializeField] private int baseUpgradeSprt = 5;
     [SerializeField] private int baseSellCost = 100;
     
     [Header("References")]
@@ -35,10 +38,14 @@ public class Turret : MonoBehaviour
 
     private float timeUntilFire;
     private Transform target;
+    private bool upgradeDmgDone = false;
+    private bool upgradeSpdDone = false;
+    private bool upgradeCtrlDone = false;
 
     void Start()
     {
         bpsBase = fireRate;
+        sprtBase = sprtRate;
         targetingRangeBase = targetingRange;
         turretDmgBase = turretDmg;
     }
@@ -76,6 +83,7 @@ public class Turret : MonoBehaviour
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
+        projectileScript.PDmg = turretDmg;
         TurretShot.Post(gameObject); // Wwise Event
     }
 
@@ -124,59 +132,115 @@ public class Turret : MonoBehaviour
     public void UpgradeSpd()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCostRange() > LevelManager.main.GetCurrency()) return;
+        if(spdLevel != 5)
+        {
+            if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostRange());
-        spdLevel++;
+            LevelManager.main.SpendMoney(calculateCostFireRate());
+            spdLevel++;
 
-        //Calculates the new Range
-        targetingRange = calculateRange();
-        //Debug.Log(gameObject.name + " - Speed Upgraded");
+            //Calculates the new FireRate
+            if (!upgradeSpdDone)
+            {
+                fireRate = calculateFireRate();
+            }
+            else
+            {
+                fireRate = calculateNewFireRate();
+            }
+            //Debug.Log(gameObject.name + " - Speed Upgraded");
+        }
+
     }
 
     public void UpgradeDmg()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
+        if(dmgLevel != 5)
+        {
+            if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostDamage());
-        dmgLevel++;
+            LevelManager.main.SpendMoney(calculateCostDamage());
+            dmgLevel++;
 
-        turretDmg = calculateDamage();
-        //Debug.Log(gameObject.name + " - Damage Upgraded");
-
+            if (!upgradeDmgDone)
+            {
+                turretDmg = calculateDamage();
+            }
+            else
+            {
+                turretDmg = calculateNewDamage();
+            }
+            //Debug.Log(gameObject.name + " - Damage Upgraded");
+        }
     }
 
     public void UpgradeCtrl()
     {
-        //Calculates the cost and will automatically update the new price
-        if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
+        if(ctrlLevel != 5)
+        {
+            //Calculates the cost and will automatically update the new price
+            if (calculateCostRange() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostFireRate());
-        ctrlLevel++;
+            LevelManager.main.SpendMoney(calculateCostRange());
+            ctrlLevel++;
 
-        //Calculates the new FireRate
-        fireRate = calculateFireRate();
-        //Debug.Log(gameObject.name + " - Control Upgraded");
+            //Calculates the new Range
+            targetingRange = calculateRange(); //Temporary
+            //Debug.Log(gameObject.name + " - Ctrl Upgraded");
+        }
 
     }
 
     public void UpgradeSprt()
     {
-        //Calculates the cost and will automatically update the new price
-        if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
+        if(sprtLevel != 5)
+        {
+            //Calculates the cost and will automatically update the new price
+            if (calculateCostSprt() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostFireRate());
-        sprtLevel++;
+            LevelManager.main.SpendMoney(calculateCostSprt());
+            sprtLevel++;
 
-        //Calculates the new FireRate
-        fireRate = calculateFireRate();
-        //Debug.Log(gameObject.name + " - Support Upgraded");
+            //Calculates the new Range
+            sprtRate = calculateSprt();
+            //Debug.Log(gameObject.name + " - Support Upgraded");
+        }
+
+    }
+
+    private void AdjustRange()
+    {
+        if (!upgradeDmgDone)
+        {
+           targetingRangeBase = -.5f;
+           upgradeDmgDone = true;
+        }
+    }
+
+    private void AdjustDmg()
+    {
+        if (!upgradeSpdDone)
+        {
+            turretDmg = +.25f;
+            upgradeSpdDone = true;
+        }
+    }
+
+    private void AdjustDmgAndRange()
+    {
+        
+        if (!upgradeCtrlDone)
+        {
+            targetingRange = -.2f;
+            turretDmg = -.5f;
+            upgradeCtrlDone = true;
+        }
     }
 
     private int calculateCostRange()
     {
-        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(sprtLevel, 0.8f));
+        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(ctrlLevel, 0.8f));
     }
 
     private int calculateCostDamage()
@@ -189,19 +253,43 @@ public class Turret : MonoBehaviour
         return Mathf.RoundToInt(baseUpgradeFireRate * Mathf.Pow(spdLevel, 0.8f));
     }
 
+    private int calculateCostSprt()
+    {
+        return Mathf.RoundToInt(baseUpgradeSprt * Mathf.Pow(sprtLevel, 0.5f));
+    }
+
     private float calculateFireRate()
     {
-        return bpsBase * Mathf.Pow(spdLevel, 0.5f);
+        AdjustDmg();
+        return bpsBase + Mathf.Pow(spdLevel, 0.2f);
     }
 
     private float calculateRange()
     {
-        return targetingRangeBase * Mathf.Pow(sprtLevel, 0.4f);
+        //AdjustDmgAndRange();
+        return targetingRangeBase + Mathf.Pow(ctrlLevel, 0.4f);
     }
 
     private float calculateDamage()
     {
-        return turretDmgBase * Mathf.Pow(dmgLevel, 1f);
+        AdjustRange();
+        return turretDmgBase + Mathf.Pow(dmgLevel, 0.25f);
+    }
+
+    private float calculateSprt()
+    {
+        //AdjustRange();
+        return sprtBase + Mathf.Pow(sprtLevel, 0.3f);
+    }
+
+    private float calculateNewDamage()
+    {
+        return turretDmgBase + Mathf.Pow(dmgLevel, 0.1f);
+    }
+
+    private float calculateNewFireRate()
+    {
+        return bpsBase + Mathf.Pow(spdLevel, 0.1f);
     }
 
     public void SellTurret()
