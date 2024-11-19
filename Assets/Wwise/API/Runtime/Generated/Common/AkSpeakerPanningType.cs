@@ -13,6 +13,7 @@
 public enum AkSpeakerPanningType : byte {
   AK_DirectSpeakerAssignment = 0,
   AK_BalanceFadeHeight = 1,
-  AK_SteeringPanner = 2
+  AK_SteeringPanner = 2,
+  AkSpeakerPanning_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

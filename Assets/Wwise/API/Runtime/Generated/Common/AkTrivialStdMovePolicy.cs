@@ -42,7 +42,7 @@ public class AkTrivialStdMovePolicy : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkTrivialStdMovePolicy(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkTrivialStdMovePolicy(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,9 +50,9 @@ public class AkTrivialStdMovePolicy : global::System.IDisposable {
     }
   }
 
-  public static bool IsTrivial() { return AkSoundEnginePINVOKE.CSharp_AkTrivialStdMovePolicy_IsTrivial(); }
+  public static bool IsTrivial() { return AkUnitySoundEnginePINVOKE.CSharp_AkTrivialStdMovePolicy_IsTrivial(); }
 
-  public AkTrivialStdMovePolicy() : this(AkSoundEnginePINVOKE.CSharp_new_AkTrivialStdMovePolicy(), true) {
+  public AkTrivialStdMovePolicy() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkTrivialStdMovePolicy(), true) {
   }
 
 }

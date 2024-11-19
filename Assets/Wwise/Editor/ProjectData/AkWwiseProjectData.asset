@@ -22,9 +22,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: d9a388cb284d70449f8872684bd04289
     ParentPath: Virtual Acoustics\Default Work Unit
-    guid: d9a388cb284d70449f8872684bd04289
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083455753930
+    m_lastTime: -8584696495348135660
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -36,9 +36,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 5f31ed4309475d4a8003fd1f2ca77db2
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
-    guid: 5f31ed4309475d4a8003fd1f2ca77db2
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083462055351
+    m_lastTime: -8584696495348245689
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -157,7 +157,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: d8bd40b44f627942b941693759fe58c5
     GuidInternal: 
-    m_lastTime: -8584700083455773931
+    m_lastTime: -8584696479565630448
     List:
     - name: Main
       guid: beeadb48ce7ae54b8026309fa640b4b8
@@ -197,9 +197,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 3306e532382f2746bfbaabe45bcf3797
     ParentPath: Events\Default Work Unit
-    guid: 3306e532382f2746bfbaabe45bcf3797
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083462205389
+    m_lastTime: -8584696495348295697
     List:
     - name: Jawbreaker_Damage
       guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
@@ -211,13 +211,56 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
       - ElementName: Jawbreaker_Damage
         ObjectType: 3
         guid: 6b9e0fd7e8a3ed42aef1baf23d6dab62
-      Path: Events\Default Work Unit\Jawbreaker_Damage
+      Path: Events\Default Work Unit\World\Jawbreaker_Damage
       maxAttenuation: 0
       maxDuration: 0.7217225
       minDuration: 0.31329784
+    - name: MouseClick_Candy
+      guid: b98bcfa370896e4294157017977a33a1
+      id: 3478105612
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: UI
+        ObjectType: 4
+        guid: babd6ec455ae2b4883f4ba5c973eaa6d
+      - ElementName: MouseClick_Candy
+        ObjectType: 3
+        guid: b98bcfa370896e4294157017977a33a1
+      Path: Events\Default Work Unit\UI\MouseClick_Candy
+      maxAttenuation: 0
+      maxDuration: 0.9949223
+      minDuration: 0.41911215
+    - name: MouseHover_Candy
+      guid: 4ceec9fc6cf3d94c8783fecaa8d641f6
+      id: 646295870
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: UI
+        ObjectType: 4
+        guid: babd6ec455ae2b4883f4ba5c973eaa6d
+      - ElementName: MouseHover_Candy
+        ObjectType: 3
+        guid: 4ceec9fc6cf3d94c8783fecaa8d641f6
+      Path: Events\Default Work Unit\UI\MouseHover_Candy
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: Projectile_Hit
       guid: 02143ca7e3f7d64db0d13dc73f325b59
       id: 2422838114
@@ -228,13 +271,76 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
       - ElementName: Projectile_Hit
         ObjectType: 3
         guid: 02143ca7e3f7d64db0d13dc73f325b59
-      Path: Events\Default Work Unit\Projectile_Hit
+      Path: Events\Default Work Unit\World\Projectile_Hit
       maxAttenuation: 0
       maxDuration: 0.5275968
       minDuration: 0.27528682
+    - name: Turret_Built
+      guid: 7e6f0b01e728a1438342086888a5381e
+      id: 1259520878
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
+      - ElementName: Turret_Built
+        ObjectType: 3
+        guid: 7e6f0b01e728a1438342086888a5381e
+      Path: Events\Default Work Unit\World\Turret_Built
+      maxAttenuation: 0
+      maxDuration: 3.0803666
+      minDuration: 1.6623157
+    - name: Turret_Sold
+      guid: e8b6b7ec71cf4945b62811aa56434f12
+      id: 3875385212
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
+      - ElementName: Turret_Sold
+        ObjectType: 3
+        guid: e8b6b7ec71cf4945b62811aa56434f12
+      Path: Events\Default Work Unit\World\Turret_Sold
+      maxAttenuation: 0
+      maxDuration: 1.0882083
+      minDuration: 1.0882083
+    - name: Turret_Upgraded
+      guid: d38e64b596d2514398f4cb5e3745dd4b
+      id: 1728073150
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
+      - ElementName: Turret_Upgraded
+        ObjectType: 3
+        guid: d38e64b596d2514398f4cb5e3745dd4b
+      Path: Events\Default Work Unit\World\Turret_Upgraded
+      maxAttenuation: 0
+      maxDuration: 2.5803666
+      minDuration: 1.1623157
     - name: TurretShot
       guid: 5ef92c5e8c237c40b2d55b26750a510b
       id: 493550803
@@ -245,13 +351,50 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
       - ElementName: TurretShot
         ObjectType: 3
         guid: 5ef92c5e8c237c40b2d55b26750a510b
-      Path: Events\Default Work Unit\TurretShot
+      Path: Events\Default Work Unit\World\TurretShot
       maxAttenuation: 0
-      maxDuration: 0.9642579
-      minDuration: 0.15020512
+      maxDuration: 1.17668
+      minDuration: 0.63233405
+    - name: UI
+      guid: babd6ec455ae2b4883f4ba5c973eaa6d
+      id: 1551306167
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: UI
+        ObjectType: 4
+        guid: babd6ec455ae2b4883f4ba5c973eaa6d
+      Path: Events\Default Work Unit\UI
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: World
+      guid: 3836b984d4d73f49808a2ff1c4c80ed9
+      id: 2609808943
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
+      Path: Events\Default Work Unit\World
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Zombie_Spawn
       guid: c0a7696812876a4487809f2c1cb65a33
       id: 2394958751
@@ -262,13 +405,16 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 3306e532382f2746bfbaabe45bcf3797
+      - ElementName: World
+        ObjectType: 4
+        guid: 3836b984d4d73f49808a2ff1c4c80ed9
       - ElementName: Zombie_Spawn
         ObjectType: 3
         guid: c0a7696812876a4487809f2c1cb65a33
-      Path: Events\Default Work Unit\Zombie_Spawn
+      Path: Events\Default Work Unit\World\Zombie_Spawn
       maxAttenuation: 0
       maxDuration: 4.9072847
-      minDuration: 4.247434
+      minDuration: 0
   - PhysicalPath: Events\Music.wwu
     PathAndIcons:
     - ElementName: Events
@@ -278,9 +424,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 2c96408e0e2eaa4580311b636c0114fa
     ParentPath: Events\Music
-    guid: 2c96408e0e2eaa4580311b636c0114fa
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083462195384
+    m_lastTime: -8584696495348285692
     List:
     - name: LevelLoaded
       guid: d4865f9646a2b1479b8894863d82bcf7
@@ -314,8 +460,8 @@ MonoBehaviour:
         guid: 54cb3e925cf47b4fa524fd6cf3e9e81f
       Path: Events\Music\MusicStart
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -326,9 +472,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 23db579c3d6a0f4a86437cea3a8ed264
     ParentPath: Game Parameters\Default Work Unit
-    guid: 23db579c3d6a0f4a86437cea3a8ed264
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083462195384
+    m_lastTime: -8584696495348285692
     List:
     - name: DangerLevel
       guid: deccaf02a8dd1147abe6bf5bbd8220f6
@@ -353,9 +499,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: e1ea283514ffdd41aaff1e09044f1a22
     ParentPath: Game Parameters\Music
-    guid: e1ea283514ffdd41aaff1e09044f1a22
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083462185376
+    m_lastTime: -8584696495348275690
     List:
     - name: MasterVolume
       guid: 40d277c426ce8b4ebe0e4a30ba728162
@@ -432,9 +578,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: 0f5b0b460e61ae47a69d17e03466109a
     ParentPath: States\Default Work Unit
-    guid: 0f5b0b460e61ae47a69d17e03466109a
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083455763930
+    m_lastTime: -8584696495348155663
     List:
     - name: Playing_State
       guid: 0ccd6883317a0242af3e273dbc8c3623
@@ -544,9 +690,9 @@ MonoBehaviour:
       ObjectType: 12
       guid: e54ee7fc3bfa114caf1ebadc2984650b
     ParentPath: Switches\Default Work Unit
-    guid: e54ee7fc3bfa114caf1ebadc2984650b
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083455753930
+    m_lastTime: -8584696495348155663
     List:
     - name: Level
       guid: 8ee465bac89fa7439abe1fa2af26e893
@@ -624,12 +770,12 @@ MonoBehaviour:
       ObjectType: 12
       guid: df1966a98d47394d965ad99673d36002
     ParentPath: Triggers\Default Work Unit
-    guid: df1966a98d47394d965ad99673d36002
+    guid: 00000000000000000000000000000000
     GuidInternal: 
-    m_lastTime: -8584700083455753930
+    m_lastTime: -8584696495348145660
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 02000000050000000600000008000000090000000b0000000c0000000d0000000e0000000f00000012000000130000001400000017000000190000001a0000001b0000001c0000001e000000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

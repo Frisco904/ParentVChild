@@ -13,7 +13,7 @@
 public class AkMusicPlaylistCallbackInfo : AkEventCallbackInfo {
   private global::System.IntPtr swigCPtr;
 
-  internal AkMusicPlaylistCallbackInfo(global::System.IntPtr cPtr, bool cMemoryOwn) : base(AkSoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_SWIGUpcast(cPtr), cMemoryOwn) {
+  internal AkMusicPlaylistCallbackInfo(global::System.IntPtr cPtr, bool cMemoryOwn) : base(AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_SWIGUpcast(cPtr), cMemoryOwn) {
     swigCPtr = cPtr;
   }
 
@@ -22,7 +22,7 @@ public class AkMusicPlaylistCallbackInfo : AkEventCallbackInfo {
   }
 
   internal override void setCPtr(global::System.IntPtr cPtr) {
-    base.setCPtr(AkSoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_SWIGUpcast(cPtr));
+    base.setCPtr(AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_SWIGUpcast(cPtr));
     swigCPtr = cPtr;
   }
 
@@ -31,7 +31,7 @@ public class AkMusicPlaylistCallbackInfo : AkEventCallbackInfo {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkMusicPlaylistCallbackInfo(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkMusicPlaylistCallbackInfo(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -40,19 +40,19 @@ public class AkMusicPlaylistCallbackInfo : AkEventCallbackInfo {
     }
   }
 
-  public uint playlistID { get { return AkSoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_playlistID_get(swigCPtr); } 
+  public uint playlistID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_playlistID_get(swigCPtr); } 
   }
 
-  public uint uNumPlaylistItems { get { return AkSoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uNumPlaylistItems_get(swigCPtr); } 
+  public uint uNumPlaylistItems { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uNumPlaylistItems_get(swigCPtr); } 
   }
 
-  public uint uPlaylistSelection { get { return AkSoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uPlaylistSelection_get(swigCPtr); } 
+  public uint uPlaylistSelection { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uPlaylistSelection_get(swigCPtr); } 
   }
 
-  public uint uPlaylistItemDone { get { return AkSoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uPlaylistItemDone_get(swigCPtr); } 
+  public uint uPlaylistItemDone { get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicPlaylistCallbackInfo_uPlaylistItemDone_get(swigCPtr); } 
   }
 
-  public AkMusicPlaylistCallbackInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkMusicPlaylistCallbackInfo(), true) {
+  public AkMusicPlaylistCallbackInfo() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkMusicPlaylistCallbackInfo(), true) {
   }
 
 }

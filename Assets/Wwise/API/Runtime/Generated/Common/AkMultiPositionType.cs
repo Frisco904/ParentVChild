@@ -13,6 +13,7 @@
 public enum AkMultiPositionType : byte {
   MultiPositionType_SingleSource,
   MultiPositionType_MultiSources,
-  MultiPositionType_MultiDirections
+  MultiPositionType_MultiDirections,
+  MultiPositionType_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

@@ -13,6 +13,7 @@
 public enum AkBankTypeEnum {
   AkBankType_User = (0),
   AkBankType_Event = (30),
-  AkBankType_Bus = (31)
+  AkBankType_Bus = (31),
+  AkBankType_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

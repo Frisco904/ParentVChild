@@ -42,7 +42,7 @@ public class AkBankCallbackInfo : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkBankCallbackInfo(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkBankCallbackInfo(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,16 +50,16 @@ public class AkBankCallbackInfo : global::System.IDisposable {
     }
   }
 
-  public uint bankID { get { return AkSoundEnginePINVOKE.CSharp_AkBankCallbackInfo_bankID_get(swigCPtr); } 
+  public uint bankID { get { return AkUnitySoundEnginePINVOKE.CSharp_AkBankCallbackInfo_bankID_get(swigCPtr); } 
   }
 
-  public global::System.IntPtr inMemoryBankPtr { get { return AkSoundEnginePINVOKE.CSharp_AkBankCallbackInfo_inMemoryBankPtr_get(swigCPtr); }
+  public global::System.IntPtr inMemoryBankPtr { get { return AkUnitySoundEnginePINVOKE.CSharp_AkBankCallbackInfo_inMemoryBankPtr_get(swigCPtr); }
   }
 
-  public AKRESULT loadResult { get { return (AKRESULT)AkSoundEnginePINVOKE.CSharp_AkBankCallbackInfo_loadResult_get(swigCPtr); } 
+  public AKRESULT loadResult { get { return (AKRESULT)AkUnitySoundEnginePINVOKE.CSharp_AkBankCallbackInfo_loadResult_get(swigCPtr); } 
   }
 
-  public AkBankCallbackInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkBankCallbackInfo(), true) {
+  public AkBankCallbackInfo() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkBankCallbackInfo(), true) {
   }
 
 }

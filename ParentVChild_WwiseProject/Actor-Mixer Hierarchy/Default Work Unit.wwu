@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}" SchemaVersion="119">
+<WwiseDocument Type="WorkUnit" ID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}" SchemaVersion="123">
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}" PersistMode="Standalone">
 			<ChildrenList>
@@ -7,6 +7,11 @@
 					<ChildrenList>
 						<RandomSequenceContainer Name="TurretShot" ID="{7462FFF9-F16C-4F71-A6E6-8362F80EC710}" ShortID="569991952">
 							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>28</Value>
+									</ValueList>
+								</Property>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
@@ -26,6 +31,8 @@
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="2"/>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -147,7 +154,7 @@
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>21</Value>
+										<Value>22</Value>
 									</ValueList>
 								</Property>
 								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
@@ -211,6 +218,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Candy" ID="{1E377E29-8B58-4E3F-8686-FB3F99E56A88}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.750890736342043"/>
+												<Property Name="LoopEnd" Type="Real64" Value="3.38836104513064"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Child_Zombie\Candy.wav</AudioFile>
 											<MediaIDList>
@@ -233,6 +245,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="More_Candy" ID="{69D5B484-AA2A-45D7-AE05-6E283385EF27}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.187054631828979"/>
+												<Property Name="LoopEnd" Type="Real64" Value="3.05166270783848"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Child_Zombie\More_Candy.wav</AudioFile>
 											<MediaIDList>
@@ -255,6 +272,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="More_Candy2" ID="{C7E9BCE8-A7A8-484D-873A-8FF7E805E731}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.424881235154394"/>
+												<Property Name="LoopEnd" Type="Real64" Value="3.90142517814727"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Child_Zombie\More_Candy2.wav</AudioFile>
 											<MediaIDList>
@@ -277,6 +299,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="More_Sugar" ID="{EAF83B54-2AC6-4E77-BFB7-5C7D91CCD2A7}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.296615201900238"/>
+												<Property Name="LoopEnd" Type="Real64" Value="2.70961995249406"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Child_Zombie\More_Sugar.wav</AudioFile>
 											<MediaIDList>
@@ -299,6 +326,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Sugar" ID="{7790E618-6DEA-482B-B26E-79DFE9A038E7}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.387470308788599"/>
+												<Property Name="LoopEnd" Type="Real64" Value="2.68824228028504"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Child_Zombie\Sugar.wav</AudioFile>
 											<MediaIDList>
@@ -787,6 +819,500 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Drill" ID="{2175D25E-BE8F-4850-9AB0-1E0F347E5B56}" ShortID="434236897">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{F416AD86-4133-4E81-8B04-4A59CB268A35}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Drill_1" ID="{FD83E528-6078-400B-A0DE-7D47397B8979}" ShortID="501697939">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="zapsplat_industrial_cordless_drill_burst_001_104455" ID="{7F3DACFA-A043-470E-A8D3-AFAD3A6DC266}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0154678383194873"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0599033380206011"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0508613247344726"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.51566743035724"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>zapsplat_industrial_cordless_drill_burst_001_104455.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="465258748"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="zapsplat_industrial_cordless_drill_burst_001_104455" ID="{7F3DACFA-A043-470E-A8D3-AFAD3A6DC266}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Drill_2" ID="{9EEAECDE-F12F-4AC5-9BE7-0D87E9A46E3F}" ShortID="372866139">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="zapsplat_industrial_cordless_drill_burst_002_104456" ID="{56ACA389-62F1-493F-87EE-A36CFF0015E0}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0470936616922501"/>
+												<Property Name="LoopEnd" Type="Real64" Value="1.24704021914913"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.34311128900132"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>zapsplat_industrial_cordless_drill_burst_002_104456.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="738329061"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="zapsplat_industrial_cordless_drill_burst_002_104456" ID="{56ACA389-62F1-493F-87EE-A36CFF0015E0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Drill_3" ID="{ECF87A3B-CCE2-485D-8D63-B7E70FEE60B4}" ShortID="716852979">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="zapsplat_industrial_cordless_drill_burst_004_104458" ID="{BEEE91AD-3DE0-4F0B-812F-2A8C69DB4FB3}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.054958777869399"/>
+												<Property Name="LoopEnd" Type="Real64" Value="1.28429989866557"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>zapsplat_industrial_cordless_drill_burst_004_104458.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1026320010"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="zapsplat_industrial_cordless_drill_burst_004_104458" ID="{BEEE91AD-3DE0-4F0B-812F-2A8C69DB4FB3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Drill_5" ID="{830B316A-76A1-4588-BAC3-F50EFA22B96D}" ShortID="343960401">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="zapsplat_industrial_cordless_drill_burst_005_104459" ID="{F31C0DAA-659A-491A-A0B9-0D57C321F96D}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0335844712699111"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0853605311443573"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0503767069048667"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.28180733602951"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>zapsplat_industrial_cordless_drill_burst_005_104459.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="714682336"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="zapsplat_industrial_cordless_drill_burst_005_104459" ID="{F31C0DAA-659A-491A-A0B9-0D57C321F96D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Drill_4" ID="{490F6EE0-94E6-41C7-8191-6E2FCAB8EF91}" ShortID="491626650">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="zapsplat_industrial_cordless_drill_burst_004_104458" ID="{AC8814E2-873E-4276-AAF2-799C403BED53}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0969010030855192"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.697108708764482"/>
+												<Property Name="LoopEnd" Type="Real64" Value="2.25475621314891"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.69566242513634"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>zapsplat_industrial_cordless_drill_burst_004_104458.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="868644386"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="zapsplat_industrial_cordless_drill_burst_004_104458" ID="{AC8814E2-873E-4276-AAF2-799C403BED53}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Hammer" ID="{D31AC4A8-7EF8-4E3E-AF99-FE17FFF6C07A}" ShortID="373731337">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{C247023D-ACB9-41BD-8ECA-A2DDC0620C66}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="200"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-20</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Hammer_01" ID="{A2D63D82-DF6A-48B0-BD37-F8FB04A4FE90}" ShortID="270709251">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="aaj_0405_HamrNail8Hits" ID="{C4E4BFAB-D577-484E-A18F-4FE1D3F5FED8}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0448931108744297"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.996244507513933"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>aaj_0405_HamrNail8Hits.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="418638916"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="aaj_0405_HamrNail8Hits" ID="{C4E4BFAB-D577-484E-A18F-4FE1D3F5FED8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Hammer_03" ID="{835EA4C4-C434-4E67-AEC6-9C6A62E70E99}" ShortID="13747024">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="aaj_0406_HamrNail13Hits" ID="{8FAB1930-0B03-4424-9B54-385F0DD1B276}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0562308202729939"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.41781975923883"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>aaj_0406_HamrNail13Hits.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="327150462"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="aaj_0406_HamrNail13Hits" ID="{8FAB1930-0B03-4424-9B54-385F0DD1B276}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Hammer_02" ID="{F6A3C63E-FA9B-4A39-BA97-5E9E58400D5C}" ShortID="773158998">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="aaj_0405_HamrNail8Hits" ID="{B0A8781E-3CF6-45E8-B7C9-DEE8DF3CB504}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="1.00261280952893"/>
+												<Property Name="LoopEnd" Type="Real64" Value="1.91876486061305"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.997562707025945"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.9235563196789"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>aaj_0405_HamrNail8Hits.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="444243972"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="aaj_0405_HamrNail8Hits" ID="{B0A8781E-3CF6-45E8-B7C9-DEE8DF3CB504}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Hammer_04" ID="{8F04BBF5-3EC8-4DD2-946F-F9E1C25CC4A8}" ShortID="393961717">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="aaj_0406_HamrNail13Hits" ID="{6D104067-1922-4D8E-895D-DDC069DACFA9}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="1.41781996831192"/>
+												<Property Name="TrimEnd" Type="Real64" Value="2.90392000931081"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>aaj_0406_HamrNail13Hits.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="114620076"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="aaj_0406_HamrNail13Hits" ID="{6D104067-1922-4D8E-895D-DDC069DACFA9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Hammer_05" ID="{A7C0AA9A-3889-4E47-AA59-CC576DC93A57}" ShortID="441005570">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="aaj_0406_HamrNail13Hits" ID="{82E95A3D-1502-4CC4-97D5-60E2F248B8EF}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="3.43811301097734"/>
+												<Property Name="TrimEnd" Type="Real64" Value="5.58291694660273"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>aaj_0406_HamrNail13Hits.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="746097328"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="aaj_0406_HamrNail13Hits" ID="{82E95A3D-1502-4CC4-97D5-60E2F248B8EF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Sound Name="Kerching" ID="{DFB6214E-C954-4301-9A57-FC9C99C18A05}" ShortID="993214336">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="zapsplat_foley_cash_register_ka_ching_002_44083" ID="{A90269B4-F35C-4B42-8E1C-35E6F06F053A}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.000646204464226141"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.692731201226996"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-15</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>zapsplat_foley_cash_register_ka_ching_002_44083.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="2536682"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="zapsplat_foley_cash_register_ka_ching_002_44083" ID="{A90269B4-F35C-4B42-8E1C-35E6F06F053A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{8EACCDE6-6BA4-438A-847E-475D89ECC2B4}" ShortID="482171914">
+					<ChildrenList>
+						<RandomSequenceContainer Name="Candy_Wrapper_Click" ID="{5502385F-F158-4A55-846E-E835F88E7991}" ShortID="391539101">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{3F0387DF-35B2-4558-B8BF-7E4CD49D7DD3}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="200"/>
+													<Property Name="Min" Type="Real64" Value="-200"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Crinkle_02" ID="{754047E3-D31C-47D4-AC22-6B5A2B716416}" ShortID="763556888">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crinkle_03" ID="{F275057F-49E6-46E7-837B-8808A3E60EDE}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.00894796625310621"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Crinkle_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="418133160"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crinkle_03" ID="{F275057F-49E6-46E7-837B-8808A3E60EDE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crinkle_03" ID="{C9EE6B73-ADC4-46FA-A5DC-77DBAB9F9889}" ShortID="842591852">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crinkle_05" ID="{96F9AC66-2989-4322-94AF-D281AC22C413}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.089673655881876"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Crinkle_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1034963716"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crinkle_05" ID="{96F9AC66-2989-4322-94AF-D281AC22C413}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Crinkle_01" ID="{B09ACED2-16EB-42F1-B74D-7F5A826BF8FC}" ShortID="603210222">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Crinkle-Soft_01" ID="{1864D58A-9EE0-4A2B-9B37-DF8049021120}">
+											<Language>SFX</Language>
+											<AudioFile>Crinkle-Soft_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="225178832"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Crinkle-Soft_01" ID="{1864D58A-9EE0-4A2B-9B37-DF8049021120}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{CED8CC7A-42A4-4CF1-81CB-0FC6C2631E86}" ShortID="627401272">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+														<ObjectRef Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>

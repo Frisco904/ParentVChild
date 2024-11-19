@@ -15,3 +15,5 @@ MonoBehaviour:
   objectName: Projectile_Hit
   id: 2422838114
   guid: A73C1402-F7E3-4DD6-B0D1-3DC73F325B59
+  IsInUserDefinedSoundBank: 1
+  IsAutoBankLoaded: 0

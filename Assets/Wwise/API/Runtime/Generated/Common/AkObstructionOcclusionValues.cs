@@ -42,7 +42,7 @@ public class AkObstructionOcclusionValues : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkObstructionOcclusionValues(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkObstructionOcclusionValues(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,19 +50,19 @@ public class AkObstructionOcclusionValues : global::System.IDisposable {
     }
   }
 
-  public float occlusion { set { AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_occlusion_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_occlusion_get(swigCPtr); } 
+  public float occlusion { set { AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_occlusion_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_occlusion_get(swigCPtr); } 
   }
 
-  public float obstruction { set { AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_obstruction_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_obstruction_get(swigCPtr); } 
+  public float obstruction { set { AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_obstruction_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_obstruction_get(swigCPtr); } 
   }
 
-  public void Clear() { AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_Clear(swigCPtr); }
+  public void Clear() { AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_Clear(swigCPtr); }
 
-  public static int GetSizeOf() { return AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_GetSizeOf(); }
+  public static int GetSizeOf() { return AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_GetSizeOf(); }
 
-  public void Clone(AkObstructionOcclusionValues other) { AkSoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_Clone(swigCPtr, AkObstructionOcclusionValues.getCPtr(other)); }
+  public void Clone(AkObstructionOcclusionValues other) { AkUnitySoundEnginePINVOKE.CSharp_AkObstructionOcclusionValues_Clone(swigCPtr, AkObstructionOcclusionValues.getCPtr(other)); }
 
-  public AkObstructionOcclusionValues() : this(AkSoundEnginePINVOKE.CSharp_new_AkObstructionOcclusionValues(), true) {
+  public AkObstructionOcclusionValues() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkObstructionOcclusionValues(), true) {
   }
 
 }

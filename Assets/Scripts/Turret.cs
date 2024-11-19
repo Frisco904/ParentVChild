@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    //[SerializeField] private Transform turretRotationPoint;
-
     [Header("Attributes")]
     [SerializeField] private float rotationSpeed = 200f; // Time it takes to rotate then fire on new target.
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
@@ -34,7 +32,10 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab; // Prefab turret will shoot.
 
     [Header("Wwise")]
-    [SerializeField] public AK.Wwise.Event TurretShot;
+    [SerializeField] public AK.Wwise.Event Turret_Built;
+    [SerializeField] public AK.Wwise.Event Turret_Shot;
+    [SerializeField] public AK.Wwise.Event Turret_Sold;
+    [SerializeField] public AK.Wwise.Event Turret_Upgraded;
 
     private float timeUntilFire;
     private Transform target;
@@ -48,6 +49,7 @@ public class Turret : MonoBehaviour
         sprtBase = sprtRate;
         targetingRangeBase = targetingRange;
         turretDmgBase = turretDmg;
+        Turret_Built.Post(gameObject);
     }
 
     void Update()
@@ -83,8 +85,12 @@ public class Turret : MonoBehaviour
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
+<<<<<<< HEAD
         projectileScript.PDmg = turretDmg;
         TurretShot.Post(gameObject); // Wwise Event
+=======
+        Turret_Shot.Post(gameObject); // Wwise Event
+>>>>>>> main
     }
 
     private void FindTarget()
@@ -151,6 +157,14 @@ public class Turret : MonoBehaviour
             //Debug.Log(gameObject.name + " - Speed Upgraded");
         }
 
+<<<<<<< HEAD
+=======
+        //Calculates the new Range
+        targetingRange = calculateRange();
+        
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
+        //Debug.Log(gameObject.name + " - Speed Upgraded");
+>>>>>>> main
     }
 
     public void UpgradeDmg()
@@ -160,8 +174,18 @@ public class Turret : MonoBehaviour
         {
             if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
 
+<<<<<<< HEAD
             LevelManager.main.SpendMoney(calculateCostDamage());
             dmgLevel++;
+=======
+        LevelManager.main.SpendMoney(calculateCostDamage());
+        dmgLevel++;
+
+        turretDmg = calculateDamage();
+
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
+        //Debug.Log(gameObject.name + " - Damage Upgraded");
+>>>>>>> main
 
             if (!upgradeDmgDone)
             {
@@ -185,10 +209,18 @@ public class Turret : MonoBehaviour
             LevelManager.main.SpendMoney(calculateCostRange());
             ctrlLevel++;
 
+<<<<<<< HEAD
             //Calculates the new Range
             targetingRange = calculateRange(); //Temporary
             //Debug.Log(gameObject.name + " - Ctrl Upgraded");
         }
+=======
+        //Calculates the new FireRate
+        fireRate = calculateFireRate();
+       
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
+        //Debug.Log(gameObject.name + " - Control Upgraded");
+>>>>>>> main
 
     }
 
@@ -202,6 +234,7 @@ public class Turret : MonoBehaviour
             LevelManager.main.SpendMoney(calculateCostSprt());
             sprtLevel++;
 
+<<<<<<< HEAD
             //Calculates the new Range
             sprtRate = calculateSprt();
             //Debug.Log(gameObject.name + " - Support Upgraded");
@@ -236,6 +269,13 @@ public class Turret : MonoBehaviour
             turretDmg = -.5f;
             upgradeCtrlDone = true;
         }
+=======
+        //Calculates the new FireRate
+        fireRate = calculateFireRate();
+        
+        Turret_Upgraded.Post(gameObject); // Send Wwise event.
+        //Debug.Log(gameObject.name + " - Support Upgraded");
+>>>>>>> main
     }
 
     private int calculateCostRange()
@@ -294,6 +334,7 @@ public class Turret : MonoBehaviour
 
     public void SellTurret()
     {
+        Turret_Sold.Post(gameObject); // Send Wwise Event.
         LevelManager.main.GainMoney(baseSellCost);
         Destroy(this.gameObject);
     }

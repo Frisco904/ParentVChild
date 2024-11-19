@@ -42,7 +42,7 @@ public class AkAudioInterruptionCallbackInfo : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkAudioInterruptionCallbackInfo(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkAudioInterruptionCallbackInfo(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,10 +50,10 @@ public class AkAudioInterruptionCallbackInfo : global::System.IDisposable {
     }
   }
 
-  public bool bEnterInterruption { get { return AkSoundEnginePINVOKE.CSharp_AkAudioInterruptionCallbackInfo_bEnterInterruption_get(swigCPtr); } 
+  public bool bEnterInterruption { get { return AkUnitySoundEnginePINVOKE.CSharp_AkAudioInterruptionCallbackInfo_bEnterInterruption_get(swigCPtr); } 
   }
 
-  public AkAudioInterruptionCallbackInfo() : this(AkSoundEnginePINVOKE.CSharp_new_AkAudioInterruptionCallbackInfo(), true) {
+  public AkAudioInterruptionCallbackInfo() : this(AkUnitySoundEnginePINVOKE.CSharp_new_AkAudioInterruptionCallbackInfo(), true) {
   }
 
 }

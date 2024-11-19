@@ -1,8 +1,10 @@
-using System.Collections.Generic;
 using System.Linq;
+<<<<<<< HEAD
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 //using Unity.VisualScripting.ReorderableList;
+=======
+>>>>>>> main
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -19,6 +21,7 @@ public class TurretBuilder : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private int buildCost; // The amoutn of $ required to build a turret.
+    [SerializeField] private float timeScaleSlowdownSpeed = .5f;
 
     [Header("References")]
     [SerializeField] public GameObject towerPrefab;
@@ -41,15 +44,16 @@ public class TurretBuilder : MonoBehaviour
     void Update()
     {
         if(IsMouseOverUI()) { return; }
-        //Checking if player is clicking in area within bounds and is able to place a turret.
+    
+        // Checking if player is clicking in area within bounds and is able to place a turret.
         if (Input.GetMouseButtonDown(0) && canPlaceTurret && WithinBounds())
         {
-            //Spawning turret where the mouse is hovering over.
+            // Spawning turret where the mouse is hovering over.
             if (CanBuildTurret() && levelManager.SpendMoney(buildCost))
             {
+                // Build Turret 
                 //Check if there is a prev selected turret then deselect it.
                 DeselectTurretCheck();
-
                 Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 var newTurret = Instantiate(towerPrefab, new Vector3(cursorPos.x, cursorPos.y, 0), Quaternion.identity);
                 newTurret.GetComponent<Turret>().SelectTurret();
@@ -144,11 +148,13 @@ public class TurretBuilder : MonoBehaviour
         {
             buildButton.image.color = Color.gray;
             canPlaceTurret = true;
+            Time.timeScale = timeScaleSlowdownSpeed;
         }
         else
         {
             buildButton.image.color = Color.white;
             canPlaceTurret = false;
+            Time.timeScale = 1f;
         }
         uiMouseScript.MouseDown();
     }
@@ -164,6 +170,7 @@ public class TurretBuilder : MonoBehaviour
     {
         buildButton.image.color = Color.white;
         canPlaceTurret = false;
+        Time.timeScale = 1f;
     }
 
     private bool IsMouseOverUI()

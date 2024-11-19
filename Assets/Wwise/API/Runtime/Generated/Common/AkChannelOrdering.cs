@@ -11,7 +11,10 @@
 
 
 public enum AkChannelOrdering {
-  ChannelOrdering_Standard,
-  ChannelOrdering_RunTime
+  ChannelOrdering_Standard = 0,
+  ChannelOrdering_Film,
+  ChannelOrdering_FuMa,
+  ChannelOrdering_RunTime,
+  ChannelOrdering_Last
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

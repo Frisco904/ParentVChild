@@ -42,7 +42,7 @@ public class AkMusicSettings : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkSoundEnginePINVOKE.CSharp_delete_AkMusicSettings(swigCPtr);
+          AkUnitySoundEnginePINVOKE.CSharp_delete_AkMusicSettings(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }
@@ -50,7 +50,7 @@ public class AkMusicSettings : global::System.IDisposable {
     }
   }
 
-  public float fStreamingLookAheadRatio { set { AkSoundEnginePINVOKE.CSharp_AkMusicSettings_fStreamingLookAheadRatio_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkMusicSettings_fStreamingLookAheadRatio_get(swigCPtr); } 
+  public float fStreamingLookAheadRatio { set { AkUnitySoundEnginePINVOKE.CSharp_AkMusicSettings_fStreamingLookAheadRatio_set(swigCPtr, value); }  get { return AkUnitySoundEnginePINVOKE.CSharp_AkMusicSettings_fStreamingLookAheadRatio_get(swigCPtr); } 
   }
 
 }

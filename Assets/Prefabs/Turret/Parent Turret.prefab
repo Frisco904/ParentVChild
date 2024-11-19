@@ -306,22 +306,45 @@ MonoBehaviour:
   projectileSpawnLocation: {fileID: 9024184806864647534}
   fireRate: 1.5
   turretDmg: 1
+<<<<<<< HEAD
   targetingRange: 15
   sprtRate: 0.5
+=======
+>>>>>>> main
   dmgLevel: 1
   spdLevel: 1
   ctrlLevel: 1
   sprtLevel: 1
   baseUpgradeRange: 10
+<<<<<<< HEAD
   baseUpgradeDamage: 1
   baseUpgradeFireRate: 15
   baseUpgradeSprt: 5
   baseSellCost: 25
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
   TurretShot:
+=======
+  baseUpgradeDamage: 20
+  baseUpgradeFireRate: 15
+  baseSellCost: 25
+  projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
+  Turret_Built:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: b9e9df696b18a6c48ae7133316a9dff0, type: 2}
+  Turret_Shot:
+>>>>>>> main
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 134186e1e79d6f744946274fdcb83be0, type: 2}
+  Turret_Sold:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: a8b60f757d7708345beeae834dcc72f0, type: 2}
+  Turret_Upgraded:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 3fd59e6fc5e42934c85215e10271b9c1, type: 2}
 --- !u!61 &-6092140016763046395
 BoxCollider2D:
   m_ObjectHideFlags: 0
