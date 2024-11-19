@@ -54,10 +54,12 @@ public class TutorialDialog : MonoBehaviour
                 index++;
                 textComponent.text = string.Empty;;
                 StartCoroutine(TypeLine());
-            } else {
-                LevelManager.main.StartWave();
-                gameObject.SetActive(false);
-            }
+            } 
+            else 
+                {        
+                 gameObject.SetActive(false);
+                if (!LevelManager.main.GetStartLevel()) { LevelManager.main.StartLevel(); }
+                }
 
         }
 

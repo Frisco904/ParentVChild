@@ -25,9 +25,9 @@ public class LevelManager : MonoBehaviour
     private bool isCountdownActive = false;
     private bool autoLevelStarted = false;
     private bool levelStart;
+    [SerializeField] private bool autoLevelStart;
 
     [Header("Enemy Wave Attributes")]
-    [SerializeField] private bool autoLevelStart;
     [SerializeField] private int maxWaves = 3;
     [SerializeField] private float initialWaveDelay;
     [SerializeField] private float timeBetweenWaves;
@@ -185,8 +185,8 @@ public class LevelManager : MonoBehaviour
     public bool GetStartLevel() {  return levelStart; }
     public void StartLevel() { 
         levelStart = true;
-        StartCountDown();
         countDownTxt.gameObject.SetActive(true);
+        StartCountDown();
     }
 
 }
