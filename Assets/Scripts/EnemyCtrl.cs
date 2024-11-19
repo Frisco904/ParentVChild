@@ -173,7 +173,7 @@ public class EnemyCtrl : MonoBehaviour
 
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         currentFull += dmg;
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);

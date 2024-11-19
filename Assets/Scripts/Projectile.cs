@@ -9,15 +9,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float life = 3;
     [SerializeField] private float projectileSpeed = 5f;
     [SerializeField] private float spinSpeed = 80f;
-    
+    [SerializeField] Sprite[] bulletImg;
+    [SerializeField] SpriteRenderer bulletRenderer;
 
     [Header("Wwise")]
     [SerializeField] public AK.Wwise.Event Projectile_Hit;
 
     private Transform target;
     private float spinDirection = 1f;
-    public int PDmg = 1;
+    public float PDmg = 1;
     public static Projectile main;
+    int rBulletImg;
 
     // Update is called once per frame
     void Awake()
@@ -25,6 +27,11 @@ public class Projectile : MonoBehaviour
         main = this;
         Destroy(gameObject, life);
         if (Random.Range(0,1) == 0) spinDirection = -1f;
+    }
+
+    private void Start()
+    {
+        GenerateRandomProjectileImage();
     }
 
     public void SetTarget(Transform _target)
@@ -71,5 +78,11 @@ public class Projectile : MonoBehaviour
         enemy.TakeDamage(PDmg);
         Projectile_Hit.Post(gameObject);
         Destroy(gameObject);
+    }
+
+    void GenerateRandomProjectileImage()
+    {
+        rBulletImg = UnityEngine.Random.Range(1, bulletImg.Length + 1);
+        bulletRenderer.sprite = bulletImg[rBulletImg - 1];
     }
 }
