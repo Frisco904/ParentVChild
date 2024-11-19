@@ -46,7 +46,7 @@ public static class AkBankManager
 
 	public static void ReloadAllBanks()
 	{
-		if (!AkUnitySoundEngine.IsInitialized())
+		if (!AkSoundEngine.IsInitialized())
 		{
 			return;
 		}
@@ -81,7 +81,7 @@ public static class AkBankManager
 		}
 
 		uint BankID;
-		var result = AkUnitySoundEngine.LoadBank("Init.bnk", out BankID);
+		var result = AkSoundEngine.LoadBank("Init.bnk", out BankID);
 		if (result != AKRESULT.AK_Success)
 		{
 			UnityEngine.Debug.LogError("WwiseUnity: Failed load Init.bnk with result: " + result);
@@ -90,11 +90,11 @@ public static class AkBankManager
 
 	public static void UnloadInitBank()
 	{
-		AkUnitySoundEngine.UnloadBank("Init.bnk", System.IntPtr.Zero);
+		AkSoundEngine.UnloadBank("Init.bnk", System.IntPtr.Zero);
 	}
 
 	/// Loads a SoundBank. This version blocks until the bank is loaded. See AK::SoundEngine::LoadBank for more information.
-	public static uint LoadBank(string name, bool decodeBank, bool saveDecodedBank, AkBankTypeEnum bankType = AkBankTypeEnum.AkBankType_User)
+	public static void LoadBank(string name, bool decodeBank, bool saveDecodedBank)
 	{
 		BankHandle handle = null;
 		lock (m_BankHandles)
@@ -103,27 +103,22 @@ public static class AkBankManager
 			{
 				// Bank already loaded, increment its ref count.
 				handle.IncRef();
-				return AkUnitySoundEngine.AK_INVALID_UNIQUE_ID;
+				return;
 			}
 
 #if UNITY_SWITCH
 			// No bank decoding on Nintendo switch
-			handle = new BankHandle(name, bankType);
+			handle = new BankHandle(name);
 #else
-			if (decodeBank && bankType != AkBankTypeEnum.AkBankType_User)
-			{
-				UnityEngine.Debug.LogError("Decoding Auto-generated SoundBanks is not supported.");
-			}
-
-			handle = decodeBank ? new DecodableBankHandle(name, saveDecodedBank) : new BankHandle(name, bankType);
+			handle = decodeBank ? new DecodableBankHandle(name, saveDecodedBank) : new BankHandle(name);
 #endif
 			m_BankHandles.Add(name, handle);
 		}
-		return handle.LoadBank();
+		handle.LoadBank();
 	}
 
 	/// Loads a SoundBank. This version returns right away and loads in background. See AK::SoundEngine::LoadBank for more information.
-	public static uint LoadBankAsync(string name, AkCallbackManager.BankCallback callback = null, AkBankTypeEnum bankType = AkBankTypeEnum.AkBankType_User)
+	public static void LoadBankAsync(string name, AkCallbackManager.BankCallback callback = null)
 	{
 		BankHandle handle = null;
 		lock (m_BankHandles)
@@ -132,13 +127,13 @@ public static class AkBankManager
 			{
 				// Bank already loaded, increment its ref count.
 				handle.IncRef();
-				return AkUnitySoundEngine.AK_INVALID_UNIQUE_ID;
+				return;
 			}
 
-			handle = new AsyncBankHandle(name, callback, bankType);
+			handle = new AsyncBankHandle(name, callback);
 			m_BankHandles.Add(name, handle);
 		}
-		return handle.LoadBank();
+		handle.LoadBank();
 	}
 
 	/// Unloads a SoundBank. See AK::SoundEngine::UnloadBank for more information.
@@ -168,12 +163,10 @@ public static class AkBankManager
 	{
 		protected readonly string bankName;
 		protected uint m_BankID;
-		protected AkBankTypeEnum m_BankType;
 
-		public BankHandle(string name, AkBankTypeEnum bankType)
+		public BankHandle(string name)
 		{
 			bankName = name;
-			m_BankType = bankType;
 		}
 
 		public int RefCount { get; private set; }
@@ -181,10 +174,10 @@ public static class AkBankManager
 		/// Loads a bank. This version blocks until the bank is loaded. See AK::SoundEngine::LoadBank for more information.
 		public virtual AKRESULT DoLoadBank()
 		{
-			return AkUnitySoundEngine.LoadBank(bankName, out m_BankID, (uint)m_BankType);
+			return AkSoundEngine.LoadBank(bankName, out m_BankID);
 		}
 
-		public uint LoadBank()
+		public void LoadBank()
 		{
 			if (RefCount == 0 && !BanksToUnload.Remove(this))
 			{
@@ -193,13 +186,12 @@ public static class AkBankManager
 			}
 
 			IncRef();
-			return m_BankID;
 		}
 
 		/// Unloads a bank.
 		public virtual void UnloadBank(bool remove = true)
 		{
-			AkUnitySoundEngine.UnloadBank(m_BankID, System.IntPtr.Zero, null, null, (uint) m_BankType);
+			AkSoundEngine.UnloadBank(m_BankID, System.IntPtr.Zero, null, null);
 
 			if (remove)
 			{
@@ -224,7 +216,7 @@ public static class AkBankManager
 
 		protected void LogLoadResult(AKRESULT result)
 		{
-			if (result != AKRESULT.AK_Success && AkUnitySoundEngine.IsInitialized())
+			if (result != AKRESULT.AK_Success && AkSoundEngine.IsInitialized())
 				UnityEngine.Debug.LogWarning("WwiseUnity: Bank " + bankName + " failed to load (" + result + ")");
 		}
 	}
@@ -233,7 +225,7 @@ public static class AkBankManager
 	{
 		private readonly AkCallbackManager.BankCallback bankCallback;
 
-		public AsyncBankHandle(string name, AkCallbackManager.BankCallback callback, AkBankTypeEnum bankType) : base(name, bankType)
+		public AsyncBankHandle(string name, AkCallbackManager.BankCallback callback) : base(name)
 		{
 			bankCallback = callback;
 		}
@@ -259,7 +251,7 @@ public static class AkBankManager
 		/// Loads a bank.  This version returns right away and loads in background. See AK::SoundEngine::LoadBank for more information
 		public override AKRESULT DoLoadBank()
 		{
-			return AkUnitySoundEngine.LoadBank(bankName, GlobalBankCallback, this, out m_BankID, (uint)m_BankType);
+			return AkSoundEngine.LoadBank(bankName, GlobalBankCallback, this, out m_BankID);
 		}
 	}
 
@@ -269,14 +261,14 @@ public static class AkBankManager
 		private readonly string decodedBankPath;
 		private readonly bool saveDecodedBank;
 
-		public DecodableBankHandle(string name, bool save) : base(name, AkBankTypeEnum.AkBankType_User)
+		public DecodableBankHandle(string name, bool save) : base(name)
 		{
 			saveDecodedBank = save;
 
 			var bankFileName = bankName + ".bnk";
 
 			// test language-specific decoded file path
-			var language = AkUnitySoundEngine.GetCurrentLanguage();
+			var language = AkSoundEngine.GetCurrentLanguage();
 			var akBasePathGetterInstance =  AkBasePathGetter.Get();
 			var decodedBankFullPath = akBasePathGetterInstance.DecodedBankFullPath;
 			decodedBankPath = System.IO.Path.Combine(decodedBankFullPath, language);
@@ -312,20 +304,16 @@ public static class AkBankManager
 		public override AKRESULT DoLoadBank()
 		{
 			if (decodeBank)
-			{
-				return AkUnitySoundEngine.LoadAndDecodeBank(bankName, saveDecodedBank, out m_BankID);
-			}
+				return AkSoundEngine.LoadAndDecodeBank(bankName, saveDecodedBank, out m_BankID);
 
 			if (string.IsNullOrEmpty(decodedBankPath))
-			{
-				return AkUnitySoundEngine.LoadBank(bankName, out m_BankID, (uint) m_BankType);
-			}
+				return AkSoundEngine.LoadBank(bankName, out m_BankID);
 
-			var res = AkUnitySoundEngine.SetBasePath(decodedBankPath);
+			var res = AkSoundEngine.SetBasePath(decodedBankPath);
 			if (res == AKRESULT.AK_Success)
 			{
-				res = AkUnitySoundEngine.LoadBank(bankName, out m_BankID, (uint)m_BankType);
-				AkUnitySoundEngine.SetBasePath(AkBasePathGetter.Get().SoundBankBasePath);
+				res = AkSoundEngine.LoadBank(bankName, out m_BankID);
+				AkSoundEngine.SetBasePath(AkBasePathGetter.Get().SoundBankBasePath);
 			}
 			return res;
 		}
@@ -334,7 +322,7 @@ public static class AkBankManager
 		public override void UnloadBank(bool remove = true)
 		{
 			if (decodeBank && !saveDecodedBank)
-				AkUnitySoundEngine.PrepareBank(AkPreparationType.Preparation_Unload, m_BankID);
+				AkSoundEngine.PrepareBank(AkPreparationType.Preparation_Unload, m_BankID);
 			else
 				base.UnloadBank(remove);
 		}

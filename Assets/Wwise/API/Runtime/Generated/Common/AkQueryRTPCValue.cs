@@ -15,7 +15,6 @@ public enum AkQueryRTPCValue {
   RTPCValue_Global,
   RTPCValue_GameObject,
   RTPCValue_PlayingID,
-  RTPCValue_Unavailable,
-  RTPCValue_Last
+  RTPCValue_Unavailable
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

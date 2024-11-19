@@ -24,17 +24,17 @@ public class AkExternalSourceInfoArray : AkBaseArray<AkExternalSourceInfo>
 
 	protected override int StructureSize
 	{
-		get { return AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_GetSizeOf(); }
+		get { return AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_GetSizeOf(); }
 	}
 
 	protected override void DefaultConstructAtIntPtr(System.IntPtr address)
 	{
-		AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_Clear(address);
+		AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_Clear(address);
 	}
 
 	protected override void ReleaseAllocatedMemoryFromReferenceAtIntPtr(System.IntPtr address)
 	{
-		AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_szFile_set(address, null);
+		AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_szFile_set(address, null);
 	}
 
 	protected override AkExternalSourceInfo CreateNewReferenceFromIntPtr(System.IntPtr address)
@@ -44,7 +44,7 @@ public class AkExternalSourceInfoArray : AkBaseArray<AkExternalSourceInfo>
 
 	protected override void CloneIntoReferenceFromIntPtr(System.IntPtr address, AkExternalSourceInfo other)
 	{
-		AkUnitySoundEnginePINVOKE.CSharp_AkExternalSourceInfo_Clone(address, AkExternalSourceInfo.getCPtr(other));
+		AkSoundEnginePINVOKE.CSharp_AkExternalSourceInfo_Clone(address, AkExternalSourceInfo.getCPtr(other));
 	}
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

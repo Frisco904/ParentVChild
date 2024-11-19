@@ -17,7 +17,7 @@ Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
 [UnityEditor.CanEditMultipleObjects]
-[UnityEditor.CustomEditor(typeof(AkAudioListener), true)]
+[UnityEditor.CustomEditor(typeof(AkAudioListener))]
 public class AkAudioListenerInspector : UnityEditor.Editor
 {
 	private UnityEditor.SerializedProperty m_isDefaultListener;

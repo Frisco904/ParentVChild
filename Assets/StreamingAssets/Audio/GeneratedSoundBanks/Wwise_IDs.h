@@ -15,13 +15,8 @@ namespace AK
     {
         static const AkUniqueID JAWBREAKER_DAMAGE = 1656416929U;
         static const AkUniqueID LEVELLOADED = 3674062802U;
-        static const AkUniqueID MOUSECLICK_CANDY = 3478105612U;
-        static const AkUniqueID MOUSEHOVER_CANDY = 646295870U;
         static const AkUniqueID MUSICSTART = 1122283870U;
         static const AkUniqueID PROJECTILE_HIT = 2422838114U;
-        static const AkUniqueID TURRET_BUILT = 1259520878U;
-        static const AkUniqueID TURRET_SOLD = 3875385212U;
-        static const AkUniqueID TURRET_UPGRADED = 1728073150U;
         static const AkUniqueID TURRETSHOT = 493550803U;
         static const AkUniqueID ZOMBIE_SPAWN = 2394958751U;
     } // namespace EVENTS

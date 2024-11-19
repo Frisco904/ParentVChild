@@ -272,8 +272,8 @@ public class AkDocHelper
 	{
 		if (m_WwiseVersionString == string.Empty)
 		{
-			var temp = AkUnitySoundEngine.GetMajorMinorVersion();
-			var temp2 = AkUnitySoundEngine.GetSubminorBuildVersion();
+			var temp = AkSoundEngine.GetMajorMinorVersion();
+			var temp2 = AkSoundEngine.GetSubminorBuildVersion();
 			m_WwiseVersionString = (temp >> 16) + "." + (temp & 0xFFFF);
 			if (temp2 >> 16 != 0)
 				m_WwiseVersionString += "." + (temp2 >> 16);

@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using TMPro;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -16,7 +19,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] public AK.Wwise.State Playing;
     [SerializeField] public AK.Wwise.State Victory;
     [SerializeField] public AK.Wwise.State Failed;
-    [SerializeField] public AK.Wwise.Event Button_Click;
 
     // Update is called once per frame
     void Update()
@@ -74,11 +76,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex + 1 == SceneManager.sceneCountInBuildSettings) { Application.Quit(); }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void PlayButtonClickAudio()
-    {
-        Button_Click.Post(gameObject);
     }
     public void QuitGame()
     {

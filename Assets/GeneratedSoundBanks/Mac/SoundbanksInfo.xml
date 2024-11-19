@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../../../ParentVChild_WwiseProject</ProjectRoot>
+		<SourceFilesRoot>../../../ParentVChild_WwiseProject/.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>../../../ParentVChild_WwiseProject/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{49B531AE-944E-9B86-BDB2-681F7FC28C71}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2995775460" Name="Room_Small" LibName="Wwise RoomVerb" LibId="7733251"/>
+					<Plugin Id="3796564934" Name="Hard_Knee_Minus_3dB_RMS" LibName="Wwise Compressor" LibId="7077891"/>
+				</ShareSets>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="393239870" Name="SFX">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3796564934"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="1551306167" Name="UI"/>
+				<Bus Id="2609808943" Name="World">
+					<AuxBusRefs>
+						<AuxBusRef Id="348963605" Name="Reverb"/>
+					</AuxBusRefs>
+				</Bus>
+				<Bus Id="3127962312" Name="Music Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<AuxBusses>
+				<AuxBus Id="348963605" Name="Reverb">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2995775460"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
+			</AuxBusses>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SfxVolume"/>
+				<GameParameter Id="1316067302" Name="DangerLevel"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2918011349" Name="MasterVolume"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1431182499" Name="Playing_State">
+					<States>
+						<State Id="319258907" Name="Paused"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1655200910" Name="Failed"/>
+						<State Id="1852808225" Name="Playing"/>
+						<State Id="2716678721" Name="Victory"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2782712965" Name="Level">
+					<Switches>
+						<Switch Id="2607556080" Name="Menu"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{465B306A-A984-F636-FE1C-62704B590722}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="29953317" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot2.wav</ShortName>
+					<CachePath>SFX/Shot2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="154565013" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\More_Candy.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/More_Candy_818F3B66.wem</CachePath>
+				</File>
+				<File Id="164574102" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\More_Sugar.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/More_Sugar_818F3B66.wem</CachePath>
+				</File>
+				<File Id="268847850" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_Long_3.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_Long_3_EBD89E74.wem</CachePath>
+				</File>
+				<File Id="369593336" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_3.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_3_992246EC.wem</CachePath>
+				</File>
+				<File Id="391787963" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_4.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_4_759BD892.wem</CachePath>
+				</File>
+				<File Id="399867020" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_1.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_1_27DCCCDD.wem</CachePath>
+				</File>
+				<File Id="443640229" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\Candy.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/Candy_818F3B66.wem</CachePath>
+				</File>
+				<File Id="520694194" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_Long_1.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_Long_1_80E4473C.wem</CachePath>
+				</File>
+				<File Id="593691112" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Munch_1.wav</ShortName>
+					<CachePath>SFX/Crunch/Munch_1_CFDF3B0D.wem</CachePath>
+				</File>
+				<File Id="598466673" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Shot.wav</ShortName>
+					<CachePath>SFX/Shot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="653342821" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_2.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_2_521B2FD7.wem</CachePath>
+				</File>
+				<File Id="697006857" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Crunch\Crunch_Long_2.wav</ShortName>
+					<CachePath>SFX/Crunch/Crunch_Long_2_C3532FFC.wem</CachePath>
+				</File>
+				<File Id="809827003" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\Sugar.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/Sugar_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1005575725" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Splat.wav</ShortName>
+					<CachePath>SFX/Splat_2DD45327.wem</CachePath>
+				</File>
+				<File Id="1033706604" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Child_Zombie\More_Candy2.wav</ShortName>
+					<CachePath>SFX/Child_Zombie/More_Candy2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="1072762256" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Splat.wav</ShortName>
+					<CachePath>SFX/Splat_A55BB36A.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="22706034" Name="Time Stretch (Custom)" LibName="Wwise Time Stretch" LibId="8519683"/>
+					<Plugin Id="1030951940" Name="Time Stretch (Custom)" LibName="Wwise Time Stretch" LibId="8519683"/>
+				</Custom>
+				<ShareSets>
+					<Plugin Id="1125262053" Name="Blue_Distant_Echoes" LibName="Wwise Stereo Delay" LibId="8847363"/>
+					<Plugin Id="3013737261" Name="Bass_Remover_3" LibName="Wwise Parametric EQ" LibId="6881283"/>
+					<Plugin Id="3043085106" Name="High_Impact" LibName="Wwise Compressor" LibId="7077891"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="1656416929" Name="Jawbreaker_Damage" DurationType="OneShot" DurationMin="0.31329784" DurationMax="0.7217225">
+					<MediaRefs>
+						<MediaRef Id="268847850"/>
+						<MediaRef Id="369593336"/>
+						<MediaRef Id="391787963"/>
+						<MediaRef Id="399867020"/>
+						<MediaRef Id="520694194"/>
+						<MediaRef Id="593691112"/>
+						<MediaRef Id="653342821"/>
+						<MediaRef Id="697006857"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="1030951940"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="2422838114" Name="Projectile_Hit" DurationType="OneShot" DurationMin="0.27528682" DurationMax="0.5275968">
+					<MediaRefs>
+						<MediaRef Id="1005575725"/>
+						<MediaRef Id="1072762256"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="493550803" Name="TurretShot" DurationType="OneShot" DurationMin="0.15020512" DurationMax="0.9642579">
+					<MediaRefs>
+						<MediaRef Id="29953317"/>
+						<MediaRef Id="598466673"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="3013737261"/>
+							<PluginRef Id="3043085106"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2394958751" Name="Zombie_Spawn" DurationType="OneShot" DurationMin="4.247434" DurationMax="4.9072847">
+					<MediaRefs>
+						<MediaRef Id="154565013"/>
+						<MediaRef Id="164574102"/>
+						<MediaRef Id="443640229"/>
+						<MediaRef Id="809827003"/>
+						<MediaRef Id="1033706604"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="22706034"/>
+						</Custom>
+						<ShareSets>
+							<PluginRef Id="1125262053"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="3991942870" Type="User" Language="SFX" Hash="{BA7D664B-1978-B519-DC2B-73F8562D596A}">
+			<ShortName>Music</ShortName>
+			<Path>Music.bnk</Path>
+			<Media>
+				<File Id="62806833" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-SynthPads_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-SynthPads_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="87828236" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Bass_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Bass_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="89743136" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-IntroSound_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-IntroSound_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="103559844" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideC_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideC_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="116316691" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Victory-Arp_138bpm4-4_L1M.wav</ShortName>
+					<CachePath>SFX/Victory-Arp_138bpm4-4_L1M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="168359042" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Victory-Stabs2_138bpm4-4_L1M.wav</ShortName>
+					<CachePath>SFX/Victory-Stabs2_138bpm4-4_L1M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="183176488" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RhythmPiano_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RhythmPiano_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="223714923" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Breaks1_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Breaks1_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="332379066" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BassTransition_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BassTransition_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="400985638" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Give Me Some Sugar.wav</ShortName>
+					<CachePath>SFX/Give Me Some Sugar_878E18E0.wem</CachePath>
+				</File>
+				<File Id="515125203" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BreaksBridge_178bpm4-4_L8M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BreaksBridge_178bpm4-4_L8M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="645269099" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Failure-130bpm.wav</ShortName>
+					<CachePath>SFX/Failure-130bpm_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="705219980" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Victory-Drums_138bpm4-4_L1M.wav</ShortName>
+					<CachePath>SFX/Victory-Drums_138bpm4-4_L1M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="724685751" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-BreaksBridge2_178bpm4-4_L8M.wav</ShortName>
+					<CachePath>SFX/Caffinated-BreaksBridge2_178bpm4-4_L8M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="831484337" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideA_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideA_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="838032950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-Break1A_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-Break1A_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="925655667" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Victory-lntro_138bpm4-4_L2M.wav</ShortName>
+					<CachePath>SFX/Victory-lntro_138bpm4-4_L2M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="946494434" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Victory-Stabs1_138bpm4-4_L1M.wav</ShortName>
+					<CachePath>SFX/Victory-Stabs1_138bpm4-4_L1M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="958169048" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-LeadPiano_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-LeadPiano_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="995636130" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Victory-Stabs1-Alt_138bpm4-4_L1M.wav</ShortName>
+					<CachePath>SFX/Victory-Stabs1-Alt_138bpm4-4_L1M_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1005649521" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Caffinated-RideB_178bpm4-4_L4M.wav</ShortName>
+					<CachePath>SFX/Caffinated-RideB_178bpm4-4_L4M_FBC78EF0.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="2652646462" Name="Dialog_Leveler_Soft" LibName="Wwise Compressor" LibId="7077891"/>
+					<Plugin Id="3013737260" Name="Bass_Remover_2" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="3674062802" Name="LevelLoaded" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1122283870" Name="MusicStart" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2678230382"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="1852808225"/>
+									<MediaRefs>
+										<MediaRef Id="62806833"/>
+										<MediaRef Id="87828236"/>
+										<MediaRef Id="89743136"/>
+										<MediaRef Id="103559844"/>
+										<MediaRef Id="183176488"/>
+										<MediaRef Id="223714923"/>
+										<MediaRef Id="332379066"/>
+										<MediaRef Id="515125203"/>
+										<MediaRef Id="724685751"/>
+										<MediaRef Id="831484337"/>
+										<MediaRef Id="838032950"/>
+										<MediaRef Id="958169048"/>
+										<MediaRef Id="1005649521"/>
+									</MediaRefs>
+									<PluginRefs>
+										<ShareSets>
+											<PluginRef Id="2652646462"/>
+											<PluginRef Id="3013737260"/>
+										</ShareSets>
+									</PluginRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="0"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="1655200910"/>
+									<MediaRefs>
+										<MediaRef Id="645269099"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="2607556080"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="0"/>
+									<MediaRefs>
+										<MediaRef Id="400985638"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="2782712965" Id="0"/>
+							<Children>
+								<SwitchContainer>
+									<SwitchValue GroupType="State" GroupId="1431182499" Id="2716678721"/>
+									<MediaRefs>
+										<MediaRef Id="116316691"/>
+										<MediaRef Id="168359042"/>
+										<MediaRef Id="705219980"/>
+										<MediaRef Id="925655667"/>
+										<MediaRef Id="946494434"/>
+										<MediaRef Id="995636130"/>
+									</MediaRefs>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="1431182499" Id="1852808225" Name="Playing"/>
+					</ActionSetState>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="1316067302" Name="DangerLevel"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1431182499" Name="Playing_State">
+					<States>
+						<State Id="319258907" Name="Paused"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1655200910" Name="Failed"/>
+						<State Id="1852808225" Name="Playing"/>
+						<State Id="2716678721" Name="Victory"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="2782712965" Name="Level">
+					<Switches>
+						<Switch Id="2607556080" Name="Menu"/>
+						<Switch Id="2678230381" Name="Level2"/>
+						<Switch Id="2678230382" Name="Level1"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{D9595023-1C49-C387-A1D2-267284F8CD82}</FileHash>
+</SoundBanksInfo>

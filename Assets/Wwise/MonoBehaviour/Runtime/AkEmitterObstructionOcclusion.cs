@@ -49,11 +49,11 @@ public class AkEmitterObstructionOcclusion : AkObstructionOcclusion
 	{
 		if (AkSpatialAudioListener.TheSpatialAudioListener != null && AkRoom.RoomCount > 0)
 		{
-			AkUnitySoundEngine.SetObjectObstructionAndOcclusion(gameObject, ObsOccPair.Key.gameObject, ObsOccPair.Value.currentValue, 0.0f);
+			AkSoundEngine.SetObjectObstructionAndOcclusion(gameObject, ObsOccPair.Key.gameObject, ObsOccPair.Value.currentValue, 0.0f);
 		}
 		else
 		{
-			AkUnitySoundEngine.SetObjectObstructionAndOcclusion(gameObject, ObsOccPair.Key.gameObject, 0.0f, ObsOccPair.Value.currentValue);
+			AkSoundEngine.SetObjectObstructionAndOcclusion(gameObject, ObsOccPair.Key.gameObject, 0.0f, ObsOccPair.Value.currentValue);
 		}
 	}
 }

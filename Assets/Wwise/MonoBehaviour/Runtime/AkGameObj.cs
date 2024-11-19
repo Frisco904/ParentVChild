@@ -44,8 +44,6 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 	private AkGameObjEnvironmentData m_envData;
 
 	private AkGameObjPositionData m_posData;
-	
-	public bool usePositionOffsetData;
 
 	/// When not set to null, the position is offset relative to the Game Object position by the Position Offset
 	public AkGameObjPositionOffsetData m_positionOffsetData;
@@ -98,12 +96,12 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 		}
 
 		isRegistered = true;
-		return AkUnitySoundEngine.RegisterGameObj(gameObject, gameObject.name);
+		return AkSoundEngine.RegisterGameObj(gameObject, gameObject.name);
 	}
 
 	private void UnregisterGameObject()
 	{
-		if (AkUnitySoundEngine.IsInitialized())
+		if (AkSoundEngine.IsInitialized())
         {
 			Unregister();
 		}
@@ -118,7 +116,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 
 		isRegistered = false;
 		m_posData = null;
-		return AkUnitySoundEngine.UnregisterGameObj(gameObject);
+		return AkSoundEngine.UnregisterGameObj(gameObject);
 	}
 	
 	private void SetPosition()
@@ -139,7 +137,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 			m_posData.up = up;
 		}
 
-		AkUnitySoundEngine.SetObjectPosition(gameObject, position, forward, up);
+		AkSoundEngine.SetObjectPosition(gameObject, position, forward, up);
 	}
 
 	private void Awake()
@@ -154,8 +152,8 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 		{
 			UnityEditor.EditorApplication.update += CheckStaticStatus;
 		}
-		AkUnitySoundEngineInitialization.Instance.initializationDelegate += RegisterGameObject;
-		AkUnitySoundEngineInitialization.Instance.terminationDelegate += UnregisterGameObject;
+		AkSoundEngineInitialization.Instance.initializationDelegate += RegisterGameObject;
+		AkSoundEngineInitialization.Instance.terminationDelegate += UnregisterGameObject;
 #endif
 
 		// If the object was marked as static, don't update its position to save cycles.
@@ -170,7 +168,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 
     private void RegisterGameObject()
     {
-		if (!AkUnitySoundEngine.IsInitialized())
+		if (!AkSoundEngine.IsInitialized())
         {
 			return;
         }
@@ -205,7 +203,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 					scalingFactor = 1f;
 				}
 			}
-			AkUnitySoundEngine.SetScalingFactor(gameObject, scalingFactor);
+			AkSoundEngine.SetScalingFactor(gameObject, scalingFactor);
 		}
 	}
 
@@ -246,7 +244,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 #if UNITY_EDITOR
 	private void OnDisable()
 	{
-		if (!AkUnitySoundEngineInitialization.Instance.ShouldKeepSoundEngineEnabled())
+		if (!AkSoundEngineInitialization.Instance.ShouldKeepSoundEngineEnabled())
 		{
 			Unregister();
 		}
@@ -266,8 +264,8 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 			UnityEditor.EditorApplication.update -= CheckStaticStatus;
 		}
 
-		AkUnitySoundEngineInitialization.Instance.initializationDelegate -= RegisterGameObject;
-		AkUnitySoundEngineInitialization.Instance.terminationDelegate -= UnregisterGameObject;
+		AkSoundEngineInitialization.Instance.initializationDelegate -= RegisterGameObject;
+		AkSoundEngineInitialization.Instance.terminationDelegate -= UnregisterGameObject;
 #endif
 
 		// We can't do the code in OnDestroy if the gameObj is unregistered, so do it now.
@@ -280,7 +278,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 			}
 		}
 
-		if (AkUnitySoundEngine.IsInitialized())
+		if (AkSoundEngine.IsInitialized())
 		{
 			Unregister();
 		}
@@ -310,7 +308,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 	/// \return  The position.
 	public virtual UnityEngine.Vector3 GetPosition()
 	{
-		if (!usePositionOffsetData)
+		if (m_positionOffsetData == null)
 		{
 			return transform.position;
 		}

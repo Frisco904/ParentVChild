@@ -24,8 +24,6 @@ public enum AkGlobalCallbackLocation {
   AkGlobalCallbackLocation_Init = (1 << 10),
   AkGlobalCallbackLocation_Suspend = (1 << 11),
   AkGlobalCallbackLocation_WakeupFromSuspend = (1 << 12),
-  AkGlobalCallbackLocation_ProfilerConnect = (1 << 13),
-  AkGlobalCallbackLocation_ProfilerDisconnect = (1 << 14),
-  AkGlobalCallbackLocation_Num = 15
+  AkGlobalCallbackLocation_Num = 13
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

@@ -4,8 +4,7 @@
         "AK.Wwise.Unity.API",
         "AK.Wwise.Unity.MonoBehavior",
         "Unity.Timeline",
-        "AK.Wwise.Unity.API.WwiseTypes",
-        "AK.Wwise.Unity.ProjectDatabase"
+        "AK.Wwise.Unity.API.WwiseTypes"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

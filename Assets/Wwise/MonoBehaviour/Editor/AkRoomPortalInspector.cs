@@ -17,7 +17,7 @@ Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
 [UnityEditor.CanEditMultipleObjects]
-[UnityEditor.CustomEditor(typeof(AkRoomPortal), true)]
+[UnityEditor.CustomEditor(typeof(AkRoomPortal))]
 public class AkRoomPortalInspector : UnityEditor.Editor
 {
 	private UnityEditor.SerializedProperty initialState;

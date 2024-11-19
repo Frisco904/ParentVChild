@@ -17,7 +17,7 @@ Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
 [UnityEditor.CanEditMultipleObjects]
-[UnityEditor.CustomEditor(typeof(AkEnvironment), true)]
+[UnityEditor.CustomEditor(typeof(AkEnvironment))]
 public class AkEnvironmentInspector : AkBaseInspector
 {
 	private AkEnvironment m_AkEnvironment;

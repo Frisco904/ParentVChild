@@ -54,11 +54,9 @@ public class TutorialDialog : MonoBehaviour
                 index++;
                 textComponent.text = string.Empty;;
                 StartCoroutine(TypeLine());
-            } 
-            else {
-                //Check if AutoLevelStart has already started the level before calling the Start level function.
-                if (!LevelManager.main.GetStartLevel()) { LevelManager.main.StartLevel(); }
+            } else {
                 gameObject.SetActive(false);
+
             }
 
         }

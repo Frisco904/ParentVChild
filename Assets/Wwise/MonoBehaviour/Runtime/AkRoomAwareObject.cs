@@ -72,10 +72,7 @@ public class AkRoomAwareObject : UnityEngine.MonoBehaviour
 
 	private void OnDestroy()
 	{
-		if (m_Collider)
-		{
-			ColliderToRoomAwareObjectMap.Remove(m_Collider);
-		}
+		ColliderToRoomAwareObjectMap.Remove(m_Collider);
 	}
 
 	public void SetGameObjectInHighestPriorityActiveAndEnabledRoom()
@@ -85,7 +82,7 @@ public class AkRoomAwareObject : UnityEngine.MonoBehaviour
 
 	private void SetGameObjectInRoom(AkRoom room)
 	{
-		AkUnitySoundEngine.SetGameObjectInRoom(gameObject, AkRoom.GetAkRoomID(room));
+		AkSoundEngine.SetGameObjectInRoom(gameObject, AkRoom.GetAkRoomID(room));
 	}
 
 	/// <summary>

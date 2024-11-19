@@ -34,7 +34,7 @@ public class AkUnityIntegrationBuilderBase
 		m_assetsDir = System.IO.Path.Combine(unityProjectRoot, "Assets");
 		m_assetsPluginsDir = System.IO.Path.Combine(m_assetsDir, "Plugins");
 		m_buildScriptDir =
-			System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.Combine(m_assetsDir, "Wwise"), "AkUnitySoundEngine"),
+			System.IO.Path.Combine(System.IO.Path.Combine(System.IO.Path.Combine(m_assetsDir, "Wwise"), "AkSoundEngine"),
 				"Common");
 		m_buildScriptFile = "BuildWwiseUnityIntegration.py";
 	}

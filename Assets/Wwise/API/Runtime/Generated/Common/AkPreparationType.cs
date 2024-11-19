@@ -13,7 +13,6 @@
 public enum AkPreparationType {
   Preparation_Load,
   Preparation_Unload,
-  Preparation_LoadAndDecode,
-  Preparation_Last
+  Preparation_LoadAndDecode
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

@@ -33,7 +33,7 @@ public class AkLogger
 		if (ms_Instance == null)
 		{
 			ms_Instance = this;
-			AkUnitySoundEngine.SetErrorLogger(errorLoggerDelegate);
+			AkSoundEngine.SetErrorLogger(errorLoggerDelegate);
 		}
 	}
 
@@ -45,7 +45,7 @@ public class AkLogger
 		{
 			ms_Instance = null;
 			errorLoggerDelegate = null;
-			AkUnitySoundEngine.SetErrorLogger();
+			AkSoundEngine.SetErrorLogger();
 		}
 	}
 

@@ -42,17 +42,17 @@ public class AkEarlyReflections : UnityEngine.MonoBehaviour
 	{
 		if (reflectionsAuxBus != null)
 		{
-			AkUnitySoundEngine.SetEarlyReflectionsAuxSend(gameObject, reflectionsAuxBus.Id);
+			AkSoundEngine.SetEarlyReflectionsAuxSend(gameObject, reflectionsAuxBus.Id);
 		}
 
-		AkUnitySoundEngine.SetEarlyReflectionsVolume(gameObject, reflectionsVolume);
+		AkSoundEngine.SetEarlyReflectionsVolume(gameObject, reflectionsVolume);
 	}
 
 	public void SetEarlyReflectionsVolume(float volume)
 	{
 		if (reflectionsVolume != volume)
 		{
-			AkUnitySoundEngine.SetEarlyReflectionsVolume(gameObject, volume);
+			AkSoundEngine.SetEarlyReflectionsVolume(gameObject, volume);
 			reflectionsVolume = volume;
 		}
 	}

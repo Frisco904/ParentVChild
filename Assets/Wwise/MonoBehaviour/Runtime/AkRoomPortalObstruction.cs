@@ -40,7 +40,7 @@ public class AkRoomPortalObstruction : AkObstructionOcclusion
 	{
 		if (m_portal.IsValid && m_portal.isSetInWwise())
 		{
-			AkUnitySoundEngine.SetPortalObstructionAndOcclusion(m_portal.GetID(), ObsOccPair.Value.currentValue, 0.0f);
+			AkSoundEngine.SetPortalObstructionAndOcclusion(m_portal.GetID(), ObsOccPair.Value.currentValue, 0.0f);
 		}
 	}
 }

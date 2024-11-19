@@ -99,7 +99,7 @@ public class AkInitializer : UnityEngine.MonoBehaviour
 			return;
 		}
 	#if !(AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES)
-		WwiseProjectDatabase.SoundBankDirectoryUpdated += AkBankManager.ReloadAllBanks;
+		AkWwiseSoundbanksInfoXMLFileWatcher.Instance.XMLUpdated += AkBankManager.ReloadAllBanks;
 	#endif
 #endif
 
@@ -152,7 +152,7 @@ public class AkInitializer : UnityEngine.MonoBehaviour
 		}
 #endif
 
-		if (IsInstance())
+if (IsInstance())
 		{
 #if UNITY_WEBGL && !UNITY_EDITOR
 			bool bRegistered = AkVerifyPluginRegistration();
@@ -227,7 +227,7 @@ public class AkInitializer : UnityEngine.MonoBehaviour
 
 	private void OnApplicationQuit()
 	{
-		if (IsInstance() && !AkUnitySoundEngineInitialization.Instance.ShouldKeepSoundEngineEnabled())
+		if (IsInstance() && !AkSoundEngineInitialization.Instance.ShouldKeepSoundEngineEnabled())
 		{
 			AkSoundEngineController.Instance.Terminate();
 		}

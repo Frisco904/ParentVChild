@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7467181539831337833}
   - component: {fileID: 1690445061117742622}
+  - component: {fileID: 5038833332000329976}
+  - component: {fileID: 5683014487667516458}
   - component: {fileID: 2870967759789604133}
   m_Layer: 0
   m_Name: LevelManager
@@ -64,32 +66,40 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selectedTurret: {fileID: 6179901042209188499, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
-  waveDelayTime: 5
-  levelStart: 0
-  maxWaves: 3
-  initialWaveDelay: 0
-  timeBetweenWaves: 0
-  candyPile: {fileID: 0}
-  countDownTxt: {fileID: 0}
-  countDown: {fileID: 0}
-  menuObj: {fileID: 0}
-  preparationTime: 5
-  currency: 10000
-  Playing:
-    idInternal: 0
-    valueGuidInternal: 
-    groupIdInternal: 0
-    groupGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 3e56d92d154fd1e4ebdd6cef39462415, type: 2}
-  LevelLoaded:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: dbfd2d68ca32b1d489774f7237bc1b25, type: 2}
-  MusicStart:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: fb7b09caf53bff54bb6d9f704519e4b7, type: 2}
+  CandyPile: {fileID: 0}
+  currency: 100
+  MaxWaves: 3
+  MenuObj: {fileID: 0}
+--- !u!114 &5038833332000329976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756580932083852543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d2f97bd09f5584c853238a8f55002d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers:
+  - name: Turret
+    cost: 50
+    prefab: {fileID: 7046588463905791149, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
+--- !u!114 &5683014487667516458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756580932083852543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0036fe2ba831fbe4e8651484c9b5bcdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretButton: {fileID: 0}
+  BoundsGameObj: {fileID: 0}
 --- !u!114 &2870967759789604133
 MonoBehaviour:
   m_ObjectHideFlags: 0

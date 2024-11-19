@@ -1,125 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" SchemaVersion="123">
+<WwiseDocument Type="WorkUnit" ID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" SchemaVersion="119">
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{32E50633-2F38-4627-BFBA-ABE45BCF3797}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="UI" ID="{C46EBDBA-AE55-482B-83F4-BA5C973EAA6D}" ShortID="388614680">
+				<Event Name="TurretShot" ID="{5E2CF95E-238C-407C-B2D5-5B26750A510B}">
 					<ChildrenList>
-						<Event Name="MouseClick_Candy" ID="{A3CF8BB9-8970-426E-9415-7017977A33A1}">
-							<ChildrenList>
-								<Action Name="" ID="{299ED4C2-F6A6-498E-BAF8-77FB06DA2012}" ShortID="904315385">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Candy_Wrapper_Click" ID="{5502385F-F158-4A55-846E-E835F88E7991}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="MouseHover_Candy" ID="{FCC9EE4C-F36C-4CD9-8783-FECAA8D641F6}"/>
+						<Action Name="" ID="{19C68D8F-B79A-4F9F-ABF0-959EF08C8348}" ShortID="761736273">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TurretShot" ID="{7462FFF9-F16C-4F71-A6E6-8362F80EC710}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
-				</Folder>
-				<Folder Name="World" ID="{84B93638-D7D4-493F-808A-2FF1C4C80ED9}" ShortID="344613722">
+				</Event>
+				<Event Name="Jawbreaker_Damage" ID="{D70F9E6B-A3E8-42ED-AEF1-BAF23D6DAB62}">
 					<ChildrenList>
-						<Event Name="Projectile_Hit" ID="{A73C1402-F7E3-4DD6-B0D1-3DC73F325B59}">
-							<ChildrenList>
-								<Action Name="" ID="{50019B9D-384A-48DE-B792-131660F3394C}" ShortID="705319160">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Splat" ID="{F45DE9DE-503B-4675-AE33-885B3C272EC7}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Jawbreaker_Damage" ID="{D70F9E6B-A3E8-42ED-AEF1-BAF23D6DAB62}">
-							<ChildrenList>
-								<Action Name="" ID="{58EC562C-2308-41E9-9169-688D8BB7FD94}" ShortID="501597423">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Crunch" ID="{DDE2176D-C19F-4786-94F1-1B6F9DE8F287}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="TurretShot" ID="{5E2CF95E-238C-407C-B2D5-5B26750A510B}">
-							<ChildrenList>
-								<Action Name="" ID="{19C68D8F-B79A-4F9F-ABF0-959EF08C8348}" ShortID="761736273">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="TurretShot" ID="{7462FFF9-F16C-4F71-A6E6-8362F80EC710}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Zombie_Spawn" ID="{6869A7C0-8712-446A-8780-9F2C1CB65A33}">
-							<ChildrenList>
-								<Action Name="" ID="{07B128DF-9312-4E79-B286-B189091E6B7E}" ShortID="416483521">
-									<PropertyList>
-										<Property Name="Probability" Type="Real64" Value="10"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Child_Zombie" ID="{0DDC2461-3DDB-4390-A5AA-0A46E8AB5126}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Turret_Upgraded" ID="{B5648ED3-D296-4351-98F4-CB5E3745DD4B}">
-							<ChildrenList>
-								<Action Name="" ID="{3CDEE131-5980-4BA4-9441-DF81D6D591D4}" ShortID="169955015">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drill" ID="{2175D25E-BE8F-4850-9AB0-1E0F347E5B56}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Turret_Built" ID="{010B6F7E-28E7-43A1-8342-086888A5381E}">
-							<ChildrenList>
-								<Action Name="" ID="{195408FA-4852-413B-A5B1-5AE90DE811BA}" ShortID="271298418">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drill" ID="{2175D25E-BE8F-4850-9AB0-1E0F347E5B56}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{D47607DC-E6DD-425E-BD9B-6F77F045BEE6}" ShortID="372048894">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Hammer" ID="{D31AC4A8-7EF8-4E3E-AF99-FE17FFF6C07A}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-								<Action Name="" ID="{99E47674-7735-46DD-9CE9-3C98AD18D61A}" ShortID="58209989">
-									<PropertyList>
-										<Property Name="Delay" Type="Real64" Value="0.5"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Drill" ID="{2175D25E-BE8F-4850-9AB0-1E0F347E5B56}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Turret_Sold" ID="{ECB7B6E8-CF71-4549-B628-11AA56434F12}">
-							<ChildrenList>
-								<Action Name="" ID="{F776F122-E42B-4BC2-AB32-0AAC2E40C151}" ShortID="901468651">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Kerching" ID="{DFB6214E-C954-4301-9A57-FC9C99C18A05}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
+						<Action Name="" ID="{58EC562C-2308-41E9-9169-688D8BB7FD94}" ShortID="501597423">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Crunch" ID="{DDE2176D-C19F-4786-94F1-1B6F9DE8F287}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
-				</Folder>
+				</Event>
+				<Event Name="Zombie_Spawn" ID="{6869A7C0-8712-446A-8780-9F2C1CB65A33}">
+					<ChildrenList>
+						<Action Name="" ID="{07B128DF-9312-4E79-B286-B189091E6B7E}" ShortID="416483521">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Child_Zombie" ID="{0DDC2461-3DDB-4390-A5AA-0A46E8AB5126}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Projectile_Hit" ID="{A73C1402-F7E3-4DD6-B0D1-3DC73F325B59}">
+					<ChildrenList>
+						<Action Name="" ID="{50019B9D-384A-48DE-B792-131660F3394C}" ShortID="705319160">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Splat" ID="{F45DE9DE-503B-4675-AE33-885B3C272EC7}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

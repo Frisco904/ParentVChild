@@ -20,7 +20,7 @@ Copyright (c) 2024 Audiokinetic Inc.
 /// \sa
 /// - \ref AkEventTrack
 /// - \ref AkEventPlayable
-[System.Obsolete(AkUnitySoundEngine.Deprecation_2019_2_0)]
+[System.Obsolete(AkSoundEngine.Deprecation_2019_2_0)]
 public class AkEventPlayableBehavior : UnityEngine.Playables.PlayableBehaviour
 {
 	private float currentDuration = -1f;
@@ -352,7 +352,7 @@ public class AkEventPlayableBehavior : UnityEngine.Playables.PlayableBehaviour
 #if UNITY_EDITOR
 		if (!CanPostEvents)
 		{
-			playingID = AkUnitySoundEngine.AK_INVALID_PLAYING_ID;
+			playingID = AkSoundEngine.AK_INVALID_PLAYING_ID;
 		}
 		else if (!UnityEditor.EditorApplication.isPlaying)
 		{
@@ -364,7 +364,7 @@ public class AkEventPlayableBehavior : UnityEngine.Playables.PlayableBehaviour
 			playingID = akEvent.Post(eventObject, CallbackFlags, CallbackHandler, null);
 		}
 
-		eventIsPlaying = playingID != AkUnitySoundEngine.AK_INVALID_PLAYING_ID;
+		eventIsPlaying = playingID != AkSoundEngine.AK_INVALID_PLAYING_ID;
 		return eventIsPlaying;
 	}
 
@@ -426,7 +426,7 @@ public class AkEventPlayableBehavior : UnityEngine.Playables.PlayableBehaviour
 
 		if (eventIsPlaying)
 		{
-			AkUnitySoundEngine.SeekOnEvent(akEvent.Id, eventObject, proportionalTime);
+			AkSoundEngine.SeekOnEvent(akEvent.Id, eventObject, proportionalTime);
 		}
 
 		return proportionalTime;

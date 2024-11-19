@@ -35,14 +35,14 @@ public class AkGameObjListenerList : AkAudioListener.BaseListenerList
 
 			if (useDefault)
 			{
-				AkUnitySoundEngine.ResetListenersToDefault(akGameObj.gameObject);
+				AkSoundEngine.ResetListenersToDefault(akGameObj.gameObject);
 				for (var i = 0; i < ListenerList.Count; ++i)
-					AkUnitySoundEngine.AddListener(akGameObj.gameObject, ListenerList[i].gameObject);
+					AkSoundEngine.AddListener(akGameObj.gameObject, ListenerList[i].gameObject);
 			}
 			else
 			{
 				var Ids = GetListenerIds();
-				AkUnitySoundEngine.SetListeners(akGameObj.gameObject, Ids, Ids == null ? 0 : (uint) Ids.Length);
+				AkSoundEngine.SetListeners(akGameObj.gameObject, Ids, Ids == null ? 0 : (uint) Ids.Length);
 			}
 		}
 	}
@@ -52,7 +52,7 @@ public class AkGameObjListenerList : AkAudioListener.BaseListenerList
 		this.akGameObj = akGameObj;
 
 		if (!useDefaultListeners)
-			AkUnitySoundEngine.SetListeners(akGameObj.gameObject, null, 0);
+			AkSoundEngine.SetListeners(akGameObj.gameObject, null, 0);
 
 		for (var ii = 0; ii < initialListenerList.Count; ++ii)
 			initialListenerList[ii].StartListeningToEmitter(akGameObj);
@@ -61,16 +61,16 @@ public class AkGameObjListenerList : AkAudioListener.BaseListenerList
 	public override bool Add(AkAudioListener listener)
 	{
 		var ret = base.Add(listener);
-		if (ret && AkUnitySoundEngine.IsInitialized())
-			AkUnitySoundEngine.AddListener(akGameObj.gameObject, listener.gameObject);
+		if (ret && AkSoundEngine.IsInitialized())
+			AkSoundEngine.AddListener(akGameObj.gameObject, listener.gameObject);
 		return ret;
 	}
 
 	public override bool Remove(AkAudioListener listener)
 	{
 		var ret = base.Remove(listener);
-		if (ret && AkUnitySoundEngine.IsInitialized())
-			AkUnitySoundEngine.RemoveListener(akGameObj.gameObject, listener.gameObject);
+		if (ret && AkSoundEngine.IsInitialized())
+			AkSoundEngine.RemoveListener(akGameObj.gameObject, listener.gameObject);
 		return ret;
 	}
 

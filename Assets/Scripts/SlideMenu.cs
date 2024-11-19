@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -63,8 +62,7 @@ public class SlideMenu : MonoBehaviour
         TurretBuilder.main.DeselectTurretCheck();
         SetMenu(false);
     }
-
-    void OnGUI()
+    private void OnGUI()
     {
         currencyUI.text = "$" + LevelManager.main.GetCurrency().ToString();
         if (Time.time >= startTime + delayTime)

@@ -289,14 +289,9 @@ public class AkPluginActivator : UnityEditor.AssetPostprocessor
 		}
 	}
 
-	public static void ForceUpdate()
+	public static void Update(bool forceUpdate = false)
 	{
-		AkPlatformPluginList.Update(true);
-		Update();
-	}
-
-	public static void Update()
-	{
+		AkPlatformPluginList.Update(forceUpdate);
 		AkPluginActivatorMenus.CheckMenuItems(GetCurrentConfig());
 	}
 

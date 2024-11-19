@@ -17,7 +17,7 @@ Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
 [UnityEditor.CanEditMultipleObjects]
-[UnityEditor.CustomEditor(typeof(AkBank), true)]
+[UnityEditor.CustomEditor(typeof(AkBank))]
 public class AkBankInspector : AkBaseInspector
 {
 	private readonly AkUnityEventHandlerInspector m_LoadBankEventHandlerInspector = new AkUnityEventHandlerInspector();
@@ -58,12 +58,8 @@ public class AkBankInspector : AkBaseInspector
 #if !(AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES)
 		using (new UnityEditor.EditorGUILayout.VerticalScope("box"))
 		{
-			UnityEngine.GUIStyle wrapLabelStyle = new UnityEngine.GUIStyle(UnityEditor.EditorStyles.label)
-			{
-				wordWrap = true
-			};
-			UnityEngine.GUILayout.Label("Decode compressed data (DEPRECATED):", wrapLabelStyle);
-			decode.boolValue = UnityEditor.EditorGUILayout.ToggleLeft(UnityEngine.GUIContent.none, decode.boolValue);
+			UnityEditor.EditorGUILayout.PropertyField(decode, new UnityEngine.GUIContent("Decode compressed data:"));
+
 			if (!decode.boolValue)
 			{
 				return;

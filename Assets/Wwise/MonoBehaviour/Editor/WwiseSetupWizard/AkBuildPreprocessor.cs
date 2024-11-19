@@ -137,7 +137,7 @@ public partial class AkBuildPreprocessor : UnityEditor.Build.IPreprocessBuild, U
 			config.OnPreprocessBuild(path);
 		}
 		// @todo sjl - only update for target platform
-		AkPluginActivator.ForceUpdate();
+		AkPluginActivator.Update(true);
 		AkPluginActivator.ActivatePluginsForDeployment(target, true);
 	}
 

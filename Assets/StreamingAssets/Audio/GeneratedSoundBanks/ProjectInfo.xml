@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="ParentVChild_WwiseProject" GUID="{B7973854-BF1E-4A84-B36F-6972E9FCEF5E}" Generator="2023.1.8.8601"/>
+	<CacheRoot>../../../../ParentVChild_WwiseProject/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Linux" GUID="{5E77A216-C8D5-453D-B5FC-FFFFE2015E7C}" BasePlatform="Linux" BasePlatformGUID="{BD0BDF13-3125-454F-8BFD-319537169F81}" Path="../../../GeneratedSoundBanks/Linux"/>
+		<Platform Name="Mac" GUID="{9001C165-CB05-4614-B6C7-13E4D08544EB}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{3A6DE645-5F57-4823-86A5-BF0DC7F6CDC8}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{429239A5-CC7B-46CC-AE8D-F47D9200AE0B}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{94A2735D-3387-3B7F-0A1B-E662CC89B237}</FileHash>
+</ProjectInfo>

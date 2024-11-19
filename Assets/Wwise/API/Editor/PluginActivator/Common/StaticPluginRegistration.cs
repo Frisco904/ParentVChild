@@ -91,7 +91,7 @@ internal class StaticPluginRegistration
 			var end = AssetPath.LastIndexOf('.') - begin;
 			var LibName = AssetPath.Substring(begin, end); //Remove the lib prefix and the .a extension
 
-			if (!LibName.Contains("AkUnitySoundEngine"))
+			if (!LibName.Contains("AkSoundEngine"))
 			{
 				string headerFilename = LibName + "Factory.h";
 

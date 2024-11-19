@@ -42,7 +42,7 @@ public class AkStreamMgrSettings : global::System.IDisposable {
       if (swigCPtr != global::System.IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          AkUnitySoundEnginePINVOKE.CSharp_delete_AkStreamMgrSettings(swigCPtr);
+          AkSoundEnginePINVOKE.CSharp_delete_AkStreamMgrSettings(swigCPtr);
         }
         swigCPtr = global::System.IntPtr.Zero;
       }

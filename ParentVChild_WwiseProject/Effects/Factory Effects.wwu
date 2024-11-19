@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" SchemaVersion="123">
+<WwiseDocument Type="WorkUnit" ID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" SchemaVersion="119">
 	<Effects>
 		<WorkUnit Name="Factory Effects" ID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}" PersistMode="Standalone">
 			<ChildrenList>
@@ -132,8 +132,7 @@
 						<Effect Name="One_Tap_Half_Second" ID="{B8FE0D3B-7AAB-4344-89FE-177602B7BF19}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3"/>
 						<Effect Name="One_Tap_Quarter_Second" ID="{6BD2D67D-601A-45A6-AD4C-2C089078EBED}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
 							<PropertyList>
-								<Property Name="DelayTime" Type="Real32" Value="0.11"/>
-								<Property Name="Feedback" Type="Real32" Value="8.5"/>
+								<Property Name="DelayTime" Type="Real32" Value="0.25"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Nearly_Forever" ID="{38550FDA-9236-4FC5-8AE0-68DB08164B25}" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
@@ -587,7 +586,7 @@
 								<Effect Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 									<PropertyList>
 										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
-										<Property Name="FrequencyBand1" Type="Real32" Value="150"/>
+										<Property Name="FrequencyBand1" Type="Real32" Value="60"/>
 										<Property Name="OnOffBand2" Type="bool" Value="False"/>
 										<Property Name="OnOffBand3" Type="bool" Value="False"/>
 									</PropertyList>

@@ -28,7 +28,7 @@ public class AkEventCallbackMsg
 	/// GameObject from whom the callback function was called
 	public UnityEngine.GameObject sender;
 
-	///AkUnitySoundEngine.PostEvent callback flags. See the AkCallbackType enumeration for a list of all callbacks
+	///AkSoundEngine.PostEvent callback flags. See the AkCallbackType enumeration for a list of all callbacks
 	public AkCallbackType type;
 }
 
@@ -71,13 +71,11 @@ public class AkEvent : AkDragDropTriggerHandler
 				GameObject.SendMessage(FunctionName, eventCallbackMsg);
 		}
 	}
-	
-	private UnityEngine.GameObject otherGameObject;
+
 	public bool useCallbacks = false;
-	public bool stopSoundOnDestroy = true;
 	public System.Collections.Generic.List<CallbackData> Callbacks = new System.Collections.Generic.List<CallbackData>();
 
-	public uint playingId => data.PlayingId;
+	public uint playingId = AkSoundEngine.AK_INVALID_PLAYING_ID;
 
 	/// Game object onto which the Event will be posted.  By default, when empty, it is posted on the same object on which the component was added.
 	public UnityEngine.GameObject soundEmitterObject;
@@ -133,10 +131,6 @@ public class AkEvent : AkDragDropTriggerHandler
 	{
 		var gameObj = useOtherObject && in_gameObject != null ? in_gameObject : gameObject;
 		soundEmitterObject = gameObj;
-		if (useOtherObject)
-		{
-			otherGameObject = in_gameObject;
-		}
 
 		if (enableActionOnEvent)
 		{
@@ -157,21 +151,12 @@ public class AkEvent : AkDragDropTriggerHandler
 
 			if (flags != 0)
 			{
-				data.Post(gameObj, flags, Callback);
+				playingId = data.Post(gameObj, flags, Callback);
 				return;
 			}
 		}
 
-		data.Post(gameObj);
-	}
-	
-	protected void OnDisable()
-	{
-		if (stopSoundOnDestroy)
-		{
-			var gameObj = useOtherObject && otherGameObject != null ? otherGameObject : gameObject;
-			data.ExecuteAction(gameObj, AkActionOnEventType.AkActionOnEventType_Stop, (int)transitionDuration * 1000, curveInterpolation);
-		}
+		playingId = data.Post(gameObj);
 	}
 
 	public void Stop(int _transitionDuration)
@@ -185,10 +170,10 @@ public class AkEvent : AkDragDropTriggerHandler
 	}
 
 	#region Obsolete
-	[System.Obsolete(AkUnitySoundEngine.Deprecation_2018_1_2)]
-	public int eventID { get { return (int)(data == null ? AkUnitySoundEngine.AK_INVALID_UNIQUE_ID : data.Id); } }
+	[System.Obsolete(AkSoundEngine.Deprecation_2018_1_2)]
+	public int eventID { get { return (int)(data == null ? AkSoundEngine.AK_INVALID_UNIQUE_ID : data.Id); } }
 
-	[System.Obsolete(AkUnitySoundEngine.Deprecation_2018_1_6)]
+	[System.Obsolete(AkSoundEngine.Deprecation_2018_1_6)]
 	public byte[] valueGuid
 	{
 		get
@@ -201,7 +186,7 @@ public class AkEvent : AkDragDropTriggerHandler
 		}
 	}
 
-	[System.Obsolete(AkUnitySoundEngine.Deprecation_2018_1_6)]
+	[System.Obsolete(AkSoundEngine.Deprecation_2018_1_6)]
 	public AkEventCallbackData m_callbackData { get { return m_callbackDataInternal; } }
 	#endregion
 
@@ -210,7 +195,7 @@ public class AkEvent : AkDragDropTriggerHandler
 	[UnityEngine.HideInInspector]
 	[UnityEngine.SerializeField]
 	[UnityEngine.Serialization.FormerlySerializedAs("eventID")]
-	private int eventIdInternal = (int)AkUnitySoundEngine.AK_INVALID_UNIQUE_ID;
+	private int eventIdInternal = (int)AkSoundEngine.AK_INVALID_UNIQUE_ID;
 	[UnityEngine.HideInInspector]
 	[UnityEngine.SerializeField]
 	[UnityEngine.Serialization.FormerlySerializedAs("valueGuid")]

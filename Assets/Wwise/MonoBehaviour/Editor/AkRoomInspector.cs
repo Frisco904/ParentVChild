@@ -16,7 +16,7 @@ in a written agreement between you and Audiokinetic Inc.
 Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
-[UnityEditor.CustomEditor(typeof(AkRoom), true)]
+[UnityEditor.CustomEditor(typeof(AkRoom))]
 public class AkRoomInspector : UnityEditor.Editor
 {
 	private readonly AkUnityEventHandlerInspector m_PostEventHandlerInspector = new AkUnityEventHandlerInspector();

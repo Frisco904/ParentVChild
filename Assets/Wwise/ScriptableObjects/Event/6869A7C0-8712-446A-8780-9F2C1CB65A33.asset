@@ -15,5 +15,3 @@ MonoBehaviour:
   objectName: Zombie_Spawn
   id: 2394958751
   guid: 6869A7C0-8712-446A-8780-9F2C1CB65A33
-  IsInUserDefinedSoundBank: 1
-  IsAutoBankLoaded: 0

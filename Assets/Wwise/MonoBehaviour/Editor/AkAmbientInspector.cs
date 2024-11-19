@@ -17,7 +17,7 @@ Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
 [UnityEditor.CanEditMultipleObjects]
-[UnityEditor.CustomEditor(typeof(AkAmbient), true)]
+[UnityEditor.CustomEditor(typeof(AkAmbient))]
 public class AkAmbientInspector : AkEventInspector
 {
     public enum AttenuationSphereOptions
@@ -54,7 +54,7 @@ public class AkAmbientInspector : AkEventInspector
 
         currentAttSphereOp = attSphereProperties[target];
 
-        WwiseProjectDatabase.SoundBankDirectoryUpdated += PopulateMaxAttenuation;
+        AkWwiseSoundbanksInfoXMLFileWatcher.Instance.XMLUpdated += PopulateMaxAttenuation;
     }
 
     public new void OnDisable()
@@ -63,7 +63,7 @@ public class AkAmbientInspector : AkEventInspector
 
         DefaultHandles.Hidden = false;
 
-        WwiseProjectDatabase.SoundBankDirectoryUpdated -= PopulateMaxAttenuation;
+        AkWwiseSoundbanksInfoXMLFileWatcher.Instance.XMLUpdated -= PopulateMaxAttenuation;
     }
 
     public override void OnChildInspectorGUI()

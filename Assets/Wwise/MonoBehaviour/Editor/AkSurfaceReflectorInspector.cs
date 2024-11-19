@@ -16,7 +16,7 @@ in a written agreement between you and Audiokinetic Inc.
 Copyright (c) 2024 Audiokinetic Inc.
 *******************************************************************************/
 
-[UnityEditor.CustomEditor(typeof(AkSurfaceReflector), true)]
+[UnityEditor.CustomEditor(typeof(AkSurfaceReflector))]
 [UnityEditor.CanEditMultipleObjects]
 public class AkSurfaceReflectorInspector : UnityEditor.Editor
 {
@@ -27,7 +27,7 @@ public class AkSurfaceReflectorInspector : UnityEditor.Editor
 	private UnityEditor.SerializedProperty TransmissionLossValues;
 	private UnityEditor.SerializedProperty EnableDiffraction;
 	private UnityEditor.SerializedProperty EnableDiffractionOnBoundaryEdges;
-	private UnityEditor.SerializedProperty Solid;
+	private UnityEditor.SerializedProperty AssociatedRoom;
 
 	public void OnEnable()
 	{
@@ -38,7 +38,7 @@ public class AkSurfaceReflectorInspector : UnityEditor.Editor
 		TransmissionLossValues = serializedObject.FindProperty("TransmissionLossValues");
 		EnableDiffraction = serializedObject.FindProperty("EnableDiffraction");
 		EnableDiffractionOnBoundaryEdges = serializedObject.FindProperty("EnableDiffractionOnBoundaryEdges");
-		Solid = serializedObject.FindProperty("Solid");
+		AssociatedRoom = serializedObject.FindProperty("AssociatedRoom");
 	}
 
 	public override void OnInspectorGUI()
@@ -59,7 +59,8 @@ public class AkSurfaceReflectorInspector : UnityEditor.Editor
 			UnityEditor.EditorGUILayout.PropertyField(EnableDiffractionOnBoundaryEdges);
 		}
 
-		UnityEditor.EditorGUILayout.PropertyField(Solid);
+		UnityEditor.EditorGUILayout.PropertyField(AssociatedRoom);
+		CheckAssociatedRoom(m_AkSurfaceReflector);
 
 		serializedObject.ApplyModifiedProperties();
 	}
@@ -83,6 +84,23 @@ public class AkSurfaceReflectorInspector : UnityEditor.Editor
 		{
 			UnityEditor.EditorGUILayout.HelpBox(
 				"There are more " + name + " than the Mesh has submeshes. Additional ones will be ignored.",
+				UnityEditor.MessageType.Warning);
+		}
+	}
+
+	public static void CheckAssociatedRoom(AkSurfaceReflector surfaceReflector)
+	{
+		if (surfaceReflector == null || surfaceReflector.AssociatedRoom == null)
+		{
+			return;
+		}
+
+		UnityEngine.GUILayout.Space(UnityEditor.EditorGUIUtility.standardVerticalSpacing);
+
+		using (new UnityEditor.EditorGUILayout.VerticalScope("box"))
+		{
+			UnityEditor.EditorGUILayout.HelpBox(
+				"The Associated Room property is deprecated and will be removed in a future version. We recommend not using it by leaving it set to None.",
 				UnityEditor.MessageType.Warning);
 		}
 	}

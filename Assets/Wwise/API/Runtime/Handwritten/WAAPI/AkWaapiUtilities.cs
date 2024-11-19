@@ -1010,13 +1010,12 @@ public class AkWaapiUtilities
 	/// </summary>
 	/// <param name="topic">The topic URI to subscribe to.</param>
 	/// <param name="subscriptionCallback">Delegate function to call when the topic is published.</param>
-	/// <param name="handshakeCallback">Action to be executed once the subscription has been made.</param>
-	/// <param name="returnOptions">The options the subscription. 
+	/// <param name="handshakeCallback">Action to be executed once the subscription has been made. 
 	/// This should store the subscription ID so that the subscription can be cleaned up when it is no longer needed.</param>
-	public static void Subscribe(string topic, Wamp.PublishHandler subscriptionCallback, System.Action<SubscriptionInfo> handshakeCallback, ReturnOptions returnOptions = null)
+	public static void Subscribe(string topic, Wamp.PublishHandler subscriptionCallback, System.Action<SubscriptionInfo> handshakeCallback)
 	{
 		waapiCommandQueue.Enqueue(new WaapiCommand(
-		   async () => handshakeCallback(await SubscribeAsync(new SubscriptionInfo(topic, subscriptionCallback), returnOptions))));
+		   async () => handshakeCallback(await SubscribeAsync(new SubscriptionInfo(topic, subscriptionCallback)))));
 	}
 
 	/// <summary>
@@ -1024,11 +1023,11 @@ public class AkWaapiUtilities
 	/// Creates and sends a WAAPI command to subscribe to the topic.
 	/// </summary>
 	/// <param name="subscription">SubscriptionInfo object containing the topic URI and the message handling callback.</param>
-	/// <param name="returnOptions">The options the subscription.</param>
 	/// <returns>Updated SubscriptionInfo object containing the subscription ID (uint). </returns>
-	private static async Task<SubscriptionInfo> SubscribeAsync(SubscriptionInfo subscription, ReturnOptions returnOptions)
+	private static async Task<SubscriptionInfo> SubscribeAsync(SubscriptionInfo subscription)
 	{
-		uint id = await WaapiClient.Subscribe(subscription.Uri, returnOptions, subscription.Callback);
+		var options = new ReturnOptions(new string[] { "id", "parent", "name", "type", "childrenCount", "path", "workunitType" });
+		uint id = await WaapiClient.Subscribe(subscription.Uri, options, subscription.Callback);
 		subscription.SubscriptionId = id;
 		return subscription;
 	}

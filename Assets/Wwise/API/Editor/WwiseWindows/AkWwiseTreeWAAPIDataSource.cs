@@ -390,11 +390,10 @@ public class AkWwiseTreeWAAPIDataSource : AkWwiseTreeDataSource
 	/// </summary>
 	public void SubscribeTopics()
 	{
-		var options = new ReturnOptions(new string[] { "id", "parent", "name", "type", "childrenCount", "path", "workunitType" });
-		AkWaapiUtilities.Subscribe(ak.wwise.core.@object.nameChanged, OnWaapiRenamed, SubscriptionHandshake, options);
-		AkWaapiUtilities.Subscribe(ak.wwise.core.@object.childAdded, OnWaapiChildAdded, SubscriptionHandshake, options);
-		AkWaapiUtilities.Subscribe(ak.wwise.core.@object.childRemoved, OnWaapiChildRemoved, SubscriptionHandshake, options);
-		AkWaapiUtilities.Subscribe(ak.wwise.ui.selectionChanged, OnWwiseSelectionChanged, SubscriptionHandshake, options);
+		AkWaapiUtilities.Subscribe(ak.wwise.core.@object.nameChanged, OnWaapiRenamed, SubscriptionHandshake);
+		AkWaapiUtilities.Subscribe(ak.wwise.core.@object.childAdded, OnWaapiChildAdded, SubscriptionHandshake);
+		AkWaapiUtilities.Subscribe(ak.wwise.core.@object.childRemoved, OnWaapiChildRemoved, SubscriptionHandshake);
+		AkWaapiUtilities.Subscribe(ak.wwise.ui.selectionChanged, OnWwiseSelectionChanged, SubscriptionHandshake);
 	}
 
 	public void SubscriptionHandshake(AkWaapiUtilities.SubscriptionInfo sub)
