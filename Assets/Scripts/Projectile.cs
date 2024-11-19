@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -45,9 +46,28 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Turret[] turrents = FindObjectsOfType<Turret>();
         if (collision.gameObject.tag != "Enemy") return;
         //Adding knockback to the collided object and calling the TakeDamage function from the EnemyCtrl Script.
         EnemyCtrl enemy = collision.gameObject.GetComponent<EnemyCtrl>();
+        foreach (Turret turret in turrents)
+        {
+            if (turret != null)
+            {
+                if(turrents.Length > 0)
+                {
+                    foreach (Turret turrent in turrents)
+                    {
+                        if (turrent.IsCtrlChosen())
+                        {
+                            turrent.ApplyEffect(enemy);
+                        }
+
+                    }
+                    
+                }
+            }
+        }
         enemy.TakeDamage(PDmg);
         Projectile_Hit.Post(gameObject);
         Destroy(gameObject);
