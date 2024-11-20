@@ -73,3 +73,12 @@ crashlytics-build.properties
 
 .vscode/
 ParentVChild_WwiseProject/
+
+.backup*
+.cache*
+*.akd
+*.prof
+*.validationcache
+*.wsettings
+AkWwiseProjectData.asset
+IncrementalSoundBankData.xml
