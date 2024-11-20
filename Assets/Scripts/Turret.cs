@@ -161,8 +161,9 @@ public class Turret : MonoBehaviour
                 fireRate = calculateNewFireRate();
             }
             //Debug.Log(gameObject.name + " - Speed Upgraded");
-        }
 
+            Turret_Upgraded.Post(gameObject); // Send Wwise event.
+        }
     }
 
     public void UpgradeDmg()
@@ -184,6 +185,8 @@ public class Turret : MonoBehaviour
                 turretDmg = calculateNewDamage();
             }
             //Debug.Log(gameObject.name + " - Damage Upgraded");
+            
+            Turret_Upgraded.Post(gameObject); // Send Wwise event.
         }
     }
     public void UpgradeCtrl()
@@ -200,6 +203,8 @@ public class Turret : MonoBehaviour
             //Calculates the new Ctrl
             ctrlRate = calculateCtrl();
             //Debug.Log(gameObject.name + " - Ctrl Upgraded");
+            
+            Turret_Upgraded.Post(gameObject); // Send Wwise event.
         }
 
     }
@@ -217,6 +222,8 @@ public class Turret : MonoBehaviour
             //Calculates the new Range
             sprtRate = calculateSprt();
             //Debug.Log(gameObject.name + " - Support Upgraded");
+
+            Turret_Upgraded.Post(gameObject); // Send Wwise event.
         }
 
     }
@@ -350,6 +357,7 @@ public class Turret : MonoBehaviour
     public void SellTurret()
     {
         LevelManager.main.GainMoney(baseSellCost);
+        Turret_Sold.Post(gameObject);
         Destroy(this.gameObject);
     }
 

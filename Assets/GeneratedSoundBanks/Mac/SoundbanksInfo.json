@@ -222,7 +222,7 @@
     "Type": "User",
     "GUID": "{48DBEABE-7ACE-4BE5-8026-309FA640B4B8}",
     "Language": "SFX",
-    "Hash": "{9240479E-35E7-4F46-0172-6D118FE1C240}",
+    "Hash": "{4A45747B-5BDF-084C-9057-2DCC9648D924}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -780,7 +780,7 @@
     "Type": "User",
     "GUID": "{194E1F4F-019E-48C2-803D-16D6B4BA6331}",
     "Language": "SFX",
-    "Hash": "{42DB15D1-0071-6A2A-9D5F-B473437D375E}",
+    "Hash": "{1D794E09-1BDC-A2D3-C5CF-7954BF6B6473}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -1263,6 +1263,6 @@
     ]
    }
   ],
-  "FileHash": "{E048F8B6-F902-DF80-4AA9-0C1764F81D24}"
+  "FileHash": "{D1F46343-E796-BE32-9D44-61C550BE3923}"
  }
 }
