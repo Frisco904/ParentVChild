@@ -76,9 +76,10 @@ ParentVChild_WwiseProject/
 
 .backup*
 .cache*
+*.validationcache
+*.wsettings
 *.akd
 *.prof
 *.validationcache
+*/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
 *.wsettings
-AkWwiseProjectData.asset
-IncrementalSoundBankData.xml
