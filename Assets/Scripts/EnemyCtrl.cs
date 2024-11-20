@@ -32,6 +32,7 @@ public class EnemyCtrl : MonoBehaviour
     private SpawnPoints spawnPoint;
     private Transform target;
     private int pathIndex = 0;
+    private float ogSpeed;
     private bool frozen = false;
     private float timer = -1;
     private bool isDestroyed = false;
@@ -50,6 +51,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Start()
     {
+        ogSpeed = movSpeed;
         spawnPoint = gameObject.GetComponentInParent<WaveSpawnEnemies>().GetSpawnPoint();
 
         //Switch that sets the relevant path/target for the enemy based on which spawner they spawned at.
@@ -171,7 +173,7 @@ public class EnemyCtrl : MonoBehaviour
 
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         currentFull += dmg;
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
@@ -233,6 +235,7 @@ public class EnemyCtrl : MonoBehaviour
         }
     }
 
+
     private float AdjustPathing(float xValueDirection)
     {
         xValueDirection = UnityEngine.Random.Range(xValueDirection - horizontalVariation, xValueDirection + horizontalVariation);
@@ -254,4 +257,34 @@ public class EnemyCtrl : MonoBehaviour
 
     }
 
+    #region Enemy effect
+    public void ApplySlow(float slowMultiplier, float duration)
+    {
+        Debug.Log("Enemy slowed!");
+        movSpeed *= slowMultiplier; // Reduce speed
+        CancelInvoke(nameof(RemoveSlow)); // Prevent overlapping calls
+        Invoke(nameof(RemoveSlow), duration); // Restore speed after duration
+    }
+    private void RemoveSlow()
+    {
+        movSpeed = ogSpeed;
+        Debug.Log(ogSpeed);
+        Debug.Log(movSpeed);
+        Debug.Log("Enemy speed restored.");
+    }
+    public void ApplyParalysis(float duration)
+    {
+        Debug.Log("Enemy paralyzed!");
+        movSpeed = 0f; // Stop the enemy
+        CancelInvoke(nameof(RemoveParalysis)); // Prevent overlapping calls
+        Invoke(nameof(RemoveParalysis), duration); // Restore speed after duration
+    }
+    private void RemoveParalysis()
+    {
+        movSpeed = ogSpeed;
+        Debug.Log(ogSpeed);
+        Debug.Log(movSpeed);
+        Debug.Log("Enemy recovered from paralysis.");
+    }
+    #endregion
 }
