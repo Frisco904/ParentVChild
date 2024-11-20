@@ -3,28 +3,33 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
     [SerializeField] private float rotationSpeed = 200f; // Time it takes to rotate then fire on new target.
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
     [SerializeField] private Transform turretRotationPoint; 
     [SerializeField] private Transform projectileSpawnLocation;
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots.
     [SerializeField] private float turretDmg = 1f; // Damage done by projectile.
+    [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
+    [SerializeField] private float sprtRate = 0.5f; // Range the tower can find a target.
+    [SerializeField] private float ctrlRate = 1f;
 
     private float bpsBase;
+    private float sprtBase;
     private float turretDmgBase;
     private float targetingRangeBase;
+    private float ctrlBase;
     public int dmgLevel = 1;
     public int spdLevel = 1;
     public int ctrlLevel = 1;
     public int sprtLevel = 1;
 
     [Header("Upgrades")]
-    [SerializeField] private int baseUpgradeRange = 10; 
+    [SerializeField] private int baseUpgradeRange = 10;
     [SerializeField] private int baseUpgradeDamage = 20;
     [SerializeField] private int baseUpgradeFireRate = 15;
+    [SerializeField] private int baseUpgradeSprt = 5;
     [SerializeField] private int baseSellCost = 100;
-    
+
     [Header("References")]
     [SerializeField] private GameObject projectilePrefab; // Prefab turret will shoot.
 
@@ -34,12 +39,23 @@ public class Turret : MonoBehaviour
     [SerializeField] public AK.Wwise.Event Turret_Sold;
     [SerializeField] public AK.Wwise.Event Turret_Upgraded;
 
+    private float slowChance = 0.2f;    // 20% chance to slow
+    private float paralyzeChance = 0.05f; // 5% chance to paralyze
+    private float slowMultiplier = 0.75f; // Reduce speed to 75%
+    private float slowDuration = 3f;     // Slow effect lasts 3 seconds
+    private float paralysisDuration = 2f; // Paralysis lasts 2 seconds
     private float timeUntilFire;
     private Transform target;
+    private bool ctrlChosen = false;
+    private bool upgradeDmgDone = false;
+    private bool upgradeSpdDone = false;
+    private bool upgradeCtrlDone = false;
 
     void Start()
     {
         bpsBase = fireRate;
+        ctrlBase = ctrlRate;
+        sprtBase = sprtRate;
         targetingRangeBase = targetingRange;
         turretDmgBase = turretDmg;
         Turret_Built.Post(gameObject);
@@ -78,6 +94,7 @@ public class Turret : MonoBehaviour
         GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnLocation.position, projectileSpawnLocation.rotation);
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
+        projectileScript.PDmg = turretDmg;
         Turret_Shot.Post(gameObject); // Wwise Event
     }
 
@@ -123,70 +140,134 @@ public class Turret : MonoBehaviour
         GetComponent<Renderer>().material.color = Color.white;
     }
 
+    #region Upgrade Method
     public void UpgradeSpd()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCostRange() > LevelManager.main.GetCurrency()) return;
+        if (spdLevel != 5)
+        {
+            if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostRange());
-        spdLevel++;
+            LevelManager.main.SpendMoney(calculateCostFireRate());
+            spdLevel++;
 
-        //Calculates the new Range
-        targetingRange = calculateRange();
-        
-        Turret_Upgraded.Post(gameObject); // Send Wwise event.
-        //Debug.Log(gameObject.name + " - Speed Upgraded");
+            //Calculates the new FireRate
+            if (!upgradeSpdDone)
+            {
+                fireRate = calculateFireRate();
+            }
+            else
+            {
+                fireRate = calculateNewFireRate();
+            }
+            //Debug.Log(gameObject.name + " - Speed Upgraded");
+        }
+
     }
 
     public void UpgradeDmg()
     {
         //Calculates the cost and will automatically update the new price
-        if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
+        if (dmgLevel != 5)
+        {
+            if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostDamage());
-        dmgLevel++;
+            LevelManager.main.SpendMoney(calculateCostDamage());
+            dmgLevel++;
 
-        turretDmg = calculateDamage();
-
-        Turret_Upgraded.Post(gameObject); // Send Wwise event.
-        //Debug.Log(gameObject.name + " - Damage Upgraded");
-
+            if (!upgradeDmgDone)
+            {
+                turretDmg = calculateDamage();
+            }
+            else
+            {
+                turretDmg = calculateNewDamage();
+            }
+            //Debug.Log(gameObject.name + " - Damage Upgraded");
+        }
     }
-
     public void UpgradeCtrl()
     {
-        //Calculates the cost and will automatically update the new price
-        if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
+        if (ctrlLevel != 5)
+        {
+            ctrlChosen = true;
+            //Calculates the cost and will automatically update the new price
+            if (calculateCostCtrl() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostFireRate());
-        ctrlLevel++;
+            LevelManager.main.SpendMoney(calculateCostCtrl());
+            ctrlLevel++;
 
-        //Calculates the new FireRate
-        fireRate = calculateFireRate();
-       
-        Turret_Upgraded.Post(gameObject); // Send Wwise event.
-        //Debug.Log(gameObject.name + " - Control Upgraded");
+            //Calculates the new Ctrl
+            ctrlRate = calculateCtrl();
+            //Debug.Log(gameObject.name + " - Ctrl Upgraded");
+        }
 
     }
 
     public void UpgradeSprt()
     {
-        //Calculates the cost and will automatically update the new price
-        if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
+        if (sprtLevel != 5)
+        {
+            //Calculates the cost and will automatically update the new price
+            if (calculateCostSprt() > LevelManager.main.GetCurrency()) return;
 
-        LevelManager.main.SpendMoney(calculateCostFireRate());
-        sprtLevel++;
+            LevelManager.main.SpendMoney(calculateCostSprt());
+            sprtLevel++;
 
-        //Calculates the new FireRate
-        fireRate = calculateFireRate();
-        
-        Turret_Upgraded.Post(gameObject); // Send Wwise event.
-        //Debug.Log(gameObject.name + " - Support Upgraded");
+            //Calculates the new Range
+            sprtRate = calculateSprt();
+            //Debug.Log(gameObject.name + " - Support Upgraded");
+        }
+
+    }
+    #endregion
+
+    #region Adjust method
+    private void AdjustRange()
+    {
+        if (!upgradeDmgDone)
+        {
+            targetingRangeBase = .5f;
+            upgradeDmgDone = true;
+        }
     }
 
-    private int calculateCostRange()
+    private void AdjustDmg()
     {
-        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(sprtLevel, 0.8f));
+        if (!upgradeSpdDone)
+        {
+            turretDmg = +.25f;
+            upgradeSpdDone = true;
+        }
+    }
+
+    #region For Ctrl
+    private void AdjustDmgAndRange()
+    {
+        if (!upgradeCtrlDone)
+        {
+            fireRate = .2f;
+            turretDmg = .5f;
+            upgradeCtrlDone = true;
+        }
+    }
+
+    private void increaseEffectChance()
+    {
+        if (upgradeCtrlDone)
+        {
+            slowChance += .075f;
+            paralyzeChance += .05f;
+        }
+    }
+    #endregion
+    #endregion
+
+
+    #region Calculate Cost
+    private int calculateCostCtrl()
+    {
+        return Mathf.RoundToInt(ctrlBase * Mathf.Pow(ctrlLevel, 0.8f));
     }
 
     private int calculateCostDamage()
@@ -199,25 +280,89 @@ public class Turret : MonoBehaviour
         return Mathf.RoundToInt(baseUpgradeFireRate * Mathf.Pow(spdLevel, 0.8f));
     }
 
-    private float calculateFireRate()
+    private int calculateCostSprt()
     {
-        return bpsBase * Mathf.Pow(spdLevel, 0.5f);
+        return Mathf.RoundToInt(baseUpgradeSprt * Mathf.Pow(sprtLevel, 0.5f));
     }
+    #endregion
 
-    private float calculateRange()
-    {
-        return targetingRangeBase * Mathf.Pow(sprtLevel, 0.4f);
-    }
 
+    #region Calculate the first upgrades
     private float calculateDamage()
     {
-        return turretDmgBase * Mathf.Pow(dmgLevel, 1f);
+        AdjustRange();
+        return turretDmgBase + Mathf.Pow(dmgLevel, 0.25f);
+    }
+
+    private float calculateFireRate()
+    {
+        AdjustDmg();
+        return bpsBase + Mathf.Pow(spdLevel, 0.2f);
+    }
+
+    private float calculateCtrl()
+    {
+        AdjustDmgAndRange();
+        increaseEffectChance();
+        return targetingRangeBase + Mathf.Pow(ctrlLevel, 0.4f);
+    }
+
+
+    private float calculateSprt()
+    {
+        //AdjustRange();
+        return sprtBase + Mathf.Pow(sprtLevel, 0.3f);
+    }
+    #endregion
+
+    #region Calculate the new upgrades
+    private float calculateNewDamage()
+    {
+        return turretDmgBase + Mathf.Pow(dmgLevel, 0.1f);
+    }
+
+    private float calculateNewFireRate()
+    {
+        return bpsBase + Mathf.Pow(spdLevel, 0.1f);
+    }
+
+    public bool IsCtrlChosen()
+    {
+        return ctrlChosen;
+    }
+    #endregion
+
+
+    public void ApplyEffect(EnemyCtrl enemy)
+    {
+        float randomValue = Random.Range(0f, 1f);
+
+        if (randomValue <= paralyzeChance)
+        {
+            enemy.ApplyParalysis(paralysisDuration); // Apply paralysis
+        }
+        else if (randomValue <= slowChance)
+        {
+            enemy.ApplySlow(slowMultiplier, slowDuration); // Apply slow
+        }
     }
 
     public void SellTurret()
     {
-        Turret_Sold.Post(gameObject); // Send Wwise Event.
         LevelManager.main.GainMoney(baseSellCost);
         Destroy(this.gameObject);
+    }
+
+
+    //Not yet in use
+    private int calculateCostRange()
+    {
+        return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(ctrlLevel, 0.8f));
+    }
+
+    private float calculateRange()
+    {
+        //AdjustDmgAndRange();
+        return targetingRangeBase + Mathf.Pow(ctrlLevel, 0.4f);
     }
 }
