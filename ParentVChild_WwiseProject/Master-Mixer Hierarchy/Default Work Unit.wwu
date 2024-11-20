@@ -88,6 +88,9 @@
 							</ObjectLists>
 						</Bus>
 						<Bus Name="SFX" ID="{B6EE9DBF-4215-4448-B5DE-DC6A45C09FAE}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.2"/>
+							</PropertyList>
 							<ChildrenList>
 								<Bus Name="World" ID="{60D9642E-C03D-4065-B05C-983C0456B519}">
 									<PropertyList>
@@ -161,7 +164,7 @@
 								<DuckItem>
 									<BusRef Name="Music Bus" ID="{A8AA4E7D-AA32-4044-B84C-7E519221827A}"/>
 									<DuckingParam>
-										<Volume>-6</Volume>
+										<Volume>-2</Volume>
 										<FadeInTime>0.100000001490116</FadeInTime>
 										<FadeOutTime>0.100000001490116</FadeOutTime>
 										<FadeCurve>FadeExp1</FadeCurve>
