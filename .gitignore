@@ -80,5 +80,37 @@ ParentVChild_WwiseProject/
 *.prof
 *.validationcache
 *.wsettings
-AkWwiseProjectData.asset
-IncrementalSoundBankData.xml
+
+## ---------------- ##
+##   WWise stuff    ##
+## ---------------- ##
+
+# project stuff
+ParentVChild_WwiseProject/.cache/
+ParentVChild_WWiseProject/*.prof
+ParentVChild_WwiseProject/*_WwiseProject.*.validationcache
+ParentVChild_WwiseProject/*_WwiseProject.*.wsettings
+ParentVChild_WWiseProject/**/*.akd
+
+# build stuff (unsure?)
+# Assets/Wwise/Deployment/Plugins/Windows/**/*.meta
+
+# WWise Picker (editor)
+Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset*
+
+# notes:
+# 1) if any other files go in Assets/Wwise/Editor/ProjectData/ besides AkWwiseProjectData.asset*,
+#    then don't ignore Assets/Wwise/Editor/ProjectData.meta. If AkWwiseProjectData.asset is the only item in there,
+#    then, it's OK to ignore this file.
+# 
+# Assets/Wwise/Editor/ProjectData.meta
+
+# temp install files
+WwiseUnityIntegration_*_Src.zip
+
+## --------------- ##
+## End WWise Stuff ##
+## --------------- ##
+
+# Mac stuff
+.DS_store
