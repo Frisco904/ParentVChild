@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{50582E3D-F081-4BE6-678F-E9F8ADE95299}",
+    "Hash": "{C9D1DBB1-64FD-9F86-19CB-158EEE8640E4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -222,7 +222,7 @@
     "Type": "User",
     "GUID": "{48DBEABE-7ACE-4BE5-8026-309FA640B4B8}",
     "Language": "SFX",
-    "Hash": "{E724A894-8EDA-B20A-8B4B-22E864FFDE3D}",
+    "Hash": "{9240479E-35E7-4F46-0172-6D118FE1C240}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -353,7 +353,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "zapsplat_industrial_cordless_drill_burst_001_104455.wav",
-      "CachePath": "FE/{FEDC7B73-7BE5-AAF2-B396-F42FC6D4500F}.wem"
+      "CachePath": "A4/{A40BA858-A8B4-CDFF-4DB7-4C8E820668BE}.wem"
      },
      {
       "Id": "520694194",
@@ -780,42 +780,34 @@
     "Type": "User",
     "GUID": "{194E1F4F-019E-48C2-803D-16D6B4BA6331}",
     "Language": "SFX",
-    "Hash": "{F83EFB38-61C9-BCA3-1961-C3F5BF86F144}",
+    "Hash": "{42DB15D1-0071-6A2A-9D5F-B473437D375E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
     "Media": [
      {
-      "Id": "62806833",
+      "Id": "10185850",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-SynthPads_178bpm4-4_L4M.wav",
-      "CachePath": "2B/{2BCD3E61-F4AE-F75F-C619-C6BE3EBAB165}.wem"
+      "ShortName": "FindACure-BassLine2_170bpm4-4_L4M.wav",
+      "CachePath": "4C/{4C253FA5-B9A5-59FF-1D49-FC958498F21A}.wem"
      },
      {
-      "Id": "87828236",
+      "Id": "15025292",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-Bass_178bpm4-4_L4M.wav",
-      "CachePath": "7D/{7D1D59C2-69B4-1CCC-E7F9-10035FEEB7DF}.wem"
+      "ShortName": "FindACure-Orbit_170bpm4-4_L8M.wav",
+      "CachePath": "C9/{C9EEDE25-6779-AD09-EA39-00AD6DDF8EC9}.wem"
      },
      {
-      "Id": "89743136",
+      "Id": "43035854",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-IntroSound_178bpm4-4_L4M.wav",
-      "CachePath": "DE/{DE3A6076-FCB8-3B0B-D8F0-60B70A3974C2}.wem"
-     },
-     {
-      "Id": "103559844",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Caffinated-RideC_178bpm4-4_L4M.wav",
-      "CachePath": "1E/{1ED2CACF-0BE3-9ECD-4918-A459246AD7E5}.wem"
+      "ShortName": "FindACure-Lead2_170bpm4-4_L8M.wav",
+      "CachePath": "89/{899BECD9-D21A-3ABA-AEB6-99451096963D}.wem"
      },
      {
       "Id": "116316691",
@@ -826,6 +818,14 @@
       "CachePath": "56/{5698FDAB-3432-AF34-0BF9-DD1CCA02B5CD}.wem"
      },
      {
+      "Id": "140825842",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-BassLine1_170bpm4-4_L4M.wav",
+      "CachePath": "E8/{E83F8A5F-862B-E417-9BB9-E84A1246CCE4}.wem"
+     },
+     {
       "Id": "168359042",
       "Language": "SFX",
       "Streaming": "false",
@@ -834,28 +834,44 @@
       "CachePath": "14/{14C29078-C6C5-ADDE-6626-231904A9D645}.wem"
      },
      {
-      "Id": "183176488",
+      "Id": "217803015",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-RhythmPiano_178bpm4-4_L4M.wav",
-      "CachePath": "AB/{AB2596E2-136B-4155-89FB-481C11FC9E13}.wem"
+      "ShortName": "FindACure-ChordStab_170bpm4-4_L8M.wav",
+      "CachePath": "60/{60E9367A-4A09-B2E7-4FE6-73579E734C2D}.wem"
      },
      {
-      "Id": "223714923",
+      "Id": "283527022",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-Breaks1_178bpm4-4_L4M.wav",
-      "CachePath": "DB/{DB2F1E30-8CF4-B48A-3286-6A244B974C77}.wem"
+      "ShortName": "FindACure-Lead3_170bpm4-4_L8M.wav",
+      "CachePath": "16/{16E01C0D-6DC2-A0FA-FCAF-0D5CCD225E8B}.wem"
      },
      {
-      "Id": "332379066",
+      "Id": "388098767",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-BassTransition_178bpm4-4_L4M.wav",
-      "CachePath": "29/{299843FA-5F6B-5733-1B47-19096F8A098D}.wem"
+      "ShortName": "FindACure-SFX_170bpm4-4_L4M.wav",
+      "CachePath": "E6/{E68CE915-8731-3435-9A45-8013DD5387DB}.wem"
+     },
+     {
+      "Id": "394315746",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-BreakBeat2b_170bpm4-4_L4M.wav",
+      "CachePath": "9B/{9BD8491A-B143-DD5F-FB5F-B606751598E6}.wem"
+     },
+     {
+      "Id": "397324567",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-SFX4_170bpm4-4_L4M.wav",
+      "CachePath": "EC/{EC4CA2EB-2C7A-B9BB-E809-B3D756AE93FB}.wem"
      },
      {
       "Id": "400985638",
@@ -866,12 +882,44 @@
       "CachePath": "E9/{E9E004B3-F365-29AD-8102-AB29FFE4E5D8}.wem"
      },
      {
-      "Id": "515125203",
+      "Id": "454530231",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-BreaksBridge_178bpm4-4_L8M.wav",
-      "CachePath": "B1/{B1F9B3B7-9DC8-47BF-2591-109E0F8BE818}.wem"
+      "ShortName": "FindACure-SweepPad_170bpm4-4_L8M.wav",
+      "CachePath": "C1/{C1A3FD3E-66C2-5A46-F4A5-82D6A7090E0B}.wem"
+     },
+     {
+      "Id": "465221675",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-Lead1_170bpm4-4_L8M.wav",
+      "CachePath": "33/{33154D12-7696-CB5E-10F1-0C74B7463033}.wem"
+     },
+     {
+      "Id": "537114415",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-BreakBeat1_170bpm4-4_L4M.wav",
+      "CachePath": "B2/{B2AFDBC3-A260-1218-5FAE-D2EE524EB36A}.wem"
+     },
+     {
+      "Id": "609808155",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-BreakBeat2_170bpm4-4_L4M.wav",
+      "CachePath": "D9/{D9325855-4AB0-EDBE-8E56-E492682C0BAC}.wem"
+     },
+     {
+      "Id": "641461534",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "FindACure-SFX2_170bpm4-4_L4M.wav",
+      "CachePath": "E9/{E9036BAB-D97B-4018-BC77-2E40D79C8175}.wem"
      },
      {
       "Id": "645269099",
@@ -890,28 +938,20 @@
       "CachePath": "A5/{A5D49029-BA6F-2155-CBC2-50BDBF030B50}.wem"
      },
      {
-      "Id": "724685751",
+      "Id": "724436950",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-BreaksBridge2_178bpm4-4_L8M.wav",
-      "CachePath": "DA/{DA773177-E5C1-2180-B1F4-59F4282937B2}.wem"
+      "ShortName": "FindACure-SFX3_170bpm4-4_L4M.wav",
+      "CachePath": "B4/{B470139C-12E7-5E2B-872B-72F537B99BCF}.wem"
      },
      {
-      "Id": "831484337",
+      "Id": "838174435",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Caffinated-RideA_178bpm4-4_L4M.wav",
-      "CachePath": "B1/{B1FD3004-C0A4-2913-824E-680F044A9E0F}.wem"
-     },
-     {
-      "Id": "838032950",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Caffinated-Break1A_178bpm4-4_L4M.wav",
-      "CachePath": "0D/{0D417FF3-D4DB-FFFE-79B9-8FC84CD5BE1A}.wem"
+      "ShortName": "FindACure-MainPad_170bpm4-4_L8M.wav",
+      "CachePath": "50/{50E7E6B4-D31A-CB66-575F-0C634AE0F147}.wem"
      },
      {
       "Id": "925655667",
@@ -930,47 +970,23 @@
       "CachePath": "7F/{7F15BE60-0AF7-500A-0E05-C4CA370BE4B3}.wem"
      },
      {
-      "Id": "958169048",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Caffinated-LeadPiano_178bpm4-4_L4M.wav",
-      "CachePath": "17/{17059C4F-A60C-D46E-9AE1-8F7CDFD0F732}.wem"
-     },
-     {
       "Id": "995636130",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Victory-Stabs1-Alt_138bpm4-4_L1M.wav",
       "CachePath": "70/{705FF66B-4470-A7B3-56DC-10129A282B65}.wem"
-     },
-     {
-      "Id": "1005649521",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Caffinated-RideB_178bpm4-4_L4M.wav",
-      "CachePath": "A9/{A9B324AD-3F29-D935-C183-371C4D6D844D}.wem"
      }
     ],
     "Plugins": {
      "ShareSets": [
       {
-       "Id": "2652646462",
-       "Name": "Dialog_Leveler_Soft",
-       "ObjectPath": "\\Effects\\Factory Effects\\Compressor\\Dialog_Leveler_Soft",
-       "GUID": "{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}",
+       "Id": "3796564934",
+       "Name": "Hard_Knee_Minus_3dB_RMS",
+       "ObjectPath": "\\Effects\\Factory Effects\\Compressor\\Hard_Knee_Minus_3dB_RMS",
+       "GUID": "{D083BAE5-F9EF-426B-A311-D9DF8DFE8807}",
        "LibName": "Wwise Compressor",
        "LibId": "7077891"
-      },
-      {
-       "Id": "3013737260",
-       "Name": "Bass_Remover_2",
-       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Shelving EQ\\Low Shelf\\Bass_Remover_2",
-       "GUID": "{A0788DC0-7254-4FDD-A6F4-2BAF12AD6CE2}",
-       "LibName": "Wwise Parametric EQ",
-       "LibId": "6881283"
       }
      ]
     },
@@ -1009,55 +1025,54 @@
           },
           "MediaRefs": [
            {
-            "Id": "62806833"
+            "Id": "10185850"
            },
            {
-            "Id": "87828236"
+            "Id": "15025292"
            },
            {
-            "Id": "89743136"
+            "Id": "43035854"
            },
            {
-            "Id": "103559844"
+            "Id": "140825842"
            },
            {
-            "Id": "183176488"
+            "Id": "217803015"
            },
            {
-            "Id": "223714923"
+            "Id": "283527022"
            },
            {
-            "Id": "332379066"
+            "Id": "388098767"
            },
            {
-            "Id": "515125203"
+            "Id": "394315746"
            },
            {
-            "Id": "724685751"
+            "Id": "397324567"
            },
            {
-            "Id": "831484337"
+            "Id": "454530231"
            },
            {
-            "Id": "838032950"
+            "Id": "465221675"
            },
            {
-            "Id": "958169048"
+            "Id": "537114415"
            },
            {
-            "Id": "1005649521"
+            "Id": "609808155"
+           },
+           {
+            "Id": "641461534"
+           },
+           {
+            "Id": "724436950"
+           },
+           {
+            "Id": "838174435"
            }
-          ],
-          "PluginRefs": {
-           "ShareSets": [
-            {
-             "Id": "2652646462"
-            },
-            {
-             "Id": "3013737260"
-            }
-           ]
-          }
+          ]
          }
         ]
        },
@@ -1080,7 +1095,14 @@
            {
             "Id": "645269099"
            }
-          ]
+          ],
+          "PluginRefs": {
+           "ShareSets": [
+            {
+             "Id": "3796564934"
+            }
+           ]
+          }
          }
         ]
        },
@@ -1103,7 +1125,14 @@
            {
             "Id": "400985638"
            }
-          ]
+          ],
+          "PluginRefs": {
+           "ShareSets": [
+            {
+             "Id": "3796564934"
+            }
+           ]
+          }
          }
         ]
        },
@@ -1141,7 +1170,14 @@
            {
             "Id": "995636130"
            }
-          ]
+          ],
+          "PluginRefs": {
+           "ShareSets": [
+            {
+             "Id": "3796564934"
+            }
+           ]
+          }
          }
         ]
        }
@@ -1155,14 +1191,6 @@
         "GUID": "{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}"
        }
       ]
-     }
-    ],
-    "GameParameters": [
-     {
-      "Id": "1316067302",
-      "Name": "DangerLevel",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DangerLevel",
-      "GUID": "{02AFCCDE-DDA8-4711-ABE6-BF5BBD8220F6}"
      }
     ],
     "StateGroups": [
@@ -1235,6 +1263,6 @@
     ]
    }
   ],
-  "FileHash": "{20B1FE8A-3F61-E2B9-7393-A85A628EC9CD}"
+  "FileHash": "{B46FED57-8967-E9CB-DE98-88EF1A9379C9}"
  }
 }
