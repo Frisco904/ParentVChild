@@ -16,6 +16,7 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private int currencyWorth = 50;
     [SerializeField] private float candyproximity = .1f;
     [SerializeField] private float redTickDmgLength = .03f;
+    [SerializeField] public bool followLeaderEnemy = false;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
@@ -28,9 +29,10 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private LayerMask pathingMask;
 
+
     private WaveSpawnEnemies spawnEnemies;
     private SpawnPoints spawnPoint;
-    private Transform target;
+    public Transform target;
     private int pathIndex = 0;
     private float ogSpeed;
     private bool frozen = false;
@@ -76,6 +78,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
+        if (followLeaderEnemy) return;
 
         // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
         if (LevelManager.main.candyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }

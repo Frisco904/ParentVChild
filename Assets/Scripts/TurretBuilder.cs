@@ -122,17 +122,10 @@ public class TurretBuilder : MonoBehaviour
         RaycastHit2D[] hits2d = Physics2D.GetRayIntersectionAll(ray);
         foreach (RaycastHit2D hit in hits2d)
         {
-            if (hit.collider.gameObject.tag == "Bounds")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return hit.collider.gameObject.tag == "Bounds";
         }
-        return false;
 
+        return false;
     }
 
     //Rework toggle to have it only be able to place turret only after the button has been clicked (ie. Grayed out).
