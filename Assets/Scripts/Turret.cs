@@ -7,11 +7,13 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
     [SerializeField] private Transform turretRotationPoint; 
     [SerializeField] private Transform projectileSpawnLocation;
+    [SerializeField] private ParticleSystem turretDamagedSmoke ;
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots.
     [SerializeField] private float turretDmg = 1f; // Damage done by projectile.
     [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
     [SerializeField] private float sprtRate = 0.5f; // Range the tower can find a target.
     [SerializeField] private float ctrlRate = 1f;
+    [SerializeField] private bool turretDamaged = false;
 
     private float bpsBase;
     private float sprtBase;
@@ -63,6 +65,8 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
+        if (turretDamaged) return;
+
         if (target == null)
         { 
             FindTarget();
@@ -270,7 +274,6 @@ public class Turret : MonoBehaviour
     #endregion
     #endregion
 
-
     #region Calculate Cost
     private int calculateCostCtrl()
     {
@@ -372,5 +375,17 @@ public class Turret : MonoBehaviour
     {
         //AdjustDmgAndRange();
         return targetingRangeBase + Mathf.Pow(ctrlLevel, 0.4f);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.TryGetComponent<EnemyCtrl>(out EnemyCtrl enemy))
+        {
+            if (enemy.enraged) turretDamaged = true;
+            turretDamagedSmoke.Play();
+            enemy.enraged = false;
+            enemy.movSpeed /= 2f;
+            enemy.target = null;
+        }
     }
 }
