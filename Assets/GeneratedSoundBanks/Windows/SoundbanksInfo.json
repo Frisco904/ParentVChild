@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{3F01469A-C769-4F71-8B86-1F7561C02F9B}",
+    "Hash": "{D7C4B82F-0C6D-85EF-9942-A77B1DA48E00}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -222,7 +222,7 @@
     "Type": "User",
     "GUID": "{48DBEABE-7ACE-4BE5-8026-309FA640B4B8}",
     "Language": "SFX",
-    "Hash": "{4A45747B-5BDF-084C-9057-2DCC9648D924}",
+    "Hash": "{7FBF854E-4881-9D3E-91A0-FC17307B25B2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -242,6 +242,14 @@
       "Location": "Memory",
       "ShortName": "Shot2.wav",
       "CachePath": "1B/{1B876EFE-845E-C5D0-F5B5-767C9C2FD76F}.wem"
+     },
+     {
+      "Id": "43143097",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BounceOffBubble.wav",
+      "CachePath": "78/{784B8936-580F-AFEB-A335-AEBE1583C4B3}.wem"
      },
      {
       "Id": "114620076",
@@ -276,12 +284,28 @@
       "CachePath": "B9/{B9A73239-88EC-635B-2140-DA0A31060249}.wem"
      },
      {
+      "Id": "260770804",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "horror_monster_zombie_male_eating_body_single_bite.wav",
+      "CachePath": "D4/{D4A675EB-8901-478E-2BE1-E66876E13CDC}.wem"
+     },
+     {
       "Id": "268847850",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Crunch\\Crunch_Long_3.wav",
       "CachePath": "1F/{1F89E2FA-7699-D640-CAAA-063003D146C6}.wem"
+     },
+     {
+      "Id": "283406432",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "horror_monster_zombie_male_groan_002.wav",
+      "CachePath": "A2/{A231E079-2E59-5D02-D004-ADBFAF26FED8}.wem"
      },
      {
       "Id": "327150462",
@@ -314,6 +338,14 @@
       "Location": "Memory",
       "ShortName": "Crunch\\Crunch_1.wav",
       "CachePath": "D9/{D980B1B9-E0CC-C054-3AFF-095F524FA0E9}.wem"
+     },
+     {
+      "Id": "402604431",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BubblePop.wav",
+      "CachePath": "61/{613D57D9-D6C3-4B4C-9C7A-1226EC1B486E}.wem"
      },
      {
       "Id": "418133160",
@@ -444,6 +476,14 @@
       "CachePath": "80/{80F01824-D93B-42C1-CC7F-ABCAB02A8184}.wem"
      },
      {
+      "Id": "1007768813",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "horror_monster_zombie_male_groan_011.wav",
+      "CachePath": "FF/{FF73CED4-B94D-44C3-D7C8-31E42A222363}.wem"
+     },
+     {
       "Id": "1026320010",
       "Language": "SFX",
       "Streaming": "false",
@@ -505,6 +545,14 @@
        "LibId": "8847363"
       },
       {
+       "Id": "1588715066",
+       "Name": "Echoes_Linear",
+       "ObjectPath": "\\Effects\\Factory Effects\\Delay\\Echoes_Linear",
+       "GUID": "{D20F3717-EBA2-4E3A-84F8-C8BD431563FB}",
+       "LibName": "Wwise Delay",
+       "LibId": "6946819"
+      },
+      {
        "Id": "3013737261",
        "Name": "Bass_Remover_3",
        "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Shelving EQ\\Low Shelf\\Bass_Remover_3",
@@ -531,6 +579,50 @@
      ]
     },
     "Events": [
+     {
+      "Id": "1991456945",
+      "Name": "Bubble_Broke",
+      "ObjectPath": "\\Events\\Default Work Unit\\World\\Bubble_Broke",
+      "GUID": "{A0AB6B68-87F2-40E5-A31D-CE884348BB81}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.9481902",
+      "DurationMax": "1.1888393",
+      "MediaRefs": [
+       {
+        "Id": "260770804"
+       },
+       {
+        "Id": "283406432"
+       },
+       {
+        "Id": "402604431"
+       },
+       {
+        "Id": "1007768813"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "1588715066"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "431765749",
+      "Name": "Bubble_Hit",
+      "ObjectPath": "\\Events\\Default Work Unit\\World\\Bubble_Hit",
+      "GUID": "{2F4018D5-FC29-4A5A-B9D1-88DB8DECFC7F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2977124",
+      "DurationMax": "0.39739832",
+      "MediaRefs": [
+       {
+        "Id": "43143097"
+       }
+      ]
+     },
      {
       "Id": "1656416929",
       "Name": "Jawbreaker_Damage",
@@ -1263,6 +1355,6 @@
     ]
    }
   ],
-  "FileHash": "{8EE15EAD-CB22-10F0-287F-E8E8027447B0}"
+  "FileHash": "{C35110A9-4BFC-F218-ED6B-C12FB9984EC0}"
  }
 }

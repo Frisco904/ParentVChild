@@ -1194,6 +1194,249 @@
 								<ActiveSource Name="zapsplat_foley_cash_register_ka_ching_002_44083" ID="{A90269B4-F35C-4B42-8E1C-35E6F06F053A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="BounceOffBubble" ID="{9810003B-DE07-489E-8857-1F6906629431}" ShortID="217004434">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>300</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{4487BD25-9F77-4005-9376-EF370F4DB779}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-500"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BounceOffBubble" ID="{77CB5F0F-5DF8-4123-890E-84D68D471FDF}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0176819901190335"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.261211218541741"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-10</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>BounceOffBubble.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="43143097"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BounceOffBubble" ID="{77CB5F0F-5DF8-4123-890E-84D68D471FDF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="BubblePop" ID="{C8FE2AC8-73E9-424F-90A7-767912B45FFB}" ShortID="483174326">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>59</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-500</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="BubblePop" ID="{F0F4824D-9FE3-496A-B72B-B50B1F9CAD99}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0213835603397902"/>
+										<Property Name="LoopEnd" Type="Real64" Value="0.0748424612687385"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>BubblePop.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="402604431"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="BubblePop" ID="{F0F4824D-9FE3-496A-B72B-B50B1F9CAD99}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="Zombie_Grown" ID="{0A3D8623-D6A7-4028-8CB1-E49BF829C86B}" ShortID="730710477">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="horror_monster_zombie_male_eating_body_single_bite" ID="{A159C67A-004F-4F32-B8BB-3228575488C8}" ShortID="417421527">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>200</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="horror_monster_zombie_male_eating_body_single_bite" ID="{7EDB335E-5798-446F-9848-40707D327249}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0315949567736344"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.280141950059559"/>
+												<Property Name="LoopEnd" Type="Real64" Value="0.94995498915581"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.952061319607385"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>horror_monster_zombie_male_eating_body_single_bite.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="260770804"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="horror_monster_zombie_male_eating_body_single_bite" ID="{7EDB335E-5798-446F-9848-40707D327249}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="horror_monster_zombie_male_groan_002" ID="{F3185C6D-D718-4100-88D1-CF39D734E606}" ShortID="543513498">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>200</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="horror_monster_zombie_male_groan_002" ID="{B20ADBB7-3ADF-4DE8-A667-3876441E7320}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.116603820467374"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.423228681696395"/>
+												<Property Name="LoopEnd" Type="Real64" Value="1.20922491292993"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.22218089298186"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>horror_monster_zombie_male_groan_002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="283406432"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="horror_monster_zombie_male_groan_002" ID="{B20ADBB7-3ADF-4DE8-A667-3876441E7320}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="horror_monster_zombie_male_groan_011" ID="{F86B71AC-1B68-46AB-9206-8A3E89F391ED}" ShortID="247302565">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>200</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FF640A3A-3CDF-491D-9FF7-A67708762AD5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{43ED315F-4709-4A5D-8003-FD1F2CA77DB2}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="horror_monster_zombie_male_groan_011" ID="{4FAA2A12-22CE-4C0F-9E39-791D5E8FA788}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.304543865931291"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="1.13268964810467"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>horror_monster_zombie_male_groan_011.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1007768813"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="horror_monster_zombie_male_groan_011" ID="{4FAA2A12-22CE-4C0F-9E39-791D5E8FA788}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{743723B1-444C-4BEF-8390-D1FE78F53295}" ShortID="993082124">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+														<ObjectRef Name="Echoes_Linear" ID="{D20F3717-EBA2-4E3A-84F8-C8BD431563FB}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{8EACCDE6-6BA4-438A-847E-475D89ECC2B4}" ShortID="482171914">

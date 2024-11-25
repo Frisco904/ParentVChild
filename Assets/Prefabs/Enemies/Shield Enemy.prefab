@@ -47,6 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldHealth: 3
+  Bubble_Hit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 834906f10fcccbd4c9122c087eae54f9, type: 2}
+  Bubble_Broke:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 79588d9f35b5d75439e4892a3fc59054, type: 2}
 --- !u!212 &3782569044460619740
 SpriteRenderer:
   m_ObjectHideFlags: 0

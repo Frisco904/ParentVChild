@@ -1,15 +1,19 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIMouseHover : MonoBehaviour
 {
+    [SerializeField] private Texture2D defaultCursor;
+    [SerializeField] private Texture2D defaultCursorClick;
+    [SerializeField] private Vector2 defaultCursorHotSpot;
     [SerializeField] private Texture2D onHoverCursorInBounds;
     [SerializeField] private Vector2 hoverInBoundsCursorHotspot;
-
     [SerializeField] private Texture2D onHoverCursorOutOfBounds;
     [SerializeField] private Vector2 hoverOutBoundsCursorHotspot;
 
     private TurretBuilder turretBuilder;
-
+    private bool mouseIsPressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +23,20 @@ public class UIMouseHover : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        if (Input.GetMouseButtonDown(0)) mouseIsPressed = true;
+        if (Input.GetMouseButtonUp(0)) mouseIsPressed = false;
 
+        if (!turretBuilder.canPlaceTurret)
+        {
+            if (mouseIsPressed)
+            {
+                Cursor.SetCursor(defaultCursorClick, defaultCursorHotSpot, CursorMode.Auto);
+                return;
+            }
+
+            Cursor.SetCursor(defaultCursor, defaultCursorHotSpot, CursorMode.Auto);
+        }
     }
     private void OnMouseEnter()
     {
@@ -43,12 +59,11 @@ public class UIMouseHover : MonoBehaviour
 
     }
 
-
     public void MouseDown()
 
-        //Add logic to change the cursor based on if we can place a turret down or now and update the cursor accordingly.
+    //Add logic to change the cursor based on if we can place a turret down or now and update the cursor accordingly.
     {
-        
+
         //If we can place a turret and we are within bounds
         if (turretBuilder.canPlaceTurret && turretBuilder.WithinBounds())
         {
@@ -58,12 +73,6 @@ public class UIMouseHover : MonoBehaviour
         else if (turretBuilder.canPlaceTurret && !turretBuilder.WithinBounds())
         {
             Cursor.SetCursor(onHoverCursorOutOfBounds, hoverOutBoundsCursorHotspot, CursorMode.Auto);
-        }
-        else
-        {
-            //When we have placed a turret.
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-
         }
     }
 }
