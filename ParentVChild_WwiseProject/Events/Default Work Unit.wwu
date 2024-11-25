@@ -118,6 +118,38 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Bubble_Hit" ID="{2F4018D5-FC29-4A5A-B9D1-88DB8DECFC7F}">
+							<ChildrenList>
+								<Action Name="" ID="{6D7BF7D3-3BB6-4975-BB9F-B0E2A8FE5F5C}" ShortID="865299824">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BounceOffBubble" ID="{9810003B-DE07-489E-8857-1F6906629431}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Bubble_Broke" ID="{A0AB6B68-87F2-40E5-A31D-CE884348BB81}">
+							<ChildrenList>
+								<Action Name="" ID="{9DCC11DC-61FA-4DE1-A1CC-F92688248B57}" ShortID="371353119">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BubblePop" ID="{C8FE2AC8-73E9-424F-90A7-767912B45FFB}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8FEDADDB-0FD1-4D22-9DBC-9FBC2E81456D}" ShortID="685492598">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Zombie_Grown" ID="{0A3D8623-D6A7-4028-8CB1-E49BF829C86B}" WorkUnitID="{6DD135E5-09BF-4620-806C-F50CBA3AD415}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

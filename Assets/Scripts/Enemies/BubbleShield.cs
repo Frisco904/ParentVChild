@@ -4,7 +4,9 @@ using UnityEngine;
 public class BubbleShield : MonoBehaviour
 {
     [SerializeField] public int shieldHealth = 3;
-
+    [Header("Wwise")]
+    [SerializeField] public AK.Wwise.Event Bubble_Hit;
+    [SerializeField] public AK.Wwise.Event Bubble_Broke;
     public void DamageShield()
     {
         Debug.Log("Shield Damaged");
@@ -32,7 +34,7 @@ public class BubbleShield : MonoBehaviour
             enemy.enraged = true;
             enemy.target = closestTurret;
             enemy.movSpeed *= 2f;
-            // Play wwise appropriate sfx.
+            Bubble_Broke.Post(gameObject);
 
             Destroy(gameObject);
         }
@@ -43,10 +45,8 @@ public class BubbleShield : MonoBehaviour
         if (collider.gameObject.tag == "Projectile")
         {
             DamageShield();
-
-
+            Bubble_Hit.Post(gameObject); // Send Wwise event;
             Destroy(collider.gameObject);
-            // Wwise appropriate sfx
         }
     }
 }
