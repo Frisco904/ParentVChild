@@ -32,7 +32,7 @@ public class FlagEnemy : MonoBehaviour
             //If enemies target was a tracking point, we destroy the tracking point since child will not reach it.
             if (enemy.target.CompareTag("TrackingPoint"))
             {
-                enemy.TrackingPointNotReached();
+                enemy.DestroyTrackingPoint();
             }
 
             enemy.target = transform; // Set enemy's new target to follow this.

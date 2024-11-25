@@ -94,18 +94,14 @@ public class EnemyCtrl : MonoBehaviour
             //Check if target is within range, if so move on to next target in list.
             if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
-                if(target.CompareTag("TrackingPoint"))
-                {
-                    //Once the Enemy reaches the point we will destroy the game object.
-                    target.GetComponent<TrackingPoints>().DestroyGameObject();
-                }
+                DestroyTrackingPoint();
                 pathIndex++;
                 if (pathIndex == path.Length)
-                { 
+                {
                     return;
                 }
                 else
-                { 
+                {
                     target = path[pathIndex];
 
                     //We only want to adjust the values if its not the candy pile
@@ -114,10 +110,10 @@ public class EnemyCtrl : MonoBehaviour
 
                         //Creating game object to hold the transform information for where the AI will be moving towards. Adding components to the game object
                         GameObject trackingPoint = new GameObject("TrackingPoint");
-                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(5,5);
+                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(5, 5);
                         trackingPoint.GetComponent<BoxCollider2D>().isTrigger = true;
                         trackingPoint.AddComponent<TrackingPoints>();
-                        
+
                         //Setting tag and parent to created game object
                         trackingPoint.tag = "TrackingPoint";
                         trackingPoint.transform.SetParent(target);
@@ -143,7 +139,16 @@ public class EnemyCtrl : MonoBehaviour
                 }
             }
         }
-    }   
+    }
+
+    public void DestroyTrackingPoint()
+    {
+        if (target.CompareTag("TrackingPoint"))
+        {
+            //Once the Enemy reaches the point we will destroy the game object.
+            target.GetComponent<TrackingPoints>().DestroyGameObject();
+        }
+    }
 
     private void FixedUpdate()
     {
