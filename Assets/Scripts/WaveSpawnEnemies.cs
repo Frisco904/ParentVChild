@@ -163,10 +163,6 @@ public class WaveSpawnEnemies : MonoBehaviour
         {
             Vector3 randomSpawnPoint = GetRandomPointInCollider(boundsCollider);
             Instantiate(prefabToSpawn, randomSpawnPoint, this.transform.rotation, this.transform);
-            //var childObj : GameObject = Instantiate(prefabToSpawn, randomSpawnPoint, Quaternion.identity);
-            //childObj.transform.position = randomSpawnPoint;
-
-
         }
 
         //Instantiate(prefabToSpawn, LevelManager.main.startPoints[index]);
