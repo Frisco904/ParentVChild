@@ -11,6 +11,7 @@ TagManager:
   - SpotPath
   - Prime
   - TrackingPoint
+  - Shield
   layers:
   - Default
   - TransparentFX
