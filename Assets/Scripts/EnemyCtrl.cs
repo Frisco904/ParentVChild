@@ -7,7 +7,7 @@ public class EnemyCtrl : MonoBehaviour
 
     [Header("Attributes")]
     //[SerializeField] private float lockPost = 0;
-    [SerializeField] private float movSpeed = 2f;
+    [SerializeField] public float movSpeed = 2f;
     [SerializeField] private float enemyStunTimer = 3;
     [SerializeField] private float knockbackAmount = 100000000;
     [SerializeField] private float currentFull;
@@ -17,11 +17,14 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private float candyproximity = .1f;
     [SerializeField] private float redTickDmgLength = .03f;
     [SerializeField] public bool followLeaderEnemy = false;
+    [SerializeField] public bool enraged = false;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] Sprite[] kidImg;
-    [SerializeField] SpriteRenderer kidRenderer;
+    [SerializeField] public Sprite[] kidSprite;
+    [SerializeField] public SpriteRenderer kidRenderer;
+    [SerializeField] public Sprite enragedSprite;
+    [SerializeField] public Animator anim;
 
     [Header("AI Pathing Attributes")]
     [SerializeField] private float horizontalVariation = 8f;
@@ -79,6 +82,17 @@ public class EnemyCtrl : MonoBehaviour
     private void Update()
     {
         if (followLeaderEnemy) return;
+        if (target == null) target = path[pathIndex]; 
+        // Set enraged animation state.
+        if (enraged)
+        {
+            if (anim != null) anim.SetBool("Enraged", true);
+            kidRenderer.sprite = enragedSprite;
+            return;
+        } else {
+            if (anim != null) anim.SetBool("Enraged", false);
+            kidRenderer.sprite = kidSprite[0];
+        }
 
         // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
         if (LevelManager.main.candyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
@@ -156,7 +170,6 @@ public class EnemyCtrl : MonoBehaviour
         {
             if (frozen) return;
 
-
             //this.transform.position = Vector2.Lerp(target.position, transform.position, .5f).normalized;
             Vector2 direction = (target.position - transform.position).normalized;
             
@@ -219,12 +232,6 @@ public class EnemyCtrl : MonoBehaviour
     {
 
     }
-    /*
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }*/
     private void DetectObject()
     {
         if (target)
@@ -243,17 +250,16 @@ public class EnemyCtrl : MonoBehaviour
         }
     }
 
-
     private float AdjustPathing(float xValueDirection)
     {
-        xValueDirection = UnityEngine.Random.Range(xValueDirection - horizontalVariation, xValueDirection + horizontalVariation);
+        xValueDirection = Random.Range(xValueDirection - horizontalVariation, xValueDirection + horizontalVariation);
         return xValueDirection;
     }
 
     void GenerateRandomKidImage()
     {
-        randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
-        kidRenderer.sprite = kidImg[randomKidImg - 1];
+        // randomKidImg = Random.Range(1, kidImg.Length + 1);
+        // kidRenderer.sprite = kidImg[randomKidImg - 1];
     }
 
     public IEnumerator FlashRed()

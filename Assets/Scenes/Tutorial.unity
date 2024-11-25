@@ -1635,7 +1635,7 @@ PrefabInstance:
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 8920871317090917991, guid: 0ec7f6aedc405254e88fcaa87c2d13f6, type: 3}
+      objectReference: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: ZombieSFX.WwiseObjectReference
       value: 
@@ -3144,7 +3144,7 @@ PrefabInstance:
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.data[0]
       value: 
-      objectReference: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
+      objectReference: {fileID: 8920871317090917991, guid: faa5aa57baf919c46ab3c4658059c6e7, type: 3}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: ZombieSFX.WwiseObjectReference
       value: 

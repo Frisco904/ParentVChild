@@ -26,7 +26,7 @@ public class FlagEnemy : MonoBehaviour
 
         if (collider.gameObject.TryGetComponent<EnemyCtrl>(out EnemyCtrl enemy))
         {
-            if (enemy.followLeaderEnemy) return; // If target is already following someone ignore it.
+            if (enemy.followLeaderEnemy || enemy.enraged) return; // If target is already following or enraged someone ignore it.
             enemy.followLeaderEnemy = true;
 
             //If enemies target was a tracking point, we destroy the tracking point since child will not reach it.
@@ -34,6 +34,7 @@ public class FlagEnemy : MonoBehaviour
             {
                 enemy.DestroyTrackingPoint();
             }
+
 
             enemy.target = transform; // Set enemy's new target to follow this.
         }

@@ -51,6 +51,7 @@ public class Projectile : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Turret[] turrents = FindObjectsOfType<Turret>();
+
         if (collision.gameObject.tag != "Enemy") return;
         //Adding knockback to the collided object and calling the TakeDamage function from the EnemyCtrl Script.
         EnemyCtrl enemy = collision.gameObject.GetComponent<EnemyCtrl>();
