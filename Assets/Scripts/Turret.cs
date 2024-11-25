@@ -10,11 +10,16 @@ public class Turret : MonoBehaviour
     [SerializeField] private ParticleSystem turretDamagedSmoke ;
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots.
     [SerializeField] private float turretDmg = 1f; // Damage done by projectile.
-    [SerializeField] private float targetingRange = 50f; // Range the tower can find a target.
+    [SerializeField] private float targetingRange; // Range the tower can find a target.
     [SerializeField] private float sprtRate = 0.5f; // Range the tower can find a target.
     [SerializeField] private float ctrlRate = 1f;
     [SerializeField] private bool turretDamaged = false;
+    [SerializeField] private float radiusLineThickness = .117f;
 
+
+    private LineRenderer lineRenderer;
+    private int segments = 50;
+    private bool drawCircleOutlineToScreen = false;
     private float bpsBase;
     private float sprtBase;
     private float turretDmgBase;
@@ -61,11 +66,24 @@ public class Turret : MonoBehaviour
         targetingRangeBase = targetingRange;
         turretDmgBase = turretDmg;
         Turret_Built.Post(gameObject);
+
+        //Line Renderer Logic
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
+        lineRenderer.positionCount = segments;
+        lineRenderer.useWorldSpace = true;
+        //Set to the same thickness to have a consistent size around the object.
+        lineRenderer.startWidth = radiusLineThickness;
+        lineRenderer.endWidth = radiusLineThickness;
+        lineRenderer.loop = true;
+        //CreatePoints();
+        
     }
 
     void Update()
     {
         if (turretDamaged) return;
+        //Draw Circle outline is controled in select/deselect turret via enable property.
+        DrawCircleOutline();
 
         if (target == null)
         { 
@@ -75,6 +93,7 @@ public class Turret : MonoBehaviour
 
         RotateTowardsTarget();
 
+        
         if (!CheckTargetInRange())
         {
             target = null;
@@ -84,7 +103,7 @@ public class Turret : MonoBehaviour
             timeUntilFire += Time.deltaTime;
             if (timeUntilFire >= 1f / fireRate)
             {
-
+                //Debug.Log(targetingRange);
                 Shoot();
                 timeUntilFire = 0f;
             }
@@ -134,6 +153,8 @@ public class Turret : MonoBehaviour
     {
         LevelManager.main.selectedTurret = this;
         GetComponent<Renderer>().material.color = Color.red;
+        //drawCircleOutlineToScreen = true;
+        gameObject.GetComponent<LineRenderer>().enabled = true;
         //Debug.Log(gameObject.name + " - Turret now selected");
     }
 
@@ -142,6 +163,8 @@ public class Turret : MonoBehaviour
         //Debug.Log(gameObject.name + " - Turret now deselected");
         LevelManager.main.selectedTurret = null;
         GetComponent<Renderer>().material.color = Color.white;
+        //drawCircleOutlineToScreen = false;
+        gameObject.GetComponent<LineRenderer>().enabled = false;
     }
 
     #region Upgrade Method
@@ -342,6 +365,28 @@ public class Turret : MonoBehaviour
     }
     #endregion
 
+    public void DrawCircleOutline()
+    {
+        var centerPos = this.transform.position;
+
+        for (int currentStep = 0; currentStep < segments; currentStep++)
+        {
+            float circumferenceProgress = (float)currentStep / segments;
+
+            float currentRadian = circumferenceProgress * 2 * Mathf.PI;
+
+            float xScaled = Mathf.Cos(currentRadian);
+            float yScaled = Mathf.Sin(currentRadian);
+
+            float x = xScaled * targetingRange;
+            float y = yScaled * targetingRange;
+
+            Vector3 currentPosition = new Vector3(x, y, 0) + centerPos;
+
+            lineRenderer.SetPosition(currentStep, currentPosition);
+        }
+    }
+
 
     public void ApplyEffect(EnemyCtrl enemy)
     {
@@ -388,4 +433,6 @@ public class Turret : MonoBehaviour
             enemy.target = null;
         }
     }
+
+    public void SetDrawCircleOutline(bool value) { drawCircleOutlineToScreen = value; }
 }
