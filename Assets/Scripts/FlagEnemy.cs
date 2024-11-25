@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class FlagEnemy : MonoBehaviour 
 {
@@ -27,6 +28,14 @@ public class FlagEnemy : MonoBehaviour
         {
             if (enemy.followLeaderEnemy || enemy.enraged) return; // If target is already following or enraged someone ignore it.
             enemy.followLeaderEnemy = true;
+
+            //If enemies target was a tracking point, we destroy the tracking point since child will not reach it.
+            if (enemy.target.CompareTag("TrackingPoint"))
+            {
+                enemy.DestroyTrackingPoint();
+            }
+
+
             enemy.target = transform; // Set enemy's new target to follow this.
         }
     }
