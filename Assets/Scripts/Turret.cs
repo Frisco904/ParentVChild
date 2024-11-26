@@ -5,18 +5,18 @@ public class Turret : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float rotationSpeed = 200f; // Time it takes to rotate then fire on new target.
     [SerializeField] private LayerMask enemyMask; //Mask where the enemies will be on, to ignore all other sprites on diff layers.
-    [SerializeField] private Transform turretRotationPoint; 
+    [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private Transform projectileSpawnLocation;
-    [SerializeField] private ParticleSystem turretDamagedSmoke ;
+    [SerializeField] private ParticleSystem turretDamagedSmoke;
     [SerializeField] private float fireRate = 1f; // Time in seconds between shots.
     [SerializeField] private float turretDmg = 1f; // Damage done by projectile.
     [SerializeField] private float targetingRange; // Range the tower can find a target.
     [SerializeField] private float sprtRate = 0.5f; // Range the tower can find a target.
     [SerializeField] private float ctrlRate = 1f;
-    [SerializeField] private bool turretDamaged = false;
-    [SerializeField] private float radiusLineThickness = .117f;
+    [SerializeField] public bool turretDamaged = false;
+    [SerializeField] private float radiusLineThickness = 1f;
 
-    public turretType turrentType;
+    public TurretType turrentType;
 
     private LineRenderer lineRenderer;
     private int segments = 50;
@@ -37,6 +37,8 @@ public class Turret : MonoBehaviour
     [SerializeField] private int baseUpgradeFireRate = 15;
     [SerializeField] private int baseUpgradeSprt = 5;
     [SerializeField] private int baseSellCost = 100;
+    [SerializeField] public int maxLvl = 5;
+
 
     [Header("References")]
     [SerializeField] private GameObject projectilePrefab; // Prefab turret will shoot.
@@ -67,6 +69,8 @@ public class Turret : MonoBehaviour
 
         //Line Renderer Logic
         lineRenderer = gameObject.GetComponent<LineRenderer>();
+
+        // Blend alpha from opaque at 0% to transparent at 100%
         lineRenderer.positionCount = segments;
         lineRenderer.useWorldSpace = true;
         //Set to the same thickness to have a consistent size around the object.
@@ -84,14 +88,14 @@ public class Turret : MonoBehaviour
         DrawCircleOutline();
 
         if (target == null)
-        { 
+        {
             FindTarget();
             return;
         }
 
         RotateTowardsTarget();
 
-        
+
         if (!CheckTargetInRange())
         {
             target = null;
@@ -108,7 +112,7 @@ public class Turret : MonoBehaviour
 
         }
     }
-        
+
     private void Shoot()
     {
         //Instantiating the projectile and calling the SetTarget function for the projectile.
@@ -124,7 +128,7 @@ public class Turret : MonoBehaviour
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
 
-        if (hits.Length > 0) 
+        if (hits.Length > 0)
         {
             target = hits[0].transform;
         }
@@ -135,7 +139,7 @@ public class Turret : MonoBehaviour
     {
         //Rotate the 'Barrel' towards the enemy. Subtracting 90 degrees to make the positioning line up with the starting rotation of the barrel.
         float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg - 90f;
-        
+
         //Rotating the Z-value of the Barrel.
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         //Rotation speed of the barrel.
@@ -144,10 +148,10 @@ public class Turret : MonoBehaviour
 
     private bool CheckTargetInRange()
     {
-        return Vector2.Distance(target.position,transform.position) <= targetingRange;
+        return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
-    public enum turretType
+    public enum TurretType
     {
         None,
         Dmg,
@@ -179,18 +183,18 @@ public class Turret : MonoBehaviour
     {
         switch (turrentType)
         {
-            case turretType.None:
+            case TurretType.None:
                 break;
-            case turretType.Dmg:
+            case TurretType.Dmg:
                 calculateDamage();
                 break;
-            case turretType.Spd:
+            case TurretType.Spd:
                 calculateFireRate();
                 break;
-            case turretType.Ctrl:
+            case TurretType.Ctrl:
                 calculateCtrl();
                 break;
-            case turretType.Sprt:
+            case TurretType.Sprt:
                 calculateSprt();
                 break;
         }
@@ -200,7 +204,7 @@ public class Turret : MonoBehaviour
     public void UpgradeSpd()
     {
         //Calculates the cost and will automatically update the new price
-        if (spdLevel != 5)
+        if (spdLevel != maxLvl)
         {
             if (calculateCostFireRate() > LevelManager.main.GetCurrency()) return;
 
@@ -208,7 +212,7 @@ public class Turret : MonoBehaviour
             spdLevel++;
 
             //Calculates the new FireRate
-            if (turrentType != turretType.Spd)
+            if (turrentType != TurretType.Spd)
             {
                 AdjustDmg();
                 fireRate = calculateFireRate();
@@ -226,14 +230,14 @@ public class Turret : MonoBehaviour
     public void UpgradeDmg()
     {
         //Calculates the cost and will automatically update the new price
-        if (dmgLevel != 5)
+        if (dmgLevel != maxLvl)
         {
             if (calculateCostDamage() > LevelManager.main.GetCurrency()) return;
 
             LevelManager.main.SpendMoney(calculateCostDamage());
             dmgLevel++;
 
-            if (turrentType != turretType.Dmg)
+            if (turrentType != TurretType.Dmg)
             {
                 AdjustRange();
                 turretDmg = calculateDamage();
@@ -243,13 +247,13 @@ public class Turret : MonoBehaviour
                 turretDmg = calculateNewDamage();
             }
             //Debug.Log(gameObject.name + " - Damage Upgraded");
-            
+
             Turret_Upgraded.Post(gameObject); // Send Wwise event.
         }
     }
     public void UpgradeCtrl()
     {
-        if (ctrlLevel != 5)
+        if (ctrlLevel != maxLvl)
         {
             ctrlChosen = true;
             //Calculates the cost and will automatically update the new price
@@ -259,17 +263,17 @@ public class Turret : MonoBehaviour
             ctrlLevel++;
 
             //Calculates the new Ctrl
-            if (turrentType != turretType.Ctrl)
+            if (turrentType != TurretType.Ctrl)
             {
                 AdjustCtrl();
                 ctrlRate = calculateCtrl();
             }
             else
             {
-               increaseEffectChance();
+                increaseEffectChance();
             }
             //Debug.Log(gameObject.name + " - Ctrl Upgraded");
-            
+
             Turret_Upgraded.Post(gameObject); // Send Wwise event.
         }
 
@@ -277,7 +281,7 @@ public class Turret : MonoBehaviour
 
     public void UpgradeSprt()
     {
-        if (sprtLevel != 5)
+        if (sprtLevel != maxLvl)
         {
             //Calculates the cost and will automatically update the new price
             if (calculateCostSprt() > LevelManager.main.GetCurrency()) return;
@@ -286,7 +290,7 @@ public class Turret : MonoBehaviour
             sprtLevel++;
 
             //Calculates the new Range
-            if (turrentType != turretType.Sprt)
+            if (turrentType != TurretType.Sprt)
             {
                 AdjustSprt();
                 targetingRange = calculateSprt();
@@ -306,7 +310,7 @@ public class Turret : MonoBehaviour
     #region Adjust method
     private void AdjustRange()
     {
-        if (turrentType != turretType.Dmg)
+        if (turrentType != TurretType.Dmg)
         {
             targetingRange -= .5f;
         }
@@ -314,7 +318,7 @@ public class Turret : MonoBehaviour
 
     private void AdjustDmg()
     {
-        if (turrentType != turretType.Spd)
+        if (turrentType != TurretType.Spd)
         {
             turretDmg = .25f;
         }
@@ -322,7 +326,7 @@ public class Turret : MonoBehaviour
 
     private void AdjustSprt()
     {
-        if(turrentType != turretType.Sprt)
+        if (turrentType != TurretType.Sprt)
         {
             turretDmg = .5f;
         }
@@ -331,7 +335,7 @@ public class Turret : MonoBehaviour
     #region For Ctrl
     private void AdjustCtrl()
     {
-        if (turrentType != turretType.Ctrl)
+        if (turrentType != TurretType.Ctrl)
         {
             fireRate = .2f;
             turretDmg = .5f;
@@ -342,7 +346,7 @@ public class Turret : MonoBehaviour
 
     private void increaseEffectChance()
     {
-        if (turrentType == turretType.Ctrl)
+        if (turrentType == TurretType.Ctrl)
         {
             slowChance += .075f;
             paralyzeChance += .05f;

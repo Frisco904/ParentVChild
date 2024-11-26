@@ -1,15 +1,25 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlideMenu : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TextMeshProUGUI currencyUI;
     [SerializeField] private TextMeshProUGUI EnemyUI;
-    //[SerializeField] private TextMeshProUGUI LvlLabel;
-
+    [SerializeField] private GameObject UpgradeButton;
+    [SerializeField] private GameObject SpecializeButtonGroup;
+    [SerializeField] private TextMeshProUGUI LvlLabel;
     [SerializeField] private Animator anim;
+
+    [Header("Sprite References")]
+    [SerializeField] private Image turretTypeImage;
+    [SerializeField] private Sprite dmgSprite;
+    [SerializeField] private Sprite spdSprite;
+    [SerializeField] private Sprite ctrlSprite;
+    [SerializeField] private Sprite sprtSprite;
+
 
     private float delayTime = 5f;
     private float startTime;
@@ -36,44 +46,48 @@ public class SlideMenu : MonoBehaviour
     public void UpgradeDmg()
     {
         selectedTurret.UpgradeDmg();
-        selectedTurret.turrentType = Turret.turretType.Dmg;
+        selectedTurret.turrentType = Turret.TurretType.Dmg;
     }
 
     public void UpgradeCtrl()
     {
         selectedTurret.UpgradeCtrl();
-        selectedTurret.turrentType = Turret.turretType.Ctrl;
+        selectedTurret.turrentType = Turret.TurretType.Ctrl;
     }
 
     public void UpgradeSpd()
     {
         selectedTurret.UpgradeSpd();
-        selectedTurret.turrentType = Turret.turretType.Spd;
+        selectedTurret.turrentType = Turret.TurretType.Spd;
     }
 
     public void UpgradeSprt()
     {
         selectedTurret.UpgradeSprt();
-        selectedTurret.turrentType = Turret.turretType.Sprt;
+        selectedTurret.turrentType = Turret.TurretType.Sprt;
     }
 
-    public void UpgradeTurretSpeciality()
+    public void UpgradeTurretType()
     {
-        // switch (selectedTurret.turretSpeciality)
-        // {
-        //     case TurretSpecialy.DMG:
-        //         break;
-        //     case TurretSpecialy.SPD:
-        //         break;
-        //     case TurretSpecialy.CTRL:
-        //         break;
-        //     case TurretSpecialy.SPRT:
-        //         break;
-        //     case TurretSpecialy.None:
-        //         break;
-        //     default:
-        //         break;
-        // }
+        switch (selectedTurret.turrentType)
+        {
+            case Turret.TurretType.Dmg:
+                selectedTurret.UpgradeDmg();
+                break;
+            case Turret.TurretType.Spd:
+                selectedTurret.UpgradeSpd();
+                break;
+            case Turret.TurretType.Ctrl:
+                selectedTurret.UpgradeCtrl();
+                break;
+            case Turret.TurretType.Sprt:
+                selectedTurret.UpgradeSprt();
+                break;
+            case Turret.TurretType.None:
+                break;
+            default:
+                break;
+        }
     }
 
     public void SellTurret()
@@ -90,10 +104,55 @@ public class SlideMenu : MonoBehaviour
         {
             EnemyUI.text = "Enemies Left: " + LevelManager.main.GetEnemiesLeft().ToString();
         }
-        if (selectedTurret != null)
+        if (selectedTurret == null) return;
+        string lvlTxt = "";
+        switch (selectedTurret.turrentType)
         {
-            _ = selectedTurret.dmgLevel;
-            //LvlLabel.text = "" + selectedTurret.dmgLevel;
+            case Turret.TurretType.Dmg:
+                lvlTxt = selectedTurret.dmgLevel.ToString();
+                if (selectedTurret.dmgLevel == selectedTurret.maxLvl) lvlTxt = "Max";
+                LvlLabel.text = "Turret Lvl: " + lvlTxt;
+                turretTypeImage.sprite = dmgSprite;
+                turretTypeImage.gameObject.SetActive(true);
+                UpgradeButton.SetActive(true);
+                SpecializeButtonGroup.SetActive(false);
+                break;
+            case Turret.TurretType.Spd:
+                lvlTxt = selectedTurret.spdLevel.ToString();
+                if (selectedTurret.spdLevel == selectedTurret.maxLvl) lvlTxt = "Max";
+                LvlLabel.text = "Turret Lvl: " + lvlTxt;
+                turretTypeImage.sprite = spdSprite;
+                turretTypeImage.gameObject.SetActive(true);
+                UpgradeButton.SetActive(true);
+                SpecializeButtonGroup.SetActive(false);
+                break;
+            case Turret.TurretType.Ctrl:
+                lvlTxt = selectedTurret.ctrlLevel.ToString();
+                if (selectedTurret.ctrlLevel == selectedTurret.maxLvl) lvlTxt = "Max";
+                LvlLabel.text = "Turret Lvl: " + lvlTxt;
+                turretTypeImage.sprite = ctrlSprite;
+                turretTypeImage.gameObject.SetActive(false);
+                UpgradeButton.SetActive(true);
+                SpecializeButtonGroup.SetActive(false);
+                break;
+            case Turret.TurretType.Sprt:
+                lvlTxt = selectedTurret.spdLevel.ToString();
+                if (selectedTurret.ctrlLevel == selectedTurret.sprtLevel) lvlTxt = "Max";
+                LvlLabel.text = "Turret Lvl: " + lvlTxt;
+                turretTypeImage.sprite = sprtSprite;
+                turretTypeImage.gameObject.SetActive(false);
+                UpgradeButton.SetActive(true);
+                SpecializeButtonGroup.SetActive(false);
+                break;
+            case Turret.TurretType.None:
+                LvlLabel.text = "Choose Path: $100";
+                turretTypeImage.sprite = null;
+                turretTypeImage.gameObject.SetActive(false);
+                UpgradeButton.SetActive(false);
+                SpecializeButtonGroup.SetActive(true);
+                break;
+            default:
+                break;
         }
     }
 }

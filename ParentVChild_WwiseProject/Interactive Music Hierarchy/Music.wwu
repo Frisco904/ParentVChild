@@ -5077,27 +5077,6 @@
 						<ObjectList Name="Entries">
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{6F660061-70FA-47B9-9BB5-05F26CA148AC}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="FindACure" ID="{4305B6FF-92D1-4C58-9057-4549F6D9979D}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
-												</Reference>
-												<Reference>
-													<ObjectRef Name="Playing" ID="{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
 									<MultiSwitchEntry Name="" ID="{0506724C-64A5-486C-821C-5C46236A4BC4}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
@@ -5153,6 +5132,27 @@
 												</Reference>
 												<Reference>
 													<ObjectRef Name="Victory" ID="{06805B6B-ED18-4A39-9059-2E394D43572B}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{206298E7-4164-4035-9891-F9499F60CEA2}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="FindACure" ID="{4305B6FF-92D1-4C58-9057-4549F6D9979D}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Level" ID="{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Playing" ID="{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>
