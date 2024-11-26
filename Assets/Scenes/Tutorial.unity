@@ -2575,6 +2575,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
+      propertyPath: LvlLabel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 738440640985046953, guid: 201dd49e52bcc39418c9e6b3ca214633, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}

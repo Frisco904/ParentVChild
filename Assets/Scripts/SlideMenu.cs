@@ -7,7 +7,7 @@ public class SlideMenu : MonoBehaviour
     [Header("References")]
     [SerializeField] private TextMeshProUGUI currencyUI;
     [SerializeField] private TextMeshProUGUI EnemyUI;
-    [SerializeField] private TextMeshProUGUI LvlLabel;
+    //[SerializeField] private TextMeshProUGUI LvlLabel;
 
     [SerializeField] private Animator anim;
 
@@ -36,21 +36,25 @@ public class SlideMenu : MonoBehaviour
     public void UpgradeDmg()
     {
         selectedTurret.UpgradeDmg();
+        selectedTurret.turrentType = Turret.turretType.Dmg;
     }
 
     public void UpgradeCtrl()
     {
         selectedTurret.UpgradeCtrl();
+        selectedTurret.turrentType = Turret.turretType.Ctrl;
     }
 
     public void UpgradeSpd()
     {
         selectedTurret.UpgradeSpd();
+        selectedTurret.turrentType = Turret.turretType.Spd;
     }
 
     public void UpgradeSprt()
     {
         selectedTurret.UpgradeSprt();
+        selectedTurret.turrentType = Turret.turretType.Sprt;
     }
 
     public void UpgradeTurretSpeciality()
@@ -88,7 +92,8 @@ public class SlideMenu : MonoBehaviour
         }
         if (selectedTurret != null)
         {
-            LvlLabel.text = "" + selectedTurret.dmgLevel;
+            _ = selectedTurret.dmgLevel;
+            //LvlLabel.text = "" + selectedTurret.dmgLevel;
         }
     }
 }
