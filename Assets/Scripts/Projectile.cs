@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
     private float spinDirection = 1f;
     public float PDmg = 1;
     public static Projectile main;
+    private Dictionary<Turret.turretType, Sprite> turrents;
     int rBulletImg;
     // Update is called once per frame
     void Awake()
@@ -27,10 +29,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, life);
         if (Random.Range(0,1) == 0) spinDirection = -1f;
     }
-    private void Start()
-    {
-        GenerateRandomProjectileImage();
-    }
+
     public void SetTarget(Transform _target)
     {
         target = _target; 
@@ -78,9 +77,28 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void GenerateRandomProjectileImage()
+    public void setBulletSprite(Turret.turretType turrent)
     {
-        rBulletImg = UnityEngine.Random.Range(1, bulletImg.Length + 1);
-        bulletRenderer.sprite = bulletImg[rBulletImg - 1];
+        switch (turrent)
+        {
+            case Turret.turretType.Dmg: 
+                bulletRenderer.sprite = bulletImg[4]; 
+                break;
+            case Turret.turretType.Spd:
+                bulletRenderer.sprite = bulletImg[2];
+                break;
+            case Turret.turretType.Ctrl:
+                bulletRenderer.sprite = bulletImg[3];
+                break;
+            case Turret.turretType.Sprt:
+                bulletRenderer.sprite = bulletImg[0];
+                break;
+            case Turret.turretType.None:
+            default:
+                rBulletImg = UnityEngine.Random.Range(1, bulletImg.Length + 1);
+                bulletRenderer.sprite = bulletImg[rBulletImg - 1];
+                break;
+        }
     }
+
 }

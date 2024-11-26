@@ -16,6 +16,7 @@ public class Turret : MonoBehaviour
     [SerializeField] private bool turretDamaged = false;
     [SerializeField] private float radiusLineThickness = .117f;
 
+    public turretType turrentType;
 
     private LineRenderer lineRenderer;
     private int segments = 50;
@@ -54,9 +55,6 @@ public class Turret : MonoBehaviour
     private float timeUntilFire;
     private Transform target;
     private bool ctrlChosen = false;
-    private bool upgradeDmgDone = false;
-    private bool upgradeSpdDone = false;
-    private bool upgradeCtrlDone = false;
 
     void Start()
     {
@@ -76,7 +74,7 @@ public class Turret : MonoBehaviour
         lineRenderer.endWidth = radiusLineThickness;
         lineRenderer.loop = true;
         //CreatePoints();
-        
+
     }
 
     void Update()
@@ -118,6 +116,7 @@ public class Turret : MonoBehaviour
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
         projectileScript.PDmg = turretDmg;
+        projectileScript.setBulletSprite(this.turrentType);
         Turret_Shot.Post(gameObject); // Wwise Event
     }
 
@@ -148,6 +147,15 @@ public class Turret : MonoBehaviour
         return Vector2.Distance(target.position,transform.position) <= targetingRange;
     }
 
+    public enum turretType
+    {
+        None,
+        Dmg,
+        Spd,
+        Ctrl,
+        Sprt
+    }
+
     //This is for upgrade function
     public void SelectTurret()
     {
@@ -167,6 +175,27 @@ public class Turret : MonoBehaviour
         gameObject.GetComponent<LineRenderer>().enabled = false;
     }
 
+    public void chosenType()
+    {
+        switch (turrentType)
+        {
+            case turretType.None:
+                break;
+            case turretType.Dmg:
+                calculateDamage();
+                break;
+            case turretType.Spd:
+                calculateFireRate();
+                break;
+            case turretType.Ctrl:
+                calculateCtrl();
+                break;
+            case turretType.Sprt:
+                calculateSprt();
+                break;
+        }
+    }
+
     #region Upgrade Method
     public void UpgradeSpd()
     {
@@ -179,8 +208,9 @@ public class Turret : MonoBehaviour
             spdLevel++;
 
             //Calculates the new FireRate
-            if (!upgradeSpdDone)
+            if (turrentType != turretType.Spd)
             {
+                AdjustDmg();
                 fireRate = calculateFireRate();
             }
             else
@@ -203,8 +233,9 @@ public class Turret : MonoBehaviour
             LevelManager.main.SpendMoney(calculateCostDamage());
             dmgLevel++;
 
-            if (!upgradeDmgDone)
+            if (turrentType != turretType.Dmg)
             {
+                AdjustRange();
                 turretDmg = calculateDamage();
             }
             else
@@ -228,7 +259,15 @@ public class Turret : MonoBehaviour
             ctrlLevel++;
 
             //Calculates the new Ctrl
-            ctrlRate = calculateCtrl();
+            if (turrentType != turretType.Ctrl)
+            {
+                AdjustCtrl();
+                ctrlRate = calculateCtrl();
+            }
+            else
+            {
+               increaseEffectChance();
+            }
             //Debug.Log(gameObject.name + " - Ctrl Upgraded");
             
             Turret_Upgraded.Post(gameObject); // Send Wwise event.
@@ -247,7 +286,15 @@ public class Turret : MonoBehaviour
             sprtLevel++;
 
             //Calculates the new Range
-            sprtRate = calculateSprt();
+            if (turrentType != turretType.Sprt)
+            {
+                AdjustSprt();
+                targetingRange = calculateSprt();
+            }
+            else
+            {
+                targetingRange = calculateNewSprt();
+            }
             //Debug.Log(gameObject.name + " - Support Upgraded");
 
             Turret_Upgraded.Post(gameObject); // Send Wwise event.
@@ -259,36 +306,43 @@ public class Turret : MonoBehaviour
     #region Adjust method
     private void AdjustRange()
     {
-        if (!upgradeDmgDone)
+        if (turrentType != turretType.Dmg)
         {
-            targetingRangeBase = .5f;
-            upgradeDmgDone = true;
+            targetingRange -= .5f;
         }
     }
 
     private void AdjustDmg()
     {
-        if (!upgradeSpdDone)
+        if (turrentType != turretType.Spd)
         {
-            turretDmg = +.25f;
-            upgradeSpdDone = true;
+            turretDmg = .25f;
+        }
+    }
+
+    private void AdjustSprt()
+    {
+        if(turrentType != turretType.Sprt)
+        {
+            turretDmg = .5f;
         }
     }
 
     #region For Ctrl
-    private void AdjustDmgAndRange()
+    private void AdjustCtrl()
     {
-        if (!upgradeCtrlDone)
+        if (turrentType != turretType.Ctrl)
         {
             fireRate = .2f;
             turretDmg = .5f;
-            upgradeCtrlDone = true;
+            slowChance += .075f;
+            paralyzeChance += .05f;
         }
     }
 
     private void increaseEffectChance()
     {
-        if (upgradeCtrlDone)
+        if (turrentType == turretType.Ctrl)
         {
             slowChance += .075f;
             paralyzeChance += .05f;
@@ -323,28 +377,22 @@ public class Turret : MonoBehaviour
     #region Calculate the first upgrades
     private float calculateDamage()
     {
-        AdjustRange();
         return turretDmgBase + Mathf.Pow(dmgLevel, 0.25f);
     }
 
     private float calculateFireRate()
     {
-        AdjustDmg();
         return bpsBase + Mathf.Pow(spdLevel, 0.2f);
     }
 
     private float calculateCtrl()
     {
-        AdjustDmgAndRange();
-        increaseEffectChance();
-        return targetingRangeBase + Mathf.Pow(ctrlLevel, 0.4f);
+        return ctrlBase + Mathf.Pow(ctrlLevel, 0.4f);
     }
-
 
     private float calculateSprt()
     {
-        //AdjustRange();
-        return sprtBase + Mathf.Pow(sprtLevel, 0.3f);
+        return targetingRange + Mathf.Pow(sprtLevel, 0.2f);
     }
     #endregion
 
@@ -357,6 +405,11 @@ public class Turret : MonoBehaviour
     private float calculateNewFireRate()
     {
         return bpsBase + Mathf.Pow(spdLevel, 0.1f);
+    }
+
+    private float calculateNewSprt()
+    {
+        return targetingRangeBase + Mathf.Pow(sprtLevel, 0.5f);
     }
 
     public bool IsCtrlChosen()
@@ -409,8 +462,7 @@ public class Turret : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-
-    //Not yet in use
+    #region Not in use
     private int calculateCostRange()
     {
         return Mathf.RoundToInt(baseUpgradeRange * Mathf.Pow(ctrlLevel, 0.8f));
@@ -418,9 +470,9 @@ public class Turret : MonoBehaviour
 
     private float calculateRange()
     {
-        //AdjustDmgAndRange();
-        return targetingRangeBase + Mathf.Pow(ctrlLevel, 0.4f);
+        return targetingRangeBase + Mathf.Pow(sprtLevel, 0.4f);
     }
+    #endregion
 
     void OnTriggerEnter2D(Collider2D collider)
     {
