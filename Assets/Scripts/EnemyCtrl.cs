@@ -7,7 +7,7 @@ public class EnemyCtrl : MonoBehaviour
 
     [Header("Attributes")]
     //[SerializeField] private float lockPost = 0;
-    [SerializeField] private float movSpeed = 2f;
+    [SerializeField] public float movSpeed = 2f;
     [SerializeField] private float enemyStunTimer = 3;
     [SerializeField] private float knockbackAmount = 100000000;
     [SerializeField] private float currentFull;
@@ -16,11 +16,15 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private int currencyWorth = 50;
     [SerializeField] private float candyproximity = .1f;
     [SerializeField] private float redTickDmgLength = .03f;
+    [SerializeField] public bool followLeaderEnemy = false;
+    [SerializeField] public bool enraged = false;
 
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] Sprite[] kidImg;
-    [SerializeField] SpriteRenderer kidRenderer;
+    [SerializeField] public Sprite[] kidSprite;
+    [SerializeField] public SpriteRenderer kidRenderer;
+    [SerializeField] public Sprite enragedSprite;
+    [SerializeField] public Animator anim;
 
     [Header("AI Pathing Attributes")]
     [SerializeField] private float horizontalVariation = 8f;
@@ -28,10 +32,12 @@ public class EnemyCtrl : MonoBehaviour
     [SerializeField] private LayerMask candyMask;
     [SerializeField] private LayerMask pathingMask;
 
+
     private WaveSpawnEnemies spawnEnemies;
     private SpawnPoints spawnPoint;
-    private Transform target;
+    public Transform target;
     private int pathIndex = 0;
+    private float ogSpeed;
     private bool frozen = false;
     private float timer = -1;
     private bool isDestroyed = false;
@@ -50,6 +56,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Start()
     {
+        ogSpeed = movSpeed;
         spawnPoint = gameObject.GetComponentInParent<WaveSpawnEnemies>().GetSpawnPoint();
 
         //Switch that sets the relevant path/target for the enemy based on which spawner they spawned at.
@@ -74,6 +81,18 @@ public class EnemyCtrl : MonoBehaviour
 
     private void Update()
     {
+        if (followLeaderEnemy) return;
+        if (target == null) target = path[pathIndex]; 
+        // Set enraged animation state.
+        if (enraged)
+        {
+            if (anim != null) anim.SetBool("Enraged", true);
+            kidRenderer.sprite = enragedSprite;
+            return;
+        } else {
+            if (anim != null) anim.SetBool("Enraged", false);
+            kidRenderer.sprite = kidSprite[0];
+        }
 
         // When the candy pile is destroyed we will get the RigidBody2D component of the enemy and restrain it to its current position (stop it from moving).
         if (LevelManager.main.candyPile.IsDestroyed()) { gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position); }
@@ -89,18 +108,14 @@ public class EnemyCtrl : MonoBehaviour
             //Check if target is within range, if so move on to next target in list.
             if (Vector2.Distance(target.position, transform.position) <= targetingRange)
             {
-                if(target.CompareTag("TrackingPoint"))
-                {
-                    //Once the Enemy reaches the point we will destroy the game object.
-                    target.GetComponent<TrackingPoints>().DestroyGameObject();
-                }
+                DestroyTrackingPoint();
                 pathIndex++;
                 if (pathIndex == path.Length)
-                { 
+                {
                     return;
                 }
                 else
-                { 
+                {
                     target = path[pathIndex];
 
                     //We only want to adjust the values if its not the candy pile
@@ -109,10 +124,10 @@ public class EnemyCtrl : MonoBehaviour
 
                         //Creating game object to hold the transform information for where the AI will be moving towards. Adding components to the game object
                         GameObject trackingPoint = new GameObject("TrackingPoint");
-                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(5,5);
+                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(5, 5);
                         trackingPoint.GetComponent<BoxCollider2D>().isTrigger = true;
                         trackingPoint.AddComponent<TrackingPoints>();
-                        
+
                         //Setting tag and parent to created game object
                         trackingPoint.tag = "TrackingPoint";
                         trackingPoint.transform.SetParent(target);
@@ -138,14 +153,22 @@ public class EnemyCtrl : MonoBehaviour
                 }
             }
         }
-    }   
+    }
+
+    public void DestroyTrackingPoint()
+    {
+        if (target.CompareTag("TrackingPoint"))
+        {
+            //Once the Enemy reaches the point we will destroy the game object.
+            target.GetComponent<TrackingPoints>().DestroyGameObject();
+        }
+    }
 
     private void FixedUpdate()
     {
         if (LevelManager.main.candyPile)
         {
             if (frozen) return;
-
 
             //this.transform.position = Vector2.Lerp(target.position, transform.position, .5f).normalized;
             Vector2 direction = (target.position - transform.position).normalized;
@@ -171,7 +194,7 @@ public class EnemyCtrl : MonoBehaviour
 
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         currentFull += dmg;
         gameObject.GetComponent<Rigidbody2D>().AddForce(transform.forward * knockbackAmount);
@@ -209,12 +232,6 @@ public class EnemyCtrl : MonoBehaviour
     {
 
     }
-    /*
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }*/
     private void DetectObject()
     {
         if (target)
@@ -235,14 +252,14 @@ public class EnemyCtrl : MonoBehaviour
 
     private float AdjustPathing(float xValueDirection)
     {
-        xValueDirection = UnityEngine.Random.Range(xValueDirection - horizontalVariation, xValueDirection + horizontalVariation);
+        xValueDirection = Random.Range(xValueDirection - horizontalVariation, xValueDirection + horizontalVariation);
         return xValueDirection;
     }
 
     void GenerateRandomKidImage()
     {
-        randomKidImg = UnityEngine.Random.Range(1, kidImg.Length + 1);
-        kidRenderer.sprite = kidImg[randomKidImg - 1];
+        // randomKidImg = Random.Range(1, kidImg.Length + 1);
+        // kidRenderer.sprite = kidImg[randomKidImg - 1];
     }
 
     public IEnumerator FlashRed()
@@ -254,4 +271,34 @@ public class EnemyCtrl : MonoBehaviour
 
     }
 
+    #region Enemy effect
+    public void ApplySlow(float slowMultiplier, float duration)
+    {
+        Debug.Log("Enemy slowed!");
+        movSpeed *= slowMultiplier; // Reduce speed
+        CancelInvoke(nameof(RemoveSlow)); // Prevent overlapping calls
+        Invoke(nameof(RemoveSlow), duration); // Restore speed after duration
+    }
+    private void RemoveSlow()
+    {
+        movSpeed = ogSpeed;
+        Debug.Log(ogSpeed);
+        Debug.Log(movSpeed);
+        Debug.Log("Enemy speed restored.");
+    }
+    public void ApplyParalysis(float duration)
+    {
+        Debug.Log("Enemy paralyzed!");
+        movSpeed = 0f; // Stop the enemy
+        CancelInvoke(nameof(RemoveParalysis)); // Prevent overlapping calls
+        Invoke(nameof(RemoveParalysis), duration); // Restore speed after duration
+    }
+    private void RemoveParalysis()
+    {
+        movSpeed = ogSpeed;
+        Debug.Log(ogSpeed);
+        Debug.Log(movSpeed);
+        Debug.Log("Enemy recovered from paralysis.");
+    }
+    #endregion
 }

@@ -64,9 +64,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selectedTurret: {fileID: 6179901042209188499, guid: 9386561e6b073fc4691489cbb3ac386c, type: 3}
+  selectedTurret: {fileID: 0}
   waveDelayTime: 5
-  levelStart: 0
+  autoLevelStart: 0
   maxWaves: 3
   initialWaveDelay: 0
   timeBetweenWaves: 0

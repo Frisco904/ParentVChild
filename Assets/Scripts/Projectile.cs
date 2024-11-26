@@ -8,16 +8,18 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float life = 3;
     [SerializeField] private float projectileSpeed = 5f;
     [SerializeField] private float spinSpeed = 80f;
-    
+    [SerializeField] Sprite[] bulletImg;
+    [SerializeField] SpriteRenderer bulletRenderer;
+
 
     [Header("Wwise")]
     [SerializeField] public AK.Wwise.Event Projectile_Hit;
 
     private Transform target;
     private float spinDirection = 1f;
-    public int PDmg = 1;
+    public float PDmg = 1;
     public static Projectile main;
-
+    int rBulletImg;
     // Update is called once per frame
     void Awake()
     {
@@ -25,7 +27,10 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, life);
         if (Random.Range(0,1) == 0) spinDirection = -1f;
     }
-
+    private void Start()
+    {
+        GenerateRandomProjectileImage();
+    }
     public void SetTarget(Transform _target)
     {
         target = _target; 
@@ -45,11 +50,37 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Turret[] turrents = FindObjectsOfType<Turret>();
+
         if (collision.gameObject.tag != "Enemy") return;
         //Adding knockback to the collided object and calling the TakeDamage function from the EnemyCtrl Script.
         EnemyCtrl enemy = collision.gameObject.GetComponent<EnemyCtrl>();
+        foreach (Turret turret in turrents)
+        {
+            if (turret != null)
+            {
+                if (turrents.Length > 0)
+                {
+                    foreach (Turret turrent in turrents)
+                    {
+                        if (turrent.IsCtrlChosen())
+                        {
+                            turrent.ApplyEffect(enemy);
+                        }
+
+                    }
+
+                }
+            }
+        }
         enemy.TakeDamage(PDmg);
         Projectile_Hit.Post(gameObject);
         Destroy(gameObject);
+    }
+
+    void GenerateRandomProjectileImage()
+    {
+        rBulletImg = UnityEngine.Random.Range(1, bulletImg.Length + 1);
+        bulletRenderer.sprite = bulletImg[rBulletImg - 1];
     }
 }

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -1824028465036792019}
   - component: {fileID: 1168882554940791013}
   - component: {fileID: 5456141837053277695}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5dd3c3631cfa950418bdb3c1f3a57a4d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &-1824028465036792019
@@ -174,7 +174,15 @@ MonoBehaviour:
   life: 6
   projectileSpeed: 15
   spinSpeed: 80
+  bulletImg:
+  - {fileID: 21300000, guid: 82391a72908e9224c9100c30da7040ee, type: 3}
+  - {fileID: 21300000, guid: bee7c96680ad49647b0650c0861c3e80, type: 3}
+  - {fileID: 21300000, guid: 6228866ef7ca8bb438afbf4e582d5e7b, type: 3}
+  - {fileID: 21300000, guid: d8f06ec36d8ebda428446988422fc7f4, type: 3}
+  - {fileID: 21300000, guid: 5dd3c3631cfa950418bdb3c1f3a57a4d, type: 3}
+  bulletRenderer: {fileID: 1718513455483803978}
   Projectile_Hit:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 7aa2f69b43f6aa047bb24db2362c52e4, type: 2}
+  PDmg: 1

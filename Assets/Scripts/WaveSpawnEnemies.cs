@@ -52,6 +52,7 @@ public class WaveSpawnEnemies : MonoBehaviour
     private bool enemyHasSpawned = false;
     private WaveSpawnEnemies[] WaveSpawners;
     //private bool updatedNextWave = false;
+    //private BoxCollider2D boundsCollider;
 
     private void Awake()
     {
@@ -66,6 +67,7 @@ public class WaveSpawnEnemies : MonoBehaviour
 
     void Start()
     {
+        //Spawn points correlate to the drop-down in the enemy spawners.
         switch (spawnPoint)
         {
             case SpawnPoints.SpawnPoint1:
@@ -156,7 +158,15 @@ public class WaveSpawnEnemies : MonoBehaviour
         }
 
         GameObject prefabToSpawn = enemyPrefab[prefabIndex];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoints[index]);
+
+        if (TryGetComponent<BoxCollider2D>(out BoxCollider2D boundsCollider))
+        {
+            Vector3 randomSpawnPoint = GetRandomPointInCollider(boundsCollider);
+            Instantiate(prefabToSpawn, randomSpawnPoint, this.transform.rotation, this.transform);
+        }
+
+        //Instantiate(prefabToSpawn, LevelManager.main.startPoints[index]);
+        
     }
 
     public int EnemiesPerWave()
@@ -246,6 +256,21 @@ public class WaveSpawnEnemies : MonoBehaviour
         finalWaveTxt.SetActive(false);
     }
 
+    private Vector3 GetRandomPointInCollider(BoxCollider2D box)
+    {
+        Vector3 extents = box.size * .5f;
+
+        Vector3 localPoint = new Vector3(
+            Random.Range(-extents.x, extents.x),
+            Random.Range(-extents.y, extents.y),
+            0
+
+        );
+
+        //localPoint += box.offset;
+        return box.transform.TransformPoint(localPoint);
+    }
+
     void ChangeTxt()
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")
@@ -274,10 +299,8 @@ public class WaveSpawnEnemies : MonoBehaviour
             Invoke("WaveDisappearTxt", 3f);
         }
     }
-    void WaveDisappearTxt()
-    {
-        IndicateWaveUI.gameObject.SetActive(false);
-    }
+
+    void WaveDisappearTxt() { IndicateWaveUI.gameObject.SetActive(false); }
     public int GetEnemiesAlive() { return enemiesAlive; }
     public bool GetIsSpawning() { return isSpawning; }
     public bool GetEnemyHasSpawned() { return enemyHasSpawned; }

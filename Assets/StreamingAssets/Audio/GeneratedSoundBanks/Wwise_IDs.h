@@ -13,6 +13,8 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BUBBLE_BROKE = 1991456945U;
+        static const AkUniqueID BUBBLE_HIT = 431765749U;
         static const AkUniqueID JAWBREAKER_DAMAGE = 1656416929U;
         static const AkUniqueID LEVELLOADED = 3674062802U;
         static const AkUniqueID MOUSECLICK_CANDY = 3478105612U;
