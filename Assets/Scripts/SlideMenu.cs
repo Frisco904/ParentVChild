@@ -9,6 +9,7 @@ public class SlideMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currencyUI;
     [SerializeField] private TextMeshProUGUI EnemyUI;
     [SerializeField] private GameObject UpgradeButton;
+    [SerializeField] private TextMeshProUGUI upgradeCostLabel;
     [SerializeField] private GameObject SpecializeButtonGroup;
     [SerializeField] private TextMeshProUGUI LvlLabel;
     [SerializeField] private Animator anim;
@@ -109,44 +110,50 @@ public class SlideMenu : MonoBehaviour
         switch (selectedTurret.turrentType)
         {
             case Turret.TurretType.Dmg:
-                lvlTxt = selectedTurret.dmgLevel.ToString();
+                lvlTxt = (selectedTurret.dmgLevel - 1).ToString();
                 if (selectedTurret.dmgLevel == selectedTurret.maxLvl) lvlTxt = "Max";
                 LvlLabel.text = "Turret Lvl: " + lvlTxt;
                 turretTypeImage.sprite = dmgSprite;
+                upgradeCostLabel.text = "($" + selectedTurret.calculateCostDamage() + ")";
                 turretTypeImage.gameObject.SetActive(true);
                 UpgradeButton.SetActive(true);
                 SpecializeButtonGroup.SetActive(false);
                 break;
             case Turret.TurretType.Spd:
-                lvlTxt = selectedTurret.spdLevel.ToString();
+                lvlTxt = (selectedTurret.spdLevel - 1).ToString();
                 if (selectedTurret.spdLevel == selectedTurret.maxLvl) lvlTxt = "Max";
                 LvlLabel.text = "Turret Lvl: " + lvlTxt;
                 turretTypeImage.sprite = spdSprite;
+                upgradeCostLabel.text = "($" + selectedTurret.calculateCostFireRate() + ")";
                 turretTypeImage.gameObject.SetActive(true);
                 UpgradeButton.SetActive(true);
+                // if (calculateCostFireRate() > LevelManager.main.GetCurrency()) UpgradeButton.interactable = false;
                 SpecializeButtonGroup.SetActive(false);
                 break;
             case Turret.TurretType.Ctrl:
-                lvlTxt = selectedTurret.ctrlLevel.ToString();
+                lvlTxt = (selectedTurret.ctrlLevel - 1).ToString();
                 if (selectedTurret.ctrlLevel == selectedTurret.maxLvl) lvlTxt = "Max";
                 LvlLabel.text = "Turret Lvl: " + lvlTxt;
                 turretTypeImage.sprite = ctrlSprite;
+                upgradeCostLabel.text = "($" + selectedTurret.calculateCostCtrl() + ")";
                 turretTypeImage.gameObject.SetActive(false);
                 UpgradeButton.SetActive(true);
                 SpecializeButtonGroup.SetActive(false);
                 break;
             case Turret.TurretType.Sprt:
-                lvlTxt = selectedTurret.spdLevel.ToString();
+                lvlTxt = (selectedTurret.spdLevel - 1).ToString();
                 if (selectedTurret.ctrlLevel == selectedTurret.sprtLevel) lvlTxt = "Max";
                 LvlLabel.text = "Turret Lvl: " + lvlTxt;
                 turretTypeImage.sprite = sprtSprite;
+                upgradeCostLabel.text = "($" + selectedTurret.calculateCostSprt() + ")";
                 turretTypeImage.gameObject.SetActive(false);
                 UpgradeButton.SetActive(true);
                 SpecializeButtonGroup.SetActive(false);
                 break;
             case Turret.TurretType.None:
-                LvlLabel.text = "Choose Path: $100";
+                LvlLabel.text = "Specialize: $150";
                 turretTypeImage.sprite = null;
+                upgradeCostLabel.text = "";
                 turretTypeImage.gameObject.SetActive(false);
                 UpgradeButton.SetActive(false);
                 SpecializeButtonGroup.SetActive(true);

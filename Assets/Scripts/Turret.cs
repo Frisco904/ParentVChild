@@ -36,8 +36,10 @@ public class Turret : MonoBehaviour
     [SerializeField] private int baseUpgradeDamage = 20;
     [SerializeField] private int baseUpgradeFireRate = 15;
     [SerializeField] private int baseUpgradeSprt = 5;
+    [SerializeField] private int upgradeCostMultiplyer = 150;
+
     [SerializeField] private int baseSellCost = 100;
-    [SerializeField] public int maxLvl = 5;
+    [SerializeField] public int maxLvl = 6;
 
 
     [Header("References")]
@@ -356,24 +358,24 @@ public class Turret : MonoBehaviour
     #endregion
 
     #region Calculate Cost
-    private int calculateCostCtrl()
+    public int calculateCostCtrl()
     {
-        return Mathf.RoundToInt(ctrlBase * Mathf.Pow(ctrlLevel, 0.8f));
+        return ctrlLevel * upgradeCostMultiplyer;
     }
 
-    private int calculateCostDamage()
+    public int calculateCostDamage()
     {
-        return Mathf.RoundToInt(baseUpgradeDamage * Mathf.Pow(dmgLevel, 0.8f));
+        return dmgLevel * upgradeCostMultiplyer;
     }
 
-    private int calculateCostFireRate()
+    public int calculateCostFireRate()
     {
-        return Mathf.RoundToInt(baseUpgradeFireRate * Mathf.Pow(spdLevel, 0.8f));
+        return spdLevel * upgradeCostMultiplyer;
     }
 
-    private int calculateCostSprt()
+    public int calculateCostSprt()
     {
-        return Mathf.RoundToInt(baseUpgradeSprt * Mathf.Pow(sprtLevel, 0.5f));
+        return sprtLevel * upgradeCostMultiplyer;
     }
     #endregion
 
@@ -381,7 +383,7 @@ public class Turret : MonoBehaviour
     #region Calculate the first upgrades
     private float calculateDamage()
     {
-        return turretDmgBase + Mathf.Pow(dmgLevel, 0.25f);
+        return turretDmgBase + dmgLevel;
     }
 
     private float calculateFireRate()

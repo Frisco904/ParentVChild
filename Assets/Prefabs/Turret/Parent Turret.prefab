@@ -5153,7 +5153,6 @@ MonoBehaviour:
   ctrlRate: 1
   turretDamaged: 0
   radiusLineThickness: 0.3
-  turretRadiusColor: {r: 1, g: 0.6367924, b: 0.9328863, a: 0}
   turrentType: 0
   dmgLevel: 1
   spdLevel: 1
@@ -5163,8 +5162,9 @@ MonoBehaviour:
   baseUpgradeDamage: 20
   baseUpgradeFireRate: 15
   baseUpgradeSprt: 5
+  upgradeCostMultiplyer: 150
   baseSellCost: 25
-  maxLvl: 5
+  maxLvl: 6
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
   Turret_Built:
     idInternal: 0
