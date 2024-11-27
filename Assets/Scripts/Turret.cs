@@ -14,9 +14,9 @@ public class Turret : MonoBehaviour
     [SerializeField] private float sprtRate = 0.5f; // Range the tower can find a target.
     [SerializeField] private float ctrlRate = 1f;
     [SerializeField] public bool turretDamaged = false;
-    [SerializeField] private float radiusLineThickness = 1f;
+    [SerializeField] private float circumferenceLineThickness = 1f;
 
-    public TurretType turrentType;
+    public TurretType turretType;
 
     private LineRenderer lineRenderer;
     private int segments = 50;
@@ -60,6 +60,18 @@ public class Turret : MonoBehaviour
     private Transform target;
     private bool ctrlChosen = false;
 
+
+    public enum TurretType
+    {
+        None,
+        Dmg, //Damage
+        Spd, //Speed
+        Ctrl, //Control
+        Sprt  //Support
+    }
+
+
+
     void Start()
     {
         bpsBase = fireRate;
@@ -76,8 +88,8 @@ public class Turret : MonoBehaviour
         lineRenderer.positionCount = segments;
         lineRenderer.useWorldSpace = true;
         //Set to the same thickness to have a consistent size around the object.
-        lineRenderer.startWidth = radiusLineThickness;
-        lineRenderer.endWidth = radiusLineThickness;
+        lineRenderer.startWidth = circumferenceLineThickness;
+        lineRenderer.endWidth = circumferenceLineThickness;
         lineRenderer.loop = true;
         //CreatePoints();
 
@@ -122,7 +134,7 @@ public class Turret : MonoBehaviour
         Projectile projectileScript = projectileObj.GetComponent<Projectile>();
         projectileScript.SetTarget(target);
         projectileScript.PDmg = turretDmg;
-        projectileScript.setBulletSprite(this.turrentType);
+        projectileScript.setBulletSprite(this.turretType);
         Turret_Shot.Post(gameObject); // Wwise Event
     }
 
@@ -153,14 +165,7 @@ public class Turret : MonoBehaviour
         return Vector2.Distance(target.position, transform.position) <= targetingRange;
     }
 
-    public enum TurretType
-    {
-        None,
-        Dmg,
-        Spd,
-        Ctrl,
-        Sprt
-    }
+
 
     //This is for upgrade function
     public void SelectTurret()
@@ -181,9 +186,9 @@ public class Turret : MonoBehaviour
         gameObject.GetComponent<LineRenderer>().enabled = false;
     }
 
-    public void chosenType()
+    public void ChosenType()
     {
-        switch (turrentType)
+        switch (turretType)
         {
             case TurretType.None:
                 break;
@@ -214,7 +219,7 @@ public class Turret : MonoBehaviour
             spdLevel++;
 
             //Calculates the new FireRate
-            if (turrentType != TurretType.Spd)
+            if (turretType != TurretType.Spd)
             {
                 AdjustDmg();
                 fireRate = calculateFireRate();
@@ -239,7 +244,7 @@ public class Turret : MonoBehaviour
             LevelManager.main.SpendMoney(calculateCostDamage());
             dmgLevel++;
 
-            if (turrentType != TurretType.Dmg)
+            if (turretType != TurretType.Dmg)
             {
                 AdjustRange();
                 turretDmg = calculateDamage();
@@ -265,7 +270,7 @@ public class Turret : MonoBehaviour
             ctrlLevel++;
 
             //Calculates the new Ctrl
-            if (turrentType != TurretType.Ctrl)
+            if (turretType != TurretType.Ctrl)
             {
                 AdjustCtrl();
                 ctrlRate = calculateCtrl();
@@ -292,7 +297,7 @@ public class Turret : MonoBehaviour
             sprtLevel++;
 
             //Calculates the new Range
-            if (turrentType != TurretType.Sprt)
+            if (turretType != TurretType.Sprt)
             {
                 AdjustSprt();
                 targetingRange = calculateSprt();
@@ -312,7 +317,7 @@ public class Turret : MonoBehaviour
     #region Adjust method
     private void AdjustRange()
     {
-        if (turrentType != TurretType.Dmg)
+        if (turretType != TurretType.Dmg)
         {
             targetingRange -= .5f;
         }
@@ -320,7 +325,7 @@ public class Turret : MonoBehaviour
 
     private void AdjustDmg()
     {
-        if (turrentType != TurretType.Spd)
+        if (turretType != TurretType.Spd)
         {
             turretDmg = .25f;
         }
@@ -328,7 +333,7 @@ public class Turret : MonoBehaviour
 
     private void AdjustSprt()
     {
-        if (turrentType != TurretType.Sprt)
+        if (turretType != TurretType.Sprt)
         {
             turretDmg = .5f;
         }
@@ -337,7 +342,7 @@ public class Turret : MonoBehaviour
     #region For Ctrl
     private void AdjustCtrl()
     {
-        if (turrentType != TurretType.Ctrl)
+        if (turretType != TurretType.Ctrl)
         {
             fireRate = .2f;
             turretDmg = .5f;
@@ -348,7 +353,7 @@ public class Turret : MonoBehaviour
 
     private void increaseEffectChance()
     {
-        if (turrentType == TurretType.Ctrl)
+        if (turretType == TurretType.Ctrl)
         {
             slowChance += .075f;
             paralyzeChance += .05f;
@@ -468,6 +473,42 @@ public class Turret : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    public void RepairTurret()
+    {
+        if (!turretDamaged) { return; }
+        if (CalculateRepairCost() <= LevelManager.main.GetCurrency())
+        {
+            LevelManager.main.SpendMoney((int)CalculateRepairCost());
+            turretDamaged = false;
+            turretDamagedSmoke.Stop();
+
+        }
+    }
+
+    private float CalculateRepairCost()
+    { 
+
+        //Current logic for Repair cost is 1/4 of their calculated cost.
+        switch (turretType)
+        {
+            case TurretType.Dmg:
+                return (calculateCostDamage() / 4);
+                //break;
+            case TurretType.Spd:
+                return (calculateCostFireRate() / 4);
+                //break;
+            case TurretType.Ctrl:
+                return (calculateCostCtrl() / 4);
+                //break;
+            case TurretType.Sprt:
+                return (calculateCostSprt() / 4);
+            //break;
+            case TurretType.None:
+                return 25;
+            default:
+                return 0;
+        }
+    }
     #region Not in use
     private int calculateCostRange()
     {

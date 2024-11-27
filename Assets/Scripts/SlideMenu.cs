@@ -47,30 +47,30 @@ public class SlideMenu : MonoBehaviour
     public void UpgradeDmg()
     {
         selectedTurret.UpgradeDmg();
-        selectedTurret.turrentType = Turret.TurretType.Dmg;
+        selectedTurret.turretType = Turret.TurretType.Dmg;
     }
 
     public void UpgradeCtrl()
     {
         selectedTurret.UpgradeCtrl();
-        selectedTurret.turrentType = Turret.TurretType.Ctrl;
+        selectedTurret.turretType = Turret.TurretType.Ctrl;
     }
 
     public void UpgradeSpd()
     {
         selectedTurret.UpgradeSpd();
-        selectedTurret.turrentType = Turret.TurretType.Spd;
+        selectedTurret.turretType = Turret.TurretType.Spd;
     }
 
     public void UpgradeSprt()
     {
         selectedTurret.UpgradeSprt();
-        selectedTurret.turrentType = Turret.TurretType.Sprt;
+        selectedTurret.turretType = Turret.TurretType.Sprt;
     }
 
     public void UpgradeTurretType()
     {
-        switch (selectedTurret.turrentType)
+        switch (selectedTurret.turretType)
         {
             case Turret.TurretType.Dmg:
                 selectedTurret.UpgradeDmg();
@@ -98,6 +98,12 @@ public class SlideMenu : MonoBehaviour
         SetMenu(false);
     }
 
+    public void RepairTurret()
+    {
+        selectedTurret.RepairTurret();
+        SetMenu(true);
+    }
+
     void OnGUI()
     {
         currencyUI.text = "$" + LevelManager.main.GetCurrency().ToString();
@@ -107,7 +113,7 @@ public class SlideMenu : MonoBehaviour
         }
         if (selectedTurret == null) return;
         string lvlTxt = "";
-        switch (selectedTurret.turrentType)
+        switch (selectedTurret.turretType)
         {
             case Turret.TurretType.Dmg:
                 lvlTxt = (selectedTurret.dmgLevel - 1).ToString();
