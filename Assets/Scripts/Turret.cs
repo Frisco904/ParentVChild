@@ -525,11 +525,15 @@ public class Turret : MonoBehaviour
     {
         if (collider.gameObject.TryGetComponent<EnemyCtrl>(out EnemyCtrl enemy))
         {
-            if (enemy.enraged) turretDamaged = true;
-            turretDamagedSmoke.Play();
-            enemy.enraged = false;
-            enemy.movSpeed /= 2f;
-            enemy.target = null;
+            if (enemy.enraged)
+            {
+                turretDamaged = true;
+                turretDamagedSmoke.Play();
+                enemy.enraged = false;
+                enemy.movSpeed /= 2f;
+                enemy.target = null;
+            }
+            
         }
     }
 
