@@ -5152,8 +5152,8 @@ MonoBehaviour:
   sprtRate: 0.5
   ctrlRate: 1
   turretDamaged: 0
-  radiusLineThickness: 0.3
-  turrentType: 0
+  circumferenceLineThickness: 0.3
+  turretType: 0
   dmgLevel: 1
   spdLevel: 1
   ctrlLevel: 1
