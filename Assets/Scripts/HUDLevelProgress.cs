@@ -17,6 +17,4 @@ public class HUDLevelProgress : MonoBehaviour
         slider.value = (float)(LevelManager.main.GetMaxEnemiesLeft() - LevelManager.main.GetEnemiesLeft()) / (LevelManager.main.GetMaxEnemiesLeft());
     }
 
-    //public void IncrementSavedKids
-
 }
