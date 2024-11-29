@@ -75,7 +75,7 @@ MonoBehaviour:
   countDown: {fileID: 0}
   menuObj: {fileID: 0}
   preparationTime: 5
-  currency: 10000
+  currency: 100
   Playing:
     idInternal: 0
     valueGuidInternal: 
