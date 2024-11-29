@@ -222,7 +222,7 @@
     "Type": "User",
     "GUID": "{48DBEABE-7ACE-4BE5-8026-309FA640B4B8}",
     "Language": "SFX",
-    "Hash": "{7FBF854E-4881-9D3E-91A0-FC17307B25B2}",
+    "Hash": "{2026BAAF-593E-2202-5B7C-539AD5E0503F}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -289,7 +289,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "horror_monster_zombie_male_eating_body_single_bite.wav",
-      "CachePath": "D4/{D4A675EB-8901-478E-2BE1-E66876E13CDC}.wem"
+      "CachePath": "7B/{7B6C038B-779A-6897-E8B5-E876594AEB16}.wem"
      },
      {
       "Id": "268847850",
@@ -305,7 +305,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "horror_monster_zombie_male_groan_002.wav",
-      "CachePath": "A2/{A231E079-2E59-5D02-D004-ADBFAF26FED8}.wem"
+      "CachePath": "44/{44CAA278-0C60-47CB-DDF4-4F43E36684C8}.wem"
      },
      {
       "Id": "327150462",
@@ -481,7 +481,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "horror_monster_zombie_male_groan_011.wav",
-      "CachePath": "FF/{FF73CED4-B94D-44C3-D7C8-31E42A222363}.wem"
+      "CachePath": "BC/{BC0D35FA-3699-39F5-8619-77E1A6E8A935}.wem"
      },
      {
       "Id": "1026320010",
@@ -872,7 +872,7 @@
     "Type": "User",
     "GUID": "{194E1F4F-019E-48C2-803D-16D6B4BA6331}",
     "Language": "SFX",
-    "Hash": "{1D794E09-1BDC-A2D3-C5CF-7954BF6B6473}",
+    "Hash": "{D7088E99-1E54-396F-0A67-C4014561B539}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -1104,74 +1104,6 @@
         "SwitchValue": {
          "GroupType": "Switch",
          "GroupId": "2782712965",
-         "Id": "2678230382",
-         "GUID": "{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}"
-        },
-        "Children": [
-         {
-          "SwitchValue": {
-           "GroupType": "State",
-           "GroupId": "1431182499",
-           "Id": "1852808225",
-           "GUID": "{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}"
-          },
-          "MediaRefs": [
-           {
-            "Id": "10185850"
-           },
-           {
-            "Id": "15025292"
-           },
-           {
-            "Id": "43035854"
-           },
-           {
-            "Id": "140825842"
-           },
-           {
-            "Id": "217803015"
-           },
-           {
-            "Id": "283527022"
-           },
-           {
-            "Id": "388098767"
-           },
-           {
-            "Id": "394315746"
-           },
-           {
-            "Id": "397324567"
-           },
-           {
-            "Id": "454530231"
-           },
-           {
-            "Id": "465221675"
-           },
-           {
-            "Id": "537114415"
-           },
-           {
-            "Id": "609808155"
-           },
-           {
-            "Id": "641461534"
-           },
-           {
-            "Id": "724436950"
-           },
-           {
-            "Id": "838174435"
-           }
-          ]
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2782712965",
          "Id": "0",
          "GUID": "{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}"
         },
@@ -1272,6 +1204,74 @@
           }
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2782712965",
+         "Id": "0",
+         "GUID": "{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1431182499",
+           "Id": "1852808225",
+           "GUID": "{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}"
+          },
+          "MediaRefs": [
+           {
+            "Id": "10185850"
+           },
+           {
+            "Id": "15025292"
+           },
+           {
+            "Id": "43035854"
+           },
+           {
+            "Id": "140825842"
+           },
+           {
+            "Id": "217803015"
+           },
+           {
+            "Id": "283527022"
+           },
+           {
+            "Id": "388098767"
+           },
+           {
+            "Id": "394315746"
+           },
+           {
+            "Id": "397324567"
+           },
+           {
+            "Id": "454530231"
+           },
+           {
+            "Id": "465221675"
+           },
+           {
+            "Id": "537114415"
+           },
+           {
+            "Id": "609808155"
+           },
+           {
+            "Id": "641461534"
+           },
+           {
+            "Id": "724436950"
+           },
+           {
+            "Id": "838174435"
+           }
+          ]
+         }
+        ]
        }
       ],
       "ActionSetState": [
@@ -1355,6 +1355,6 @@
     ]
    }
   ],
-  "FileHash": "{EFF2D503-DA0D-D448-C7E9-23E4C550711F}"
+  "FileHash": "{1D1FB035-60D5-14A9-1F37-3BB23C03E631}"
  }
 }

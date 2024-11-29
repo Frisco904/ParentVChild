@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     private float spinDirection = 1f;
     public float PDmg = 1;
     public static Projectile main;
-    private Dictionary<Turret.turretType, Sprite> turrents;
+    private Dictionary<Turret.TurretType, Sprite> turrents;
     int rBulletImg;
     // Update is called once per frame
     void Awake()
@@ -77,23 +77,23 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void setBulletSprite(Turret.turretType turrent)
+    public void setBulletSprite(Turret.TurretType turrent)
     {
         switch (turrent)
         {
-            case Turret.turretType.Dmg: 
+            case Turret.TurretType.Dmg: 
                 bulletRenderer.sprite = bulletImg[4]; 
                 break;
-            case Turret.turretType.Spd:
+            case Turret.TurretType.Spd:
                 bulletRenderer.sprite = bulletImg[2];
                 break;
-            case Turret.turretType.Ctrl:
+            case Turret.TurretType.Ctrl:
                 bulletRenderer.sprite = bulletImg[3];
                 break;
-            case Turret.turretType.Sprt:
+            case Turret.TurretType.Sprt:
                 bulletRenderer.sprite = bulletImg[0];
                 break;
-            case Turret.turretType.None:
+            case Turret.TurretType.None:
             default:
                 rBulletImg = UnityEngine.Random.Range(1, bulletImg.Length + 1);
                 bulletRenderer.sprite = bulletImg[rBulletImg - 1];

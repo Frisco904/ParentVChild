@@ -9,7 +9,6 @@ public class BubbleShield : MonoBehaviour
     [SerializeField] public AK.Wwise.Event Bubble_Broke;
     public void DamageShield()
     {
-        Debug.Log("Shield Damaged");
         shieldHealth -= 1;
         // Handle shield destroyed logic
         if (shieldHealth == 0)
@@ -18,11 +17,12 @@ public class BubbleShield : MonoBehaviour
             Turret[] turrets = FindObjectsOfType<Turret>();
             // Index Vars
             Transform closestTurret = transform;
-            float oldDistance = 100000f;
+            float oldDistance = 100000f; // Really big number to avoid fense-posting :)
             
             foreach (Turret turret in turrets)
             {
                 float newDistance = Vector2.Distance(transform.position, turret.gameObject.transform.position);
+                if (turret.turretDamaged) break;
                 if (newDistance < oldDistance)
                 {
                     oldDistance = newDistance;

@@ -5000,7 +5000,7 @@ GameObject:
   - component: {fileID: 2995170410218708056}
   - component: {fileID: 1789711799301193740}
   - component: {fileID: 6179901042209188499}
-  - component: {fileID: -6092140016763046395}
+  - component: {fileID: 9123882743719371486}
   - component: {fileID: -4362987847226484029}
   - component: {fileID: -1730116069799088593}
   m_Layer: 9
@@ -5152,8 +5152,8 @@ MonoBehaviour:
   sprtRate: 0.5
   ctrlRate: 1
   turretDamaged: 0
-  radiusLineThickness: 0.117
-  segments: 50
+  circumferenceLineThickness: 0.3
+  turretType: 0
   dmgLevel: 1
   spdLevel: 1
   ctrlLevel: 1
@@ -5162,7 +5162,9 @@ MonoBehaviour:
   baseUpgradeDamage: 20
   baseUpgradeFireRate: 15
   baseUpgradeSprt: 5
+  upgradeCostMultiplyer: 150
   baseSellCost: 25
+  maxLvl: 6
   projectilePrefab: {fileID: 5432782208632024967, guid: 45d02d090e015b74a80bf3d0ca3e748c, type: 3}
   Turret_Built:
     idInternal: 0
@@ -5180,8 +5182,8 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 3fd59e6fc5e42934c85215e10271b9c1, type: 2}
---- !u!61 &-6092140016763046395
-BoxCollider2D:
+--- !u!58 &9123882743719371486
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5212,19 +5214,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.243653}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.2, y: 10.8}
-    newSize: {x: 19.2, y: 10.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -1}
   serializedVersion: 2
-  m_Size: {x: 4.660568, y: 5.0924735}
-  m_EdgeRadius: 0
+  m_Radius: 1
 --- !u!58 &-4362987847226484029
 CircleCollider2D:
   m_ObjectHideFlags: 0

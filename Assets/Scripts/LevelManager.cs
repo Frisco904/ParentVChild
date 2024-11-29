@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     private bool isCountdownActive = false;
     private bool autoLevelStarted = false;
     private bool levelStart;
+    private int maxEnemyPerWave = -1;
 
     [SerializeField] private bool autoLevelStart;
     [Header("Enemy Wave Attributes")]
@@ -77,7 +78,7 @@ public class LevelManager : MonoBehaviour
             StartLevel();
             autoLevelStarted = true;
         }
-        //Finding all instances of WaveSpawnEnemies and i
+        //Finding all instances of WaveSpawnEnemies and checking if they are spawning.
         waveSpawners = FindObjectsOfType<WaveSpawnEnemies>();
         foreach (WaveSpawnEnemies spawner in waveSpawners)
         {
@@ -174,9 +175,22 @@ public class LevelManager : MonoBehaviour
     //Getters and Setters
     public int GetCurrency() { return currency; }
     public int GetEnemiesLeft() { return enemiesLeft; }
-    public void SetEnemiesLeft(int value) { enemiesLeft += value; }
-    public void DecrementEnemiesLeft() { enemiesLeft--; }
+    public void SetEnemiesLeft(int value) 
+    { 
+        enemiesLeft += value;
+        if (enemiesLeft >= maxEnemyPerWave)
+        {
+            maxEnemyPerWave = enemiesLeft;
+        }
+    }
+    public void DecrementEnemiesLeft() 
+    { 
+            enemiesLeft--;
+            
+    }
     public int GetMaxWaves() { return maxWaves; }
+
+    public int GetMaxEnemiesLeft() { return maxEnemyPerWave; }
     public void SetWinCondition(bool bSetWinCondition) { winConditionMet = bSetWinCondition; }
     public void AddScore(int value) { score += value; }
     public int GetScore() { return score; }
