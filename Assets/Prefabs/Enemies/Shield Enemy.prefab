@@ -319,8 +319,8 @@ MonoBehaviour:
   enemyStunTimer: 3
   knockbackAmount: 0
   currentFull: 0
-  maxFull: 2
-  fillAmount: 2
+  maxFull: 1
+  fillAmount: 1
   currencyWorth: 50
   candyproximity: 0.1
   redTickDmgLength: 0.03
