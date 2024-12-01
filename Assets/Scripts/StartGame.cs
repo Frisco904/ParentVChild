@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,8 +11,8 @@ public class StartGame : MonoBehaviour
         Menu.SetValue(gameObject);
         MusicStart.Post(gameObject);
     }
-    void Update()
+    public void StartButtonClick()
     {
-        if (Input.anyKeyDown)  SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 }

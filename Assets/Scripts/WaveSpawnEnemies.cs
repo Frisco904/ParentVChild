@@ -264,7 +264,6 @@ public class WaveSpawnEnemies : MonoBehaviour
             Random.Range(-extents.x, extents.x),
             Random.Range(-extents.y, extents.y),
             0
-
         );
 
         //localPoint += box.offset;
@@ -275,27 +274,27 @@ public class WaveSpawnEnemies : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
-            IndicateWaveUI.text = "Incoming small kids";
+            IndicateWaveUI.text = "Dont give up!";
             Invoke("WaveDisappearTxt", 3f);
         }
         else if (currentWave == 1 && SceneManager.GetActiveScene().name != "Tutorial")
         {
-            IndicateWaveUI.text = "Meh just small kids.";
+            IndicateWaveUI.text = "Sugar horde incomming!";
             Invoke("WaveDisappearTxt", 3f);
         }
         else if (currentWave == 2)
         {
-            IndicateWaveUI.text = "Big kids incoming!!!";
+            IndicateWaveUI.text = "Taste Veggies!";
             Invoke("WaveDisappearTxt", 3f);
         }
         else if (currentWave != LevelManager.main.GetMaxWaves())
         {
-            IndicateWaveUI.text = "Here they come!!!";
+            IndicateWaveUI.text = "Youre almost there!";
             Invoke("WaveDisappearTxt", 3f);
         }
         else if (currentWave == LevelManager.main.GetMaxWaves() && LevelManager.main.GetEnemiesLeft() > 20)
         {
-            IndicateWaveUI.text = "HORDE OF KIDS ARE COMING!!!";
+            IndicateWaveUI.text = "Wave 5";
             Invoke("WaveDisappearTxt", 3f);
         }
     }

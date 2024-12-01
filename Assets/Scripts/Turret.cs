@@ -344,7 +344,7 @@ public class Turret : MonoBehaviour
     {
         if (turretType != TurretType.Ctrl)
         {
-            fireRate = .2f;
+            fireRate = .7f;
             turretDmg = .5f;
             slowChance += .075f;
             paralyzeChance += .05f;
@@ -533,7 +533,6 @@ public class Turret : MonoBehaviour
                 enemy.movSpeed /= 2f;
                 enemy.target = null;
             }
-            
         }
     }
 

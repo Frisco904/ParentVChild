@@ -142,17 +142,17 @@ public class SlideMenu : MonoBehaviour
                 LvlLabel.text = "Turret Lvl: " + lvlTxt;
                 turretTypeImage.sprite = ctrlSprite;
                 upgradeCostLabel.text = "($" + selectedTurret.calculateCostCtrl() + ")";
-                turretTypeImage.gameObject.SetActive(false);
+                turretTypeImage.gameObject.SetActive(true);
                 UpgradeButton.SetActive(true);
                 SpecializeButtonGroup.SetActive(false);
                 break;
             case Turret.TurretType.Sprt:
-                lvlTxt = (selectedTurret.spdLevel - 1).ToString();
-                if (selectedTurret.ctrlLevel == selectedTurret.sprtLevel) lvlTxt = "Max";
+                lvlTxt = (selectedTurret.sprtLevel - 1).ToString();
+                if (selectedTurret.sprtLevel == selectedTurret.maxLvl) lvlTxt = "Max";
                 LvlLabel.text = "Turret Lvl: " + lvlTxt;
                 turretTypeImage.sprite = sprtSprite;
                 upgradeCostLabel.text = "($" + selectedTurret.calculateCostSprt() + ")";
-                turretTypeImage.gameObject.SetActive(false);
+                turretTypeImage.gameObject.SetActive(true);
                 UpgradeButton.SetActive(true);
                 SpecializeButtonGroup.SetActive(false);
                 break;
