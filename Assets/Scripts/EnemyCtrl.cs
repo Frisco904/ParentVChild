@@ -124,7 +124,7 @@ public class EnemyCtrl : MonoBehaviour
 
                         //Creating game object to hold the transform information for where the AI will be moving towards. Adding components to the game object
                         GameObject trackingPoint = new GameObject("TrackingPoint");
-                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(5, 5);
+                        trackingPoint.AddComponent<BoxCollider2D>().size = new Vector2(3, 3); //TODO Should be public var so its adjustable
                         trackingPoint.GetComponent<BoxCollider2D>().isTrigger = true;
                         trackingPoint.AddComponent<TrackingPoints>();
 

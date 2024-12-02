@@ -67,6 +67,7 @@ public class LevelManager : MonoBehaviour
         LevelLoaded.Post(gameObject);
         // Let Wwise know what level we are on.
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
+        Debug.Log("Starting Music for Level " + SceneManager.GetActiveScene().buildIndex);
         MusicStart.Post(gameObject);
     }
 
