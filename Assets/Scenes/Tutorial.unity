@@ -1178,7 +1178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: diffScalingFactor
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.size
@@ -1195,7 +1195,7 @@ PrefabInstance:
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.data[3]
       value: 
-      objectReference: {fileID: 8920871317090917991, guid: 0ec7f6aedc405254e88fcaa87c2d13f6, type: 3}
+      objectReference: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.data[4]
       value: 
@@ -2339,11 +2339,11 @@ PrefabInstance:
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.data[3]
       value: 
-      objectReference: {fileID: 8920871317090917991, guid: 0ec7f6aedc405254e88fcaa87c2d13f6, type: 3}
+      objectReference: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.data[4]
       value: 
-      objectReference: {fileID: 8920871317090917991, guid: 0ec7f6aedc405254e88fcaa87c2d13f6, type: 3}
+      objectReference: {fileID: 8920871317090917991, guid: 7987ae75f60428043ae606701df757c8, type: 3}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: ZombieSFX.WwiseObjectReference
       value: 
@@ -4241,7 +4241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: diffScalingFactor
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5216131236918513230, guid: 20943a5b5a4c071428dca2f48893841b, type: 3}
       propertyPath: enemyPrefab.Array.size
