@@ -162,6 +162,7 @@ public class WaveSpawnEnemies : MonoBehaviour
         if (TryGetComponent<BoxCollider2D>(out BoxCollider2D boundsCollider))
         {
             Vector3 randomSpawnPoint = GetRandomPointInCollider(boundsCollider);
+            if (prefabToSpawn == null) return;
             Instantiate(prefabToSpawn, randomSpawnPoint, this.transform.rotation, this.transform);
         }
 

@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{D7C4B82F-0C6D-85EF-9942-A77B1DA48E00}",
+    "Hash": "{C7F01E60-A327-34C2-9250-920EE2CC7382}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -872,7 +872,7 @@
     "Type": "User",
     "GUID": "{194E1F4F-019E-48C2-803D-16D6B4BA6331}",
     "Language": "SFX",
-    "Hash": "{D7088E99-1E54-396F-0A67-C4014561B539}",
+    "Hash": "{0DDF0755-4A5F-47DF-CEC7-F47C1AE9C8C5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Music",
     "ShortName": "Music",
     "Path": "Music.bnk",
@@ -902,6 +902,22 @@
       "CachePath": "89/{899BECD9-D21A-3ABA-AEB6-99451096963D}.wem"
      },
      {
+      "Id": "89743136",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-IntroSound_178bpm4-4_L4M.wav",
+      "CachePath": "DE/{DE3A6076-FCB8-3B0B-D8F0-60B70A3974C2}.wem"
+     },
+     {
+      "Id": "103559844",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-RideC_178bpm4-4_L4M.wav",
+      "CachePath": "1E/{1ED2CACF-0BE3-9ECD-4918-A459246AD7E5}.wem"
+     },
+     {
       "Id": "116316691",
       "Language": "SFX",
       "Streaming": "false",
@@ -926,12 +942,28 @@
       "CachePath": "14/{14C29078-C6C5-ADDE-6626-231904A9D645}.wem"
      },
      {
+      "Id": "183176488",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-RhythmPiano_178bpm4-4_L4M.wav",
+      "CachePath": "AB/{AB2596E2-136B-4155-89FB-481C11FC9E13}.wem"
+     },
+     {
       "Id": "217803015",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "FindACure-ChordStab_170bpm4-4_L8M.wav",
       "CachePath": "60/{60E9367A-4A09-B2E7-4FE6-73579E734C2D}.wem"
+     },
+     {
+      "Id": "273976056",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-Breaks1_178bpm4-4_L8M.wav",
+      "CachePath": "C5/{C530A74E-971A-6819-1DC4-A840733B5D4C}.wem"
      },
      {
       "Id": "283527022",
@@ -990,12 +1022,28 @@
       "CachePath": "33/{33154D12-7696-CB5E-10F1-0C74B7463033}.wem"
      },
      {
+      "Id": "533567630",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-SynthPads_178bpm4-4_L8M.wav",
+      "CachePath": "30/{30E8769E-44CD-6936-1818-94A82A48C394}.wem"
+     },
+     {
       "Id": "537114415",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "FindACure-BreakBeat1_170bpm4-4_L4M.wav",
       "CachePath": "B2/{B2AFDBC3-A260-1218-5FAE-D2EE524EB36A}.wem"
+     },
+     {
+      "Id": "604630261",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-LeadPiano_178bpm4-4_L8M.wav",
+      "CachePath": "FF/{FF382E99-2227-58A1-071D-2A97F3C4BCFA}.wem"
      },
      {
       "Id": "609808155",
@@ -1014,12 +1062,28 @@
       "CachePath": "E9/{E9036BAB-D97B-4018-BC77-2E40D79C8175}.wem"
      },
      {
+      "Id": "643080766",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-Bass_178bpm4-4_L8M.wav",
+      "CachePath": "A5/{A5BA1C9D-40A8-22BE-BF10-00214903FEA7}.wem"
+     },
+     {
       "Id": "645269099",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Failure-130bpm.wav",
       "CachePath": "27/{27F14079-43E0-B2B4-121E-D96811621B66}.wem"
+     },
+     {
+      "Id": "689855421",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-BreaksBridge2_178bpm4-4_L16M.wav",
+      "CachePath": "35/{353FDA58-88AE-700A-F2E7-1A680F3B6D48}.wem"
      },
      {
       "Id": "705219980",
@@ -1038,12 +1102,36 @@
       "CachePath": "B4/{B470139C-12E7-5E2B-872B-72F537B99BCF}.wem"
      },
      {
+      "Id": "824412592",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-BreaksBridge_178bpm4-4_L16M.wav",
+      "CachePath": "31/{31871FB5-C326-96AF-6BE4-61954D54A4FA}.wem"
+     },
+     {
+      "Id": "831484337",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-RideA_178bpm4-4_L4M.wav",
+      "CachePath": "B1/{B1FD3004-C0A4-2913-824E-680F044A9E0F}.wem"
+     },
+     {
       "Id": "838174435",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "FindACure-MainPad_170bpm4-4_L8M.wav",
       "CachePath": "50/{50E7E6B4-D31A-CB66-575F-0C634AE0F147}.wem"
+     },
+     {
+      "Id": "909694092",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-Break1A_178bpm4-4_L8M.wav",
+      "CachePath": "BC/{BC03A0A3-F94A-5EEB-8591-7E8EE11EE21B}.wem"
      },
      {
       "Id": "925655667",
@@ -1062,12 +1150,36 @@
       "CachePath": "7F/{7F15BE60-0AF7-500A-0E05-C4CA370BE4B3}.wem"
      },
      {
+      "Id": "958169048",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-LeadPiano_178bpm4-4_L4M.wav",
+      "CachePath": "17/{17059C4F-A60C-D46E-9AE1-8F7CDFD0F732}.wem"
+     },
+     {
+      "Id": "967872366",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-RhythmPiano_178bpm4-4_L8M.wav",
+      "CachePath": "07/{07F7C62D-C12B-F4E8-EF88-C1C86951E7F1}.wem"
+     },
+     {
       "Id": "995636130",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Victory-Stabs1-Alt_138bpm4-4_L1M.wav",
       "CachePath": "70/{705FF66B-4470-A7B3-56DC-10129A282B65}.wem"
+     },
+     {
+      "Id": "1005649521",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Caffinated-RideB_178bpm4-4_L4M.wav",
+      "CachePath": "A9/{A9B324AD-3F29-D935-C183-371C4D6D844D}.wem"
      }
     ],
     "Plugins": {
@@ -1209,8 +1321,8 @@
         "SwitchValue": {
          "GroupType": "Switch",
          "GroupId": "2782712965",
-         "Id": "0",
-         "GUID": "{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}"
+         "Id": "2678230382",
+         "GUID": "{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}"
         },
         "Children": [
          {
@@ -1272,6 +1384,68 @@
           ]
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2782712965",
+         "Id": "2678230381",
+         "GUID": "{BBCDDA62-CF80-4F99-8607-DD9C7C701243}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "1431182499",
+           "Id": "1852808225",
+           "GUID": "{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}"
+          },
+          "MediaRefs": [
+           {
+            "Id": "89743136"
+           },
+           {
+            "Id": "103559844"
+           },
+           {
+            "Id": "183176488"
+           },
+           {
+            "Id": "273976056"
+           },
+           {
+            "Id": "533567630"
+           },
+           {
+            "Id": "604630261"
+           },
+           {
+            "Id": "643080766"
+           },
+           {
+            "Id": "689855421"
+           },
+           {
+            "Id": "824412592"
+           },
+           {
+            "Id": "831484337"
+           },
+           {
+            "Id": "909694092"
+           },
+           {
+            "Id": "958169048"
+           },
+           {
+            "Id": "967872366"
+           },
+           {
+            "Id": "1005649521"
+           }
+          ]
+         }
+        ]
        }
       ],
       "ActionSetState": [
@@ -1283,6 +1457,14 @@
         "GUID": "{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}"
        }
       ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1316067302",
+      "Name": "DangerLevel",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\DangerLevel",
+      "GUID": "{02AFCCDE-DDA8-4711-ABE6-BF5BBD8220F6}"
      }
     ],
     "StateGroups": [
@@ -1355,6 +1537,6 @@
     ]
    }
   ],
-  "FileHash": "{1B6595B6-7B95-0716-0102-4C272A4748D1}"
+  "FileHash": "{109D2E9E-81D1-081C-AA4C-EDF83C8FD8DB}"
  }
 }

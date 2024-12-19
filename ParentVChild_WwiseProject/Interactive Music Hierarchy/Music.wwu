@@ -72,6 +72,28 @@
 												</SourceFadeOut>
 											</TransitionInfo>
 										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{20D0465F-2EF4-442B-B8F4-6BBF133B740F}">
+											<PropertyList>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="MenuTrack" ID="{E12A21B3-D583-49D5-9C64-DEFFB674D122}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{25A62A34-ACF8-448E-A0B1-8AFCE9D9049B}">
+														<PropertyList>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+											</TransitionInfo>
+										</MusicTransition>
 									</ChildrenList>
 									<TransitionInfo/>
 								</MusicTransition>
@@ -3194,50 +3216,6 @@
 									</ObjectLists>
 								</MusicSegment>
 							</ChildrenList>
-							<ObjectLists>
-								<ObjectList Name="RTPC">
-									<Reference>
-										<Local>
-											<RTPC Name="" ID="{C030504F-A7BC-4327-B7E1-C3D3BFC11399}" ShortID="1052211442">
-												<PropertyList>
-													<Property Name="PropertyName" Type="string" Value="Highpass"/>
-												</PropertyList>
-												<ReferenceList>
-													<Reference Name="ControlInput">
-														<ObjectRef Name="DangerLevel" ID="{02AFCCDE-DDA8-4711-ABE6-BF5BBD8220F6}" WorkUnitID="{9C57DB23-6A3D-4A0F-8643-7CEA3A8ED264}"/>
-													</Reference>
-													<Reference Name="Curve">
-														<Custom>
-															<Curve Name="" ID="{00DB6831-0965-4DDE-AA7F-0A49A6907C64}">
-																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="65537"/>
-																</PropertyList>
-																<PointList>
-																	<Point>
-																		<XPos>0</XPos>
-																		<YPos>0</YPos>
-																		<Flags>5</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>10</XPos>
-																		<YPos>0</YPos>
-																		<Flags>0</Flags>
-																	</Point>
-																	<Point>
-																		<XPos>20</XPos>
-																		<YPos>50</YPos>
-																		<Flags>37</Flags>
-																	</Point>
-																</PointList>
-															</Curve>
-														</Custom>
-													</Reference>
-												</ReferenceList>
-											</RTPC>
-										</Local>
-									</Reference>
-								</ObjectList>
-							</ObjectLists>
 						</MusicPlaylistContainer>
 						<MusicSegment Name="FailureTrack" ID="{A238CFA3-4995-43CC-806F-963CD3261A4A}" ShortID="59913872">
 							<PropertyList>
@@ -5140,7 +5118,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{206298E7-4164-4035-9891-F9499F60CEA2}">
+									<MultiSwitchEntry Name="" ID="{D7A179D5-05F9-4DD7-9192-2AA40D339B6F}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="FindACure" ID="{4305B6FF-92D1-4C58-9057-4549F6D9979D}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
@@ -5149,7 +5127,7 @@
 										<ObjectLists>
 											<ObjectList Name="EntryPath">
 												<Reference>
-													<ObjectRef Name="Level" ID="{BA65E48E-9FC8-43A7-9ABE-1FA2AF26E893}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+													<ObjectRef Name="Level1" ID="{20D646D4-7BC8-4123-A6F5-26CE30CA2E0C}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
 												</Reference>
 												<Reference>
 													<ObjectRef Name="Playing" ID="{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
@@ -5157,6 +5135,74 @@
 											</ObjectList>
 										</ObjectLists>
 									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{166A5A78-29BF-4A3F-8FC3-2EC745D72023}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Caffinated" ID="{2CAAC693-49C8-4C11-8116-210709C76F65}" WorkUnitID="{6129EE53-DF51-4898-B171-267465B51AD5}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Level2" ID="{BBCDDA62-CF80-4F99-8607-DD9C7C701243}" WorkUnitID="{FCE74EE5-FA3B-4C11-AF1E-BADC2984650B}"/>
+												</Reference>
+												<Reference>
+													<ObjectRef Name="Playing" ID="{B3DC6DE4-FB73-4806-A765-3E6DE02A9DE2}" WorkUnitID="{460B5B0F-610E-47AE-A69D-17E03466109A}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+						</ObjectList>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{5F95B7BD-4832-4C14-81F6-AB8C576AEA73}" ShortID="827861383">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Highpass"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="DangerLevel" ID="{02AFCCDE-DDA8-4711-ABE6-BF5BBD8220F6}" WorkUnitID="{9C57DB23-6A3D-4A0F-8643-7CEA3A8ED264}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{8DDDD091-BF3C-4FF9-8309-59C1A231C19C}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>12.4923</XPos>
+																<YPos>0</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>16.33846</XPos>
+																<YPos>21</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>20</XPos>
+																<YPos>25</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
 								</Local>
 							</Reference>
 						</ObjectList>
