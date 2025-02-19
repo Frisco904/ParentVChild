@@ -23,7 +23,11 @@ public class UIMouseHover : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        //Disabling input to UI if video is playing.
+        if (LevelManager.main.VideoPlayer.isActiveAndEnabled) {
+            return; }
+
         if (Input.GetMouseButtonDown(0)) mouseIsPressed = true;
         if (Input.GetMouseButtonUp(0)) mouseIsPressed = false;
 
