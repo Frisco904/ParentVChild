@@ -37,6 +37,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public GameObject candyPile;
     [SerializeField] private GameObject countDownTxt;
     [SerializeField] private TextMeshProUGUI countDown;
+    public Canvas VideoPlayer;
     public PauseMenu menuObj;
     public int preparationTime = 5;
 
@@ -69,10 +70,13 @@ public class LevelManager : MonoBehaviour
         AkSoundEngine.SetSwitch("Level", "Level" + SceneManager.GetActiveScene().buildIndex, gameObject);
         Debug.Log("Starting Music for Level " + SceneManager.GetActiveScene().buildIndex);
         MusicStart.Post(gameObject);
+        //Enabling Canvas for Intro Video.
+        VideoPlayer.gameObject.SetActive(true);
     }
 
     private void Update()
     {
+        
         //Using autoLevelStarted as flas as a way to tell if we have already started the level, and only calling the function once.
         if (autoLevelStart && !autoLevelStarted)
         {

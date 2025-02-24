@@ -18,7 +18,12 @@ public class TutorialDialog : MonoBehaviour
 
         void Update() 
         {
-            if (Input.anyKeyDown)
+        //Disabling input to UI if video is playing.
+        if (LevelManager.main.VideoPlayer.isActiveAndEnabled)
+        {
+            return;
+        }
+        if (Input.anyKeyDown)
             {
                 if (textComponent.text == lines[index]) {
                     NextLine();
