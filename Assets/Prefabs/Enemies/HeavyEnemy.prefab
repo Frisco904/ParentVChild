@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1868348428217885863}
   - component: {fileID: 853035905162260313}
   - component: {fileID: 5770532717898428514}
+  - component: {fileID: 1238458837919723472}
   m_Layer: 3
   m_Name: HeavyEnemy
   m_TagString: Enemy
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,7 +99,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 11}
+    oldSize: {x: 19.2, y: 10.8}
     newSize: {x: 8, y: 11}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 1716971961
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27cf963c93a86fd41bd9fd1ed519cadd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 533b3e246d6f8d644b6c51b74cb2a491, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -184,10 +185,10 @@ MonoBehaviour:
   enraged: 0
   rb: {fileID: 6012972045146098421}
   kidSprite:
-  - {fileID: 21300000, guid: 27cf963c93a86fd41bd9fd1ed519cadd, type: 3}
+  - {fileID: 21300000, guid: 533b3e246d6f8d644b6c51b74cb2a491, type: 3}
   kidRenderer: {fileID: 853035905162260313}
   enragedSprite: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 1238458837919723472}
   horizontalVariation: 8
   targetingRange: 15
   candyMask:
@@ -197,3 +198,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   target: {fileID: 0}
+--- !u!95 &1238458837919723472
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920871317090917991}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13e62009ba99c754c9c6d9572c934f49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
