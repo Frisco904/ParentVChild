@@ -71,6 +71,10 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Starting Music for Level " + SceneManager.GetActiveScene().buildIndex);
         MusicStart.Post(gameObject);
         //Enabling Canvas for Intro Video.
+        if(SceneManager.GetActiveScene().name != "Tutorial")
+        {
+            return;
+        }
         VideoPlayer.gameObject.SetActive(true);
     }
 
