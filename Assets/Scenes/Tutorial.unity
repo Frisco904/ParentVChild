@@ -800,6 +800,10 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: SkipVideo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: candyPile
       value: 
       objectReference: {fileID: 527487019}
@@ -815,6 +819,10 @@ PrefabInstance:
       propertyPath: countDownTxt
       value: 
       objectReference: {fileID: 1216179204}
+    - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
+      propertyPath: SkipTutorialVideo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1690445061117742622, guid: 0b3ce17454397df41b043d6cff53a2ba, type: 3}
       propertyPath: path1.Array.data[0]
       value: 

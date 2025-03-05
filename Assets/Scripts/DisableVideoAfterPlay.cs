@@ -15,8 +15,7 @@ public class DisableVideoAfterPlay : MonoBehaviour
     }
     private void Start()
     {
-        
-        //gameObject.SetActive(true);
+
         StartCoroutine(CountdownTimer());
     }
 

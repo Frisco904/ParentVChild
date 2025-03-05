@@ -38,6 +38,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject countDownTxt;
     [SerializeField] private TextMeshProUGUI countDown;
     public Canvas VideoPlayer;
+    public bool SkipTutorialVideo;
     public PauseMenu menuObj;
     public int preparationTime = 5;
 
@@ -75,7 +76,12 @@ public class LevelManager : MonoBehaviour
         {
             return;
         }
-        VideoPlayer.gameObject.SetActive(true);
+
+        if (!SkipTutorialVideo) 
+        {
+           VideoPlayer.gameObject.SetActive(true);
+        }
+        
     }
 
     private void Update()
